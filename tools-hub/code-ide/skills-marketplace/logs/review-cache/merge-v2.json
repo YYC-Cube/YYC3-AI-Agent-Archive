@@ -1,0 +1,46 @@
+{
+  "skill_name": "tencent-campus-recruit",
+  "cache_dir": "D:\\Work\\Skill上架\\skill-marketplace\\logs\\review-cache\\tencent-campus-recruit-skill-v2",
+  "local_skill_dir": null,
+  "timestamp": "2026-05-11T14:11:45.665579",
+  "merge_actions": [
+    "SKILL.md body 使用远端版本",
+    "白名单过滤: 删除 1 个非标准文件"
+  ],
+  "garbage_cleaned": [],
+  "is_new": true,
+  "remote_parse_method": "yaml",
+  "local_parse_method": "N/A",
+  "icon_result": {
+    "action": "no_icon"
+  },
+  "non_standard_files": [
+    "README.md"
+  ],
+  "ai_actions": [
+    {
+      "field": "non_standard_files",
+      "action_type": "review",
+      "action": "以下非标准文件将被白名单过滤删除，请确认是否有有用内容需要保留到 references/",
+      "priority": "recommended",
+      "context": {
+        "files": [
+          "README.md"
+        ],
+        "whitelist": [
+          "SKILL.md",
+          "references",
+          "scripts"
+        ],
+        "body_referenced_preserved": [
+          "references",
+          "scripts"
+        ]
+      }
+    }
+  ],
+  "whitelist_deleted": [
+    "README.md (whitelist)"
+  ],
+  "total_actions": 2
+}

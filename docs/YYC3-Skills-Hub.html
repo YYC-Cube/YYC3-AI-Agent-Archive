@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<title>YYC³ Skills Hub · 智能资产全景</title>
+<style>
+:root {
+  --bg:#0a0a0f; --bg2:#12121a; --bg3:#1a1a2e;
+  --surface:rgba(255,255,255,0.03); --surface-hover:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.08); --border-hover:rgba(255,255,255,0.15);
+  --text:#f1f1f6; --text2:rgba(255,255,255,0.65); --text3:rgba(255,255,255,0.35);
+  --accent-v:#8b5cf6; --accent-c:#06b6d4; --accent-e:#22c55e; --accent-r:#ef4444;
+  --accent-a:#f59e0b; --accent-p:#ec4899;
+  --radius:14px; --radius-sm:8px;
+  --shadow:0 4px 24px rgba(0,0,0,0.3);
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  --mono:'SF Mono','Fira Code','Cascadia Code','JetBrains Mono','Consolas',monospace;
+}
+.light {
+  --bg:#f5f5f0; --bg2:#e8e8e3; --bg3:#ddd;
+  --surface:rgba(0,0,0,0.02); --surface-hover:rgba(0,0,0,0.05);
+  --border:rgba(0,0,0,0.08); --border-hover:rgba(0,0,0,0.15);
+  --text:#1a1a2e; --text2:rgba(0,0,0,0.55); --text3:rgba(0,0,0,0.3);
+  --shadow:0 4px 24px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); overflow-x:hidden; }
+::selection { background:rgba(139,92,246,0.3); color:#fff; }
+.app { display:flex; min-height:100vh; }
+
+/* Sidebar */
+.sidebar {
+  width:280px; flex-shrink:0; background:var(--bg2);
+  border-right:1px solid var(--border); display:flex; flex-direction:column;
+  position:fixed; top:0; left:0; bottom:0; z-index:100; transition:transform .3s;
+}
+.sidebar.hidden { transform:translateX(-100%); }
+.sb-header { padding:20px 20px 16px; border-bottom:1px solid var(--border); }
+.sb-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.sb-logo-icon {
+  width:32px; height:32px; border-radius:8px;
+  background:linear-gradient(135deg,var(--accent-v),var(--accent-c));
+  display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; color:#fff;
+}
+.sb-logo-text { font-size:15px; font-weight:700; color:var(--text); }
+.sb-logo-sub { font-size:10px; color:var(--text3); letter-spacing:1px; }
+.sb-search {
+  margin:12px 16px; padding:8px 12px; background:var(--surface);
+  border:1px solid var(--border); border-radius:var(--radius-sm); display:flex; align-items:center; gap:8px;
+}
+.sb-search input { flex:1; background:none; border:none; outline:none; color:var(--text); font-size:13px; }
+.sb-search input::placeholder { color:var(--text3); }
+.sb-nav { flex:1; overflow-y:auto; padding:8px 12px 80px; }
+.sb-nav::-webkit-scrollbar { width:3px; }
+.sb-nav::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+.sb-group { margin-bottom:16px; }
+.sb-group-title {
+  font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1.2px;
+  color:var(--text3); padding:0 8px; margin-bottom:4px;
+}
+.sb-item {
+  display:flex; align-items:center; gap:8px; padding:6px 8px; border-radius:6px;
+  color:var(--text2); font-size:12px; cursor:pointer; transition:.15s; text-decoration:none;
+}
+.sb-item:hover { background:var(--surface-hover); color:var(--text); }
+.sb-item.active { background:rgba(139,92,246,0.12); color:var(--accent-v); }
+.sb-item .sb-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; background:var(--text3); }
+.sb-item .sb-dot.done { background:var(--accent-e); box-shadow:0 0 6px rgba(34,197,94,0.4); }
+.sb-item .sb-label { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.sb-item .sb-count {
+  font-size:9px; color:var(--text3); font-weight:600; background:var(--surface);
+  padding:1px 6px; border-radius:4px; border:1px solid var(--border);
+}
+
+/* Main */
+.main { flex:1; margin-left:280px; min-height:100vh; transition:margin-left .3s; }
+.main.expanded { margin-left:0; }
+
+/* Topbar */
+.topbar {
+  position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:12px;
+  padding:12px 24px; background:rgba(10,10,15,0.8); border-bottom:1px solid var(--border);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+}
+.light .topbar { background:rgba(245,245,240,0.8); }
+.topbar-title { font-size:16px; font-weight:600; }
+.topbar-subtitle { font-size:12px; color:var(--text3); }
+.topbar-spacer { flex:1; }
+.topbar-actions { display:flex; align-items:center; gap:8px; }
+.btn-icon {
+  width:34px; height:34px; border-radius:8px; border:1px solid var(--border);
+  background:var(--surface); color:var(--text2); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:.2s;
+}
+.btn-icon:hover { background:var(--surface-hover); color:var(--accent-v); border-color:rgba(139,92,246,0.3); }
+.btn-icon svg { width:16px; height:16px; }
+
+/* Dashboard */
+.dashboard { padding:24px; max-width:1400px; margin:0 auto; }
+.dash-header { margin-bottom:32px; }
+.dash-badge {
+  display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:20px;
+  background:rgba(139,92,246,0.12); color:var(--accent-v); font-size:11px; font-weight:600; margin-bottom:8px;
+}
+.dash-title { font-size:28px; font-weight:700; margin-bottom:6px; line-height:1.2; }
+.dash-desc { font-size:14px; color:var(--text2); max-width:700px; line-height:1.5; }
+.dash-stats { display:flex; gap:16px; margin-top:20px; flex-wrap:wrap; }
+.stat-card {
+  padding:12px 18px; border-radius:var(--radius-sm); background:var(--surface);
+  border:1px solid var(--border); display:flex; align-items:center; gap:12px; transition:.2s;
+}
+.stat-card:hover { border-color:var(--border-hover); background:var(--surface-hover); }
+.stat-icon {
+  width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;
+}
+.stat-info { }
+.stat-num { font-size:18px; font-weight:700; line-height:1.2; }
+.stat-label { font-size:11px; color:var(--text3); }
+
+/* Badge Row */
+.badge-row { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 24px; }
+.bdg {
+  display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:20px;
+  font-size:11px; font-weight:600; transition:.2s;
+}
+.bdg-v { background:rgba(139,92,246,0.12); color:var(--accent-v); border:1px solid rgba(139,92,246,0.2); }
+.bdg-c { background:rgba(6,182,212,0.12); color:var(--accent-c); border:1px solid rgba(6,182,212,0.2); }
+.bdg-e { background:rgba(34,197,94,0.12); color:var(--accent-e); border:1px solid rgba(34,197,94,0.2); }
+.bdg-a { background:rgba(245,158,11,0.12); color:var(--accent-a); border:1px solid rgba(245,158,11,0.2); }
+.bdg-p { background:rgba(236,72,153,0.12); color:var(--accent-p); border:1px solid rgba(236,72,153,0.2); }
+.bdg-r { background:rgba(239,68,68,0.12); color:var(--accent-r); border:1px solid rgba(239,68,68,0.2); }
+
+/* Hero Image */
+.hero-img {
+  width:100%; border-radius:var(--radius); margin-bottom:32px;
+  border:1px solid var(--border); overflow:hidden;
+}
+.hero-img img { width:100%; height:auto; display:block; }
+
+/* Sections */
+.section { margin-bottom:40px; }
+.sec-title {
+  font-size:20px; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:10px;
+}
+.sec-title .sec-icon { width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:14px; }
+.sec-desc { font-size:13px; color:var(--text2); margin-bottom:16px; line-height:1.5; }
+
+/* Cards */
+.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; }
+.card {
+  padding:16px; border-radius:var(--radius-sm); background:var(--surface);
+  border:1px solid var(--border); transition:.2s;
+}
+.card:hover { border-color:var(--border-hover); background:var(--surface-hover); }
+.card-h { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.card-icon {
+  width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;
+}
+.card-name { font-size:14px; font-weight:600; }
+.card-desc { font-size:12px; color:var(--text2); line-height:1.4; }
+.card-num { font-size:11px; color:var(--text3); margin-top:8px; }
+
+/* ASCII Art */
+.ascii-block {
+  padding:16px; border-radius:var(--radius-sm); background:var(--bg3);
+  border:1px solid var(--border); font-family:var(--mono); font-size:11px;
+  line-height:1.5; color:var(--text2); overflow-x:auto; white-space:pre; margin-bottom:16px;
+}
+
+/* Family Grid */
+.family-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; }
+.fm-card {
+  padding:14px; border-radius:var(--radius-sm); background:var(--surface);
+  border:1px solid var(--border); text-align:center; transition:.2s;
+}
+.fm-card:hover { border-color:var(--border-hover); background:var(--surface-hover); }
+.fm-emoji { font-size:24px; margin-bottom:6px; }
+.fm-name { font-size:13px; font-weight:600; }
+.fm-role { font-size:11px; color:var(--text3); margin-top:2px; }
+.fm-phone { font-size:10px; color:var(--text3); font-family:var(--mono); margin-top:4px; }
+
+/* Hub Grid */
+.hub-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; }
+.hub-card {
+  padding:14px; border-radius:var(--radius-sm); background:var(--surface);
+  border:1px solid var(--border); transition:.2s;
+}
+.hub-card:hover { border-color:var(--border-hover); background:var(--surface-hover); }
+.hub-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+.hub-name { font-size:13px; font-weight:600; }
+.hub-count { font-size:11px; color:var(--accent-v); font-weight:700; }
+.hub-path { font-size:10px; color:var(--text3); font-family:var(--mono); }
+
+/* Badge Table */
+.badge-table { width:100%; border-collapse:collapse; }
+.badge-table th {
+  text-align:left; font-size:10px; font-weight:600; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text3); padding:8px 12px; border-bottom:1px solid var(--border);
+}
+.badge-table td { padding:10px 12px; font-size:13px; border-bottom:1px solid var(--border); }
+.badge-table tr:hover td { background:var(--surface-hover); }
+
+/* Toast */
+.toast {
+  position:fixed; bottom:24px; right:24px; padding:12px 20px; border-radius:var(--radius-sm);
+  background:var(--bg3); border:1px solid var(--border); color:var(--text);
+  font-size:13px; display:flex; align-items:center; gap:8px; z-index:999;
+  box-shadow:var(--shadow); transform:translateY(100px); opacity:0;
+  transition:all .3s ease;
+}
+.toast.show { transform:translateY(0); opacity:1; }
+
+/* Responsive */
+@media(max-width:768px) {
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.show { transform:translateX(0); }
+  .main { margin-left:0; }
+  .dash-title { font-size:22px; }
+  .cards { grid-template-columns:1fr; }
+  .family-grid { grid-template-columns:repeat(2,1fr); }
+  .hub-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-header">
+      <a class="sb-logo" href="#">
+        <div class="sb-logo-icon">Y</div>
+        <div>
+          <div class="sb-logo-text">YYC³ Skills Hub</div>
+          <div class="sb-logo-sub">言启象限 · 语枢未来</div>
+        </div>
+      </a>
+    </div>
+    <div class="sb-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="搜索资产..." oninput="filterSidebar(this.value)"/>
+    </div>
+    <nav class="sb-nav" id="sbNav">
+      <div class="sb-group">
+        <div class="sb-group-title">概览</div>
+        <a class="sb-item active" href="#overview" onclick="navigate(event,'overview')"><span class="sb-dot done"></span><span class="sb-label">资产全景</span></a>
+        <a class="sb-item" href="#architecture" onclick="navigate(event,'architecture')"><span class="sb-dot done"></span><span class="sb-label">九层全栈架构</span></a>
+        <a class="sb-item" href="#badges" onclick="navigate(event,'badges')"><span class="sb-dot done"></span><span class="sb-label">徽章系统</span></a>
+      </div>
+      <div class="sb-group">
+        <div class="sb-group-title">核心资产</div>
+        <a class="sb-item" href="#agents" onclick="navigate(event,'agents')"><span class="sb-dot done"></span><span class="sb-label">AI Family Agent</span><span class="sb-count">8</span></a>
+        <a class="sb-item" href="#skills" onclick="navigate(event,'skills')"><span class="sb-dot done"></span><span class="sb-label">Skills 能力池</span><span class="sb-count">8700+</span></a>
+        <a class="sb-item" href="#plugins" onclick="navigate(event,'plugins')"><span class="sb-dot done"></span><span class="sb-label">Plugin 插件</span><span class="sb-count">80+</span></a>
+        <a class="sb-item" href="#mcps" onclick="navigate(event,'mcps')"><span class="sb-dot done"></span><span class="sb-label">MCP Server</span><span class="sb-count">210+</span></a>
+        <a class="sb-item" href="#tools" onclick="navigate(event,'tools')"><span class="sb-dot done"></span><span class="sb-label">Tools 工具</span><span class="sb-count">260+</span></a>
+      </div>
+      <div class="sb-group">
+        <div class="sb-group-title">基础设施</div>
+        <a class="sb-item" href="#cli" onclick="navigate(event,'cli')"><span class="sb-dot done"></span><span class="sb-label">CLI 工具链</span></a>
+        <a class="sb-item" href="#i18n" onclick="navigate(event,'i18n')"><span class="sb-dot done"></span><span class="sb-label">i18n 国际化</span></a>
+        <a class="sb-item" href="#workflow" onclick="navigate(event,'workflow')"><span class="sb-dot done"></span><span class="sb-label">Workflow Builder</span></a>
+      </div>
+      <div class="sb-group">
+        <div class="sb-group-title">文档</div>
+        <a class="sb-item" href="#docs" onclick="navigate(event,'docs')"><span class="sb-dot done"></span><span class="sb-label">文档体系</span></a>
+        <a class="sb-item" href="#naming" onclick="navigate(event,'naming')"><span class="sb-dot done"></span><span class="sb-label">项目命名推荐</span></a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="main">
+    <!-- Top Bar -->
+    <div class="topbar">
+      <button class="btn-icon" onclick="toggleSidebar()" title="切换侧栏">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <div><div class="topbar-title">YYC³ Skills Hub</div><div class="topbar-subtitle">智能资产全景 · v2.0.0</div></div>
+      <div class="topbar-spacer"></div>
+      <div class="topbar-actions">
+        <button class="btn-icon" onclick="downloadPage()" title="下载页面">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="btn-icon" onclick="sharePage()" title="分享">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <button class="btn-icon" onclick="toggleTheme()" title="切换主题">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard">
+
+      <!-- Section: Overview -->
+      <section id="overview" class="section">
+        <div class="dash-header">
+          <div class="dash-badge">
+            <span>✦</span> YYC³ Smart Asset Hub
+          </div>
+          <h1 class="dash-title">YYC³ Skills Hub</h1>
+          <p class="dash-desc">
+            企业级 AI Agent 资产平台 — 基于五维五高五标五化核心机制，整合 Agent 1243+、Skills 8700+、MCP 210+ 的全栈智能资产池。
+          </p>
+        </div>
+
+        <div class="hero-img">
+          <img src="../public/yyc3-family.png" alt="YYC³ AI Family" style="width:100%;height:auto;display:block;"/>
+        </div>
+
+        <div class="dash-stats">
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(139,92,246,0.12)"><span>🤖</span></div>
+            <div class="stat-info"><div class="stat-num">8</div><div class="stat-label">AI Family Agent</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(6,182,212,0.12)"><span>🧩</span></div>
+            <div class="stat-info"><div class="stat-num">8,700+</div><div class="stat-label">Skills</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(34,197,94,0.12)"><span>🔌</span></div>
+            <div class="stat-info"><div class="stat-num">210+</div><div class="stat-label">MCP Servers</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(245,158,11,0.12)"><span>🔧</span></div>
+            <div class="stat-info"><div class="stat-num">80+</div><div class="stat-label">Plugins</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(236,72,153,0.12)"><span>🛠️</span></div>
+            <div class="stat-info"><div class="stat-num">260+</div><div class="stat-label">Tools</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(239,68,68,0.12)"><span>📦</span></div>
+            <div class="stat-info"><div class="stat-num">1,597</div><div class="stat-label">i18n Keys</div></div>
+          </div>
+        </div>
+
+        <div class="badge-row">
+          <span class="bdg bdg-v">✦ v2.0.0 整合完成</span>
+          <span class="bdg bdg-c">🌐 10 语言 i18n</span>
+          <span class="bdg bdg-e">✅ 202 NVIDIA Skills</span>
+          <span class="bdg bdg-a">📋 6 份架构清单</span>
+          <span class="bdg bdg-p">🎯 Monorepo pnpm</span>
+          <span class="bdg bdg-r">🧹 零重复资产</span>
+          <span class="bdg bdg-v">🔗 GitHub</span>
+        </div>
+      </section>
+
+      <!-- Section: Architecture -->
+      <section id="architecture" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(139,92,246,0.12)">🏛️</div>
+          九层全栈架构
+        </div>
+        <p class="sec-desc">万象归元于云枢 · 深栈智启新纪元 — 自底向上构建的全栈智能技术栈</p>
+
+        <div class="ascii-block">
+┌─────────────────────────────────────────────────────────────────┐
+│               YYC³ AI Family 九层全栈技术架构                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Layer 09 · 治理与演进层（系统配置 · 运维监控 · 安全治理）      │
+│  Layer 08 · 用户交互层（Web 管理端 · CLI · OpenAPI）            │
+│  ═══════════════════════════════════════════════════════════════ │
+│  Layer 07 · AI Family 智能体层（8 大 Agent 角色分工）           │
+│        🧠 元启·天枢（中枢） 🧭 言启·千行 🛡️ 智云·守护          │
+│        🤔 语枢·万物  🔮 预见·先知  🎯 千里·伯乐               │
+│        ⚙️ 格物·宗师  🎨 创想·灵韵                             │
+│  ═══════════════════════════════════════════════════════════════ │
+│  Layer 06 · MCP 标准协议层（Client · Server · JSON-RPC）       │
+│  Layer 05 · Skill 原子能力层（Registry · Workflows · Gates）   │
+│  Layer 04 · AI 引擎底座层（模型管理 · RAG · Agent 引擎）       │
+│  ═══════════════════════════════════════════════════════════════ │
+│  Layer 03 · 核心服务层（API 网关 · 认证 · 消息队列）           │
+│  Layer 02 · 数据存储层（PostgreSQL · Redis · Qdrant · ES）     │
+│  Layer 01 · 基础设施层（GPU/K8s · 网络 · 安全 · CI/CD）        │
+└─────────────────────────────────────────────────────────────────┘
+        </div>
+
+        <div class="ascii-block">
+┌─────────────────────────────────────────────────────────────────┐
+│              全链路统一化架构                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  🎯 CLI 工具链 (yyc3) → 统一入口                                │
+│       └─ yyc3 init | build | validate | doctor | i18n           │
+│                                                                 │
+│  🌐 i18n Core (v2.4.0) → 10 语言国际化引擎                     │
+│       └─ zh-CN | en | ja | ko | fr | de | es | ru | ar | pt    │
+│                                                                 │
+│  🏗️ 核心资产池                                                  │
+│       ├─ agents-hub/    → 1243+ Agent 定义                      │
+│       ├─ skills-hub/    → 8700+ Skills（社区/市场/NVIDIA/B2B） │
+│       ├─ plugins-hub/   → 80+ 插件（官方/社区/开发工具）       │
+│       ├─ tools-hub/     → 6 大工具 Hub                          │
+│       └─ mcp-hub/       → 210+ MCP Server 配置                  │
+│                                                                 │
+│  📦 Workflow Builder → 12 AI 节点 + React Flow 画布            │
+│  🧠 Claude Mem → 跨会话记忆 + 30+ 审计报告                      │
+│  📊 智能验收体系 → PR 门禁 + 混沌工程                           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+        </div>
+      </section>
+
+      <!-- Section: Badges -->
+      <section id="badges" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(6,182,212,0.12)">🏅</div>
+          徽章系统
+        </div>
+        <p class="sec-desc">完整徽章标识体系，覆盖品牌、技术栈、体系标准、资产状态</p>
+
+        <table class="badge-table">
+          <tr><th style="width:260px">分类</th><th>徽章</th><th>说明</th></tr>
+          <tr><td><strong>品牌核心</strong></td><td>
+            <span class="bdg bdg-v">✦ YYC³ 言语云立方</span>
+            <span class="bdg bdg-c">万象归元于云枢</span>
+            <span class="bdg bdg-e">深栈智启新纪元</span>
+          </td><td style="font-size:12px;color:var(--text2)">品牌三要素：名称/Slogan 主/Slogan 副</td></tr>
+          <tr><td><strong>技术栈</strong></td><td>
+            <span class="bdg bdg-v">Next.js</span>
+            <span class="bdg bdg-c">React 19</span>
+            <span class="bdg bdg-e">shadcn/ui</span>
+            <span class="bdg bdg-a">Radix UI</span>
+            <span class="bdg bdg-p">pnpm</span>
+            <span class="bdg bdg-r">TypeScript</span>
+          </td><td style="font-size:12px;color:var(--text2)">核心技术栈徽章</td></tr>
+          <tr><td><strong>五高架构</strong></td><td>
+            <span class="bdg bdg-e">✅ 高可用</span>
+            <span class="bdg bdg-c">⚡ 高性能</span>
+            <span class="bdg bdg-r">🔒 高安全</span>
+            <span class="bdg bdg-a">📈 高扩展</span>
+            <span class="bdg bdg-v">🧠 高智能</span>
+          </td><td style="font-size:12px;color:var(--text2)">五高架构体系徽章</td></tr>
+          <tr><td><strong>五标系统</strong></td><td>
+            <span class="bdg bdg-v">📐 标准化</span>
+            <span class="bdg bdg-c">📋 规范化</span>
+            <span class="bdg bdg-e">⚙️ 自动化</span>
+            <span class="bdg bdg-a">👁️ 可视化</span>
+            <span class="bdg bdg-p">🤖 智能化</span>
+          </td><td style="font-size:12px;color:var(--text2)">五标系统体系徽章</td></tr>
+          <tr><td><strong>五化转型</strong></td><td>
+            <span class="bdg bdg-v">🔄 流程化</span>
+            <span class="bdg bdg-c">💾 数字化</span>
+            <span class="bdg bdg-e">🌿 生态化</span>
+            <span class="bdg bdg-a">🔧 工具化</span>
+            <span class="bdg bdg-p">🎯 服务化</span>
+          </td><td style="font-size:12px;color:var(--text2)">五化转型体系徽章</td></tr>
+          <tr><td><strong>资产状态</strong></td><td>
+            <span class="bdg bdg-e">✅ 848 Skills</span>
+            <span class="bdg bdg-c">🌐 1597 i18n</span>
+            <span class="bdg bdg-v">📦 202 NVIDIA</span>
+            <span class="bdg bdg-a">🧹 零重复</span>
+          </td><td style="font-size:12px;color:var(--text2)">当前资产统计徽章</td></tr>
+          <tr><td><strong>AI Family</strong></td><td>
+            <span class="bdg bdg-v">🧠 天枢</span>
+            <span class="bdg bdg-c">🧭 千行</span>
+            <span class="bdg bdg-e">🤔 万物</span>
+            <span class="bdg bdg-a">🔮 先知</span>
+            <span class="bdg bdg-p">🎯 伯乐</span>
+            <span class="bdg bdg-r">🛡️ 守护</span>
+          </td><td style="font-size:12px;color:var(--text2)">8 位 Agent 角色徽章</td></tr>
+        </table>
+      </section>
+
+      <!-- Section: Agents -->
+      <section id="agents" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(139,92,246,0.12)">🤖</div>
+          AI Family Agent
+        </div>
+        <p class="sec-desc">8 大 Agent 角色定义，五层解耦架构，协同完成全链路智能任务</p>
+
+        <div class="family-grid">
+          <div class="fm-card"><div class="fm-emoji">🧠</div><div class="fm-name">元启·天枢</div><div class="fm-role">总指挥 · 决策中枢</div><div class="fm-phone">0379-0206</div></div>
+          <div class="fm-card"><div class="fm-emoji">🧭</div><div class="fm-name">言启·千行</div><div class="fm-role">首席导航员 · 意图之门</div><div class="fm-phone">0379-0106</div></div>
+          <div class="fm-card"><div class="fm-emoji">🤔</div><div class="fm-name">语枢·万物</div><div class="fm-role">首席思考者 · 洞察之源</div><div class="fm-phone">0379-0107</div></div>
+          <div class="fm-card"><div class="fm-emoji">🔮</div><div class="fm-name">预见·先知</div><div class="fm-role">首席预言家 · 趋势之眼</div><div class="fm-phone">0379-0108</div></div>
+          <div class="fm-card"><div class="fm-emoji">🎯</div><div class="fm-name">千里·伯乐</div><div class="fm-role">首席推荐官 · 知遇之人</div><div class="fm-phone">0379-0109</div></div>
+          <div class="fm-card"><div class="fm-emoji">🛡️</div><div class="fm-name">智云·守护</div><div class="fm-role">首席安全官 · 免疫系统</div><div class="fm-phone">0379-0207</div></div>
+          <div class="fm-card"><div class="fm-emoji">📚</div><div class="fm-name">格物·宗师</div><div class="fm-role">首席质量官 · 进化导师</div><div class="fm-phone">0379-0208</div></div>
+          <div class="fm-card"><div class="fm-emoji">🎨</div><div class="fm-name">创想·灵韵</div><div class="fm-role">首席创意官 · 灵感之源</div><div class="fm-phone">0379-0209</div></div>
+        </div>
+
+        <div class="ascii-block" style="margin-top:16px">
+                用户请求
+                    │
+            ┌───────▼───────┐
+            │   🧭 言启·千行   │ ← 唯一入口 · 语义路由
+            └───────┬───────┘
+                    │
+            ┌───────▼───────┐
+            │   🧠 元启·天枢   │ ← 全局中枢 · 任务编排
+            └──┬────┬────┬──┘
+               │    │    │
+        ┌──────┼────┼────┼──────┐
+        ▼      ▼    ▼    ▼      ▼
+     🤔万物  🔮先知  🎯伯乐  📚宗师  🎨灵韵
+        │      │    │    │      │
+        └──────┼────┼────┼──────┘
+               │    │    │
+          ┌────▼────▼────▼───┐
+          │   🛡️ 智云·守护    │ ← 全链路安全审计
+          └─────────────────┘
+        </div>
+      </section>
+
+      <!-- Section: Skills -->
+      <section id="skills" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(6,182,212,0.12)">🧩</div>
+          Skills 能力池
+        </div>
+        <p class="sec-desc">四层能力池体系，8700+ Skill 按需调用，即插即用</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(139,92,246,0.12)">🏘️</div><div class="card-name">社区技能池</div></div>
+            <div class="card-desc">skills-hub/community/ — ~283 社区贡献 Skill，覆盖数据分析、开发工具、内容创作、云服务等 10+ 领域</div>
+            <div class="card-num">283 Skills · 社区维护</div>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(6,182,212,0.12)">🏪</div><div class="card-name">市场化技能池</div></div>
+            <div class="card-desc">skills-hub/marketplace/ — ~121 市场化 Skill，含 Anthropic 官方 Skills 套件</div>
+            <div class="card-num">121 Skills · Anthropic + 市场</div>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(34,197,94,0.12)">🤖</div><div class="card-name">NVIDIA 技能池</div></div>
+            <div class="card-desc">skills-hub/ai-ml/nvidia-skills/ — 202 官方签名技能，覆盖 RAG/Dynamo/NeMo/TAO/VSS 等 32 分类</div>
+            <div class="card-num">202 Skills · OMS 签名</div>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(245,158,11,0.12)">💼</div><div class="card-name">B2B 技能池</div></div>
+            <div class="card-desc">skills-hub/b2b/b2b-sdr-template/ — 8 组 B2B SDR 技能，含客户发现/报价/超级记忆等</div>
+            <div class="card-num">8 Skills · B2B 垂直</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Plugins -->
+      <section id="plugins" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(34,197,94,0.12)">🔌</div>
+          Plugin 插件体系
+        </div>
+        <p class="sec-desc">三层插件体系：官方 LSP/MCP 插件 + 社区插件 + 开发工具插件</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(139,92,246,0.12)">🏢</div><div class="card-name">官方插件</div></div>
+            <div class="card-desc">11 个 LSP 语言服务 · 17 个 MCP 服务插件 · 35+ 功能增强插件</div>
+            <div class="card-num">80+ 个插件</div>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(6,182,212,0.12)">🏘️</div><div class="card-name">社区插件</div></div>
+            <div class="card-desc">agent-teams · conductor · dotnet-contribution · llm-application-dev 等</div>
+            <div class="card-num">6 个社区插件</div>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="card-icon" style="background:rgba(34,197,94,0.12)">🛠️</div><div class="card-name">开发工具插件</div></div>
+            <div class="card-desc">plugin-dev（中英双语开发指南）· plugin-finder（完整开发测试文档）</div>
+            <div class="card-num">2 个工具包</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: MCPs -->
+      <section id="mcps" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(245,158,11,0.12)">🔗</div>
+          MCP Server
+        </div>
+        <p class="sec-desc">210+ MCP Server 配置，Docker 部署占 95%，覆盖 8 大类别</p>
+
+        <div class="cards">
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(139,92,246,0.12)">☁️</div><div class="card-name">云基础设施</div></div><div class="card-desc">AWS/GCP/Azure/Cloudflare/Supabase 等 ~25 个</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(6,182,212,0.12)">🗄️</div><div class="card-name">数据库</div></div><div class="card-desc">PostgreSQL/Redis/Qdrant/ES/Airtable 等 ~20 个</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(34,197,94,0.12)">🛠️</div><div class="card-name">开发工具</div></div><div class="card-desc">GitHub/GitLab/Linear/Playwright 等 ~30 个</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(245,158,11,0.12)">🤖</div><div class="card-name">AI & ML</div></div><div class="card-desc">arXiv/Perplexity/Apify/Browser-use 等 ~20 个</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(236,72,153,0.12)">💬</div><div class="card-name">通讯协同</div></div><div class="card-desc">Discord/Slack/Telegram/Asana 等 ~15 个</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(239,68,68,0.12)">🔧</div><div class="card-name">工具实用</div></div><div class="card-desc">API Gateway/Atlas Docs/Audiense 等 ~40 个</div></div>
+        </div>
+      </section>
+
+      <!-- Section: Tools -->
+      <section id="tools" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(236,72,153,0.12)">🛠️</div>
+          Tools 工具链
+        </div>
+        <p class="sec-desc">6 大工具 Hub + 12 Rust 内置工具，构成完整工具链</p>
+
+        <div class="hub-grid">
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">⚙️ Rust 内置</span><span class="hub-count">12</span></div><div class="hub-path">execute_cmd / fs_read / fs_write / glob / grep / image_read / ls / mcp / mkdir / rm</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">⌨️ 自动补全</span><span class="hub-count">1</span></div><div class="hub-path">tools-hub/autocomplete/ — fig/withfig 补全生态</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">💬 聊天 Agent</span><span class="hub-count">1</span></div><div class="hub-path">tools-hub/chat-agent/ — 终端沙箱工具</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🖥️ IDE 集成</span><span class="hub-count">1</span></div><div class="hub-path">tools-hub/code-ide/ — MCP + Settings + Models</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🌐 浏览器 Agent</span><span class="hub-count">1</span></div><div class="hub-path">tools-hub/browser-agent/ — Rust CLI + CDP</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🔧 Workflow</span><span class="hub-count">1</span></div><div class="hub-path">tools-hub/workflow-builder/ — 12 AI 节点</div></div>
+        </div>
+      </section>
+
+      <!-- Section: CLI -->
+      <section id="cli" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(139,92,246,0.12)">⌨️</div>
+          CLI 工具链
+        </div>
+        <p class="sec-desc">yyc3 — 统一项目管理 CLI，12+ 个命令覆盖 init/build/validate/dedup/doctor/i18n</p>
+        <div class="ascii-block">
+# 常用命令
+pnpm yyc3 --help                    # 显示 CLI 帮助
+pnpm yyc3 skills build              # 构建 Skills 索引
+pnpm yyc3 skills validate -v        # 验证完整性
+pnpm yyc3 skills dedup -v           # 检测重复文件
+pnpm yyc3 skills stats -v           # 生成统计报告
+pnpm doctor                         # 全量诊断
+pnpm i18n:extract                   # 提取翻译键
+pnpm i18n:translate                 # 生成英文翻译
+pnpm sync:upstream                  # 检查上游版本
+        </div>
+      </section>
+
+      <!-- Section: i18n -->
+      <section id="i18n" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(6,182,212,0.12)">🌐</div>
+          i18n 国际化
+        </div>
+        <p class="sec-desc">YYC3-i18n-Core v2.4.0 — 零依赖国际化框架，10 语言、1597 翻译键、AI 翻译</p>
+        <div class="badge-row">
+          <span class="bdg bdg-v">zh-CN 简体中文</span>
+          <span class="bdg bdg-c">en English</span>
+          <span class="bdg bdg-e">ja 日本語</span>
+          <span class="bdg bdg-a">ko 한국어</span>
+          <span class="bdg bdg-p">fr Français</span>
+          <span class="bdg bdg-r">de Deutsch</span>
+          <span class="bdg bdg-v">es Español</span>
+          <span class="bdg bdg-c">ru Русский</span>
+          <span class="bdg bdg-e">ar العربية</span>
+          <span class="bdg bdg-a">pt Português</span>
+        </div>
+      </section>
+
+      <!-- Section: Workflow -->
+      <section id="workflow" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(34,197,94,0.12)">📦</div>
+          Workflow Builder
+        </div>
+        <p class="sec-desc">可视化 AI 工作流构建器 — 12 种 AI 节点 + React Flow 画布 + shadcn/ui 36+ 组件</p>
+        <div class="cards">
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(139,92,246,0.12)">🧠</div><div class="card-name">文本模型节点</div></div><div class="card-desc">Text Model · Embedding Model · Prompt</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(6,182,212,0.12)">🎨</div><div class="card-name">生成节点</div></div><div class="card-desc">Image Generation · Audio</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(34,197,94,0.12)">🔧</div><div class="card-name">工具节点</div></div><div class="card-desc">Tool · HTTP Request · JavaScript</div></div>
+          <div class="card"><div class="card-h"><div class="card-icon" style="background:rgba(245,158,11,0.12)">🔀</div><div class="card-name">流程节点</div></div><div class="card-desc">Conditional · Start · End · Structured Output</div></div>
+        </div>
+      </section>
+
+      <!-- Section: Docs -->
+      <section id="docs" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(245,158,11,0.12)">📄</div>
+          文档体系
+        </div>
+        <p class="sec-desc">70+ 篇文档，6 份架构清单，完整覆盖 Agent/Skills/MCP/Plugin/Tools/AI-Family</p>
+
+        <div class="hub-grid">
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📋 架构清单 01</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCH-INVENTORY-01-AI-Family-Agent.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📋 架构清单 02</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCH-INVENTORY-02-Agent-General.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📋 架构清单 03</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCH-INVENTORY-03-Skills.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📋 架构清单 04</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCH-INVENTORY-04-MCP.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📋 架构清单 05</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCH-INVENTORY-05-Plugin.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📋 架构清单 06</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCH-INVENTORY-06-Tools.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">📊 审核分析</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-ARCHITECTURE-ANALYSIS-REPORT.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🔍 外部集成</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-EXTERNAL-INTEGRATION-ANALYSIS.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🎯 投产计划</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-PRODUCTION-IMPLEMENTATION-PLAN.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">⌨️ CLI 架构</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-CLI-ARCH.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🌐 i18n 方案</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-I18N-PLAN.md</div></div>
+          <div class="hub-card"><div class="hub-top"><span class="hub-name">🔒 闭环计划</span><span class="hub-count">Docs</span></div><div class="hub-path">YYC3-CLOSURE-PLAN.md</div></div>
+        </div>
+      </section>
+
+      <!-- Section: Naming -->
+      <section id="naming" class="section">
+        <div class="sec-title">
+          <div class="sec-icon" style="background:rgba(236,72,153,0.12)">📛</div>
+          项目命名推荐
+        </div>
+        <p class="sec-desc">基于业务定位、技术栈与品牌统一性，推荐以下项目命名方案</p>
+
+        <table class="badge-table">
+          <tr><th style="width:200px">层级</th><th style="width:280px">推荐名称</th><th>说明</th></tr>
+          <tr><td><strong>主项目</strong></td><td><span class="bdg bdg-v">YYC3-Skills</span></td><td style="font-size:12px;color:var(--text2)">当前工作区名称，保留不变 — 企业级 AI Agent 资产平台</td></tr>
+          <tr><td><strong>Monorepo 包</strong></td><td>
+            <span class="bdg bdg-c">@yyc3/cli</span>
+            <span class="bdg bdg-e">@yyc3/i18n-core</span>
+            <span class="bdg bdg-a">@yyc3/icons</span>
+          </td><td style="font-size:12px;color:var(--text2)">npm scope 统一使用 @yyc3/ 前缀</td></tr>
+          <tr><td><strong>CLI 命令</strong></td><td><span class="bdg bdg-v">yyc3</span></td><td style="font-size:12px;color:var(--text2)">统一入口命令，如 `yyc3 skills build`</td></tr>
+          <tr><td><strong>文档站</strong></td><td><span class="bdg bdg-c">docs.yyc3.com</span></td><td style="font-size:12px;color:var(--text2)">vitepress 驱动的多语言文档站</td></tr>
+          <tr><td><strong>品牌全称</strong></td><td><span class="bdg bdg-v">YYC³ 言语云立方</span></td><td style="font-size:12px;color:var(--text2)">「言」为智能交互入口，「语」为大模型内核，「云」为云原生算力，「立方」为算力/模型/应用三维一体</td></tr>
+          <tr><td><strong>GitHub Org</strong></td><td><span class="bdg bdg-e">YYC-Cube</span></td><td style="font-size:12px;color:var(--text2)">当前 GitHub 组织名称，建议保留统一</td></tr>
+          <tr><td><strong>备用方案</strong></td><td>
+            <span class="bdg bdg-a">YYC3-Hub</span>
+            <span class="bdg bdg-p">YYC3-Platform</span>
+          </td><td style="font-size:12px;color:var(--text2)">如需要更通用的品牌表述</td></tr>
+        </table>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// Theme
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+
+// Sidebar
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('show');
+  document.getElementById('main').classList.toggle('expanded');
+}
+
+// Navigation
+function navigate(e, id) {
+  e.preventDefault();
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  e.target.closest('.sb-item').classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  if (window.innerWidth <= 768) toggleSidebar();
+}
+
+// Search filter
+function filterSidebar(v) {
+  document.querySelectorAll('.sb-item').forEach(i => {
+    i.style.display = i.textContent.toLowerCase().includes(v.toLowerCase()) ? '' : 'none';
+  });
+}
+
+// Download
+function downloadPage() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'YYC3-Skills-Hub.html';
+  a.click();
+  showToast('✅ 页面已下载');
+}
+
+// Share
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({ title: 'YYC³ Skills Hub', url: location.href }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(location.href).then(() => showToast('✅ 链接已复制'));
+  }
+}
+
+// Toast
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && e.target.tagName !== 'INPUT') { e.preventDefault(); document.getElementById('searchInput').focus(); }
+  if (e.key === 't' && e.altKey) { toggleTheme(); }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "cb_teams_marketplace": {
+    "type": "zip",
+    "source": {
+      "source": "zip",
+      "url": "https://download.codebuddy.cn/plugin-marketplace/cb_teams_marketplace-2b5dd950-ce1f-4d80-934d-610500f8a03a.zip",
+      "path": "https://download.codebuddy.cn/plugin-marketplace/cb_teams_marketplace-2b5dd950-ce1f-4d80-934d-610500f8a03a.zip"
+    },
+    "installLocation": "/Users/yanyu/.codebuddy/plugins/marketplaces/cb_teams_marketplace",
+    "description": "Built-in marketplace: cb_teams_marketplace",
+    "isBuiltIn": true
+  },
+  "codebuddy-plugins-official": {
+    "type": "zip",
+    "source": {
+      "source": "zip",
+      "url": "https://download.codebuddy.cn/plugin-marketplace/codebuddy-plugins-official-f0557bdc-a6af-40e4-aa47-0e91523f6e68.zip",
+      "path": "https://download.codebuddy.cn/plugin-marketplace/codebuddy-plugins-official-f0557bdc-a6af-40e4-aa47-0e91523f6e68.zip"
+    },
+    "installLocation": "/Users/yanyu/.codebuddy/plugins/marketplaces/codebuddy-plugins-official",
+    "description": "Built-in marketplace: codebuddy-plugins-official",
+    "isBuiltIn": true
+  }
+}

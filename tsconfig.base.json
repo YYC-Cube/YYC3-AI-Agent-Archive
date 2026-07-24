@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM"],
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    "baseUrl": ".",
+    "paths": {
+      "@yyc3/skill-registry": ["packages/skill-registry/src"],
+      "@yyc3/skill-registry/*": ["packages/skill-registry/src/*"],
+      "@yyc3/mcp-runtime": ["packages/mcp-runtime/src"],
+      "@yyc3/mcp-runtime/*": ["packages/mcp-runtime/src/*"]
+    }
+  }
+}

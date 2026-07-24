@@ -1,0 +1,13 @@
+{
+  "name": "finance-data",
+  "version": "1.1.0",
+  "description": "金融数据检索插件，包含 neodata-financial-search 自然语言金融搜索和 westock-data 腾讯自选股结构化行情数据，覆盖股票、指数、期货、债券、基金、宏观经济等数据。",
+  "author": {
+    "name": "CodeBuddy Teams"
+  },
+  "homepage": {
+    "url": "",
+    "type": "github"
+  },
+  "license": ""
+}

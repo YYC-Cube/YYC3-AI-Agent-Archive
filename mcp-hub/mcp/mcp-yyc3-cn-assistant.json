@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "yyc3-cn-assistant": {
+      "command": "node",
+      "args": ["/Users/yanyu/YYC3-Mac-Max/YYC3-Mcp/API文档/YYC3-CN/代码/yyc3-cn-mcp-server.js"],
+      "env": {
+        "TRAE_CN_MODE": "development",
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}

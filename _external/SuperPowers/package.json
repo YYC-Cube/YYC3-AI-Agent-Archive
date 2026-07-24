@@ -1,0 +1,6 @@
+{
+  "name": "yyc3-superpowers",
+  "version": "5.0.7",
+  "type": "module",
+  "main": ".opencode/plugins/yyc3-superpowers.js"
+}

@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "yyc3-cn-assistant": {
+      "command": "node",
+      "args": ["/Users/yanyu/YYC3-Mac-Max/YYC3-Mcp/API文档/YYC3-CN/代码/yyc3-cn-mcp-server.js"],
+      "env": {
+        "TRAE_CN_MODE": "development",
+        "NODE_ENV": "development"
+      }
+    },
+    "claude-prompts": {
+      "command": "node",
+      "args": ["/Users/yanyu/yyc3-claude/claude-prompts-mcp/server/dist/index.js"]
+    },
+    "mcp-github-yyc3": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      }
+    },
+    "mcp-filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/yanyu"]
+    },
+    "mcp-brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "BSAAOKu9pfiHAWlw1JpiXXvAtZuhSv7"
+      }
+    },
+    "mcp-postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://yyc3_33:yyc3_33@192.168.3.45:5432/yyc3_mcp"]
+    },
+    "mcp-docker": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-v", "/var/run/docker.sock:/var/run/docker.sock", "modelcontextprotocol/server-docker"],
+      "env": {
+        "DOCKER_HOST": "unix:///var/run/docker.sock"
+      }
+    },
+    "MCP_DOCKER": {
+      "command": "docker",
+      "args": ["mcp", "gateway", "run"]
+    }
+  }
+}

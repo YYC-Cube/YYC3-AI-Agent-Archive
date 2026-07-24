@@ -1,0 +1,12 @@
+[2026-07-15 15:15:36] [INFO] ==== setup-project.js =====
+[2026-07-15 15:15:36] [DEBUG] [PPT Setup] stdin 数据: {"session_id":"6c0c6d1bd6f94a17a6cbc90c67923ad4","transcript_path":"/Users/yanyu/Library/Application Support/CodeBuddyExtension/Data/d0841e7e-dcae-466d-88cf-928f1116201e/CodeBuddyIDE/d0841e7e-dcae-466d-88cf-928f1116201e/history/3ab2a4b62d1160d8a83ac9b330bc4ca6/6c0c6d1bd6f94a17a6cbc90c67923ad4/index.json","cwd":"/","hook_event_name":"PreToolUse","tool_name":"Skill","tool_input":{"command":"wechat-article-search"},"generation_id":"68ec7b5bee7346eeb908c11b5e696029","model":"deepseek-v4-flash","client":"CodeBuddyIDE","version":"4.10.2"}
+[2026-07-15 15:15:36] [INFO] [PPT Setup] skill: undefined
+[2026-07-15 15:15:36] [INFO] [PPT Setup] 跳过: skill 是 "undefined"，不是 "ppt-implement"
+[2026-07-15 15:15:37] [INFO] ==== setup-project.js =====
+[2026-07-15 15:15:37] [DEBUG] [PPT Setup] stdin 数据: {"session_id":"6c0c6d1bd6f94a17a6cbc90c67923ad4","transcript_path":"/Users/yanyu/Library/Application Support/CodeBuddyExtension/Data/d0841e7e-dcae-466d-88cf-928f1116201e/CodeBuddyIDE/d0841e7e-dcae-466d-88cf-928f1116201e/history/3ab2a4b62d1160d8a83ac9b330bc4ca6/6c0c6d1bd6f94a17a6cbc90c67923ad4/index.json","cwd":"/","hook_event_name":"PreToolUse","tool_name":"Skill","tool_input":{"command":"data-analysis-workflows"},"generation_id":"68ec7b5bee7346eeb908c11b5e696029","model":"deepseek-v4-flash","client":"CodeBuddyIDE","version":"4.10.2"}
+[2026-07-15 15:15:37] [INFO] [PPT Setup] skill: undefined
+[2026-07-15 15:15:37] [INFO] [PPT Setup] 跳过: skill 是 "undefined"，不是 "ppt-implement"
+[2026-07-16 01:30:01] [INFO] ==== setup-project.js =====
+[2026-07-16 01:30:01] [DEBUG] [PPT Setup] stdin 数据: {"session_id":"6c0c6d1bd6f94a17a6cbc90c67923ad4","transcript_path":"/Users/yanyu/Library/Application Support/CodeBuddyExtension/Data/d0841e7e-dcae-466d-88cf-928f1116201e/CodeBuddyIDE/d0841e7e-dcae-466d-88cf-928f1116201e/history/3ab2a4b62d1160d8a83ac9b330bc4ca6/6c0c6d1bd6f94a17a6cbc90c67923ad4/index.json","cwd":"/","hook_event_name":"PreToolUse","tool_name":"Skill","tool_input":{"command":"markitdown"},"generation_id":"059f31b1faf74eb39a7fd40ccc048847","model":"deepseek-v4-flash","client":"CodeBuddyIDE","version":"4.10.2"}
+[2026-07-16 01:30:01] [INFO] [PPT Setup] skill: undefined
+[2026-07-16 01:30:01] [INFO] [PPT Setup] 跳过: skill 是 "undefined"，不是 "ppt-implement"

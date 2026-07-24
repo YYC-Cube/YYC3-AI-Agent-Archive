@@ -1,0 +1,66 @@
+{
+  "models": [
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "vendor": "DeepSeek",
+      "url": "https://api.deepseek.com/v1/chat/completions",
+      "apiKey": "${DEEPSEEK_API_KEY}",
+      "maxInputTokens": 128000,
+      "maxOutputTokens": 8192,
+      "supportsToolCall": true,
+      "supportsImages": false,
+      "relatedModels": {
+        "lite": "deepseek-v4-flash",
+        "reasoning": "deepseek-v4-pro"
+      }
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "vendor": "DeepSeek",
+      "url": "https://api.deepseek.com/v1/chat/completions",
+      "apiKey": "${DEEPSEEK_API_KEY}",
+      "maxInputTokens": 128000,
+      "maxOutputTokens": 8192,
+      "supportsToolCall": true,
+      "supportsImages": false
+    },
+    {
+      "id": "glm-5",
+      "name": "GLM-5",
+      "vendor": "user",
+      "url": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "apiKey": "${GLM_API_KEY}",
+      "supportsToolCall": true,
+      "supportsImages": false,
+      "supportsReasoning": false
+    },
+    {
+      "id": "glm-4.7",
+      "name": "GLM-4.7",
+      "vendor": "user",
+      "url": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "apiKey": "${GLM_API_KEY}",
+      "supportsToolCall": true,
+      "supportsImages": false,
+      "supportsReasoning": false
+    },
+    {
+      "id": "qwen3-coder-30b:lates",
+      "name": "qwen3-coder-30b:lates",
+      "vendor": "user",
+      "url": "http://localhost:11434/v1/chat/completions",
+      "supportsToolCall": true,
+      "supportsImages": false,
+      "supportsReasoning": true
+    }
+  ],
+  "availableModels": [
+    "deepseek-v4-pro",
+    "deepseek-v4-flash",
+    "glm-5",
+    "glm-4.7",
+    "qwen3-coder-30b:lates"
+  ]
+}

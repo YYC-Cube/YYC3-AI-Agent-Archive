@@ -1,0 +1,48 @@
+{
+  "name": "yyc3-skills",
+  "version": "2.0.0",
+  "private": true,
+  "description": "YYC³-Skills — 企业级 AI Agent 资产平台（Monorepo）",
+  "author": "YanYuCloudCube Team <admin@0379.email>",
+  "license": "MIT",
+  "packageManager": "pnpm@9.0.0",
+  "bin": {
+    "yyc3": "packages/yyc3-cli/bin/yyc3-cli.js"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "clean": "pnpm -r exec rm -rf dist node_modules .turbo",
+    "lint": "echo 'TODO: eslint setup'",
+    "test": "pnpm -r run test",
+    "yyc3": "node packages/yyc3-cli/bin/yyc3-cli.js",
+    "skills:build": "node packages/yyc3-cli/bin/yyc3-cli.js skills build",
+    "skills:validate": "node packages/yyc3-cli/bin/yyc3-cli.js skills validate",
+    "skills:dedup": "node packages/yyc3-cli/bin/yyc3-cli.js skills dedup",
+    "skills:stats": "node packages/yyc3-cli/bin/yyc3-cli.js skills stats",
+    "i18n:extract": "node scripts/extract-keys.js",
+    "i18n:translate": "node scripts/translate-en.cjs locales/zh-CN.json locales/en.json",
+    "i18n:sync": "cp locales/zh-CN.json packages/yyc3-i18n/src/locales/ && cp locales/en.json packages/yyc3-i18n/src/locales/",
+    "sync:upstream": "node scripts/sync-upstream.cjs",
+    "doctor": "node packages/yyc3-cli/bin/yyc3-cli.js skills validate -v && node packages/yyc3-cli/bin/yyc3-cli.js skills dedup -v"
+  },
+  "workspaces": [
+    "packages/yyc3-i18n",
+    "packages/yyc3-cli",
+    "packages/agent-registry",
+    "packages/mcp-runtime",
+    "packages/skill-registry",
+    "packages/skills-legacy",
+    "packages/skills-registry-legacy",
+    "packages/@yyc3/icons"
+  ],
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "tsup": "^8.0.0"
+  }
+}

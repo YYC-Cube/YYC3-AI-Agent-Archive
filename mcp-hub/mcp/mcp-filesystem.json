@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mcp-filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/yanyu"]
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "skill_name": "tencent-campus-recruit",
+  "skill_dir": "D:\\Work\\Skill上架\\skill-marketplace\\logs\\review-cache\\tencent-campus-recruit-skill-v2",
+  "timestamp": "2026-05-11T14:11:59.118002",
+  "blockers": [],
+  "suggestions": [
+    {
+      "id": "S03",
+      "msg": "description_en 偏长（90 字符，建议 60-80）"
+    },
+    {
+      "id": "S05",
+      "msg": "缺少快速开始示例或代码块",
+      "ai_action": {
+        "field": "S05_quick_start",
+        "action_type": "generate",
+        "action": "SKILL.md 缺少快速开始示例，请根据 skill 的功能描述生成一个简洁的快速开始示例（含代码块），追加到 SKILL.md 适当位置",
+        "priority": "recommended",
+        "source_field": "description",
+        "constraints": "1-2 个典型使用场景，含代码块或命令示例"
+      }
+    }
+  ],
+  "passed": [
+    {
+      "id": "B01",
+      "pass": true,
+      "msg": "SKILL.md 存在且非空"
+    },
+    {
+      "id": "B17",
+      "pass": true,
+      "msg": "frontmatter 结构完整"
+    },
+    {
+      "id": "B02",
+      "pass": true,
+      "msg": "YAML frontmatter 格式有效"
+    },
+    {
+      "id": "B04",
+      "pass": true,
+      "msg": "description_zh 存在（25 字）"
+    },
+    {
+      "id": "B05",
+      "pass": true,
+      "msg": "description_en 存在（90 字符）"
+    },
+    {
+      "id": "B06",
+      "pass": true,
+      "msg": "name='tencent-campus-recruit' 与目录名一致"
+    },
+    {
+      "id": "B08",
+      "pass": true,
+      "msg": "字段顺序正确"
+    },
+    {
+      "id": "B09",
+      "pass": true,
+      "msg": "version 字段未提供（允许）"
+    },
+    {
+      "id": "B10",
+      "pass": true,
+      "msg": "body 有实质内容（6686 字符）"
+    },
+    {
+      "id": "B12",
+      "pass": true,
+      "msg": "无 version 字段，跳过版本比较"
+    },
+    {
+      "id": "B14",
+      "pass": true,
+      "msg": "未声明 allowed-tools"
+    },
+    {
+      "id": "B15",
+      "pass": true,
+      "msg": "所有 10 个 references 引用有效"
+    },
+    {
+      "id": "B16",
+      "pass": true,
+      "msg": "所有 10 个 reference 文件均被引用"
+    },
+    {
+      "id": "B18",
+      "pass": true,
+      "msg": "无 ClawHub 残留"
+    },
+    {
+      "id": "B19",
+      "pass": true,
+      "msg": "安全性与通用性检查通过",
+      "ai_actions": [
+        {
+          "field": "B19_deep_security",
+          "action_type": "review",
+          "action": "请深度审查此 skill 的安全性：\n1. SKILL.md 中是否有危险的 shell 命令模式（rm -rf、curl|sh、sudo 等）\n2. 是否有 prompt injection 风险（指令注入、角色覆盖等）\n3. scripts/ 中的脚本是否做了超出声明范围的事情（如读取敏感文件、发送数据到外部）\n4. 是否存在数据外泄风险\n如发现问题，说明风险等级和修复建议",
+          "priority": "recommended",
+          "context": {
+            "has_scripts": true,
+            "script_count": 8,
+            "script_summaries": [
+              {
+                "file": "scripts\\campus_recruit_jd_qa_mcp.py",
+                "size": 18988,
+                "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\n腾讯校招岗位JD 问答检索 MCP 服务（只读）\n----------------------------------------------------------------\n对接 trag collection: col-928fec14（col-campus-jd-2026）\n共 595 条在招岗位，字段：\n  position / recruit_type / direction / category / location /\n  description / requirements / bonus / apply_url\n\n工具：\n  - search_jds                : 语义搜岗位（最常用）\n  - search_jds_by_direction   : 按方向过滤 + 语义搜（技术/设计/产品/职能/市场）\n  - search_jds_by_recruit_type: 按招聘类型过滤 + 语义搜（应届毕业生/应届实习/日常实习/青云计划-应届生/"
+              },
+              {
+                "file": "scripts\\career_memory.py",
+                "size": 3315,
+                "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\n腾讯校招求职记忆管理脚本（本地工作空间版）\n\n用途：\n- 在当前工作空间中维护候选人的长期求职画像，便于持续对话时给出更个性化建议\n- 默认写入 ./career-memory/campus-recruit-memory.md\n- 只保存用户明确提供、与求职建议直接相关的信息；不保存身份证、手机号、住址、账号密钥等敏感信息\n\n用法：\n    python scripts/career_memory.py init\n    python scripts/career_memory.py show\n    python scripts/career_memory.py append --text \"目标：技术后台开发；城市：深圳/北京\"\n    python scripts/career_memory.py forget\n\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport os\nimport re\nfrom dat"
+              },
+              {
+                "file": "scripts\\check_mcp_registration.py",
+                "size": 3891,
+                "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\nWorkBuddy 可选 JD MCP 注册自检脚本。\n\n只检查本地 MCP 配置是否包含可选 JD MCP 服务，不读取或输出任何 Key。\n通用流程/制度类问题不依赖 MCP，优先运行 `scripts/fetch_recruit_info.py flow` 动态查询官网公告；个人流程信息引导 join.qq.com 校招官网 offer 鹅智能体。\n\"\"\"\n\nimport json\nimport os\nimport sys\nfrom pathlib import Path\nfrom typing import Any, Dict\n\nREQUIRED_SERVERS = {\n    \"campus-recruit-jd-qa\": \"可选在招岗位 JD 知识库\",\n}\n\n\ndef _default_config_path() -> Path:\n    return Path.home() / \".codebuddy\" / \"mcp.json\"\n\n\ndef _load_json(pat"
+              },
+              {
+                "file": "scripts\\check_python_env.py",
+                "size": 6113,
+                "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\nPython 环境自检脚本\n\n用途：\n- 在 agent 调用本 skill 的 Python 脚本前，快速检查当前 Python 是否可用\n- 给出明确的升级/安装引导，避免模型直接运行脚本后报错\n\n用法：\n    python scripts/check_python_env.py\n    python scripts/check_python_env.py --require trag mcp\n    python scripts/check_python_env.py --mcp --json\n\"\"\"\n\nimport argparse\nimport importlib.util\nimport json\nimport os\nimport platform\nimport shutil\nimport subprocess\nimport sys\nfrom typing import Dict, List, Any\n\nMIN_VERSION = (3, 10)\nMAX_EXCLUSIVE"
+              },
+              {
+                "file": "scripts\\fetch_recruit_info.py",
+                "size": 15008,
+                "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\n腾讯校招官网实时数据抓取工具\n==========================================\n直接调用 join.qq.com 公开 API，获取招聘公告、宣讲会、岗位类别等结构化信息。\n所有接口均无需鉴权。公告/岗位类别用 GET，宣讲会用 POST。\n\n用法:\n    python fetch_recruit_info.py notices\n    python fetch_recruit_info.py notice <id>\n    python fetch_recruit_info.py flow \"投递后多久有回复\" --question-time \"2026-05-10 11:24:00\"\n    python fetch_recruit_info.py talks\n    python fetch_recruit_info.py families\n    python fetch_recruit_info.py latest\n\n输出: JSON 格"
+              }
+            ],
+            "regex_blockers": 0,
+            "regex_warnings": 0
+          }
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "id": "B03",
+      "pass": true,
+      "msg": "description 过长（236 字符，建议 50-200）",
+      "warning": true
+    },
+    {
+      "id": "B21",
+      "pass": true,
+      "msg": "包体偏大 170.4 KB (174,492 bytes)（建议 ≤100KB）\n  大文件: scripts\\campus_recruit_jd_qa_mcp.py (20.7KB)",
+      "warning": true,
+      "fix_hint": "建议精简：大文件移至远端按需下载、删除非必要资源、压缩 references",
+      "ai_action": {
+        "field": "B21_size_optimize",
+        "action_type": "review",
+        "action": "包体偏大，请分析以下大文件，给出具体精简建议：哪些可移至远端按需下载、哪些可压缩、哪些可删除",
+        "priority": "recommended",
+        "context": {
+          "total_kb": 170.4,
+          "top_files": [
+            [
+              "scripts\\campus_recruit_jd_qa_mcp.py",
+              21232
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "b20_context": {
+    "declared_bins": [],
+    "mentioned_env_vars": [],
+    "has_install_section": false,
+    "has_env_setup_guide": true
+  },
+  "conclusion": "passed",
+  "test_recommendation": {
+    "level": "recommended",
+    "reason": "首次上架新 skill，推荐执行功能验证",
+    "is_new": true,
+    "has_external_deps": false,
+    "version_jump": null
+  },
+  "ai_actions": [
+    {
+      "field": "B21_size_optimize",
+      "action_type": "review",
+      "action": "包体偏大，请分析以下大文件，给出具体精简建议：哪些可移至远端按需下载、哪些可压缩、哪些可删除",
+      "priority": "recommended",
+      "context": {
+        "total_kb": 170.4,
+        "top_files": [
+          [
+            "scripts\\campus_recruit_jd_qa_mcp.py",
+            21232
+          ]
+        ]
+      }
+    },
+    {
+      "field": "B19_deep_security",
+      "action_type": "review",
+      "action": "请深度审查此 skill 的安全性：\n1. SKILL.md 中是否有危险的 shell 命令模式（rm -rf、curl|sh、sudo 等）\n2. 是否有 prompt injection 风险（指令注入、角色覆盖等）\n3. scripts/ 中的脚本是否做了超出声明范围的事情（如读取敏感文件、发送数据到外部）\n4. 是否存在数据外泄风险\n如发现问题，说明风险等级和修复建议",
+      "priority": "recommended",
+      "context": {
+        "has_scripts": true,
+        "script_count": 8,
+        "script_summaries": [
+          {
+            "file": "scripts\\campus_recruit_jd_qa_mcp.py",
+            "size": 18988,
+            "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\n腾讯校招岗位JD 问答检索 MCP 服务（只读）\n----------------------------------------------------------------\n对接 trag collection: col-928fec14（col-campus-jd-2026）\n共 595 条在招岗位，字段：\n  position / recruit_type / direction / category / location /\n  description / requirements / bonus / apply_url\n\n工具：\n  - search_jds                : 语义搜岗位（最常用）\n  - search_jds_by_direction   : 按方向过滤 + 语义搜（技术/设计/产品/职能/市场）\n  - search_jds_by_recruit_type: 按招聘类型过滤 + 语义搜（应届毕业生/应届实习/日常实习/青云计划-应届生/"
+          },
+          {
+            "file": "scripts\\career_memory.py",
+            "size": 3315,
+            "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\n腾讯校招求职记忆管理脚本（本地工作空间版）\n\n用途：\n- 在当前工作空间中维护候选人的长期求职画像，便于持续对话时给出更个性化建议\n- 默认写入 ./career-memory/campus-recruit-memory.md\n- 只保存用户明确提供、与求职建议直接相关的信息；不保存身份证、手机号、住址、账号密钥等敏感信息\n\n用法：\n    python scripts/career_memory.py init\n    python scripts/career_memory.py show\n    python scripts/career_memory.py append --text \"目标：技术后台开发；城市：深圳/北京\"\n    python scripts/career_memory.py forget\n\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport os\nimport re\nfrom dat"
+          },
+          {
+            "file": "scripts\\check_mcp_registration.py",
+            "size": 3891,
+            "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\nWorkBuddy 可选 JD MCP 注册自检脚本。\n\n只检查本地 MCP 配置是否包含可选 JD MCP 服务，不读取或输出任何 Key。\n通用流程/制度类问题不依赖 MCP，优先运行 `scripts/fetch_recruit_info.py flow` 动态查询官网公告；个人流程信息引导 join.qq.com 校招官网 offer 鹅智能体。\n\"\"\"\n\nimport json\nimport os\nimport sys\nfrom pathlib import Path\nfrom typing import Any, Dict\n\nREQUIRED_SERVERS = {\n    \"campus-recruit-jd-qa\": \"可选在招岗位 JD 知识库\",\n}\n\n\ndef _default_config_path() -> Path:\n    return Path.home() / \".codebuddy\" / \"mcp.json\"\n\n\ndef _load_json(pat"
+          },
+          {
+            "file": "scripts\\check_python_env.py",
+            "size": 6113,
+            "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\nPython 环境自检脚本\n\n用途：\n- 在 agent 调用本 skill 的 Python 脚本前，快速检查当前 Python 是否可用\n- 给出明确的升级/安装引导，避免模型直接运行脚本后报错\n\n用法：\n    python scripts/check_python_env.py\n    python scripts/check_python_env.py --require trag mcp\n    python scripts/check_python_env.py --mcp --json\n\"\"\"\n\nimport argparse\nimport importlib.util\nimport json\nimport os\nimport platform\nimport shutil\nimport subprocess\nimport sys\nfrom typing import Dict, List, Any\n\nMIN_VERSION = (3, 10)\nMAX_EXCLUSIVE"
+          },
+          {
+            "file": "scripts\\fetch_recruit_info.py",
+            "size": 15008,
+            "preview": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\n腾讯校招官网实时数据抓取工具\n==========================================\n直接调用 join.qq.com 公开 API，获取招聘公告、宣讲会、岗位类别等结构化信息。\n所有接口均无需鉴权。公告/岗位类别用 GET，宣讲会用 POST。\n\n用法:\n    python fetch_recruit_info.py notices\n    python fetch_recruit_info.py notice <id>\n    python fetch_recruit_info.py flow \"投递后多久有回复\" --question-time \"2026-05-10 11:24:00\"\n    python fetch_recruit_info.py talks\n    python fetch_recruit_info.py families\n    python fetch_recruit_info.py latest\n\n输出: JSON 格"
+          }
+        ],
+        "regex_blockers": 0,
+        "regex_warnings": 0
+      }
+    },
+    {
+      "field": "S05_quick_start",
+      "action_type": "generate",
+      "action": "SKILL.md 缺少快速开始示例，请根据 skill 的功能描述生成一个简洁的快速开始示例（含代码块），追加到 SKILL.md 适当位置",
+      "priority": "recommended",
+      "source_field": "description",
+      "constraints": "1-2 个典型使用场景，含代码块或命令示例"
+    },
+    {
+      "field": "functional_test",
+      "action_type": "verify",
+      "action": "review.py 推荐对此 skill 执行功能验证。原因：首次上架新 skill，推荐执行功能验证。请加载 skill-tester 子 skill，执行 1-2 个核心场景测试，并根据测试结果决定是否影响审查结论。",
+      "priority": "recommended",
+      "context": {
+        "test_recommendation": {
+          "level": "recommended",
+          "reason": "首次上架新 skill，推荐执行功能验证",
+          "is_new": true,
+          "has_external_deps": false,
+          "version_jump": null
+        },
+        "b20_context": {
+          "declared_bins": [],
+          "mentioned_env_vars": [],
+          "has_install_section": false,
+          "has_env_setup_guide": true
+        },
+        "skill_dir": "D:\\Work\\Skill上架\\skill-marketplace\\logs\\review-cache\\tencent-campus-recruit-skill-v2"
+      }
+    }
+  ]
+}

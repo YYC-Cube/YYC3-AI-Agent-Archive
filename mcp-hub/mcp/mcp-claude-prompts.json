@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "claude-prompts": {
+      "command": "node",
+      "args": ["/Users/yanyu/yyc3-claude/claude-prompts-mcp/server/dist/index.js"]
+    }
+  }
+}
