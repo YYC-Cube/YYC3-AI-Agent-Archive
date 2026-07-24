@@ -185,7 +185,7 @@
   },
   "scene-pack-version": "2.1.2",
   "devDependencies": {
-    "adm-zip": "^0.5.17",
+    "adm-zip": "^0.6.0",
     "vitest": "^4.1.3"
   }
 }
