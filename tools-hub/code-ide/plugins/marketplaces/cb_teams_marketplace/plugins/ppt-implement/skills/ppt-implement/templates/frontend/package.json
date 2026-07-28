@@ -17,6 +17,6 @@
   "devDependencies": {
     "vite": "^7.3.5",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.5.18"
+    "postcss": "^8.5.23"
   }
 }
