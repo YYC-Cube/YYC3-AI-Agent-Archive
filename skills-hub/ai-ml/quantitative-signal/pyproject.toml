@@ -14,7 +14,7 @@
 # limitations under the License.
 
 [build-system]
-build-backend = "setuptools.build_meta"
+build-backend = "setuptools>=83.0.0"
 requires = ["setuptools >= 64", "setuptools-scm>=8"]
 
 [project]
