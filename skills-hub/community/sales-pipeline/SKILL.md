@@ -1,5 +1,6 @@
 ---
 name: sales-pipeline
+description: 销售管道自动化，匿名访客转化、沉睡交易激活与 ICP 学习
 version: 1.0.1
 display_name: "sales-pipeline"
 display_name_en: "Sales Pipeline"

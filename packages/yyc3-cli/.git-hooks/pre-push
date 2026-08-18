@@ -1,0 +1,12 @@
+#!/bin/bash
+# 团队yyc3 推送前校验Docker构建
+echo "===== 校验Docker镜像构建 ====="
+docker build -t yyc3-app:temp . > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+  echo "❌ Docker构建失败，禁止推送！"
+  exit 1
+fi
+# 删除临时镜像
+docker rmi yyc3-app:temp > /dev/null 2>&1
+echo "✅ Docker构建校验通过"
+exit 0

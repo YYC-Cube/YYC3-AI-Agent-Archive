@@ -1,0 +1,206 @@
+# /**
+#
+# @fileoverview YYC³ CLI Kubernetes 部署配置
+# @description 遵循五高原则的Kubernetes部署配置，支持高可用、高扩展
+# @author YYC³
+# @version 1.0.0
+# @created 2026-01-21
+# @modified 2026-01-21
+# @copyright Copyright (c) 2026 YYC³
+# @license MIT
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yyc3-cli-manager
+  namespace: yyc3-production
+  labels:
+    app: yyc3-cli-manager
+    version: v2.0.0
+    part-of: yyc3-management-platform
+spec:
+  # 高可用：多副本部署
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yyc3-cli-manager
+  strategy:
+    # 滚动更新策略，确保零停机
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: yyc3-cli-manager
+        version: v2.0.0
+      annotations:
+        # 监控注解
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3200"
+        prometheus.io/path: "/metrics"
+    spec:
+      # 高安全：服务账户和安全性上下文
+      serviceAccountName: yyc3-cli-sa
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
+      containers:
+        - name: yyc3-cli-manager
+          image: yyc3/yyc3-cli-manager:v2.0.0
+          imagePullPolicy: IfNotPresent
+          # 高安全：只读根文件系统
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          # 资源限制：高性能优化
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          # 高可用：健康检查
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3200
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 3200
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+          # 端口配置：遵循YYC³端口规范
+          ports:
+            - containerPort: 3200
+              name: http
+              protocol: TCP
+          # 环境配置
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: PORT
+              value: "3200"
+          # 配置文件挂载
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config
+              readOnly: true
+            - name: logs-volume
+              mountPath: /var/log/yyc3
+      # 卷配置
+      volumes:
+        - name: config-volume
+          configMap:
+            name: yyc3-cli-config
+        - name: logs-volume
+          emptyDir: {}
+      # 高可用：Pod反亲和性
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - yyc3-cli-manager
+                topologyKey: kubernetes.io/hostname
+      # 节点选择器（可选）
+      nodeSelector:
+        node-type: high-performance
+      # 容忍度
+      tolerations:
+        - key: "dedicated"
+          operator: "Equal"
+          value: "yyc3-services"
+          effect: "NoSchedule"
+---
+# 服务配置
+apiVersion: v1
+kind: Service
+metadata:
+  name: yyc3-cli-service
+  namespace: yyc3-production
+  labels:
+    app: yyc3-cli-manager
+    service: yyc3-cli
+spec:
+  selector:
+    app: yyc3-cli-manager
+  # 高可用：ClusterIP类型，支持内部负载均衡
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 3200
+      targetPort: 3200
+      protocol: TCP
+  # 会话保持（如果需要）
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800
+---
+# 水平Pod自动扩缩容（HPA）- 高扩展
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: yyc3-cli-hpa
+  namespace: yyc3-production
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: yyc3-cli-manager
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+        - type: Pods
+          value: 2
+          periodSeconds: 60
+        - type: Percent
+          value: 50
+          periodSeconds: 60
+      selectPolicy: Max
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 60
+        - type: Percent
+          value: 20
+          periodSeconds: 60
+      selectPolicy: Max

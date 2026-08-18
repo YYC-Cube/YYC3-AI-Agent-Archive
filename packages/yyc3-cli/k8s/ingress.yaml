@@ -1,0 +1,74 @@
+# /**
+#
+# @fileoverview YYC³ CLI Kubernetes Ingress 配置
+# @description 外部访问路由配置，支持TLS和负载均衡
+# @author YYC³
+# @version 1.0.0
+# @created 2026-01-21
+# @modified 2026-01-21
+# @copyright Copyright (c) 2026 YYC³
+# @license MIT
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: yyc3-cli-ingress
+  namespace: yyc3-production
+  annotations:
+    # 高安全：TLS配置
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    # 负载均衡配置
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "yyc3_cli_session"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "10800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "10800"
+    # 性能优化
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    # 限流配置
+    nginx.ingress.kubernetes.io/limit-rps: "100"
+    nginx.ingress.kubernetes.io/limit-connections: "1000"
+    # CORS配置
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+spec:
+  # TLS配置（高安全）
+  tls:
+    - hosts:
+        - cli.yyc3.cloud
+      secretName: yyc3-cli-tls
+  rules:
+    - host: cli.yyc3.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: yyc3-cli-service
+                port:
+                  number: 3200
+          - path: /health
+            pathType: Exact
+            backend:
+              service:
+                name: yyc3-cli-service
+                port:
+                  number: 3200
+          - path: /metrics
+            pathType: Exact
+            backend:
+              service:
+                name: yyc3-cli-service
+                port:
+                  number: 3200
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: yyc3-cli-service
+                port:
+                  number: 3200

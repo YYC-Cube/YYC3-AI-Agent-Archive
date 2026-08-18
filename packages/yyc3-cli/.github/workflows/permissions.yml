@@ -1,0 +1,27 @@
+name: yyc3-Permissions-Check
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+permissions:
+  contents: read # 仅读取代码
+  pull-requests: write # 可评论PR
+  actions: read # 仅读取Action配置
+  checks: write # 可写入检查结果
+  deployments: none # 禁止部署
+
+jobs:
+  permission-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Lint permission configs
+        run: node -c rbac.config.js && node -c mcp-roles.json
+      - name: Check CODEOWNERS
+        run: grep -q "@YYC-Cube" CODEOWNERS || (echo "CODEOWNERS配置错误" && exit 1)
+      - name: Docker build check
+        run: docker build -t yyc3-ci:temp .

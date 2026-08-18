@@ -59,4 +59,4 @@ export type { CowAgentBridgeConfig } from './cowagent-bridge.js';
 
 // 统一运行时
 export { UnifiedMCPRuntime } from './runtime.js';
-export type { RuntimeConfig } from './runtime.js';
+export type { RuntimeConfig, RuntimeEventMap } from './runtime.js';

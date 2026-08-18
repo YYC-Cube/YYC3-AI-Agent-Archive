@@ -1,0 +1,72 @@
+{
+  "dashboard": {
+    "title": "YYC³ CLI 智能运维监控",
+    "description": "基于五高五标五化原则的全面监控仪表板",
+    "tags": ["yyc3", "cli", "monitoring", "smart-ops"],
+    "style": "dark",
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "系统资源概览",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "100 - (avg by(instance)(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+            "legendFormat": "CPU使用率",
+            "refId": "A"
+          },
+          {
+            "expr": "node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes",
+            "legendFormat": "内存使用",
+            "refId": "B"
+          }
+        ],
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+      },
+      {
+        "title": "服务健康状态",
+        "type": "heatmap",
+        "targets": [
+          {
+            "expr": "yyc3_service_up",
+            "legendFormat": "{{service}}",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 }
+      },
+      {
+        "title": "端口合规性监控",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "yyc3_port_compliance",
+            "legendFormat": "端口状态",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "h": 8, "w": 24, "x": 0, "y": 8 }
+      },
+      {
+        "title": "CLI命令性能",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, sum(rate(yyc3_cli_command_duration_seconds_bucket[5m])) by (le, command))",
+            "legendFormat": "{{command}} P95",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 16 }
+      },
+      {
+        "title": "错误率与告警",
+        "type": "alertlist",
+        "targets": [],
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 16 }
+      }
+    ],
+    "time": { "from": "now-6h", "to": "now" },
+    "refresh": "30s"
+  }
+}

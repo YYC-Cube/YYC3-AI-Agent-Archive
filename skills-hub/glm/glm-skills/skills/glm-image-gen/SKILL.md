@@ -1,6 +1,6 @@
 ---
 name: glm-image-gen
-description:
+description: Official skill for generating high-quality images from text prompts using ZhiPu
 category: development-code
 version: 1.0.0
 description_zh: Official skill for generating high-quality images from text prompts using ZhiPu 

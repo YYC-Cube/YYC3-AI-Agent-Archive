@@ -1,0 +1,64 @@
+{
+  "name": "@yyc3/i18n-react",
+  "version": "0.1.0",
+  "description": "React bindings for @yyc3/i18n-core — useTranslation hook, <Trans> component, Next.js middleware",
+  "keywords": [
+    "react",
+    "i18n",
+    "internationalization",
+    "nextjs",
+    "hooks",
+    "yyc3",
+    "ai-translation",
+    "mcp"
+  ],
+  "author": "YanYuCloudCube Team <admin@0379.email>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YYC-Cube/YYC3-i18n-Core.git",
+    "directory": "packages/i18n-react"
+  },
+  "homepage": "https://github.com/YYC-Cube/YYC3-i18n-Core#readme",
+  "bugs": {
+    "url": "https://github.com/YYC-Cube/YYC3-i18n-Core/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./next": {
+      "import": "./dist/next.js",
+      "types": "./dist/next.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "@yyc3/i18n-core": ">=2.4.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0"
+  },
+  "sideEffects": false
+}

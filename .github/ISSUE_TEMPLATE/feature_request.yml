@@ -1,0 +1,37 @@
+name: ✨ 功能建议
+description: 提出一个新功能或改进建议
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 该功能建议解决什么痛点？Is your feature request related to a problem?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 期望的方案
+      description: 描述你期望的实现方式
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 备选方案
+      description: 你考虑过的其他替代方案
+  - type: dropdown
+    id: area
+    attributes:
+      label: 影响范围
+      options:
+        - packages/ (TypeScript 核心包)
+        - skills-hub/ (技能资产)
+        - agents-hub/ (Agent 资产)
+        - plugins-hub/ (插件资产)
+        - mcp-hub/ (MCP 服务)
+        - tools-hub/ (工具资产)
+        - docs/ (文档体系)
+        - CI/CD 与基础设施
+        - 其他

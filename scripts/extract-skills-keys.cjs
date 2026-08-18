@@ -63,6 +63,8 @@ async function main() {
     count++;
   }
 
+  console.log('[i18n:extract] Skills scanned: ' + count);
+
   // Agent 键
   const agents = {
     'agent.tianshu': { name: '元启·天枢', role: '总指挥 · 决策中枢', phone: '0379-0206' },

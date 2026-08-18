@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  # 团队yyc3 容器权限专属配置
+  app:
+    user: "yyc3-user:yyc3-group"
+    cap_drop:
+      - ALL # 移除所有特权
+    security_opt:
+      - no-new-privileges:true
+    read_only: true # 只读文件系统
+    tmpfs:
+      - /app/tmp:size=100M,uid=1000,gid=1000 # 临时可写目录
+    volumes:
+      - ./logs:/app/logs:rw
+      - ./src:/app/src:ro
+    environment:
+      - NODE_ENV=production
+      - RBAC_ENFORCE=true
+
+  mcp-service:
+    user: "1000:1000"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /app/tmp:size=50M,uid=1000,gid=1000

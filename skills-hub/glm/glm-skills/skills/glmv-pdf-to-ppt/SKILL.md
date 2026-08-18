@@ -1,6 +1,6 @@
 ---
 name: glmv-pdf-to-ppt
-description:
+description: Convert a PDF (research paper, report, or any document) into a polished multi-sl
 category: development-code
 version: 1.0.0
 description_zh: Convert a PDF (research paper, report, or any document) into a polished multi-sl

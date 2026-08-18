@@ -1,0 +1,62 @@
+{
+  // 团队yyc3 编辑器全局设置
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "typescript.format.enable": true,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  // 将 devctl 识别为 shell 脚本，避免被 Dockerfile 扩展误解析
+  "files.associations": {
+    "devctl": "shellscript"
+  },
+  // Docker 语言服务：对特定路径禁用/忽略诊断（未知键将被 VS Code 忽略，不影响运行）
+  "docker.languageserver.excludedFiles": [
+    "**/devctl"
+  ],
+  "docker.languageserver.diagnostics.disabledFiles": [
+    "**/devctl"
+  ],
+  // Docker相关
+  "docker.enableEnhancedImages": true,
+  // Git相关
+  "git.enableCommitSigning": false,
+  "git.confirmSync": false,
+  // 拼写字典白名单
+  "cSpell.words": [
+    "devctl",
+    "pipefail",
+    "esac",
+    "Ollama",
+    "ollama",
+    "machdep",
+    "ncpu",
+    "memsize",
+    "YYC3",
+    "yyc3",
+    "RBAC",
+    "MCP",
+    "Husky",
+    "Prettier",
+    "eslint",
+    "TypeScript",
+    "zfunc",
+    "compinit",
+    "zshrc",
+    "zsh",
+    "symlink",
+    "worktree",
+    "tsconfig",
+    "lint",
+    "staged",
+    "NAS",
+    "Copilot"
+  ],
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "markdown.extension.completion.enabled": false
+}

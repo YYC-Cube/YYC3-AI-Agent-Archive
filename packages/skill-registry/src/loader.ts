@@ -7,9 +7,18 @@
  */
 
 import { readdirSync, readFileSync, statSync, existsSync } from 'fs';
-import { join, extname, basename, dirname } from 'path';
+import { join, basename, dirname } from 'path';
 import type { UnifiedSkill, SkillDomain, SkillType, SkillRuntime } from './types.js';
 import type { SkillRegistry } from './registry.js';
+import {
+  parseFrontmatter,
+  toString,
+  toStringArray,
+} from './frontmatter.js';
+import type { Frontmatter } from './frontmatter.js';
+
+// 向后兼容导出：frontmatter 解析已迁移至独立模块
+export { parseFrontmatter } from './frontmatter.js';
 
 // ==================== Skill 清单解析 ====================
 
@@ -25,55 +34,56 @@ export interface SkillManifest {
   tags?: string[];
   version?: string;
   status?: string;
-}
-
-/**
- * 从 SKILL.md frontmatter 中提取清单信息
- */
-export function parseFrontmatter(content: string): Record<string, string> {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return {};
-
-  const frontmatter: Record<string, string> = {};
-  const lines = match[1].split('\n');
-
-  for (const line of lines) {
-    const colonIdx = line.indexOf(':');
-    if (colonIdx === -1) continue;
-    const key = line.slice(0, colonIdx).trim();
-    const value = line.slice(colonIdx + 1).trim();
-    if (key) frontmatter[key] = value;
-  }
-
-  return frontmatter;
+  /** AYNC 分类编码（如 development-code） */
+  category?: string;
+  /** 允许使用的工具列表 */
+  allowedTools?: string[];
 }
 
 /**
  * 将 frontmatter 映射到 SkillManifest
  */
 export function frontmatterToManifest(
-  fm: Record<string, string>,
+  fm: Frontmatter,
   dirName: string
 ): SkillManifest {
   return {
-    id: fm['id'] || fm['name'] || dirName,
-    name: fm['name'] || fm['id'] || dirName,
-    description: fm['description'] || '',
-    domain: fm['domain'] || inferDomain(dirName),
-    type: fm['type'] || inferType(dirName),
-    runtime: fm['runtime'] || 'python',
-    entry: fm['entry'] || '',
-    fallback: fm['fallback'],
-    tags: fm['tags'] ? fm['tags'].split(',').map(t => t.trim()) : [],
-    version: fm['version'],
-    status: fm['status'] || 'active',
+    id: toString(fm['id']) || toString(fm['name']) || dirName,
+    name: toString(fm['name']) || toString(fm['id']) || dirName,
+    description: toString(fm['description']),
+    domain: toString(fm['domain']),
+    category: toString(fm['category']),
+    type: toString(fm['type']),
+    runtime: toString(fm['runtime']),
+    entry: toString(fm['entry']),
+    fallback: toString(fm['fallback']),
+    tags: toStringArray(fm['tags']),
+    allowedTools: toStringArray(fm['allowed-tools']),
+    version: toString(fm['version']),
+    status: toString(fm['status']),
   };
+}
+
+/**
+ * AYNC 分类编码 → SkillDomain 映射
+ */
+function categoryToDomain(category: string): SkillDomain {
+  const normalized = category.toLowerCase();
+  if (normalized.includes('business')) return 'marketplace';
+  if (normalized.includes('document')) return 'glm-doc';
+  if (normalized.includes('ai-ml') || normalized.includes('ai_ml')) return 'ai-ml';
+  if (normalized.includes('marketing')) return 'marketing';
+  if (normalized.includes('development') || normalized.includes('dev')) return 'devflow';
+  if (normalized.includes('social')) return 'social';
+  if (normalized.includes('b2b')) return 'b2b';
+  if (normalized.includes('ui') || normalized.includes('design')) return 'ui-ux';
+  return 'custom';
 }
 
 /**
  * 从目录名推断领域
  */
-function inferDomain(dirName: string): string {
+function inferDomain(dirName: string): SkillDomain {
   if (dirName.startsWith('glm') || dirName.startsWith('GLM')) {
     if (dirName.includes('ocr')) return 'glm-ocr';
     if (dirName.includes('caption') || dirName.includes('grounding') || dirName.includes('vision'))
@@ -85,13 +95,6 @@ function inferDomain(dirName: string): string {
     return 'glm-gen';
   }
   return 'custom';
-}
-
-/**
- * 从目录内容推断类型
- */
-function inferType(dirName: string): string {
-  return 'hybrid';
 }
 
 /**
@@ -240,15 +243,21 @@ export class SkillLoader {
     const fm = parseFrontmatter(content);
     const manifest = frontmatterToManifest(fm, dirName);
 
-    // 从 domainMap 推断领域
+    // 领域优先级：frontmatter domain > category 映射 > domainMap 路径映射 > 目录名推断
     let domain: SkillDomain = (manifest.domain as SkillDomain) || 'custom';
-    if (domainMap) {
+    if (!manifest.domain && manifest.category) {
+      domain = categoryToDomain(manifest.category);
+    }
+    if (domain === 'custom' && domainMap) {
       for (const [path, dom] of Object.entries(domainMap)) {
         if (skillDir.includes(path)) {
           domain = dom;
           break;
         }
       }
+    }
+    if (!manifest.domain && !manifest.category && domain === 'custom') {
+      domain = inferDomain(dirName);
     }
 
     // 检测运行时和入口

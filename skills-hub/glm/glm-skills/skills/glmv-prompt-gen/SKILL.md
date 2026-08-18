@@ -1,6 +1,6 @@
 ---
 name: glmv-prompt-gen
-description:
+description: Analyze images/videos and generate professional prompts for text-to-image and
 category: development-code
 version: 1.0.0
 description_zh: Analyze images/videos and generate professional prompts for text-to-image and

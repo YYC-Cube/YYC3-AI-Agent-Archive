@@ -1,0 +1,15 @@
+# 团队yyc3 容器权限拆分配置
+# 该文件需在主Dockerfile中通过COPY引入
+# 非root用户配置
+RUN addgroup -S yyc3-group && adduser -S yyc3-user -G yyc3-group
+USER yyc3-user
+
+# 目录权限配置
+RUN mkdir -p /app/logs /app/tmp && chown -R yyc3-user:yyc3-group /app
+RUN chmod 700 /app/logs /app/tmp
+RUN chmod 644 /app/dist/**/*.js
+RUN chmod 600 /app/*.config.js
+
+# 禁止sudo/root操作
+RUN touch /etc/sudoers.d/yyc3 && echo "yyc3-user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/yyc3
+RUN chmod 0440 /etc/sudoers.d/yyc3

@@ -6,10 +6,22 @@
  * 提供单一入口的 tools/list 和 tools/call 接口。
  */
 
+import { EventEmitter } from 'eventemitter3';
 import type { MCPTool, MCPToolCall, MCPToolResult, SourcedTool } from './types.js';
 import { SkillMCPBridge } from './bridge.js';
 import { CowAgentMCPBridge } from './cowagent-bridge.js';
 import type { SkillRegistry, SkillExecutor } from '@yyc3/skill-registry';
+
+// ==================== 运行时事件 ====================
+
+export interface RuntimeEventMap {
+  'tool:registered': { name: string; source: SourcedTool['source'] };
+  'tool:unregistered': { name: string };
+  'tool:called': { name: string; callId: string };
+  'tool:succeeded': { name: string; callId: string };
+  'tool:failed': { name: string; callId: string; error: string };
+  'runtime:initialized': { totalTools: number };
+}
 
 export interface RuntimeConfig {
   skillRegistry?: SkillRegistry;
@@ -26,13 +38,14 @@ export interface RuntimeConfig {
   customExecutor?: (call: MCPToolCall) => Promise<MCPToolResult>;
 }
 
-export class UnifiedMCPRuntime {
+export class UnifiedMCPRuntime extends EventEmitter<RuntimeEventMap> {
   private skillBridge: SkillMCPBridge | null = null;
   private cowagentBridge: CowAgentMCPBridge | null = null;
   private toolIndex: Map<string, SourcedTool> = new Map();
   private config: RuntimeConfig;
 
   constructor(config: RuntimeConfig = {}) {
+    super();
     this.config = {
       enableSkillBridge: true,
       enableCowAgent: true,
@@ -66,6 +79,8 @@ export class UnifiedMCPRuntime {
     if (this.config.customTools) {
       this.indexTools(this.config.customTools);
     }
+
+    this.emit('runtime:initialized', { totalTools: this.toolIndex.size });
   }
 
   /**
@@ -126,31 +141,54 @@ export class UnifiedMCPRuntime {
       arguments: args,
     };
 
+    this.emit('tool:called', { name, callId: call.id });
+
+    let result: MCPToolResult;
     switch (sourced.source) {
       case 'skill-registry':
         if (this.skillBridge) {
-          return this.skillBridge.handleToolCall(call);
+          result = await this.skillBridge.handleToolCall(call);
+          this.emitToolResult(name, call.id, result);
+          return result;
         }
         break;
 
       case 'cowagent':
         if (this.cowagentBridge) {
-          return this.cowagentBridge.handleToolCall(call);
+          result = await this.cowagentBridge.handleToolCall(call);
+          this.emitToolResult(name, call.id, result);
+          return result;
         }
         break;
 
       case 'custom':
         if (this.config.customExecutor) {
-          return this.config.customExecutor(call);
+          result = await this.config.customExecutor(call);
+          this.emitToolResult(name, call.id, result);
+          return result;
         }
         break;
     }
 
-    return {
+    result = {
       id: call.id,
       content: [{ type: 'text', text: `No executor available for tool: ${name} (source: ${sourced.source})` }],
       isError: true,
     };
+    this.emitToolResult(name, call.id, result);
+    return result;
+  }
+
+  /**
+   * 根据执行结果发出成功/失败事件
+   */
+  private emitToolResult(name: string, callId: string, result: MCPToolResult): void {
+    if (result.isError) {
+      const text = result.content.find(c => c.type === 'text')?.text ?? 'unknown error';
+      this.emit('tool:failed', { name, callId, error: text });
+    } else {
+      this.emit('tool:succeeded', { name, callId });
+    }
   }
 
   /**
@@ -158,13 +196,21 @@ export class UnifiedMCPRuntime {
    */
   registerTool(sourced: SourcedTool): void {
     this.toolIndex.set(sourced.tool.name, sourced);
+    this.emit('tool:registered', {
+      name: sourced.tool.name,
+      source: sourced.source,
+    });
   }
 
   /**
    * 注销工具
    */
   unregisterTool(name: string): boolean {
-    return this.toolIndex.delete(name);
+    const removed = this.toolIndex.delete(name);
+    if (removed) {
+      this.emit('tool:unregistered', { name });
+    }
+    return removed;
   }
 
   /**

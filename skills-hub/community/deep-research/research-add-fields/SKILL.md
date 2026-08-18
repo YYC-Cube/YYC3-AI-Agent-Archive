@@ -1,4 +1,5 @@
 ---
+name: research-add-fields
 user-invocable: true
 description: 向现有调研outline补充字段定义。
 category: development-code

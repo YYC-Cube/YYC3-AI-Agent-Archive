@@ -1,3 +1,9 @@
+---
+name: sdr-humanizer
+description: Transform AI-generated sales messages into natural, human-like conversations that build trust and rapport. - Never send walls of text — break into 2-3 short messages
+version: 1.0.0
+---
+
 # sdr-humanizer — Human-Like Conversation Rules
 
 Transform AI-generated sales messages into natural, human-like conversations that build trust and rapport.

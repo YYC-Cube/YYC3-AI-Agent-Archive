@@ -1,0 +1,23 @@
+# Prettier 忽略清单 — 与 .gitignore 对齐并覆盖资产目录
+node_modules
+dist
+coverage
+.turbo
+target
+.external
+_archive
+_external
+skills-hub
+agents-hub
+plugins-hub
+mcp-hub
+tools-hub
+tools
+docs
+public
+skills
+core
+locales
+meta
+pnpm-lock.yaml
+package-lock.json
