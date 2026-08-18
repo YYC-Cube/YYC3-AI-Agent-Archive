@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/mcp-runtime",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "YYC³ 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接 + CowAgent 工具适配",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
@@ -16,7 +16,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
     "@yyc3/skill-registry": "workspace:*",
@@ -25,7 +26,8 @@
   "devDependencies": {
     "@types/node": "^20.14.0",
     "typescript": "^5.5.0",
-    "tsup": "^8.0.0"
+    "tsup": "^8.0.0",
+    "vitest": "^3.2.7"
   },
   "publishConfig": {
     "access": "restricted",
