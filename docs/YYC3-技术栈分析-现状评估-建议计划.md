@@ -823,7 +823,7 @@ export class NvidiaSkillAdapter {
 |:----:|------|------|
 | P2-1 | AYNC 命名工具 | ✅ 新增 `yyc3 skills naming lint` / `migrate`（默认 dry-run，`--apply` 执行）。实测：849 技能中 kebab-case 合规 848、AYNC 编码合规 0%（迁移计划已可生成） |
 | P2-3 | NVIDIA 适配 | ✅ **无需适配层**——初版评估有误：NVIDIA 技能含 **212 个标准 SKILL.md**（嵌套于 `nvidia-skills/skills/<name>/`，frontmatter 格式完全兼容），仅需扫描深度 ≥4 |
-| P2-2 | SKILL.md 格式统一 | 🔜 部分——校验器与 lint 工具就绪，批量整改 62 个既有 error 待专项执行 |
+| P2-2 | SKILL.md 格式统一 | ✅ 完成——校验器 + lint 工具就绪；62 个既有 error 已于第二轮全部清零（见 7.6） |
 
 ### 7.4 Phase 3 — 体验优化 ✅ 完成
 
@@ -860,7 +860,7 @@ export class NvidiaSkillAdapter {
 | 62 个 frontmatter error | **62 错误 + 13 警告全部清零**（849 文件 0 error / 0 warning）。三类实修 47 个文件（无 frontmatter 生成 8 个、缺 name 补目录名 15 个、缺 description 从 description_zh/en 回填 21 个、缺 version 补 1.0.0 共 8 个）；另发现并修复 **CLI 解析器两处缺陷**：① 缩进嵌套块（如 metadata 下 version）覆盖顶层键导致 13 个误报警告 ② verbose 模式不输出警告。修复工具沉淀为 `scripts/fix-frontmatter.cjs`（支持 --dry-run，幂等） | ✅ 已清零 |
 | AYNC --apply 时机 | **分析结论：当前不执行批量迁移**。依据：① plugin.json（buildwithclaude-all-skills 等）按目录名引用技能，重命名破坏引用链 ② 67 组同名技能（NVIDIA 双副本为主）未治理前重命名加剧混乱 ③ 注册中心按 frontmatter name 查询，目录名编码收益低。已落地：CI skills-audit 增加 naming lint 非阻断报告步骤。建议路径：新资产增量合规 → 技能去重专项 → 小批量试点（community 单类目）→ 全量 --apply | ✅ 已决策 |
 | README 徽章版本 | v1.4.0 → v2.1.0（与 package.json 对齐） | ✅ 已修复 |
-| i18n vitest peer 警告 | `@vitest/coverage-v8` 1.6 vs vitest 4.1（上游包预存在，仅影响 coverage 运行） | 🔜 待上游升级 |
+| i18n vitest peer 警告 | 已于安全轮修复：`@vitest/coverage-v8` 1.6.1 → 4.1.10 对齐 vitest 4（见 7.7） | ✅ 已修复 |
 
 **第二轮新增治理工具与数据质量结论**：
 - `scripts/fix-frontmatter.cjs`：frontmatter 批量修复（5 类缺陷，dry-run/幂等）
@@ -896,6 +896,27 @@ package.json / requirements.txt / Cargo.toml），与本仓库 workspace 的 `pn
 1. 本次推送已移除 ClickHouse 与 autocomplete-specs（约 4 万文件）出依赖图谱，告警数将显著下降
 2. 如需彻底静默：仓库 Settings → Code security → 关闭 Dependabot alerts（保留 CI 层 `pnpm audit` 门禁）
 3. 或按目录批量 `/dependabot ignore` 第三方资产目录
+
+### 7.8 符号链接根治与去重专项（2026-08-18 第四、五轮执行）
+
+**第四轮：符号链接克隆安全**（commit `514d10852`）
+- 全仓 15 个符号链接审计：14 个站内相对链接（目标均被追踪，克隆安全）+ 1 个指向 `/Applications` 的绝对链接
+- `tools-hub/code-ide/bin/buddycn` 绝对链接 → 运行时候选路径解析 wrapper（实测可调用）
+- 连带清理：17.6 万行运行日志移出追踪（.gitignore 增 `logs/`）；PRODUCTION-PLAN 文档 3 处过时 symlink 方案更正
+- **克隆模拟测试通过**：浅克隆后 14 链接全部 OK，无仓库外依赖
+
+**第五轮：去重专项 + 命名规范收尾**
+
+| 任务 | 结果 |
+|------|------|
+| 同名技能去重 | **67 组 → 46 组**。自建重复三处删除：`glm-skills-v2`（16 组全同副本，独有 vscode-skills 迁出为 `glm/update-screenshots`）、`westock-data`（旧版 1.0.1，保留 1.0.5）、`community/ai-family-unified-architecture`（与 yyc3/ 完全相同）；`research-en` 五技能改名加 `-en` 后缀。剩余 46 组为第三方双归档（anthropics/claude-code/engineering/marketing 上游合集嵌套 + NVIDIA 仓库内插件副本），由注册中心治理承接 |
+| 注册中心同名冲突治理 | `SkillRegistry.register` 实现 **SemVer 版本胜出**：高版本为主技能、落选方记入 variants 并发 `skill:duplicate` 事件；新增 `getVariants`/`getDuplicateIds` API 与 `withVariants` 统计；4 个专项测试（skill-registry 累计 61 测试全绿） |
+| CLI 去重工具 | 新增 `yyc3 skills dedup --names`：同名冲突 IDENT/VARIANT 分类报告；修复 dedup 扫描遇目录符号链接 EISDIR 崩溃 |
+| P3-2 命名笔误 | **AI-FAmily → AI-Family 全仓清零**：8 个 Agent 文件、2 个 docs 目录、2 个 packages 文档改名 + 全部内容引用同步（两步法绕过 macOS 大小写不敏感文件系统；_external 10 处按约定保留） |
+| P3-1 分类 README | 十大分类目录各生成数据驱动 README（真实技能计数 + 抽样清单）；ui-ux 如实标注为设计资产目录（无 SKILL.md） |
+| P3-4 市场评估 | 实测 community-agents 78 插件为 claude-code-agents（91）的**严格子集且内容分化**（同源分叉快照）；推荐合并收敛方案见 `docs/YYC3-AGENTS-HUB-双插件市场评估.md`，执行待维护者确认 |
+
+**第五轮验证**：`skills validate` 0 错误 0 警告；`dedup --names` 46 组（VARIANT 35 / IDENT 11）；skill-registry 61 测试全绿。
 
 ---
 
