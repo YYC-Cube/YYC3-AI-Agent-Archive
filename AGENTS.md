@@ -54,5 +54,5 @@ pnpm yyc3 skills naming lint -v   # AYNC 命名合规检查
 
 - `_external/ClickHouse`（398MB）在 git 追踪中，任何全仓库 glob 操作（eslint/prettier/重命名脚本）
   必须显式排除 `_external` 与 `_archive`。
-- `docs/YYC3-AI-FAmily-Agent-家人档案/` 含指向 `agents-hub/ai-family/` 的符号链接，勿当作真实目录复制。
+- `docs/YYC3-AI-Family-Agent-家人档案/` 含指向 `agents-hub/ai-family/` 的符号链接，勿当作真实目录复制。
 - 根 `.gitignore` 之前仅忽略 `.DS_Store`，历史提交可能包含构建产物 —— 不要 `git add -A` 盲目提交大文件。

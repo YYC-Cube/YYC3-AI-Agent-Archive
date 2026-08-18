@@ -19,16 +19,51 @@ import type {
 
 type EventHandler<T> = (payload: T) => void;
 
+/** SemVer 宽松比较：返回版本更高的一方；无法解析时保留首个（existing） */
+function higherVersion(a: UnifiedSkill, b: UnifiedSkill): UnifiedSkill {
+  const pa = parseSemver(a.version);
+  const pb = parseSemver(b.version);
+  if (!pa || !pb) return a;
+  for (let i = 0; i < 3; i++) {
+    if (pa[i] !== pb[i]) return pa[i] > pb[i] ? a : b;
+  }
+  return a;
+}
+
+function parseSemver(v?: string): [number, number, number] | null {
+  if (!v) return null;
+  const m = v.match(/^v?(\d+)\.(\d+)\.(\d+)/);
+  if (!m) return null;
+  return [Number(m[1]), Number(m[2]), Number(m[3])];
+}
+
 export class SkillRegistry {
   private skills: Map<string, UnifiedSkill> = new Map();
   private domainIndex: Map<SkillDomain, Set<string>> = new Map();
   private tagIndex: Map<string, Set<string>> = new Map();
+  /** 同名变体：主技能 ID → 被压制的历史版本列表 */
+  private variants: Map<string, UnifiedSkill[]> = new Map();
   private listeners: { [K in keyof SkillEventMap]?: Set<EventHandler<SkillEventMap[K]>> } = {};
 
   /**
    * 注册一个 Skill
+   *
+   * 同名冲突治理：保留版本号更高（SemVer 比较）的一方为主技能，
+   * 落选方记录为变体并发出 skill:duplicate 事件，注册结果确定且可观测。
    */
   register(skill: UnifiedSkill): void {
+    const existing = this.skills.get(skill.id);
+    if (existing) {
+      const winner = higherVersion(existing, skill);
+      const loser = winner === existing ? skill : existing;
+      this.variants.set(skill.id, [...(this.variants.get(skill.id) ?? []), loser]);
+      if (winner === skill) {
+        this.skills.set(skill.id, skill);
+      }
+      this.emit('skill:duplicate', { id: skill.id, kept: winner, variant: loser });
+      return;
+    }
+
     this.skills.set(skill.id, skill);
 
     // 索引：按领域
@@ -67,6 +102,7 @@ export class SkillRegistry {
     if (!skill) return false;
 
     this.skills.delete(id);
+    this.variants.delete(id);
     this.domainIndex.get(skill.domain)?.delete(id);
 
     if (skill.tags) {
@@ -196,6 +232,20 @@ export class SkillRegistry {
   }
 
   /**
+   * 获取指定技能的同名变体（被压制的其他版本）
+   */
+  getVariants(id: string): UnifiedSkill[] {
+    return this.variants.get(id) ?? [];
+  }
+
+  /**
+   * 获取全部存在同名冲突的技能 ID
+   */
+  getDuplicateIds(): string[] {
+    return Array.from(this.variants.keys());
+  }
+
+  /**
    * 获取注册中心统计信息
    */
   getStats(): SkillRegistryStats {
@@ -207,6 +257,7 @@ export class SkillRegistry {
       byStatus: {},
       withEvals: 0,
       withFallback: 0,
+      withVariants: this.variants.size,
     };
 
     for (const skill of this.skills.values()) {

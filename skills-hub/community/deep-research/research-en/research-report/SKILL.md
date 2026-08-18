@@ -1,5 +1,5 @@
 ---
-name: research-report
+name: research-en-research-report
 user-invocable: true
 description: Summarize deep research results into markdown report, cover all fields, skip uncertain values.
 category: development-code

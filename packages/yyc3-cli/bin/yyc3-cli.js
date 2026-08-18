@@ -17,7 +17,7 @@ const pkg = require('../package.json');
 const { initProject, deployProject, buildProject, runTests, configureSettings } = require('../lib/index');
 const { buildIndex } = require('../lib/skills-indexer');
 const { validateAll } = require('../lib/skills-validator');
-const { findDuplicates } = require('../lib/skills-deduper');
+const { findDuplicates, findNameCollisions } = require('../lib/skills-deduper');
 const { generateStats } = require('../lib/skills-stats');
 const { lintNaming, migrateNaming } = require('../lib/skills-naming');
 
@@ -156,8 +156,12 @@ skills
   .command('dedup')
   .description('检测重复文件')
   .option('-v, --verbose', '详细输出')
+  .option('--names', '分析同名技能冲突（IDENT/VARIANT 分类）', false)
   .action(async (options) => {
-    try { await findDuplicates(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+    try {
+      if (options.names) { await findNameCollisions(options); }
+      else { await findDuplicates(options); }
+    } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
 skills
