@@ -1,0 +1,15 @@
+# 团队yyc3 Docker构建忽略规则
+.git/
+.gitignore
+node_modules/
+dist/
+coverage/
+logs/
+tmp/
+.env
+.access-keys
+.env.permissions.local
+*.log
+.git-hooks/
+.husky/
+.vscode/

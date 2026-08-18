@@ -1,0 +1,41 @@
+name: 🐛 Bug 报告
+description: 报告一个缺陷或异常行为
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 清晰简明地描述遇到的问题
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 复现该行为的操作步骤
+      placeholder: |
+        1. 进入 '...'
+        2. 执行 '....'
+        3. 观察 '....'
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 描述你预期应该发生什么
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: Node/pnpm 版本、操作系统、相关包版本
+      placeholder: "Node v20.x, pnpm 9.x, macOS 15"
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志
+      description: 粘贴任何相关日志输出（自动包裹为代码块）
+      render: shell

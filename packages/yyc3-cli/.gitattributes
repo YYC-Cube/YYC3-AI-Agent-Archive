@@ -1,0 +1,19 @@
+# 团队yyc3 Git跨平台格式统一
+* text=auto eol=lf
+
+# 二进制文件不转换
+*.png binary
+*.jpg binary
+*.gif binary
+
+# 配置文件强制LF
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+
+# 文档文件保留CRLF（Windows兼容）
+*.md text eol=crlf
+*.txt text eol=crlf

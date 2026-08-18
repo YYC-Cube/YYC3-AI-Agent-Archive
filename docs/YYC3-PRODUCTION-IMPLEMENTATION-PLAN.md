@@ -13,6 +13,11 @@ tags: [投产, 实施方案, CLI, i18n, 闭环, 资产全景]
 > **万象归元于云枢 | 深栈智启新纪元**
 > 基于存量资产全景审查 + YYC3-CLI(v2.0.0) + YYC3-i18n-Core(v2.4.0) 自有项目深度分析
 
+> **⚠️ 状态更正（2026-08-18）**：本方案中所有「符号链接引入外部仓库」的做法（packages/yyc3-cli、
+> packages/yyc3-i18n → /Users/yanyu/YYC-Cube/...）已**废弃并落地为内联复制**——两个包的实际代码
+> 已复制进本仓库 packages/ 目录，符号链接已删除，克隆即可用。文中相关段落仅作历史方案保留，
+> 实施状态以 `docs/YYC3-技术栈分析-现状评估-建议计划.md` 第七章实施记录为准。
+
 ---
 
 ## 一、存量资产全景确认
@@ -214,8 +219,8 @@ tags: [投产, 实施方案, CLI, i18n, 闭环, 资产全景]
 │  └── 创建 YYC3-微调数据构建规范.md（被引用但不存在）                │
 │                                                                     │
 │  [P2] i18n 与 Skills 工作区打通                                     │
-│  ├── 将 YYC3-i18n-Core 作为 git submodule 引入                     │
-│  │   → packages/yyc3-i18n/ (symlink to /Users/yanyu/YYC-Cube/YYC3-i18n-Core)│
+│  ├── ~~将 YYC3-i18n-Core 作为 git submodule 引入~~（已改为内联复制） │
+│  │   → packages/yyc3-i18n/（实际代码，2026-08-18 落地）            │
 │  └── 为 i18n 引擎添加 Skills 专属翻译键（~2000 键）                │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
@@ -224,10 +229,10 @@ tags: [投产, 实施方案, CLI, i18n, 闭环, 资产全景]
 │  第 2 周: CLI 增强集成                                               │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  [P0] 将 YYC3-CLI 链接至工作区                                      │
+│  [P0] ~~将 YYC3-CLI 链接至工作区~~（已改为内联复制）               │
 │  ├── 在 YYC3-Skills 根目录 package.json 添加:                      │
-│  │   "bin": { "yyc3": "bin/yyc3-cli.js" }                          │
-│  └── symlink: packages/yyc3-cli → /Users/yanyu/YYC-Cube/YYC3-CLI   │
+│  │   "bin": { "yyc3": "packages/yyc3-cli/bin/yyc3-cli.js" }        │
+│  └── packages/yyc3-cli/（实际代码，2026-08-18 落地）               │
 │                                                                     │
 │  [P1] 在 YYC3-CLI 中新增 Skills 管理命令                            │
 │  ├── yyc3 skills:build    构建全局索引                              │
@@ -396,8 +401,8 @@ YYC3-CLI/
 ### 6.2 集成动作（只需 3 步）
 
 ```bash
-# 第 1 步：在 YYC3-Skills 中创建符号链接
-ln -s /Users/yanyu/YYC-Cube/YYC3-i18n-Core packages/yyc3-i18n
+# 第 1 步：内联复制（已执行，替代原符号链接方案）
+# cp -r /Users/yanyu/YYC-Cube/YYC3-i18n-Core packages/yyc3-i18n（排除 .git/node_modules）
 
 # 第 2 步：在 package.json 中添加 workspace 引用
 # "packages": [

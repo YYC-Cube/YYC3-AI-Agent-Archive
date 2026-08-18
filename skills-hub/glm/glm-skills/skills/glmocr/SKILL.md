@@ -1,6 +1,6 @@
 ---
 name: glmocr
-description:
+description: Extract text from images using GLM-OCR API. Supports images and PDFs with
 category: development-code
 version: 1.0.0
 description_zh: Extract text from images using GLM-OCR API. Supports images and PDFs with

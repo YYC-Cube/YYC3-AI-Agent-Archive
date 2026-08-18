@@ -1,0 +1,33 @@
+{
+  "team": "yyc3",
+  "rules": [
+    {
+      "id": "rule-001",
+      "name": "禁止访问敏感配置文件",
+      "pattern": "\.(env|access-keys|permissions)\.*",
+      "action": "deny",
+      "roles": ["all"]
+    },
+    {
+      "id": "rule-002",
+      "name": "仅管理员可修改MCP配置",
+      "pattern": "mcp\.(config|roles|access-rules)\.js(on)?",
+      "action": "allow",
+      "roles": ["admin"]
+    },
+    {
+      "id": "rule-003",
+      "name": "仅管理员可修改RBAC配置",
+      "pattern": "rbac\.config\.js|access-control\.json",
+      "action": "allow",
+      "roles": ["admin"]
+    },
+    {
+      "id": "rule-004",
+      "name": "所有角色可访问业务代码",
+      "pattern": "src/.*\.(js|ts|jsx|tsx)",
+      "action": "allow",
+      "roles": ["developer", "tester", "admin"]
+    }
+  ]
+}

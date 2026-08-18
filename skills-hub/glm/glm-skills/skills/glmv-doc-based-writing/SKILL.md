@@ -1,6 +1,6 @@
 ---
 name: glmv-doc-based-writing
-description:
+description: Write a textual content based on given document(s) and requirements, using ZhiPu
 category: development-code
 version: 1.0.0
 description_zh: Write a textual content based on given document(s) and requirements, using ZhiPu

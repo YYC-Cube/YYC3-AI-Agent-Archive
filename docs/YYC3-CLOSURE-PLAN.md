@@ -46,7 +46,7 @@ tags: [闭环, 实施计划, 全链路, 统一化]
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │  P0 去重修复                                                         │
-│  ├── 删除 docs/YYC3-AI-FAmily-Agent-家人档案/ 中 8 个重复 Agent 文件 │
+│  ├── 删除 docs/YYC3-AI-Family-Agent-家人档案/ 中 8 个重复 Agent 文件 │
 │  ├── 删除 agents-hub/ai-family/ 中系统提示词副本                     │
 │  ├── 清理 _categories.json 中重复 skill 条目                        │
 │  └── 修复系统提示词中 2 个断裂引用（YYC3-Agent.md 等）               │

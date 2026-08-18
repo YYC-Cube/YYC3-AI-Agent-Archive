@@ -1,0 +1,9 @@
+# 团队yyc3 Docker资源访问白名单
+# 允许访问的宿主机目录
+ALLOWED_HOST_DIRS=/var/log/yyc3,/app/src
+# 允许执行的系统命令
+ALLOWED_COMMANDS=node,npm,git,cat,ls,grep
+# 允许连接的网络地址
+ALLOWED_NETWORKS=127.0.0.1,172.17.0.0/16
+# 禁止挂载的目录
+DENY_MOUNT_DIRS=/root,/etc,/var/run

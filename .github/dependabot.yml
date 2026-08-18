@@ -1,0 +1,45 @@
+version: 2
+updates:
+  # 根 Monorepo npm 依赖
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      typescript-tooling:
+        patterns:
+          - "typescript"
+          - "tsup"
+          - "@types/*"
+      quality-tooling:
+        patterns:
+          - "eslint*"
+          - "prettier"
+          - "vitest"
+          - "@vitest/*"
+
+  # 各 workspace 包
+  - package-ecosystem: npm
+    directory: /packages/skill-registry
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /packages/mcp-runtime
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /packages/yyc3-cli
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /packages/yyc3-i18n
+    schedule:
+      interval: weekly
+
+  # GitHub Actions 版本
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

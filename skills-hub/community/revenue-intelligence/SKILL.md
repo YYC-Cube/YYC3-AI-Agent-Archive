@@ -1,5 +1,7 @@
 ---
 name: revenue-intelligence
+category: business-productivity
+description: 收入归因分析，销售通话洞察与客户报告自动生成
 version: 1.0.1
 display_name: "revenue-intelligence"
 display_name_en: "Revenue Intelligence"

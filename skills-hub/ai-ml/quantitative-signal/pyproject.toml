@@ -14,7 +14,7 @@
 # limitations under the License.
 
 [build-system]
-build-backend = "setuptools.build_meta"
+build-backend = "setuptools>=83.0.0"
 requires = ["setuptools >= 64", "setuptools-scm>=8"]
 
 [project]
@@ -40,7 +40,7 @@ description = "Signal Discovery Workflow - Example for NeMo Agent Toolkit"
 classifiers = ["Programming Language :: Python"]
 
 [project.optional-dependencies]
-test = ["pytest>=8.0"]
+test = ["pytest>=9.1.1"]
 
 [project.entry-points.'nat.components']
 signal_discovery_workflow = "signal_discovery_workflow.register"
