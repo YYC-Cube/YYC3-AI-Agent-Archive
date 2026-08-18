@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Idefics3 regression — pin transformers 4.49 per tao-finetune-huggingface-model error playbook
-transformers==4.49.0
+transformers==5.5.0
 tokenizers==0.21.0
 datasets>=2.18
 accelerate>=0.30
