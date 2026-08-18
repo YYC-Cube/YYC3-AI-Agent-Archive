@@ -1,5 +1,6 @@
 ---
 name: notes
+category: document-processing
 description: "⛔ Before ANY write (`import_doc`/`append_doc`): validate ALL string fields (`content`, `title`) are legal UTF-8. Non-UTF-8 content causes irreversible garbled text in IMA. See root SKILL.md § MANDATORY RULES for platform-specific validation methods."
 version: 1.0.0
 ---

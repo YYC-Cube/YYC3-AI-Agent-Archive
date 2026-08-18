@@ -1,5 +1,6 @@
 ---
 name: growth-engine
+category: business-productivity
 description: 自主营销实验引擎，自动运行、度量与优化增长实验
 version: 1.0.1
 display_name: "growth-engine"

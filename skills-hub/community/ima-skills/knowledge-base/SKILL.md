@@ -1,5 +1,6 @@
 ---
 name: knowledge-base
+category: document-processing
 description: 搜索知识库后，用返回的 ID 列表调用 `get_knowledge_base` 获取描述信息，一并展示。
 version: 1.0.0
 ---

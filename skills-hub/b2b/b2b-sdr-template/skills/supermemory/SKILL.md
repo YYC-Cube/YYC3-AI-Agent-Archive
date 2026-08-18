@@ -1,5 +1,6 @@
 ---
 name: supermemory
+category: b2b
 description: "Semantic memory layer powered by vector search. Store, recall, and connect conversation insights across all customer interactions. - `memory:add <text>` — Manually add a memory"
 version: 1.0.0
 ---

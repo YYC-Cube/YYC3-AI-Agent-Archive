@@ -1,5 +1,6 @@
 ---
 name: seo-ops
+category: marketing
 description: SEO 运营自动化，内容攻击简报、GSC 优化与趋势侦察
 version: 1.0.1
 display_name: "seo-ops"

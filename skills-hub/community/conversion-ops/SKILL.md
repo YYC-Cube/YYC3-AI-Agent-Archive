@@ -1,5 +1,6 @@
 ---
 name: conversion-ops
+category: business-productivity
 description: CRO 审计与落地页转化优化，调查问卷转化为引流磁铁
 version: 1.0.1
 display_name: "conversion-ops"

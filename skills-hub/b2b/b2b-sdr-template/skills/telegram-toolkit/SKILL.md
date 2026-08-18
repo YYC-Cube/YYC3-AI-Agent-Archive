@@ -1,5 +1,6 @@
 ---
 name: telegram-toolkit
+category: b2b
 description: Bot commands, inline keyboards, large file handling, and channel-specific sales strategies for Telegram-based B2B SDR.
 version: 1.0.0
 ---

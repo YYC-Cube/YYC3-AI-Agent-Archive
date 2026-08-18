@@ -1,5 +1,6 @@
 ---
 name: chroma-memory
+category: b2b
 description: Long-term vector memory for customer conversations. Stores every turn with customer isolation, auto-tags quotes and commitments, enables semantic retrieval across sessions.
 version: 1.0.0
 ---
