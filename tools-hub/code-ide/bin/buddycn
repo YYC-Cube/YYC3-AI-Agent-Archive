@@ -1,1 +1,18 @@
-/Applications/CodeBuddy CN.app/Contents/Resources/app/bin/code
+#!/bin/sh
+# CodeBuddy CN CLI 启动器
+# 原为指向 /Applications/CodeBuddy CN.app 的绝对路径符号链接，换机/CI 即断链；
+# 改为运行时按候选路径解析，克隆后依然可用。
+for candidate in \
+  "/Applications/CodeBuddy CN.app/Contents/Resources/app/bin/code" \
+  "$HOME/Applications/CodeBuddy CN.app/Contents/Resources/app/bin/code"; do
+  if [ -x "$candidate" ]; then
+    exec "$candidate" "$@"
+  fi
+done
+
+if command -v codebuddy >/dev/null 2>&1; then
+  exec codebuddy "$@"
+fi
+
+echo "buddycn: 未找到 CodeBuddy CN（已查找 /Applications、~/Applications 与 PATH）" >&2
+exit 127

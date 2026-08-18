@@ -38,6 +38,7 @@ Desktop.ini
 
 # ==================== 日志与临时文件 ====================
 *.log
+logs/
 npm-debug.log*
 pnpm-debug.log*
 tmp/
