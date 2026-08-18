@@ -1,3 +1,10 @@
+---
+name: knowledge-base
+category: document-processing
+description: 搜索知识库后，用返回的 ID 列表调用 `get_knowledge_base` 获取描述信息，一并展示。
+version: 1.0.0
+---
+
 # Knowledge Base (知识库)
 
 API base path: `openapi/wiki/v1` — 完整数据结构和接口参数详见 `references/api.md`。

@@ -1,0 +1,157 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "yyc3-启动Docker服务",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "启动YYC3团队应用+MCP服务"
+    },
+    {
+      "label": "yyc3-交互菜单",
+      "type": "shell",
+      "command": "./yyc",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "打开本机开发交互控制台"
+    },
+    {
+      "label": "yyc3-交互菜单(yycc)",
+      "type": "shell",
+      "command": "./yycc",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "打开脚本聚合交互控制台"
+    },
+    {
+      "label": "yyc3-AI自动推进(监视)",
+      "type": "shell",
+      "command": "./devctl ai:auto",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "监听文件变更并自动触发AI审查/生成"
+    },
+    {
+      "label": "yyc3-生成开发计划",
+      "type": "shell",
+      "command": "./devctl ai:plan \"为当前迭代生成开发计划\"",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "调用 AI 生成开发计划"
+    },
+    {
+      "label": "yyc3-生成模块文档",
+      "type": "shell",
+      "command": "OUT=docs/auto-doc.md ./devctl ai:doc .",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "生成文档到 docs/auto-doc.md"
+    },
+    {
+      "label": "yyc3-同步自定义",
+      "type": "shell",
+      "command": "./devctl sync:custom",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "同步SSH别名/补全/符号链接"
+    },
+    {
+      "label": "yyc3-智能生成",
+      "type": "shell",
+      "command": "./devctl ai:gen",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "触发AI代码生成 (封装 ai-code-gen.sh)"
+    },
+    {
+      "label": "yyc3-智能审查",
+      "type": "shell",
+      "command": "./devctl ai:review",
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "触发AI代码审查 (封装 ai-code-review.sh)"
+    },
+    {
+      "label": "yyc3-安装devctl补全",
+      "type": "shell",
+      "command": "./scripts/utils/install-completion.sh",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "安装 zsh 自动补全 (_devctl)"
+    },
+    {
+      "label": "yyc3-环境初始化",
+      "type": "shell",
+      "command": "./devctl setup",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "开发环境一键初始化"
+    },
+    {
+      "label": "yyc3-启动本地服务",
+      "type": "shell",
+      "command": "./devctl start",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "通过devctl启动容器"
+    },
+    {
+      "label": "yyc3-停止本地服务",
+      "type": "shell",
+      "command": "./devctl stop",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "通过devctl停止容器"
+    },
+    {
+      "label": "yyc3-查看状态",
+      "type": "shell",
+      "command": "./devctl status",
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "查看容器与AI状态"
+    },
+    {
+      "label": "yyc3-智能结对",
+      "type": "shell",
+      "command": "./devctl ai:pair",
+      "group": "none",
+      "problemMatcher": [],
+      "detail": "打开智能结对编程提示"
+    },
+    {
+      "label": "yyc3-清理-快速",
+      "type": "shell",
+      "command": "./devctl clean:docker",
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "清理未使用容器/镜像/缓存"
+    },
+    {
+      "label": "yyc3-清理-深度",
+      "type": "shell",
+      "command": "./devctl clean:all",
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "深度清理 (Docker+缓存+日志)"
+    },
+    {
+      "label": "yyc3-代码检查",
+      "type": "shell",
+      "command": "npm run lint",
+      "group": "test",
+      "problemMatcher": ["$eslint-stylish"],
+      "detail": "执行ESLint+Prettier检查"
+    },
+    {
+      "label": "yyc3-权限配置校验",
+      "type": "shell",
+      "command": "node -c rbac.config.js && node -c mcp-roles.json",
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "校验权限配置文件语法"
+    }
+  ]
+}

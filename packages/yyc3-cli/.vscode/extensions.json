@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "github.vscode-github-actions",
+    "gitlab.gitlab-workflow",
+    "ms-vscode.vscode-typescript-next",
+    "humao.rest-client",
+    "ms-vscode.launch-editor",
+    "shengsuan-cloud.cline-shengsuan"
+  ]
+}

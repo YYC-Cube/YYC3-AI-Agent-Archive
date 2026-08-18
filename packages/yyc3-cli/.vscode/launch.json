@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "yyc3-应用调试",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/index.js",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "yyc3-Docker调试",
+      "type": "docker",
+      "request": "launch",
+      "platform": "node",
+      "dockerFile": "/Dockerfile",
+      "envFile": "${workspaceFolder}/.env.docker",
+      "portMapping": [3000, 8080],
+      "sourceMapPathOverrides": {
+        "/app/*": "${workspaceFolder}/*"
+      }
+    }
+  ]
+}

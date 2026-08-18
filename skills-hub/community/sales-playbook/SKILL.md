@@ -1,5 +1,7 @@
 ---
 name: sales-playbook
+category: business-productivity
+description: 基于价值的定价与销售剧本，通话分析与报价打包
 version: 1.0.1
 display_name: "sales-playbook"
 display_name_en: "Sales Playbook"

@@ -1,0 +1,30 @@
+# 团队yyc3 MCP操作审计规则
+log:
+  enable: true
+  level: info
+  format: json
+  path: ./logs/mcp-audit.log
+  retention: 30d # 日志保留30天
+  rotation: daily # 按天分割
+
+# 审计内容
+audit:
+  include:
+    - user: true # 记录操作用户
+    - action: true # 记录操作类型（补全/修改/审核）
+    - resource: true # 记录访问的资源
+    - timestamp: true # 记录时间
+    - ip: true # 记录IP
+  exclude:
+    - paths:
+        - /test/** # 排除测试目录审计
+        - /tmp/**
+
+# 告警规则
+alert:
+  enable: true
+  thresholds:
+    - action: "deny" # 权限拒绝操作
+      count: 5 # 5分钟内5次
+      timeWindow: 5m
+      notify: @YYC-Cube

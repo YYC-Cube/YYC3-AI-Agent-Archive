@@ -878,7 +878,7 @@ Agent           SEC   SEC   SEC   NLU   NLU   NLU   DATA  DATA  ...  MGMT  COLLA
 | Agent 降级熔断标准 | Skill 熔断与降级量化阈值 | [YYC3-Agent-降级熔断标准.md](./YYC3-Agent-降级熔断标准.md) |
 | 九层全栈架构 | MCP 协议层(Layer06)与 Skill 层(Layer05) | [YYC3-AI-Family-九层全栈架构.md](./YYC3-AI-Family-九层全栈架构.md) |
 | 协同公约规范手册 | 人机协同协作公约体系 | [YYC3-AI-Family-Agent-人机协同/03-YYC3-AI-Family-协同公约规范手册.md](./YYC3-AI-Family-Agent-人机协同/03-YYC3-AI-Family-协同公约规范手册.md) |
-| 九层落地规划 | 技能系统集成方案与 MCP Server 规划 | [YYC3-AI-Family-Agent-人机协同/AI-FAmily-Agent-智能协同架构/05-YYC3-AI-Family-九层落地规划.md](./YYC3-AI-Family-Agent-人机协同/AI-FAmily-Agent-智能协同架构/05-YYC3-AI-Family-九层落地规划.md) |
+| 九层落地规划 | 技能系统集成方案与 MCP Server 规划 | [YYC3-AI-Family-Agent-人机协同/AI-Family-Agent-智能协同架构/05-YYC3-AI-Family-九层落地规划.md](./YYC3-AI-Family-Agent-人机协同/AI-Family-Agent-智能协同架构/05-YYC3-AI-Family-九层落地规划.md) |
 
 ---
 

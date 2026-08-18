@@ -13,7 +13,7 @@ _万象归元于云枢 · 深栈智启新纪元_
 ---
 
 [![Status](https://img.shields.io/badge/Status-Phase%204%20%E2%9A%A1%20AI%20Family%20%E6%99%BA%E8%83%BD%E4%BD%93-00FF88?style=for-the-badge&logo=statuspage&logoColor=white)](ARCHITECT.md)
-[![Version](https://img.shields.io/badge/Version-v1.4.0-00d4ff?style=for-the-badge&logo=semver&logoColor=white)](package.json)
+[![Version](https://img.shields.io/badge/Version-v2.1.0-00d4ff?style=for-the-badge&logo=semver&logoColor=white)](package.json)
 [![License](https://img.shields.io/badge/License-MIT-FF6600?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![PRs](https://img.shields.io/badge/PRs-Welcome-AA55FF?style=for-the-badge&logo=github&logoColor=white)](CONTRIBUTING.md)
 
@@ -177,7 +177,7 @@ YYC³ AI Agent Archive
 | 07 | **格物·宗师** | 领域知识与专业指导 | 跨学科研究、深度分析、知识传递 |
 | 08 | **创想·灵韵** | 创意设计与多媒体 | UI/UX 设计、内容创作、多媒体制作 |
 
-> 📖 详见 [`agents-hub/ai-family/`](agents-hub/ai-family/) 或 [`docs/YYC3-AI-FAmily-Agent-家人档案/`](docs/YYC3-AI-FAmily-Agent-家人档案/)
+> 📖 详见 [`agents-hub/ai-family/`](agents-hub/ai-family/) 或 [`docs/YYC3-AI-Family-Agent-家人档案/`](docs/YYC3-AI-Family-Agent-家人档案/)
 
 ---
 
@@ -335,8 +335,8 @@ pnpm i18n:sync         # 3. 同步到各包
 
 | 分类 | 路径 | 说明 |
 |------|------|------|
-| 👨‍👩‍👧‍👦 **家人档案** | [`docs/YYC3-AI-FAmily-Agent-家人档案/`](docs/YYC3-AI-FAmily-Agent-%E5%AE%B6%E4%BA%BA%E6%A1%A3%E6%A1%88/) | 8 位家人详细档案 |
-| 🤝 **智能协同** | [`docs/YYC3-AI-FAmily-Agent-智能协同/`](docs/YYC3-AI-FAmily-Agent-%E6%99%BA%E8%83%BD%E5%8D%8F%E5%90%8C/) | 九层架构设计与系统规划 |
+| 👨‍👩‍👧‍👦 **家人档案** | [`docs/YYC3-AI-Family-Agent-家人档案/`](docs/YYC3-AI-Family-Agent-%E5%AE%B6%E4%BA%BA%E6%A1%A3%E6%A1%88/) | 8 位家人详细档案 |
+| 🤝 **智能协同** | [`docs/YYC3-AI-Family-Agent-智能协同/`](docs/YYC3-AI-Family-Agent-%E6%99%BA%E8%83%BD%E5%8D%8F%E5%90%8C/) | 九层架构设计与系统规划 |
 | 👤 **人机协同** | [`docs/YYC3-AI-Family-Agent-人机协同/`](docs/YYC3-AI-Family-Agent-%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C/) | 五维五高五标五化·情感文化·协同公约 |
 | 🔗 **链路构建** | [`docs/YYC3-AI-Family-Agent-链路构建/`](docs/YYC3-AI-Family-Agent-%E9%93%BE%E8%B7%AF%E6%9E%84%E5%BB%BA/) | 微调构建·文档体系·能力拆解·落地实施 |
 | 📋 **标准规范** | [`docs/YYC3-团队通用-标准规范/`](docs/YYC3-%E5%9B%A2%E9%98%9F%E9%80%9A%E7%94%A8-%E6%A0%87%E5%87%86%E8%A7%84%E8%8C%83/) | 开发标准·文档闭环·验收系统·五维驱动 |

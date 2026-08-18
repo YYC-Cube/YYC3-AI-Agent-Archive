@@ -1,6 +1,6 @@
 ---
 name: glmocr-handwriting
-description:
+description: Official skill for recognizing handwritten text from images using ZhiPu GLM-OCR
 category: development-code
 version: 1.0.0
 description_zh: Official skill for recognizing handwritten text from images using ZhiPu GLM-OCR 

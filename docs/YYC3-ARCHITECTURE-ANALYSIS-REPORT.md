@@ -34,7 +34,7 @@ status: stable
 
 | # | 问题 | 路径 A | 路径 B | 影响 |
 |---|------|--------|--------|------|
-| 1 | **8 位 AI Family Agent 文件重复** | `agents-hub/ai-family/01-08*.md` | `docs/YYC3-AI-FAmily-Agent-家人档案/01-08*.md` | 两份完全相同，维护时将出现分歧 |
+| 1 | **8 位 AI Family Agent 文件重复** | `agents-hub/ai-family/01-08*.md` | `docs/YYC3-AI-Family-Agent-家人档案/01-08*.md` | 两份完全相同，维护时将出现分歧 |
 | 2 | **系统提示词重复** | `agents-hub/ai-family/YYC3-AI-Family-Agent-系统提示词.md` | `docs/YYC3-AI-Family-Agent-系统提示词.md` | 两份完全一致，入口混乱 |
 | 3 | **Skills Marketplace 技能重复** | `skills-hub/community/*/SKILL.md` | `tools-hub/code-ide/skills-marketplace/skills/*/SKILL.md` | `_categories.json` 中每条 skill 出现 2 次（source: skills + source: other） |
 
@@ -44,7 +44,7 @@ status: stable
 |---|------|------|------|
 | 4 | **B2B 技能目录重复** | `skills-hub/b2b/b2b-sdr-template/skills/` 与 `skills-hub/b2b/b2b-skills/skills/` | 8 个 Skill 完全一致（chroma-memory, delivery-queue, graphify 等） |
 | 5 | **Claude Plugin 嵌套重复** | `plugins-hub/official/*/.mcp.json` 与 `plugins-hub/official/claude-plugins/external_plugins/*/.mcp.json` | 18+ 个 plugin 配置双份存在 |
-| 6 | **docs 目录命名不统一** | `YYC3-AI-FAmily-Agent-家人档案` vs `YYC3-AI-Family-Agent-链路构建` | `FAmily`（大写A）vs `Family`（正确）前后不一致 |
+| 6 | **docs 目录命名不统一** | `YYC3-AI-Family-Agent-家人档案` vs `YYC3-AI-Family-Agent-链路构建` | `FAmily`（大写A）vs `Family`（正确）前后不一致 |
 
 ### 🟡 P2 — 外部未合并项目（非 YYC3 原生，需分类归位）
 
@@ -97,7 +97,7 @@ status: stable
 
 | 优先级 | 行动 | 预期效果 |
 |--------|------|----------|
-| **P0-1** | 删除 `docs/YYC3-AI-FAmily-Agent-家人档案/` 中 8 个重复 Agent 文件，标记为软链接或重定向至 `agents-hub/ai-family/` | 消除核心身份文件双源 |
+| **P0-1** | 删除 `docs/YYC3-AI-Family-Agent-家人档案/` 中 8 个重复 Agent 文件，标记为软链接或重定向至 `agents-hub/ai-family/` | 消除核心身份文件双源 |
 | **P0-2** | 删除 `agents-hub/ai-family/` 中系统提示词副本，统一保留 `docs/` 下单一权威源 | 系统提示词单源治理 |
 | **P0-3** | 清理 `_categories.json` 中重复 skill 条目，去除 `source: other` 重复项 | 索引精确度翻倍 |
 | **P1-4** | 合并 B2B Skills 目录，保留 `b2b-sdr-template/skills/` 作为唯一来源 | 减少技能碎片 |

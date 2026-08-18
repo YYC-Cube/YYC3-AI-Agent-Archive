@@ -233,7 +233,17 @@ export class CowAgentMCPBridge {
    */
   async handleToolCall(call: MCPToolCall): Promise<MCPToolResult> {
     const toolName = call.name.replace('cowagent_', '');
-    const pythonScript = this.buildPythonWrapper(toolName, call.arguments);
+
+    // 工具名白名单校验：防止构造工具名向 Python 源码注入代码
+    if (!/^[a-z][a-z0-9_]*$/.test(toolName)) {
+      return {
+        id: call.id,
+        content: [{ type: 'text', text: `Invalid tool name: ${toolName}` }],
+        isError: true,
+      };
+    }
+
+    const pythonScript = this.buildPythonWrapper(toolName);
 
     return new Promise(resolve => {
       const proc = spawn(
@@ -245,6 +255,10 @@ export class CowAgentMCPBridge {
           env: { ...process.env },
         }
       );
+
+      // 参数经 stdin 传递并以 json.loads 解析，杜绝源码级注入
+      proc.stdin.write(JSON.stringify(call.arguments ?? {}));
+      proc.stdin.end();
 
       let stdout = '';
       let stderr = '';
@@ -284,15 +298,16 @@ export class CowAgentMCPBridge {
   /**
    * 构建 Python 包装脚本
    */
-  private buildPythonWrapper(toolName: string, args: Record<string, unknown>): string {
-    const argsJson = JSON.stringify(args).replace(/'/g, "\\'");
+  private buildPythonWrapper(toolName: string): string {
+    // 工具名已经白名单校验（^[a-z][a-z0-9_]*$），参数经 stdin 传递
     return `
 import sys, json
 sys.path.insert(0, '.')
+args = json.loads(sys.stdin.read() or '{}')
 try:
     from agent.tools.${toolName} import *
     # Tool execution will be handled by the specific tool module
-    print(json.dumps({"status": "ok", "tool": "${toolName}", "args": ${argsJson}}))
+    print(json.dumps({"status": "ok", "tool": "${toolName}", "args": args}))
 except Exception as e:
     print(json.dumps({"status": "error", "error": str(e)}), file=sys.stderr)
     sys.exit(1)

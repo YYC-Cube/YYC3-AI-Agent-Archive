@@ -1,0 +1,35 @@
+{
+  "YYC3-接口权限校验": {
+    "prefix": "yyc3-perm-check",
+    "body": [
+      "import { checkPermission } from '@/utils/rbac';",
+      "",
+      "/**",
+      " * $1",
+      " * @param userId 用户ID",
+      " */",
+      "export const $2 = async (userId: string) => {",
+      "  const hasPermission = await checkPermission(userId, '$3');",
+      "  if (!hasPermission) {",
+      "    throw new Error('权限不足：yyc3团队权限管控');",
+      "  }",
+      "  // $0",
+      "};",
+      ""
+    ],
+    "description": "YYC3团队专属 - 接口权限校验模板"
+  },
+  "YYC3-MCP协同注释": {
+    "prefix": "yyc3-mcp-note",
+    "body": [
+      "/**",
+      " * $1",
+      " * MCP协同说明：",
+      " * - 权限范围：$2",
+      " * - 适用角色：$3",
+      " * - 团队：yyc3",
+      " */"
+    ],
+    "description": "YYC3团队专属 - MCP协同注释模板"
+  }
+}

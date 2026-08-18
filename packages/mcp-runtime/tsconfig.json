@@ -9,11 +9,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "noEmit": true,
     "resolveJsonModule": true,
-    "types": ["node"]
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@yyc3/skill-registry": ["../skill-registry/src/index.ts"]
+    }
+  }
 }

@@ -1,0 +1,239 @@
+#!/usr/bin/env bash
+# YYC3 工作区脚本聚合交互器 (yycc)
+# 作用：自动映射本仓库脚本与常用命令，提供一键交互入口
+set -euo pipefail
+
+export LANG="zh_CN.UTF-8"
+
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+UTILS="$ROOT_DIR/scripts/utils"
+DEVCTL="$ROOT_DIR/devctl"
+
+# 引入统一样式与工具
+if [[ -f "$UTILS/common.sh" ]]; then
+  # shellcheck source=/dev/null
+  source "$UTILS/common.sh"
+else
+  RESET="\033[0m"; BOLD="\033[1m"; CYAN="\033[36m"; BLUE="\033[34m"; GREEN="\033[32m"; YELLOW="\033[33m"; RED="\033[31m"; DIM="\033[2m"; WHITE="\033[37m"
+  log()   { echo -e "${DIM}[$(date +%H:%M:%S)]${RESET} $*"; }
+  ok()    { echo -e "${GREEN}✔${RESET} $*"; }
+  warn()  { echo -e "${YELLOW}⚠${RESET} $*"; }
+  err()   { echo -e "${RED}✖${RESET} $*" 1>&2; }
+  section(){ echo -e "${BOLD}${CYAN}==>${RESET} ${BOLD}$*${RESET}"; }
+  docker_compose(){ if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then docker compose "$@"; else docker-compose "$@"; fi; }
+fi
+
+# 兜底函数（若 common.sh 未提供）
+if ! declare -F confirm >/dev/null 2>&1; then confirm(){ read -r -p "确认执行? [y/N]: " a; [[ "${a:-}" =~ ^[Yy]$ ]]; }; fi
+if ! declare -F print_device >/dev/null 2>&1; then print_device(){ echo "Device: $(uname -a)"; }; fi
+
+pause(){ echo -e "\n${BLUE}按任意键返回菜单...${RESET}"; read -r -n 1 -s || true; }
+menu_header(){ clear; echo -e "${BOLD}${CYAN}YYC3 脚本聚合交互器${RESET}  ${DIM}yycc${RESET}\n"; }
+
+# 通用选择器（数字/可选fzf）
+pick_from_list(){
+  # 用法: pick_from_list "标题" arr[@] -> 输出选中项(原值)或空
+  local title="$1"; shift
+  local -a items=("${!1}")
+  if (( ${#items[@]} == 0 )); then echo ""; return 0; fi
+  if command -v fzf >/dev/null 2>&1; then
+    printf '%s\n' "${items[@]}" | fzf --prompt="$title > " || true
+    return 0
+  fi
+  echo -e "${BOLD}${title}${RESET}"
+  local i=1; for it in "${items[@]}"; do echo "  $i) $it"; ((i++)); done
+  echo "  0) 返回"
+  read -r -p "选择: " n || true
+  if [[ -z "${n:-}" || "$n" == "0" ]]; then echo ""; else echo "${items[$((n-1))]:-}"; fi
+}
+
+# 扫描脚本
+list_scripts_in(){
+  # 仅列出可运行脚本，排除隐藏文件与utils目录
+  local dir="$1"
+  if [[ ! -d "$dir" ]]; then return 0; fi
+  find "$dir" -maxdepth 1 -type f \( -name "*.sh" -o -perm +111 \) \
+    -not -name ".*" -print | sort
+}
+
+run_script(){
+  local path="$1"
+  if [[ ! -f "$path" ]]; then err "脚本不存在: $path"; return 1; fi
+  section "执行: ${path#$ROOT_DIR/}"
+  if confirm; then
+    bash "$path" || true
+  else
+    warn "已取消"
+  fi
+}
+
+# 组合：服务选择器
+list_services(){
+  local compose_file="$ROOT_DIR/docker-compose.yml"
+  if [[ -f "$compose_file" ]]; then
+    docker_compose -f "$compose_file" ps --services 2>/dev/null | sed '/^$/d' || true
+  fi
+}
+pick_service(){
+  local -a svcs; mapfile -t svcs < <(list_services)
+  if (( ${#svcs[@]} <= 1 )); then echo ""; return 0; fi
+  local sel; sel=$(pick_from_list "选择服务 (ALL=全部)" svcs[@])
+  echo "${sel:-ALL}"
+}
+compose_logs(){
+  local compose_file="$ROOT_DIR/docker-compose.yml"
+  if [[ ! -f "$compose_file" ]]; then warn "未找到 docker-compose.yml"; pause; return; fi
+  local svc; svc=$(pick_service)
+  echo -e "按 Ctrl-C 停止...\n"
+  if [[ -z "$svc" || "$svc" == "ALL" ]]; then
+    docker_compose -f "$compose_file" logs -f || true
+  else
+    docker_compose -f "$compose_file" logs -f "$svc" || true
+  fi
+}
+
+# 菜单：常用(devctl)
+menu_common(){
+  while true; do
+    menu_header
+    echo -e "${BOLD}常用操作 (devctl)${RESET}"
+    echo "  1) 初始化 (setup)"
+    echo "  2) 启动 (start)"
+    echo "  3) 停止 (stop)"
+    echo "  4) 重启 (restart)"
+    echo "  5) 状态 (status)"
+    echo "  6) 同步 (sync)"
+    echo "  7) 同步自定义 (sync:custom)"
+    echo "  8) 日志观察"
+    echo "  9) 打开老版控制台 (yyc)"
+    echo "  0) 返回"
+    read -r -p "选择: " c || true
+    case "${c:-}" in
+      1) "$DEVCTL" setup; pause ;;
+      2)
+         local svc; svc=$(pick_service)
+         if [[ -n "$svc" && "$svc" != "ALL" ]]; then "$DEVCTL" start "$svc"; else "$DEVCTL" start; fi; pause ;;
+      3)
+         local svc; svc=$(pick_service)
+         if [[ -n "$svc" && "$svc" != "ALL" ]]; then "$DEVCTL" stop "$svc"; else "$DEVCTL" stop; fi; pause ;;
+      4)
+         local svc; svc=$(pick_service)
+         if [[ -n "$svc" && "$svc" != "ALL" ]]; then "$DEVCTL" stop "$svc"; "$DEVCTL" start "$svc"; else "$DEVCTL" restart; fi; pause ;;
+      5)
+         local svc; svc=$(pick_service)
+         if [[ -n "$svc" && "$svc" != "ALL" ]]; then "$DEVCTL" status "$svc"; else "$DEVCTL" status; fi; pause ;;
+      6) "$DEVCTL" sync; pause ;;
+      7) "$DEVCTL" sync:custom; pause ;;
+      8) compose_logs; pause ;;
+      9) if [[ -x "$ROOT_DIR/yyc" ]]; then "$ROOT_DIR/yyc"; else warn "未找到 yyc"; pause; fi ;;
+      0) break ;;
+      *) warn "无效选项"; sleep 1 ;;
+    esac
+  done
+}
+
+# 菜单：脚本映射
+menu_scripts(){
+  while true; do
+    menu_header
+    echo -e "${BOLD}脚本映射${RESET}"
+    echo "  1) scripts/dev"
+    echo "  2) scripts/ai"
+    echo "  3) scripts/cleanup"
+    echo "  4) 顶层脚本 (*.sh)"
+    echo "  0) 返回"
+    read -r -p "选择: " c || true
+    case "${c:-}" in
+      1)
+        map_and_run "$ROOT_DIR/scripts/dev" ;;
+      2)
+        map_and_run "$ROOT_DIR/scripts/ai" ;;
+      3)
+        map_and_run "$ROOT_DIR/scripts/cleanup" ;;
+      4)
+        map_and_run_top ;;
+      0) break ;;
+      *) warn "无效选项"; sleep 1 ;;
+    esac
+  done
+}
+
+map_and_run(){
+  local dir="$1"
+  local -a files; mapfile -t files < <(list_scripts_in "$dir")
+  if (( ${#files[@]} == 0 )); then warn "无脚本可用: ${dir#$ROOT_DIR/}"; pause; return; fi
+  local rels=()
+  local f
+  for f in "${files[@]}"; do rels+=("${f#$ROOT_DIR/}"); done
+  local sel; sel=$(pick_from_list "选择脚本" rels[@])
+  [[ -z "$sel" ]] && return 0
+  run_script "$ROOT_DIR/$sel"
+  pause
+}
+
+map_and_run_top(){
+  local -a files; mapfile -t files < <(find "$ROOT_DIR" -maxdepth 1 -type f -name "*.sh" -not -name "yycc" -not -name ".*" -print | sort)
+  if (( ${#files[@]} == 0 )); then warn "顶层无 *.sh 脚本"; pause; return; fi
+  local rels=()
+  local f
+  for f in "${files[@]}"; do rels+=("${f#$ROOT_DIR/}"); done
+  local sel; sel=$(pick_from_list "选择脚本" rels[@])
+  [[ -z "$sel" ]] && return 0
+  run_script "$ROOT_DIR/$sel"
+  pause
+}
+
+# 菜单：AI协作快捷
+menu_ai(){
+  while true; do
+    menu_header
+    echo -e "${BOLD}AI 协作快捷${RESET}"
+    echo "  1) 智能结对 (ai:pair)"
+    echo "  2) 代码审查 (ai:review)"
+    echo "  3) 代码生成 (ai:gen)"
+    echo "  4) 自动推进-审查 (ai:auto review)"
+    echo "  5) 自动推进-生成 (ai:auto gen)"
+    echo "  6) 生成文档 (ai:doc .)"
+    echo "  7) 生成开发计划 (ai:plan)"
+    echo "  0) 返回"
+    read -r -p "选择: " c || true
+    case "${c:-}" in
+      1) "$DEVCTL" ai:pair; pause ;;
+      2) "$DEVCTL" ai:review; pause ;;
+      3) "$DEVCTL" ai:gen; pause ;;
+      4) "$DEVCTL" ai:auto review; pause ;;
+      5) "$DEVCTL" ai:auto gen; pause ;;
+      6) OUT=docs/auto-doc.md "$DEVCTL" ai:doc .; pause ;;
+      7) "$DEVCTL" ai:plan "为当前迭代生成开发计划"; pause ;;
+      0) break ;;
+      *) warn "无效选项"; sleep 1 ;;
+    esac
+  done
+}
+
+# 主菜单
+main(){
+  section "设备与环境"
+  print_device 2>/dev/null || true
+  if docker info >/dev/null 2>&1; then ok "Docker 服务可用"; else warn "Docker 未运行"; fi
+  pause
+  while true; do
+    menu_header
+    echo "  1) 常用操作 (devctl)"
+    echo "  2) 脚本映射 (scripts/* 与顶层 *.sh)"
+    echo "  3) AI 协作快捷"
+    echo "  4) 日志观察 (docker compose logs -f)"
+    echo "  0) 退出"
+    read -r -p "选择: " c || true
+    case "${c:-}" in
+      1) menu_common ;;
+      2) menu_scripts ;;
+      3) menu_ai ;;
+      4) compose_logs ;;
+      0) clear; exit 0 ;;
+      *) warn "无效选项"; sleep 1 ;;
+    esac
+  done
+}
+
+main "$@"
