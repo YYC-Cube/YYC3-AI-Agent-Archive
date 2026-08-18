@@ -20,6 +20,7 @@ const { validateAll } = require('../lib/skills-validator');
 const { findDuplicates, findNameCollisions } = require('../lib/skills-deduper');
 const { generateStats } = require('../lib/skills-stats');
 const { lintNaming, migrateNaming } = require('../lib/skills-naming');
+const { generateAyncIndex } = require('../lib/skills-aync-index');
 
 // 设置全局错误处理
 process.on('uncaughtException', (error) => {
@@ -170,6 +171,13 @@ skills
   .option('-v, --verbose', '详细输出')
   .action(async (options) => {
     try { await generateStats(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+  });
+
+skills
+  .command('index')
+  .description('生成 AYNC 统一索引（docs/AYNC-INDEX.md + .json）')
+  .action(async () => {
+    try { await generateAyncIndex(); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
 // naming 命令组（AYNC 编码）

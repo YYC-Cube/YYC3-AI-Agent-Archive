@@ -1,5 +1,6 @@
 ---
 name: "intelligent-architecture"
+category: development-code
 version: 1.0.0
 description: "Five Highs Five Standards Five Modernizations intelligent architecture framework. Invoke when designing AI-powered applications, creating system architectures, or implementing intelligent solutions."
 ---

@@ -1,5 +1,6 @@
 ---
 name: delivery-queue
+category: b2b
 description: Schedule and deliver messages in timed segments to simulate human-like sending patterns. - Break long product introductions into 3-5 digestible messages
 version: 1.0.0
 ---

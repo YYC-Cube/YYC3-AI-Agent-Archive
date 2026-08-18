@@ -34,11 +34,27 @@ language: zh-CN
 
 ## 三、处置建议
 
+### ✅ 执行记录（2026-08-18 第六轮）
+
+**决策：合并收敛已执行**。community-agents 已 `git mv` 至 `_archive/agents-hub-community-agents`
+（附 ARCHIVE-NOTE.md 说明与恢复命令），`agents-hub/roles/` 保留单一市场 claude-code-agents。
+
+**最终数据依据**（覆盖第一节表格的量化验证）：
+
+| 指标 | 数值 |
+|------|-----:|
+| 共享插件（78 个）内 B 独有文件 | **0** |
+| B 独有插件 | **0** |
+| A 独有插件 / 独有文件 | 13 / 187 |
+| 内容分化文件（归档保留可查） | 343 |
+
+即：community-agents 对资产集合的净贡献为零，其分化内容已完整保留于归档与 git 历史。
+
 | 选项 | 评估 | 建议 |
 |------|------|:----:|
 | 直接删除 community-agents | 内容已分化，删除会丢失分叉版本的差异化内容（若有独立维护价值） | ⚠️ 暂缓 |
 | 保留双市场 | 存储冗余（78 目录）、概念混淆（README 均自称完整市场） | 现状 |
-| **合并收敛**：以 claude-code-agents 为唯一市场，community-agents 迁移至 `_archive/` 并在 README 注明分叉来源 | 消除冗余与混淆，可随时从归档恢复 | ✅ 推荐 |
+| **合并收敛**：以 claude-code-agents 为唯一市场，community-agents 迁移至 `_archive/` 并在 README 注明分叉来源 | 消除冗余与混淆，可随时从归档恢复 | ✅ **已执行**（2026-08-18） |
 
 **执行前置条件**：确认 community-agents 无独立上游同步链路（当前仓库未见其专属 sync 脚本）；
 归档后 `agents-hub/roles/` 仅保留单一市场，检索与治理成本减半。

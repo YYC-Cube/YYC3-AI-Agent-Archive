@@ -23,7 +23,7 @@ const AYNC_RE = /^AYNC-([AYNCT])-[A-Z]{2}-[a-z0-9]+(-[a-z0-9]+)*$/;
 /** AYNC 类型码 → 资产类型 */
 const AYNC_TYPES = { A: 'Agent', Y: 'Skill', N: 'MCP', C: 'Plugin', T: 'Tool' };
 
-/** 类别名 → 两字母类别码（对齐 ai-family-unified-architecture 设计文档） */
+/** 类别名 → 两字母类别码（对齐 ai-family-unified-architecture 设计文档 + 实际值域扩展） */
 const CATEGORY_CODES = {
   'development-code': 'DE',
   'document-processing': 'DP',
@@ -38,12 +38,32 @@ const CATEGORY_CODES = {
   'dev-workflow': 'DV',
   'engineering': 'EN',
   'custom': 'CU',
+  // 实际值域扩展（2026-08-18 盘点 24 种类别值全覆盖）
+  'project-management': 'PM',
+  'devops': 'DO',
+  'automation': 'AU',
+  'email': 'EM',
+  'storage-docs': 'SD',
+  'social-media': 'SM',
+  'communication': 'CO',
+  'analytics': 'AN',
+  'crm': 'CR',
+  'customer-support': 'CS',
+  'education': 'ED',
+  'design': 'DS',
+  'ecommerce': 'EC',
+  'creative-collaboration': 'CC',
+  'testing': 'TC',
 };
 
-/** 类别名规范化：未知类别按前缀归并 */
+/** 类别名规范化：大小写/变体归并（Education → education, Design Tools → design, Productivity → business-productivity） */
 function normalizeCategory(category) {
   if (!category) return 'custom';
-  const lower = category.toLowerCase();
+  const lower = category.toLowerCase().trim();
+  if (lower === 'productivity') return 'business-productivity';
+  if (lower === 'design tools') return 'design';
+  if (lower === '生活服务') return 'custom';
+  if (CATEGORY_CODES[lower]) return lower;
   for (const key of Object.keys(CATEGORY_CODES)) {
     if (lower.includes(key) || key.includes(lower)) return key;
   }
@@ -84,22 +104,24 @@ async function lintNaming(options) {
   const skills = await collectNaming();
 
   const nonKebab = skills.filter(s => !KEBAB_RE.test(s.name));
+  const withCategory = skills.filter(s => !!s.category);
   const ayncCompliant = skills.filter(s => AYNC_RE.test(s.dir));
-  const noCategory = skills.filter(s => !s.category);
 
   console.log('[skills:naming] Total skills: ' + skills.length);
   console.log('[skills:naming] kebab-case 合规: ' + (skills.length - nonKebab.length) + '/' + skills.length);
-  console.log('[skills:naming] AYNC 编码合规: ' + ayncCompliant.length + '/' + skills.length + ' (' + Math.round((ayncCompliant.length / skills.length) * 100) + '%)');
-  console.log('[skills:naming] 缺少 category: ' + noCategory.length);
+  console.log('[skills:naming] AYNC 元数据覆盖（category）: ' + withCategory.length + '/' + skills.length + ' (' + Math.round((withCategory.length / skills.length) * 100) + '%)');
+  console.log('[skills:naming] AYNC 目录命名（已决策为非必需）: ' + ayncCompliant.length + '/' + skills.length);
+  console.log('[skills:naming] 统一索引: yyc3 skills index → docs/AYNC-INDEX.md');
 
   if (options.verbose) {
     if (nonKebab.length) {
       console.log('\n  非 kebab-case 命名（前 20 条）:');
       for (const s of nonKebab.slice(0, 20)) console.log('    - ' + s.name + '  (' + path.relative(process.cwd(), s.file) + ')');
     }
-    if (noCategory.length) {
+    const missingCat = skills.filter(s => !s.category);
+    if (missingCat.length) {
       console.log('\n  缺少 category（前 20 条）:');
-      for (const s of noCategory.slice(0, 20)) console.log('    - ' + s.name + '  (' + path.relative(process.cwd(), s.file) + ')');
+      for (const s of missingCat.slice(0, 20)) console.log('    - ' + s.name + '  (' + path.relative(process.cwd(), s.file) + ')');
     }
   }
 
@@ -107,7 +129,7 @@ async function lintNaming(options) {
     total: skills.length,
     kebabCompliant: skills.length - nonKebab.length,
     ayncCompliant: ayncCompliant.length,
-    missingCategory: noCategory.length,
+    missingCategory: skills.length - withCategory.length,
     violations: nonKebab,
   };
 }
@@ -166,4 +188,4 @@ async function migrateNaming(options) {
   return { planned: plans.length, applied, errors };
 }
 
-module.exports = { lintNaming, migrateNaming, toAyncName, KEBAB_RE, AYNC_RE, CATEGORY_CODES };
+module.exports = { lintNaming, migrateNaming, toAyncName, normalizeCategory, KEBAB_RE, AYNC_RE, CATEGORY_CODES };

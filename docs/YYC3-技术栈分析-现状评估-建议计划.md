@@ -918,6 +918,38 @@ package.json / requirements.txt / Cargo.toml），与本仓库 workspace 的 `pn
 
 **第五轮验证**：`skills validate` 0 错误 0 警告；`dedup --names` 46 组（VARIANT 35 / IDENT 11）；skill-registry 61 测试全绿。
 
+### 7.9 两大未决项的深度分析与决策执行（2026-08-18 第六轮）
+
+#### 决策一：双插件市场合并 → **已执行归档收敛**
+
+量化分析结论（覆盖 7.8 的定性判断）：
+
+- 78 个共享插件中 community-agents **独有文件 0、独有插件 0**（净贡献为零）
+- claude-code-agents 独有 13 插件 + 187 文件，为同上游更完整快照
+- 343 个内容分化文件随归档完整保留（`_archive/agents-hub-community-agents` + git 历史）
+
+执行：`git mv` 归档 + ARCHIVE-NOTE（含恢复命令）+ 评估文档/索引状态同步。
+`agents-hub/roles/` 收敛为 claude-code-agents（91 插件）+ core-agents 单一市场。
+
+#### 决策二：AYNC 迁移 → **元数据优先策略落地（正式关闭文件系统重命名议题）**
+
+数据支撑：category 覆盖 816/831（98.2%）→ 补齐 15 项后 **831/831（100%）**；
+类别值域 24 种全量纳入类别码表（含大小写变体归并：Education→education、
+Design Tools→design、Productivity→business-productivity）。
+
+落地内容：
+
+| 交付物 | 说明 |
+|--------|------|
+| `yyc3 skills index` 命令 | 生成 `docs/AYNC-INDEX.md`（23 类分组清单）+ `AYNC-INDEX.json`（机器可读：code/name/category/version/path） |
+| category 100% 覆盖 | 15 个缺失项按内容语义补齐（b2b×5、business-productivity×5、document-processing×2、marketing、development-code×2） |
+| 类别码表扩展 | CATEGORY_CODES 从 13 → 27 项，覆盖实际值域全部 24 种 |
+| naming lint 升级 | AYNC 指标从"目录命名合规"改为"**元数据覆盖**"（当前 100%），目录命名显式标注为非必需 |
+
+**决策依据**（为何关闭物理重命名）：注册中心按 frontmatter name/category 检索（目录名不参与）；
+plugin.json 引用链按目录名；去重专项与版本胜出机制已消除同名遮蔽；元数据索引可随时再生。
+物理重命名的唯一收益（目录浏览可读性）不抵引用破坏与上游同步冲突成本。
+
 ---
 
 ## 附录
