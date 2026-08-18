@@ -950,6 +950,29 @@ Design Tools→design、Productivity→business-productivity）。
 plugin.json 引用链按目录名；去重专项与版本胜出机制已消除同名遮蔽；元数据索引可随时再生。
 物理重命名的唯一收益（目录浏览可读性）不抵引用破坏与上游同步冲突成本。
 
+### 7.10 安全事件处置记录（2026-08-18 第七轮：密钥泄露应急）
+
+**事件**：GitHub 密钥扫描报告 7 条告警；核查确认 **1 项真实泄露**（初始提交 b5444853 起，
+仓库为 PUBLIC，公网暴露 25 天）。
+
+| 告警 | 定性 | 处置 |
+|------|------|------|
+| #1 GitHub PAT（`github_pat_11BYA...`） | **真实泄露**（mcp-github-yyc3.json、claude_desktop_config_final.json） | 树内已替换为 `${GITHUB_PERSONAL_ACCESS_TOKEN}` 占位（commit 4eb570ef3）；**令牌撤销需账户所有者执行**，撤销后告警可按 revoked 关闭 |
+| 连带发现：Brave API Key（`BSAAOKu...`） | **真实泄露**（mcp-brave-search.json、claude_desktop_config_final.json） | 同批替换为 `${BRAVE_API_KEY}` 占位；**同样需要到 Brave 控制台撤销** |
+| #2-#7 微信 appId / pay token（6 条） | 误报——微信支付/小程序官方文档示例常量（如 `wxd930ea5d5a258f4f`） | 已按 `false_positive` 批量关闭 |
+| AWS `AKIAIOSFODNN7EXAMPLE`（未触发告警） | AWS 官方文档标准示例值 | 无需处置 |
+
+**扫描方法教训**：第三轮本地扫描仅覆盖 packages/ 与 scripts/，遗漏 mcp-hub/——本轮改为
+**全跟踪文件树**扫描（git grep 全目录），并连带识别出 secret scanning 未标记的 Brave Key。
+
+**遗留用户动作**（工具无法代执行）：
+1. **立即撤销** GitHub Fine-grained PAT：Settings → Developer settings → Personal access tokens
+2. **立即撤销** Brave API Key：https://api.search.brave.com 控制台
+3. 撤销后如需彻底清除历史残留（可选，撤销后非必需）：`git filter-repo` 重写 + force-push
+4. 615 条 vendored 依赖告警：Settings → Code security → 关闭 Dependabot alerts（归档仓库建议）
+
+**连带清理**：过时 dependabot PR #7（目标 _external/ClickHouse 已移出追踪）已关闭并说明。
+
 ---
 
 ## 附录
