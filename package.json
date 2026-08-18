@@ -1,6 +1,6 @@
 {
   "name": "yyc3-skills",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "YYC³-Skills — 企业级 AI Agent 资产平台（Monorepo）",
   "author": "YanYuCloudCube Team <admin@0379.email>",
@@ -18,7 +18,9 @@
     "build": "pnpm -r run build",
     "typecheck": "pnpm -r run typecheck",
     "clean": "pnpm -r exec rm -rf dist node_modules .turbo",
-    "lint": "echo 'TODO: eslint setup'",
+    "lint": "eslint scripts/",
+    "format": "prettier --write \"scripts/**/*.{js,cjs}\"",
+    "format:check": "prettier --check \"scripts/**/*.{js,cjs}\"",
     "test": "pnpm -r run test",
     "yyc3": "node packages/yyc3-cli/bin/yyc3-cli.js",
     "skills:build": "node packages/yyc3-cli/bin/yyc3-cli.js skills build",
@@ -37,12 +39,19 @@
     "packages/agent-registry",
     "packages/mcp-runtime",
     "packages/skill-registry",
-    "packages/skills-legacy",
-    "packages/skills-registry-legacy",
     "packages/@yyc3/icons"
   ],
   "devDependencies": {
-    "typescript": "^5.5.0",
-    "tsup": "^8.0.0"
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "prettier": "^3.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.28.1",
+      "vite@5": "^6.4.3"
+    }
   }
 }
