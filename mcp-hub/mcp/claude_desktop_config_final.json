@@ -16,7 +16,7 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }
     },
     "mcp-filesystem": {
@@ -27,7 +27,7 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-brave-search"],
       "env": {
-        "BRAVE_API_KEY": "BSAAOKu9pfiHAWlw1JpiXXvAtZuhSv7"
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
     },
     "mcp-postgres": {
