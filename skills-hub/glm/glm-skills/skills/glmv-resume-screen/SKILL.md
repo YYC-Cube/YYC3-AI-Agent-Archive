@@ -1,6 +1,6 @@
 ---
 name: glmv-resume-screen
-description:
+description: Screen and evaluate resumes against criteria using ZhiPu GLM-V multimodal model.
 category: development-code
 version: 1.0.0
 description_zh: Screen and evaluate resumes against criteria using ZhiPu GLM-V multimodal model.

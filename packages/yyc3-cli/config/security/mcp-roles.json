@@ -1,0 +1,31 @@
+{
+  "team": "yyc3",
+  "roles": {
+    "developer": {
+      "name": "yyc3-普通开发者",
+      "permissions": [
+        "mcp:code-completion",
+        "mcp:lint-check",
+        "mcp:test-generate"
+      ],
+      "accessPaths": ["/src/**", "/test/**"],
+      "denyPaths": [".env", ".access-keys", "rbac.config.js"]
+    },
+    "admin": {
+      "name": "yyc3-管理员",
+      "permissions": [
+        "mcp:config-modify",
+        "mcp:audit-view",
+        "mcp:role-manage"
+      ],
+      "accessPaths": ["**"],
+      "denyPaths": []
+    },
+    "tester": {
+      "name": "yyc3-测试人员",
+      "permissions": ["mcp:test-generate", "mcp:lint-check"],
+      "accessPaths": ["/test/**", "/src/**"],
+      "denyPaths": ["rbac.config.js", "mcp-roles.json"]
+    }
+  }
+}

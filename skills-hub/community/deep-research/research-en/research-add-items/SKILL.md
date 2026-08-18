@@ -1,4 +1,5 @@
 ---
+name: research-add-items
 user-invocable: true
 description: Add items (research objects) to existing research outline.
 category: development-code

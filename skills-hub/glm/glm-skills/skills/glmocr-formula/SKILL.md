@@ -1,6 +1,6 @@
 ---
 name: glmocr-formula
-description:
+description: Official skill for recognizing and extracting mathematical formulas from images
 category: development-code
 version: 1.0.0
 description_zh: Official skill for recognizing and extracting mathematical formulas from images 

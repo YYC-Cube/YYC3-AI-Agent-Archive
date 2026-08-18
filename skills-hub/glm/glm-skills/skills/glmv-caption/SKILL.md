@@ -1,6 +1,6 @@
 ---
 name: glmv-caption
-description:
+description: Generate captions (descriptions) for images, videos, and documents using ZhiPu
 category: development-code
 version: 1.0.0
 description_zh: Generate captions (descriptions) for images, videos, and documents using ZhiPu

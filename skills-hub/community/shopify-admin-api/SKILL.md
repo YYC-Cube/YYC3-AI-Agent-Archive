@@ -1,4 +1,6 @@
 ---
+name: shopify-admin-api
+description: "Full read/write access to Shopify Admin REST API for managing orders, products, customers, inventory, fulfillments, refunds, returns, and transactions. - `SHOPIFY_STORE_DOMAIN` - Your store's myshopify.com domain (e.g., `my-store.myshopify.com`)"
 slug: shopify-admin-api
 display_name: Shopify Admin API
 version: 1.0.0

@@ -43,13 +43,37 @@ export type {
   SkillSearchOptions,
   SkillRegistryStats,
 } from './types.js';
+export {
+  SKILL_DOMAINS,
+  SKILL_TYPES,
+  SKILL_RUNTIMES,
+  SKILL_STATUSES,
+} from './types.js';
+
+// Frontmatter 解析
+export {
+  parseFrontmatter,
+  parseYamlSubset,
+  parseInlineArray,
+  toString as frontmatterToString,
+  toStringArray as frontmatterToStringArray,
+} from './frontmatter.js';
+export type { Frontmatter, FrontmatterValue } from './frontmatter.js';
 
 // 注册中心
 export { SkillRegistry, globalSkillRegistry } from './registry.js';
 
 // 加载器
-export { SkillLoader, parseFrontmatter, frontmatterToManifest } from './loader.js';
+export { SkillLoader, frontmatterToManifest } from './loader.js';
 export type { SkillManifest, LoaderOptions } from './loader.js';
+
+// 校验器
+export { validateFrontmatter, validateUnifiedSkill, validateAllSkills } from './validator.js';
+export type {
+  ValidationIssue,
+  ValidationResult,
+  BatchValidationReport,
+} from './validator.js';
 
 // 执行器
 export { SkillExecutor } from './executor.js';

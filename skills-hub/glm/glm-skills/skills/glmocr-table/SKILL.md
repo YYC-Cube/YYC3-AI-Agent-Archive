@@ -1,6 +1,6 @@
 ---
 name: glmocr-table
-description:
+description: Official skill for recognizing and extracting tables from images and PDFs into M
 category: development-code
 version: 1.0.0
 description_zh: Official skill for recognizing and extracting tables from images and PDFs into M

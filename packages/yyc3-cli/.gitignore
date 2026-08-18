@@ -1,0 +1,29 @@
+# 敏感配置（权限/MCP/密钥）- 团队yyc3
+.env
+.access-keys
+.env.permissions.local
+
+# 依赖/构建产物
+node_modules/
+dist/
+build/
+coverage/
+
+# 环境/容器相关
+.docker/
+*.docker-cache
+mcp-cache/
+
+# IDE/编辑器
+.idea/
+.vscode/!.vscode/* # 保留vscode配置，排除缓存
+*.swp
+*.swo
+
+# 日志/临时文件
+logs/
+tmp/
+*.log
+
+# Git相关
+.git-credentials

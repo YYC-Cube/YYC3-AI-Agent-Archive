@@ -1,0 +1,41 @@
+{
+  "team": "yyc3",
+  "policies": [
+    {
+      "policyId": "policy-001",
+      "name": "应用接口权限策略",
+      "resources": ["/api/**"],
+      "actions": ["GET", "POST", "PUT", "DELETE"],
+      "roles": {
+        "admin": ["*"],
+        "developer": ["GET", "POST"],
+        "tester": ["GET"],
+        "guest": ["GET:/api/public/**"]
+      }
+    },
+    {
+      "policyId": "policy-002",
+      "name": "MCP协同权限策略",
+      "resources": ["/mcp/**"],
+      "actions": ["READ", "WRITE", "CONFIG"],
+      "roles": {
+        "admin": ["*"],
+        "developer": ["READ", "WRITE"],
+        "tester": ["READ"],
+        "guest": []
+      }
+    },
+    {
+      "policyId": "policy-003",
+      "name": "配置文件修改策略",
+      "resources": ["/*.config.js", "/*.json"],
+      "actions": ["WRITE"],
+      "roles": {
+        "admin": ["*"],
+        "developer": [],
+        "tester": [],
+        "guest": []
+      }
+    }
+  ]
+}

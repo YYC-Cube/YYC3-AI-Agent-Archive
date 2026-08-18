@@ -13,7 +13,7 @@ _万象归元于云枢 · 深栈智启新纪元_
 ---
 
 [![Status](https://img.shields.io/badge/Status-Phase%204%20%E2%9A%A1%20AI%20Family%20%E6%99%BA%E8%83%BD%E4%BD%93-00FF88?style=for-the-badge&logo=statuspage&logoColor=white)](ARCHITECT.md)
-[![Version](https://img.shields.io/badge/Version-v1.4.0-00d4ff?style=for-the-badge&logo=semver&logoColor=white)](package.json)
+[![Version](https://img.shields.io/badge/Version-v2.1.0-00d4ff?style=for-the-badge&logo=semver&logoColor=white)](package.json)
 [![License](https://img.shields.io/badge/License-MIT-FF6600?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![PRs](https://img.shields.io/badge/PRs-Welcome-AA55FF?style=for-the-badge&logo=github&logoColor=white)](CONTRIBUTING.md)
 

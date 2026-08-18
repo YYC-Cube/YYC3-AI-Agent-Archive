@@ -1,0 +1,84 @@
+# Gitleaks 配置文件 - 防止敏感信息泄露
+
+# 遵循YYC³高安全原则
+
+title = "YYC³ 安全扫描配置"
+description = "敏感信息检测规则，防止密钥、令牌、密码等泄露"
+version = "1.0.0"
+
+# 通用规则
+[[rules]]
+id = "yyc3-api-key"
+description = "YYC³ API密钥"
+regex = '''(?i)(yyc3|yyc)(.{0,20})?['\"]([0-9a-f]{32,64})['\"]'''
+tags = ["key", "yyc3", "critical"]
+
+[[rules]]
+id = "jwt-token"
+description = "JWT令牌"
+regex = '''eyJ[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}'''
+tags = ["jwt", "token", "critical"]
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS访问密钥"
+regex = '''(?i)aws(.{0,20})?['\"]([A-Z0-9]{16,})['\"]'''
+tags = ["aws", "key", "critical"]
+
+[[rules]]
+id = "ssh-private-key"
+description = "SSH私钥"
+regex = '''-----BEGIN [A-Z ]*PRIVATE KEY-----'''
+tags = ["ssh", "private-key", "critical"]
+
+[[rules]]
+id = "password-in-code"
+description = "代码中的密码"
+regex = '''(?i)password\s*=\s*['\"][^'\"]+['\"]'''
+tags = ["password", "credential"]
+
+# YYC³特定规则
+[[rules]]
+id = "yyc3-database-url"
+description = "YYC³数据库连接字符串"
+regex = '''mysql://[^:@]+:[^@]+@[^/]+/yyc3'''
+tags = ["database", "yyc3", "critical"]
+
+[[rules]]
+id = "yyc3-redis-url"
+description = "YYC³ Redis连接字符串"
+regex = '''redis://[^:@]+:[^@]+@[^/]+:[0-9]+'''
+tags = ["redis", "yyc3", "critical"]
+
+[[rules]]
+id = "yyc3-port-config"
+description = "YYC³端口配置（非标准端口）"
+regex = '''port\s*:\s*([0-9]{2,5})'''
+entropy = 3.5
+tags = ["port", "yyc3", "info"]
+
+# 允许的例外
+[[allowlist]]
+description = "测试文件中允许的示例密钥"
+paths = [
+  "__tests__/",
+  "test/",
+  ".spec.",
+  ".test."
+]
+
+[[allowlist]]
+description = "文档文件中允许的示例"
+paths = [
+  "README.md",
+  "API-DOCUMENTATION.md",
+  "DEPLOYMENT-GUIDE.md"
+]
+
+# 忽略模式
+[[allowlist]]
+regexes = [
+  '''example_key_\w{32}''',
+  '''test_password_\w{16}''',
+  '''dummy_.+'''
+]

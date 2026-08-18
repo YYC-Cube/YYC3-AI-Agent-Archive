@@ -1,0 +1,77 @@
+{
+  "name": "yyc3-cli",
+  "version": "2.0.0",
+  "description": "YYC³ 命令行界面 - 言启象限 | 语枢未来 | 万象归元于云枢 | 深栈智启新纪元",
+  "main": "lib/index.js",
+  "bin": {
+    "yyc3": "bin/yyc3-cli.js"
+  },
+  "scripts": {
+    "start": "node bin/yyc3-cli.js",
+    "dev": "nodemon bin/yyc3-cli.js",
+    "test": "jest --passWithNoTests",
+    "lint": "for f in $(find bin lib -name '*.js' -not -path '*/node_modules/*'); do node --check \"$f\" || exit 1; done && echo 'syntax check passed'",
+    "format": "prettier --write \"lib/**/*.js\" \"bin/**/*.js\"",
+    "build": "echo \"CLI tool - no build required\"",
+    "audit": "npm audit --audit-level=high",
+    "release": "standard-version",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "chalk": "^4.1.2",
+    "figlet": "^1.7.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "boxen": "^5.1.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "nodemon": "^3.0.1",
+    "@types/jest": "^29.5.11",
+    "standard-version": "^9.5.0",
+    "eslint-config-prettier": "^9.1.0"
+  },
+  "keywords": [
+    "yyc3",
+    "cli",
+    "management",
+    "ai",
+    "devops",
+    "cloud",
+    "automation"
+  ],
+  "author": "YYC³ Team <team@yyc3.com>",
+  "contributors": [
+    "YYC³ Core Team"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YYC-Cube/YYC3-CLI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YYC-Cube/YYC3-CLI/issues"
+  },
+  "homepage": "https://github.com/YYC-Cube/YYC3-CLI",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "templates/",
+    "README.md",
+    "LICENSE"
+  ]
+}

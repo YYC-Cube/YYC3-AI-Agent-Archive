@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 团队yyc3 提交前校验
+npx lint-staged
+npx tsc --noEmit --project tsconfig.json
+node -c rbac.config.js
+node -c mcp-roles.json
+
+# 可选：存在 .yyc3-ai-precommit 文件时，触发 AI 审查（不阻塞提交）
+if [ -f .yyc3-ai-precommit ] && [ -x ./devctl ]; then
+	echo "[yyc3] 触发 AI 审查 (pre-commit)"
+	./devctl ai:review || true
+fi

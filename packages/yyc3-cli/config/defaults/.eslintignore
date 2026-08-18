@@ -1,0 +1,10 @@
+# 团队yyc3 ESLint忽略规则
+node_modules/
+dist/
+build/
+coverage/
+*.config.js
+*.min.js
+Dockerfile*
+*.yml
+*.md

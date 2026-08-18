@@ -7,34 +7,42 @@
  */
 
 // ==================== Skill 基础类型 ====================
+// 采用 const 数组派生联合类型，作为 Zod 校验的单一数据源
 
-export type SkillDomain =
-  | 'glm-ocr'        // GLM OCR 文字识别
-  | 'glm-vision'     // GLM 视觉理解
-  | 'glm-gen'        // GLM 内容生成
-  | 'glm-doc'        // GLM 文档处理
-  | 'glm-finance'    // GLM 金融分析
-  | 'hot'            // 社区热门工具
-  | 'marketing'      // 营销领域
-  | 'engineering'    // 工程实践
-  | 'devflow'        // 开发流程
-  | 'social'         // 社交搜索
-  | 'marketplace'    // 通用技能市场（对应 skills-hub/marketplace/）
-  | 'b2b'            // B2B 销售技能（对应 skills-hub/b2b/）
-  | 'ui-ux'          // UI/UX 设计技能（对应 skills-hub/ui-ux/）
-  | 'ai-ml'          // AI/ML 量化技能（对应 skills-hub/ai-ml/）
-  | 'agent-role'     // Agent 角色
-  | 'custom';        // 自定义扩展
+export const SKILL_DOMAINS = [
+  'glm-ocr',        // GLM OCR 文字识别
+  'glm-vision',     // GLM 视觉理解
+  'glm-gen',        // GLM 内容生成
+  'glm-doc',        // GLM 文档处理
+  'glm-finance',    // GLM 金融分析
+  'hot',            // 社区热门工具
+  'marketing',      // 营销领域
+  'engineering',    // 工程实践
+  'devflow',        // 开发流程
+  'social',         // 社交搜索
+  'marketplace',    // 通用技能市场（对应 skills-hub/marketplace/）
+  'b2b',            // B2B 销售技能（对应 skills-hub/b2b/）
+  'ui-ux',          // UI/UX 设计技能（对应 skills-hub/ui-ux/）
+  'ai-ml',          // AI/ML 量化技能（对应 skills-hub/ai-ml/）
+  'agent-role',     // Agent 角色
+  'custom',         // 自定义扩展
+] as const;
 
-export type SkillType = 'script' | 'prompt' | 'hybrid';
+export type SkillDomain = (typeof SKILL_DOMAINS)[number];
 
-export type SkillRuntime = 'python' | 'node' | 'shell' | 'native';
+export const SKILL_TYPES = ['script', 'prompt', 'hybrid'] as const;
+export type SkillType = (typeof SKILL_TYPES)[number];
 
-export type SkillStatus =
-  | 'active'         // 正常可用
-  | 'deprecated'     // 已弃用但保留
-  | 'experimental'   // 实验性
-  | 'disabled';      // 已禁用
+export const SKILL_RUNTIMES = ['python', 'node', 'shell', 'native'] as const;
+export type SkillRuntime = (typeof SKILL_RUNTIMES)[number];
+
+export const SKILL_STATUSES = [
+  'active',         // 正常可用
+  'deprecated',     // 已弃用但保留
+  'experimental',   // 实验性
+  'disabled',       // 已禁用
+] as const;
+export type SkillStatus = (typeof SKILL_STATUSES)[number];
 
 export interface SkillParameter {
   name: string;

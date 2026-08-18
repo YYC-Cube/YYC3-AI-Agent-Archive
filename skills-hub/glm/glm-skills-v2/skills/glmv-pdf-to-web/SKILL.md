@@ -1,6 +1,6 @@
 ---
 name: glmv-pdf-to-web
-description:
+description: Convert a PDF (research paper, technical report, or project document) into a bea
 category: development-code
 version: 1.0.0
 description_zh: Convert a PDF (research paper, technical report, or project document) into a bea
