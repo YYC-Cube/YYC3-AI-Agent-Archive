@@ -1,5 +1,5 @@
 ---
-name: research-add-fields
+name: research-en-research-add-fields
 user-invocable: true
 description: Add field definitions to existing research outline.
 category: development-code

@@ -156,4 +156,51 @@ describe('SkillRegistry', () => {
     restored.import(registry.export());
     expect(restored.get('TEST-001')).toEqual(registry.get('TEST-001'));
   });
+
+  it('同名冲突：高版本胜出，低版本记录为变体', () => {
+    const registry = new SkillRegistry();
+    const dupEvents: string[] = [];
+    registry.on('skill:duplicate', ({ id, kept, variant }) =>
+      dupEvents.push(`${id}:${kept.version}>${variant.version}`)
+    );
+
+    registry.register(makeSkill({ id: 'DUP-001', version: '1.0.0' }));
+    registry.register(makeSkill({ id: 'DUP-001', version: '1.2.0' }));
+
+    expect(registry.get('DUP-001')!.version).toBe('1.2.0');
+    expect(registry.getVariants('DUP-001')).toHaveLength(1);
+    expect(registry.getVariants('DUP-001')[0].version).toBe('1.0.0');
+    expect(registry.getDuplicateIds()).toEqual(['DUP-001']);
+    expect(dupEvents).toEqual(['DUP-001:1.2.0>1.0.0']);
+  });
+
+  it('同名冲突：后续低版本不覆盖主技能', () => {
+    const registry = new SkillRegistry();
+    registry.register(makeSkill({ id: 'DUP-002', version: '2.0.0' }));
+    registry.register(makeSkill({ id: 'DUP-002', version: '1.0.0' }));
+
+    expect(registry.get('DUP-002')!.version).toBe('2.0.0');
+    expect(registry.getVariants('DUP-002')).toHaveLength(1);
+    expect(registry.getVariants('DUP-002')[0].version).toBe('1.0.0');
+  });
+
+  it('同名冲突：版本不可解析时保留先注册者', () => {
+    const registry = new SkillRegistry();
+    registry.register(makeSkill({ id: 'DUP-003', version: 'stable' }));
+    registry.register(makeSkill({ id: 'DUP-003', version: '1.0.0' }));
+
+    expect(registry.get('DUP-003')!.version).toBe('stable');
+    expect(registry.getVariants('DUP-003')).toHaveLength(1);
+  });
+
+  it('注销时清理变体记录，统计含 withVariants', () => {
+    const registry = new SkillRegistry();
+    registry.register(makeSkill({ id: 'DUP-004', version: '1.0.0' }));
+    registry.register(makeSkill({ id: 'DUP-004', version: '1.1.0' }));
+    expect(registry.getStats().withVariants).toBe(1);
+
+    registry.unregister('DUP-004');
+    expect(registry.getVariants('DUP-004')).toHaveLength(0);
+    expect(registry.getStats().withVariants).toBe(0);
+  });
 });

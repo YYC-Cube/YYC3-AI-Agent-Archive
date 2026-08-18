@@ -522,7 +522,7 @@ description_en: AI paper reading...  # 英文描述
 | # | 问题 | 影响 | 根因 |
 |:-:|------|------|------|
 | P3-1 | **skills-hub/ 无 README** | 新人无法快速了解技能分类 | 文档覆盖不全 |
-| P3-2 | **命名不一致**：`AI-FAmily`（大小写错误）、`READMD.md`（拼写错误） | 降低专业感 | 初始提交时的笔误 |
+| P3-2 | **命名不一致**：`AI-Family`（大小写错误）、`READMD.md`（拼写错误） | 降低专业感 | 初始提交时的笔误 |
 | P3-3 | **项目根目录缺少 AGENTS.md/CLAUDE.md** | AI 编码助手缺少全局上下文 | 未设置 |
 | P3-4 | **两套插件市场（claude-code + community）内容重叠** | 维护成本高、概念模糊 | 从不同上游 fork 而来 |
 
@@ -779,7 +779,7 @@ export class NvidiaSkillAdapter {
 | 编号 | 任务 | 优先级 |
 |:----:|------|:------:|
 | P3-1 | 为 skills-hub/ 各分类目录补充 README | 低 |
-| P3-2 | 修正命名笔误（AI-FAmily → AI-Family, READMD → README） | 低 |
+| P3-2 | 修正命名笔误（AI-Family → AI-Family, READMD → README） | 低 |
 | P3-3 | 在项目根目录创建 AGENTS.md / CLAUDE.md（AI 助手全局上下文） | 中 |
 | P3-4 | 评估 claude-code-agents 与 community-agents 的合并或明确分工 | 低 |
 | P3-5 | 补充 NVIDIA Skills 的中文文档索引 | 低 |

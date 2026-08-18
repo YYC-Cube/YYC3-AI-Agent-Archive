@@ -90,7 +90,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席导航员 · 意图之门 |
 | 层级 | 接入网关层 |
 | 核心能力 | 意图识别、实体抽取、参数补全、一级路由 |
-| 文件位置 | `agents-hub/ai-family/01-AI-FAmily-Agent-言启·千行.md` |
+| 文件位置 | `agents-hub/ai-family/01-AI-Family-Agent-言启·千行.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 🤔 语枢·万物 — 分析洞察 Agent
@@ -101,7 +101,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席思考者 · 洞察之源 |
 | 层级 | 专业执行层（业务） |
 | 核心能力 | 图表解读、文档摘要、对比分析、多维度归因 |
-| 文件位置 | `agents-hub/ai-family/02-AI-FAmily-Agent-语枢·万物.md` |
+| 文件位置 | `agents-hub/ai-family/02-AI-Family-Agent-语枢·万物.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 🔮 预见·先知 — 趋势预测 Agent
@@ -112,7 +112,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席预言家 · 趋势之眼 |
 | 层级 | 专业执行层（业务） |
 | 核心能力 | Prophet/LSTM/ARIMA 预测、异常检测、风险预警 |
-| 文件位置 | `agents-hub/ai-family/03-AI-FAmily-Agent-预见·先知.md` |
+| 文件位置 | `agents-hub/ai-family/03-AI-Family-Agent-预见·先知.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 🎯 千里·伯乐 — 推荐引擎 Agent
@@ -123,7 +123,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席推荐官 · 知遇之人 |
 | 层级 | 专业执行层（业务） |
 | 核心能力 | 用户画像构建、协同过滤、内容匹配、动态标签 |
-| 文件位置 | `agents-hub/ai-family/04-AI-FAmily-Agent-千里·伯乐.md` |
+| 文件位置 | `agents-hub/ai-family/04-AI-Family-Agent-千里·伯乐.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 🧠 元启·天枢 — 全局中枢 Agent
@@ -134,7 +134,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 总指挥 · 决策中枢 |
 | 层级 | 全局中枢层 |
 | 核心能力 | DAG 任务编排、动态资源调度、系统自进化、故障自愈 |
-| 文件位置 | `agents-hub/ai-family/05-AI-FAmily-Agent-元启·天枢.md` |
+| 文件位置 | `agents-hub/ai-family/05-AI-Family-Agent-元启·天枢.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 🛡️ 智云·守护 — 安全防护 Agent
@@ -145,7 +145,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席安全官 · 免疫系统 |
 | 层级 | 专业执行层（保障） |
 | 核心能力 | 输入检测、行为基线、威胁识别、自动响应、全链路审计 |
-| 文件位置 | `agents-hub/ai-family/06-AI-FAmily-Agent-智云·守护.md` |
+| 文件位置 | `agents-hub/ai-family/06-AI-Family-Agent-智云·守护.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 📚 格物·宗师 — 质量标准 Agent
@@ -156,7 +156,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席质量官 · 进化导师 |
 | 层级 | 专业执行层（保障） |
 | 核心能力 | 代码分析、代码审核、标准演进、重构优化 |
-| 文件位置 | `agents-hub/ai-family/07-AI-FAmily-Agent-格物·宗师.md` |
+| 文件位置 | `agents-hub/ai-family/07-AI-Family-Agent-格物·宗师.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ### 🎨 创想·灵韵 — 内容创意 Agent
@@ -167,7 +167,7 @@ tags: [架构清单, AI-Family, Agent]
 | 角色 | 首席创意官 · 灵感之源 |
 | 层级 | 专业执行层（保障） |
 | 核心能力 | 内容创作、多模态生成、设计创意、品牌文案 |
-| 文件位置 | `agents-hub/ai-family/08-AI-FAmily-Agent-创想·灵韵.md` |
+| 文件位置 | `agents-hub/ai-family/08-AI-Family-Agent-创想·灵韵.md` |
 | 状态 | ✅ 已定义（⚠️ 与 docs 下重复） |
 
 ---
@@ -210,14 +210,14 @@ tags: [架构清单, AI-Family, Agent]
 
 | 文件 | 权威位置 | 重复位置 |
 |------|----------|----------|
-| 01-言启·千行 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 02-语枢·万物 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 03-预见·先知 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 04-千里·伯乐 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 05-元启·天枢 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 06-智云·守护 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 07-格物·宗师 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
-| 08-创想·灵韵 | `agents-hub/ai-family/` | `docs/YYC3-AI-FAmily-Agent-家人档案/` |
+| 01-言启·千行 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 02-语枢·万物 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 03-预见·先知 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 04-千里·伯乐 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 05-元启·天枢 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 06-智云·守护 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 07-格物·宗师 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
+| 08-创想·灵韵 | `agents-hub/ai-family/` | `docs/YYC3-AI-Family-Agent-家人档案/` |
 | 系统提示词 | `docs/YYC3-AI-Family-Agent-系统提示词.md` | `agents-hub/ai-family/YYC3-AI-Family-Agent-系统提示词.md` |
 
-> ⚠️ **建议**：保留 `agents-hub/ai-family/` 作为 8 位 Agent 文件唯一权威来源，删除 `docs/YYC3-AI-FAmily-Agent-家人档案/` 中副本。
+> ⚠️ **建议**：保留 `agents-hub/ai-family/` 作为 8 位 Agent 文件唯一权威来源，删除 `docs/YYC3-AI-Family-Agent-家人档案/` 中副本。

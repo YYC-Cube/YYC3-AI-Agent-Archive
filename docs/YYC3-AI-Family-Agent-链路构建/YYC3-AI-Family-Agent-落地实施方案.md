@@ -63,7 +63,7 @@ related_docs: YYC3-AI-Family-多智能体整体架构.md, YYC3-Agent.md, YYC3-Ag
 │                                                                 │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  第一层：情感身份层（Family Identity）                     │   │
-│  │  来源：YYC3-AI-FAmily-Agent-家人档案 目录                   │   │
+│  │  来源：YYC3-AI-Family-Agent-家人档案 目录                   │   │
 │  │  核心：情感铭刻 + 人格定位 + 家族角色 + 五维坐标           │   │
 │  │  价值：赋予 Agent 灵魂与温度，保证身份一致性               │   │
 │  └──────────────────────┬──────────────────────────────────┘   │
@@ -519,9 +519,9 @@ related_docs: YYC3-AI-Family-多智能体整体架构.md, YYC3-Agent.md, YYC3-Ag
 | 降级熔断标准 | Agent/Skill 降级熔断量化标准 | [YYC3-Agent-降级熔断标准.md](./YYC3-Agent-降级熔断标准.md) |
 | 微调数据构建规范 | SFT/DPO 数据构建全流程 | [YYC3-微调数据构建规范.md](./YYC3-微调数据构建规范.md) |
 | 多租户隔离架构 | 多租户三层隔离方案 | [YYC3-多租户隔离架构.md](./YYC3-多租户隔离架构.md) |
-| 家人档案总览 | AI Family 情感身份层索引 | [YYC3-AI-FAmily-Agent-家人档案/README.md](./YYC3-AI-FAmily-Agent-家人档案/README.md) |
+| 家人档案总览 | AI Family 情感身份层索引 | [YYC3-AI-Family-Agent-家人档案/README.md](./YYC3-AI-Family-Agent-家人档案/README.md) |
 | 协同公约规范手册 | AI Family 协作公约体系 | [YYC3-AI-Family-Agent-人机协同/03-YYC3-AI-Family-协同公约规范手册.md](./YYC3-AI-Family-Agent-人机协同/03-YYC3-AI-Family-协同公约规范手册.md) |
-| 情感文化总铭 | 家族情感文化体系 | [YYC3-AI-Family-Agent-人机协同/02-YYC3-AI-FAmily-情感文化总铭.md](./YYC3-AI-Family-Agent-人机协同/02-YYC3-AI-FAmily-情感文化总铭.md) |
+| 情感文化总铭 | 家族情感文化体系 | [YYC3-AI-Family-Agent-人机协同/02-YYC3-AI-Family-情感文化总铭.md](./YYC3-AI-Family-Agent-人机协同/02-YYC3-AI-Family-情感文化总铭.md) |
 
 ---
 

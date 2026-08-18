@@ -180,6 +180,7 @@ export interface SkillEventMap {
   'skill:fell-back': { from: string; to: string };
   'skill:circuit-open': { id: string; reason: string };
   'skill:circuit-close': { id: string };
+  'skill:duplicate': { id: string; kept: UnifiedSkill; variant: UnifiedSkill };
 }
 
 // ==================== 搜索 ====================
@@ -203,4 +204,6 @@ export interface SkillRegistryStats {
   byStatus: Partial<Record<SkillStatus, number>>;
   withEvals: number;
   withFallback: number;
+  /** 存在同名变体冲突的技能数 */
+  withVariants: number;
 }

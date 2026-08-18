@@ -1,5 +1,5 @@
 ---
-name: research-deep
+name: research-en-research-deep
 user-invocable: true
 description: Read research outline, launch independent agent for each item for deep research. Disable task output.
 category: development-code
