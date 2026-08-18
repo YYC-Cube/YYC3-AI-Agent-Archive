@@ -867,6 +867,36 @@ export class NvidiaSkillAdapter {
 - 同名技能 67 组（主要为 NVIDIA skills 在 skills-hub 与 plugins-hub 的双副本）——已列为后续去重专项输入
 - b2b 目录 5 个 SKILL.md 原本完全无 frontmatter，已按目录名+正文摘要生成规范清单
 
+### 7.7 安全扫描与修复记录（2026-08-18 第三轮执行）
+
+| 扫描项 | 方法 | 结果 |
+|--------|------|------|
+| 依赖漏洞 | `pnpm audit`（根 + 各包） | 6 项（1 critical / 1 high / 3 moderate / 1 low）→ **0** |
+| 凭据泄露 | .env 追踪检查 + git 历史 + 密钥模式扫描（sk-/ghp_/AKIA/xoxb/AIza/PEM） | 无泄露；.env.template 均为纯占位符 |
+| 代码注入面 | eval/new Function/exec 拼接/spawn 形式审查 | **发现并修复 1 项**：CowAgentMCPBridge Python 源码注入（详见下） |
+| 资产内容抽检 | curl\\|bash / rm -rf / / base64 管道模式扫描 857 个 SKILL.md | 0 / 0 / 1（唯一命中为安全检查技能自身的检测规则，误报） |
+| CI 权限 | workflow permissions 声明 | 已补 `permissions: contents: read` 最小权限 |
+
+**依赖修复明细**：
+- critical：vitest 2.1 → 3.2.7（UI 服务任意文件读取/执行）
+- high/moderate：vite 5.4.21 → 6.4.3（pnpm override 定向 `vite@5`，不影响 i18n 的 vite 8）
+- low：esbuild → ^0.28.1（override，tsup 构建兼容已验证）
+- i18n：@vitest/coverage-v8 1.6.1 → 4.1.10 对齐 vitest 4，peer 警告清零
+
+**代码注入修复**（`packages/mcp-runtime/src/cowagent-bridge.ts`）：
+- 原实现将 `call.name` 与用户参数直接内插进 `python -c` 源码（仅转义单引号），存在源码级注入面
+- 修复：工具名白名单 `^[a-z][a-z0-9_]*$`；参数改经 **stdin + json.loads** 传递
+- 附带修复功能性缺陷：JSON `true/null` 字面量原样内插在 Python 中无效
+- 回归测试：7 类恶意工具名变体 + 合法名通过用例（tests/cowagent-bridge.test.ts）
+
+**关于 GitHub Dependabot 全仓告警（884 项）的说明**：
+GitHub 依赖图谱扫描覆盖仓库内**全部 vendored manifests**（8,600+ 第三方技能/插件自带的
+package.json / requirements.txt / Cargo.toml），与本仓库 workspace 的 `pnpm audit`（当前 0 漏洞）
+是两套体系。归档仓库的第三方参考副本无法逐一升级，处置建议：
+1. 本次推送已移除 ClickHouse 与 autocomplete-specs（约 4 万文件）出依赖图谱，告警数将显著下降
+2. 如需彻底静默：仓库 Settings → Code security → 关闭 Dependabot alerts（保留 CI 层 `pnpm audit` 门禁）
+3. 或按目录批量 `/dependabot ignore` 第三方资产目录
+
 ---
 
 ## 附录
