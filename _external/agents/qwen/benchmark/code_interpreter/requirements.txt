@@ -9,5 +9,5 @@ PrettyTable
 scipy
 seaborn
 sympy
-transformers==5.10.1
+transformers==5.16.1
 transformers_stream_generator
