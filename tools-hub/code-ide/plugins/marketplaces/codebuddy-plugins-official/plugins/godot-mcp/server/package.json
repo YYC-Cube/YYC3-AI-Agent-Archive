@@ -26,7 +26,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "fastmcp": "^4.8.1",
+    "fastmcp": "^4.16.4",
     "websocket": "^1.0.35",
     "ws": "^8.21.0",
     "zod": "^3.21.4"
