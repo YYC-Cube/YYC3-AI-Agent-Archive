@@ -254,7 +254,7 @@ GET /token/{token}/projection/  # With species projection
 
 **Example:**
 ```python
-token = "MzUxODM3NTQzMDAwMDA1ODI4MA=="
+token = "YOUR_ANALYSIS_TOKEN"  # Replace with token from /identifiers/submit response
 response = requests.get(f"https://reactome.org/AnalysisService/token/{token}")
 results = response.json()
 ```

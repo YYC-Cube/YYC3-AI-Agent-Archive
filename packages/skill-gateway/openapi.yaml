@@ -1,0 +1,624 @@
+openapi: "3.1.0"
+info:
+  title: YYC³ Skill Gateway API
+  description: |
+    企业级 AI Agent 技能网关 REST API。
+
+    ## 核心能力
+    - **技能管理**: 注册/发现/搜索/统计 600+ 技能资产
+    - **技能执行**: 沙箱隔离的多运行时执行（Node/Python/Shell/Native）
+    - **MCP 协同**: 统一 MCP 工具调用接口（tools/list / tools/call）
+    - **健康监控**: 健康检查、就绪检查、版本信息
+
+    ## 认证
+    当前版本为内部服务间调用，不强制认证。生产环境请通过 API Gateway 添加认证层。
+
+    ## 分页
+    列表接口支持 `page` 和 `pageSize` 参数，默认 `page=1, pageSize=20`，最大 `pageSize=100`。
+
+    ## 错误格式
+    所有错误响应遵循统一格式：
+    ```json
+    { "ok": false, "error": { "code": "ERROR_CODE", "message": "..." } }
+    ```
+  version: "1.0.0"
+  contact:
+    name: YanYuCloudCube Team
+    email: admin@0379.email
+  license:
+    name: MIT
+
+servers:
+  - url: "http://localhost:3030"
+    description: 本地开发环境
+  - url: "https://api.yyc3.example.com"
+    description: 生产环境
+
+tags:
+  - name: Health
+    description: 健康检查 & 服务状态
+  - name: Skills
+    description: 技能 CRUD & 搜索
+  - name: Execute
+    description: 技能执行 & MCP 工具调用
+
+paths:
+  # ==================== Health ====================
+  /api/v1/health:
+    get:
+      tags:
+        - Health
+      summary: 健康检查
+      description: 返回服务健康状态、运行时间、技能统计信息
+      operationId: getHealth
+      responses:
+        "200":
+          description: 服务正常
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+
+  /api/v1/health/ready:
+    get:
+      tags:
+        - Health
+      summary: 就绪检查
+      description: 检查 Skill Registry 是否就绪，用于 K8s readiness probe
+      operationId: getHealthReady
+      responses:
+        "200":
+          description: 就绪
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReadyResponse"
+        "503":
+          description: 未就绪
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/health/version:
+    get:
+      tags:
+        - Health
+      summary: 版本信息
+      description: 返回服务版本、Node.js 版本、运行平台
+      operationId: getHealthVersion
+      responses:
+        "200":
+          description: 版本信息
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VersionResponse"
+
+  # ==================== Skills ====================
+  /api/v1/skills:
+    get:
+      tags:
+        - Skills
+      summary: 技能列表/搜索
+      description: 分页查询技能列表，支持多维度搜索过滤
+      operationId: listSkills
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: 搜索关键词（名称/描述）
+        - name: domain
+          in: query
+          schema:
+            type: string
+          description: 按领域过滤（如 ai-ml, devops, security）
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: 按类型过滤（如 agent, tool, workflow）
+        - name: runtime
+          in: query
+          schema:
+            type: string
+          description: 按运行时过滤（如 node, python, shell, native）
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: 按状态过滤（如 active, deprecated, experimental）
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+      responses:
+        "200":
+          description: 技能列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillListResponse"
+
+  /api/v1/skills/stats:
+    get:
+      tags:
+        - Skills
+      summary: 技能统计
+      description: 返回技能注册中心的统计信息（总数、按领域/类型/运行时分布）
+      operationId: getSkillsStats
+      responses:
+        "200":
+          description: 统计信息
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillStatsResponse"
+
+  /api/v1/skills/domains:
+    get:
+      tags:
+        - Skills
+      summary: 领域列表
+      description: 返回所有已注册技能覆盖的领域名称列表
+      operationId: getSkillsDomains
+      responses:
+        "200":
+          description: 领域列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DomainsResponse"
+
+  /api/v1/skills/reload:
+    post:
+      tags:
+        - Skills
+      summary: 重新加载技能
+      description: 从文件系统重新扫描并加载所有技能资产
+      operationId: reloadSkills
+      responses:
+        "200":
+          description: 重新加载成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReloadResponse"
+
+  /api/v1/skills/{id}:
+    get:
+      tags:
+        - Skills
+      summary: 获取单个技能
+      description: 根据技能 ID 获取完整技能信息
+      operationId: getSkill
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 技能唯一标识符
+      responses:
+        "200":
+          description: 技能详情
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillResponse"
+        "404":
+          description: 技能不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Execute ====================
+  /api/v1/execute:
+    post:
+      tags:
+        - Execute
+      summary: 执行技能
+      description: 在沙箱环境中执行指定技能，支持超时控制
+      operationId: executeSkill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SkillExecuteRequest"
+      responses:
+        "200":
+          description: 执行成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillExecuteResponse"
+        "400":
+          description: 参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: 技能不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: 执行失败
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillExecuteErrorResponse"
+
+  /api/v1/execute/mcp/list:
+    post:
+      tags:
+        - Execute
+      summary: 列出 MCP 工具
+      description: 返回所有已注册的 MCP 工具列表
+      operationId: listMCPTools
+      responses:
+        "200":
+          description: 工具列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MCPToolsResponse"
+        "503":
+          description: MCP Runtime 未配置
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/execute/mcp/call:
+    post:
+      tags:
+        - Execute
+      summary: 调用 MCP 工具
+      description: 调用指定 MCP 工具并返回结果
+      operationId: callMCPTool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - args
+              properties:
+                name:
+                  type: string
+                  description: MCP 工具名称
+                args:
+                  type: object
+                  description: 工具参数
+                  additionalProperties: true
+      responses:
+        "200":
+          description: 调用成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MCPCallResponse"
+        "400":
+          description: 参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: MCP 调用失败
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "503":
+          description: MCP Runtime 未配置
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    # ---- 通用 ----
+    OKResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          const: true
+        data: {}
+        meta:
+          type: object
+          properties:
+            timestamp:
+              type: string
+              format: date-time
+
+    ErrorResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          const: false
+        error:
+          type: object
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+              description: 错误码，如 NOT_FOUND, BAD_REQUEST, EXECUTION_ERROR
+            message:
+              type: string
+              description: 人类可读的错误描述
+            details:
+              description: 可选的错误详情
+
+    # ---- Health ----
+    HealthResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - ok
+                    - degraded
+                    - down
+                uptime:
+                  type: integer
+                  description: 运行毫秒数
+                version:
+                  type: string
+                skills:
+                  type: object
+                  properties:
+                    total:
+                      type: integer
+                    byDomain:
+                      type: object
+                      additionalProperties:
+                        type: integer
+                    byType:
+                      type: object
+                      additionalProperties:
+                        type: integer
+
+    ReadyResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                ready:
+                  type: boolean
+                  const: true
+
+    VersionResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                version:
+                  type: string
+                node:
+                  type: string
+                platform:
+                  type: string
+
+    # ---- Skills ----
+    SkillListResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/Skill"
+            meta:
+              type: object
+              properties:
+                page:
+                  type: integer
+                pageSize:
+                  type: integer
+                total:
+                  type: integer
+                timestamp:
+                  type: string
+                  format: date-time
+
+    SkillStatsResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                totalSkills:
+                  type: integer
+                byDomain:
+                  type: object
+                  additionalProperties:
+                    type: integer
+                byType:
+                  type: object
+                  additionalProperties:
+                    type: integer
+                byRuntime:
+                  type: object
+                  additionalProperties:
+                    type: integer
+
+    DomainsResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: string
+
+    SkillResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              $ref: "#/components/schemas/Skill"
+
+    ReloadResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                reloaded:
+                  type: integer
+                  description: 重新加载的技能数量
+            meta:
+              type: object
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+
+    Skill:
+      type: object
+      description: 技能资产定义
+      properties:
+        id:
+          type: string
+          description: 唯一标识符 (AYNC-[type]-[category]-[name])
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        domain:
+          type: string
+        type:
+          type: string
+        runtime:
+          type: string
+        status:
+          type: string
+        version:
+          type: string
+        author:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+
+    # ---- Execute ----
+    SkillExecuteRequest:
+      type: object
+      required:
+        - skillId
+        - params
+      properties:
+        skillId:
+          type: string
+          description: 技能 ID
+        params:
+          type: object
+          description: 执行参数
+          additionalProperties: true
+        timeout:
+          type: integer
+          description: 超时时间(ms)，默认 30000，最大 120000
+
+    SkillExecuteResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                skillId:
+                  type: string
+                duration:
+                  type: integer
+                  description: 执行耗时(ms)
+                output:
+                  description: 执行输出
+
+    SkillExecuteErrorResponse:
+      allOf:
+        - $ref: "#/components/schemas/ErrorResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                skillId:
+                  type: string
+                duration:
+                  type: integer
+                output:
+                  type: "null"
+                error:
+                  type: string
+
+    # ---- MCP ----
+    MCPToolsResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  inputSchema:
+                    type: object
+
+    MCPCallResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              description: MCP 工具调用结果

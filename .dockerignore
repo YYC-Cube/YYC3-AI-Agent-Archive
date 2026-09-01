@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs (will be rebuilt in builder stage)
+dist
+.turbo
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docs
+docs
+*.md
+!README.md
+
+# Tests
+**/tests
+**/__tests__
+**/*.test.ts
+**/*.spec.ts
+vitest.config.ts
+
+# Config (not needed at runtime)
+tsconfig*.json
+.eslintrc*
+.prettierrc*
+.husky
+
+# CI
+.github
+
+# Misc
+.env
+.env.*
+!.env.docker
+*.log
+coverage

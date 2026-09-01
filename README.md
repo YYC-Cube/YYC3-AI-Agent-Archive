@@ -32,7 +32,8 @@ _万象归元于云枢 · 深栈智启新纪元_
 
 ### 📊 项目规模
 
-![Monorepo](https://img.shields.io/badge/Monorepo-7%20Core%20Packages-AA55FF?style=flat-square&logo=monorepo&logoColor=white)
+![Monorepo](https://img.shields.io/badge/Monorepo-13%20Core%20Packages-AA55FF?style=flat-square&logo=monorepo&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-929%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
 ![AI Family](https://img.shields.io/badge/AI%20Family-8%20%E6%99%BA%E8%83%BD%E4%BD%93-C9A96E?style=flat-square&logo=robot&logoColor=white)
 ![Community Skills](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA%E6%8A%80%E8%83%BD-283-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
 ![Marketplace Skills](https://img.shields.io/badge/%E5%B8%82%E5%9C%BA%E5%8C%96%E6%8A%80%E8%83%BD-121-00d4ff?style=flat-square&logo=marketplace&logoColor=white)
@@ -57,10 +58,10 @@ _万象归元于云枢 · 深栈智启新纪元_
 ## 📋 目录
 
 - [YYC³ AI Agent Archive](#yyc-ai-agent-archive)
-  - [_言启象限 · 语枢未来_](#言启象限--语枢未来)
-  - [🏗️ 技术栈](#️-技术栈)
-  - [📊 项目规模](#-项目规模)
-  - [⚡ 五高架构](#-五高架构)
+    - [_言启象限 · 语枢未来_](#言启象限--语枢未来)
+    - [🏗️ 技术栈](#️-技术栈)
+    - [📊 项目规模](#-项目规模)
+    - [⚡ 五高架构](#-五高架构)
   - [📋 目录](#-目录)
   - [🚀 项目概述](#-项目概述)
     - [🎯 核心理念](#-核心理念)
@@ -82,6 +83,9 @@ _万象归元于云枢 · 深栈智启新纪元_
   - [📚 文档体系](#-文档体系)
     - [关键文档索引](#关键文档索引)
   - [🔬 技术栈全景](#-技术栈全景)
+  - [🐳 Docker 容器化](#-docker-容器化)
+  - [🔄 CI/CD Pipeline](#-cicd-pipeline)
+  - [🔐 安全加固](#-安全加固)
   - [🎯 五维驱动架构](#-五维驱动架构)
   - [🤝 贡献指南](#-贡献指南)
     - [贡献方式](#贡献方式)
@@ -91,12 +95,12 @@ _万象归元于云枢 · 深栈智启新纪元_
 
 ## 🚀 项目概述
 
-**YYC³ AI Agent Archive** 是企业级 AI Agent 资产平台，以 Monorepo 架构聚合了 **7 个核心 TypeScript 包**、**8 位 AI Family 智能体**、**600+ 技能资产**、**200+ 插件** 以及完整的多智能体协同体系。项目以"言启千行代码，语枢万物智能"为核心理念，构建了从智能体定义、技能注册发现、MCP 运行时到国际化支持的完整技术栈。
+**YYC³ AI Agent Archive** 是企业级 AI Agent 资产平台，以 Monorepo 架构聚合了 **13 个核心 TypeScript 包**、**8 位 AI Family 智能体**、**600+ 技能资产**、**200+ 插件** 以及完整的多智能体协同体系。项目以"言启千行代码，语枢万物智能"为核心理念，构建了从智能体定义、技能注册发现、MCP 运行时、协同编排、沙箱执行、可观测性到国际化支持的完整技术栈，已完成 **Phase 5 生产就绪**交付。
 
 ### 🎯 核心理念
 
 | 维度 | 理念 | 说明 |
-|:----:|------|------|
+| :----: | ------ | ------ |
 | 🌟 | **言启千行代码** | Words inspire thousands of lines of code |
 | 🔮 | **语枢万物智能** | Language pivots the intelligence of all things |
 | ☁️ | **万象归元于云枢** | All things return to the Cloud Pivot |
@@ -110,7 +114,15 @@ _万象归元于云枢 · 深栈智启新纪元_
 YYC³ AI Agent Archive
 ├── 📦 **packages/**              # 核心 TypeScript 包 (Monorepo Workspace)
 │   ├── skill-registry           # 统一 Skill 注册中心
+│   ├── skill-gateway            # Skill Gateway API (REST 接口)
+│   ├── skill-sandbox            # Skill 沙箱执行环境
 │   ├── mcp-runtime              # 统一 MCP 运行时
+│   ├── conductor                # 协同编排引擎
+│   ├── agent-runtime            # Agent 智能体运行时
+│   ├── agent-registry           # Agent 注册中心
+│   ├── orchestrator             # 智能编排调度器
+│   ├── plugin-marketplace       # Plugin Marketplace 运行时
+│   ├── observability            # 可观测性监控
 │   ├── yyc3-i18n               # 生产级国际化框架
 │   ├── yyc3-cli                # 命令行界面
 │   ├── skills-legacy           # [弃用] 旧技能系统
@@ -167,7 +179,7 @@ YYC³ AI Agent Archive
 ## 🤖 AI Family 智能体家族
 
 | # | 智能体 | 定位 | 核心能力 |
-|:-:|--------|------|----------|
+| :-: | -------- | ------ | ---------- |
 | 01 | **言启·千行** | 代码生成与架构设计 | 全栈开发、系统架构、代码生成 |
 | 02 | **语枢·万物** | 语言理解与知识管理 | NLP、知识图谱、语义分析 |
 | 03 | **预见·先知** | 数据分析与趋势预测 | 数据挖掘、机器学习、预测建模 |
@@ -184,9 +196,17 @@ YYC³ AI Agent Archive
 ## 📦 核心包清单
 
 | 包名 | 版本 | 描述 | 状态 |
-|------|:----:|------|:----:|
-| [`@yyc3/skill-registry`](packages/skill-registry/) | 1.0.0 | 统一 Skill 注册中心 — 标准化注册、发现、调度、降级熔断 | ✅ **Active** |
-| [`@yyc3/mcp-runtime`](packages/mcp-runtime/) | 1.0.0 | 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接 | ✅ **Active** |
+| ------ | :----: | ------ | :----: |
+| [`@yyc3/skill-registry`](packages/skill-registry/) | 2.0.0 | 统一 Skill 注册中心 — 标准化注册、发现、调度、降级熔断 | ✅ **Active** |
+| [`@yyc3/skill-gateway`](packages/skill-gateway/) | 1.0.0 | Skill Gateway API — REST 接口、安全中间件、速率限制 | ✅ **Active** |
+| [`@yyc3/skill-sandbox`](packages/skill-sandbox/) | 1.0.0 | Skill 沙箱执行环境 — 多运行时安全隔离 (Node/Python/Shell) | ✅ **Active** |
+| [`@yyc3/mcp-runtime`](packages/mcp-runtime/) | 2.0.0 | 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接 | ✅ **Active** |
+| [`@yyc3/conductor`](packages/conductor/) | 1.0.0 | 协同编排引擎 — 多智能体协同、任务编排、工作流执行 | ✅ **Active** |
+| [`@yyc3/agent-runtime`](packages/agent-runtime/) | 1.0.0 | Agent 智能体运行时 — 生命周期管理、对话上下文、工具调用 | ✅ **Active** |
+| [`@yyc3/agent-registry`](packages/agent-registry/) | 1.0.0 | Agent 注册中心 — 智能体发现与能力匹配 | ✅ **Active** |
+| [`@yyc3/orchestrator`](packages/orchestrator/) | 1.0.0 | 智能编排调度器 — LLM 任务分解、多策略调度、工作流引擎 | ✅ **Active** |
+| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/) | 1.0.0 | Plugin Marketplace 运行时 — 插件注册、激活、依赖管理 | ✅ **Active** |
+| [`@yyc3/observability`](packages/observability/) | 1.0.0 | 可观测性监控 — 结构化日志、指标收集、链路追踪、健康检查 | ✅ **Active** |
 | [`@yyc3/i18n-core`](packages/yyc3-i18n/) | 2.4.0 | 生产级国际化框架 — 高性能、零依赖、插件化 i18n 方案 | ✅ **Active** |
 | [`yyc3-cli`](packages/yyc3-cli/) | 2.0.0 | 命令行界面 — 技能构建/验证/去重/统计 | ✅ **Active** |
 | [`@yyc3/skills`](packages/skills-legacy/) | 1.0.0 | 旧技能系统（184 技能） | ⚠️ **Deprecated** |
@@ -196,12 +216,19 @@ YYC³ AI Agent Archive
 ### 包依赖关系
 
 ```
-yyc3-cli
-  └── @yyc3/skill-registry ──┐
-                              ├── @yyc3/mcp-runtime
-                              │       └── @yyc3/skill-registry
-                              │
-                              └── @yyc3/i18n-core (独立)
+skill-gateway ──→ skill-registry ──→ skill-sandbox
+       │                                    │
+       ↓                                    ↓
+conductor ──→ orchestrator ──→ agent-runtime ←── agent-registry
+       │              │
+       ↓              ↓
+plugin-marketplace ──→ observability
+       │
+       ↓
+mcp-runtime ──→ skill-registry
+       │
+       ↓
+yyc3-cli ──→ @yyc3/i18n-core (独立)
 ```
 
 ---
@@ -211,7 +238,7 @@ yyc3-cli
 ### 🛠️ Skills Hub — 技能中心
 
 | 来源 | 数量 | 路径 | 说明 |
-|------|:----:|------|------|
+| ------ | :----: | ------ | ------ |
 | 🌍 社区技能 | **283** | [`skills-hub/community/`](skills-hub/community/) | 开发者贡献的多样化技能 |
 | 🏪 市场化技能 | **121** | [`skills-hub/marketplace/`](skills-hub/marketplace/) | 企业级市场化技能 |
 | 💚 NVIDIA 官方 | **202** | [`skills-hub/ai-ml/nvidia-skills/`](skills-hub/ai-ml/nvidia-skills/) | NVIDIA AI 技能 |
@@ -220,7 +247,7 @@ yyc3-cli
 ### 🔌 Plugins Hub — 插件中心
 
 | 类别 | 数量 | 路径 | 说明 |
-|------|:----:|------|------|
+| ------ | :----: | ------ | ------ |
 | 🏢 官方插件 | 80+ | [`plugins-hub/official/`](plugins-hub/official/) | 官方维护的插件集 |
 | 👥 社区插件 | 10+ | [`plugins-hub/community/`](plugins-hub/community/) | 社区贡献插件 |
 | ⚡ SuperPowers | 10+ | [`plugins-hub/superpowers/`](plugins-hub/superpowers/) | AI 增强插件 |
@@ -231,7 +258,7 @@ yyc3-cli
 ### 🧰 Tools Hub — 工具中心
 
 | 工具 | 技术 | 路径 | 说明 |
-|------|:----:|------|------|
+| ------ | :----: | ------ | ------ |
 | 🔤 **autocomplete** | TypeScript | [`tools-hub/autocomplete/`](tools-hub/autocomplete/) | CLI 自动补全规范引擎 |
 | 🌐 **browser-agent** | Rust | [`tools-hub/browser-agent/`](tools-hub/browser-agent/) | 浏览器自动化 CLI (CDP/WebDriver) |
 | 🔄 **workflow-builder** | TypeScript | [`tools-hub/workflow-builder/`](tools-hub/workflow-builder/) | AI 工作流可视化构建器 |
@@ -296,7 +323,7 @@ pnpm doctor             # 一站式验证 + 去重
 ## 📜 项目脚本
 
 | 脚本 | 描述 |
-|------|------|
+| ------ | ------ |
 | `pnpm dev` | 并行开发模式 |
 | `pnpm build` | 构建所有包 |
 | `pnpm typecheck` | TypeScript 类型检查 |
@@ -334,7 +361,7 @@ pnpm i18n:sync         # 3. 同步到各包
 ## 📚 文档体系
 
 | 分类 | 路径 | 说明 |
-|------|------|------|
+| ------ | ------ | ------ |
 | 👨‍👩‍👧‍👦 **家人档案** | [`docs/YYC3-AI-Family-Agent-家人档案/`](docs/YYC3-AI-Family-Agent-%E5%AE%B6%E4%BA%BA%E6%A1%A3%E6%A1%88/) | 8 位家人详细档案 |
 | 🤝 **智能协同** | [`docs/YYC3-AI-Family-Agent-智能协同/`](docs/YYC3-AI-Family-Agent-%E6%99%BA%E8%83%BD%E5%8D%8F%E5%90%8C/) | 九层架构设计与系统规划 |
 | 👤 **人机协同** | [`docs/YYC3-AI-Family-Agent-人机协同/`](docs/YYC3-AI-Family-Agent-%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C/) | 五维五高五标五化·情感文化·协同公约 |
@@ -356,25 +383,69 @@ pnpm i18n:sync         # 3. 同步到各包
 ## 🔬 技术栈全景
 
 | 领域 | 技术 | 用途 |
-|------|------|------|
+| ------ | ------ | ------ |
 | **核心语言** | TypeScript 5.7+ | 主要开发语言 |
 | **包管理** | pnpm 9+ / Workspaces | Monorepo 管理 |
-| **构建工具** | tsup 8+ | TypeScript 构建 |
+| **构建工具** | tsup 8+ / Turbo | TypeScript 构建 + 任务编排 |
 | **类型校验** | Zod 3.23+ | 运行时类型安全 |
 | **命令行** | Commander 11+ / Chalk / Figlet | CLI 交互 |
-| **测试** | Vitest / Jest | 单元测试 |
+| **测试** | Vitest 3+ | 929 测试用例 |
 | **E2E** | Playwright | 端到端测试 |
 | **运行时** | Python 3.10+ | 技能脚本 |
 | **系统编程** | Rust 1.80+ / Cargo | 浏览器代理 |
 | **后端** | Go 1.22+ | 工具集 |
-| **代码质量** | ESLint / Prettier | 代码规范 |
+| **代码质量** | ESLint 9+ / Prettier | 代码规范 |
+| **容器化** | Docker / docker-compose | 多服务容器编排 |
+| **CI/CD** | GitHub Actions | 矩阵构建 + 自动发布 |
+| **API 文档** | OpenAPI 3.1 | Skill Gateway API 规范 |
+
+---
+
+## 🐳 Docker 容器化
+
+```bash
+# 启动全部服务
+docker-compose up -d
+
+# 服务端口
+#  Skill Gateway: http://localhost:3030
+#  MCP Runtime:   http://localhost:3031
+#  Agent Runtime: http://localhost:3032
+```
+
+**多阶段构建**: 基于 `node:20-alpine`，通过 [Dockerfile](Dockerfile) 构建 Skill Gateway、MCP Runtime 和 Agent Runtime 三个独立镜像，使用 [docker-compose.yml](docker-compose.yml) 编排服务依赖。
+
+---
+
+## 🔄 CI/CD Pipeline
+
+| 工作流 | 文件 | 触发条件 | 说明 |
+| -------- | ------ | ---------- | ------ |
+| 🧪 **CI** | [ci.yml](.github/workflows/ci.yml) | Push / PR | 矩阵构建 (Node 20/22)、lint、typecheck、test、build |
+| 📦 **Release** | [release.yml](.github/workflows/release.yml) | Tag push | npm 发布 + GitHub Release |
+| 🔒 **Security** | [security.yml](.github/workflows/security.yml) | Schedule / PR | 依赖审计、密钥扫描 |
+
+**质量门禁**: `lint` → `typecheck` → `test` → `build` → `skills audit`，全量通过方可合并。
+
+---
+
+## 🔐 安全加固
+
+- **速率限制**: Token Bucket 算法，100 req/min/IP
+- **安全响应头**: `X-Content-Type-Options`, `X-Frame-Options`, `CSP`, `HSTS`
+- **请求体大小限制**: 1MB 上限
+- **沙箱隔离**: 多运行时安全沙箱，资源配额限制
+- **依赖审计**: 定期 `pnpm audit` + GitHub Security 工作流
+- **密钥管理**: 环境变量注入，无硬编码密钥
+
+详见 [`SECURITY.md`](SECURITY.md)
 
 ---
 
 ## 🎯 五维驱动架构
 
 | 维度 | 说明 | 落地体现 |
-|:----:|------|----------|
+| :----: | ------ | ---------- |
 | 🕐 **时间维度** | 开发生命周期与迭代节奏 | CI/CD 管线、版本语义化、构建优化 |
 | 🌐 **空间维度** | 代码组织与资源利用 | Monorepo 分层架构、模块化设计 |
 | ⚙️ **属性维度** | 质量属性评估 | 五高架构（可用/性能/安全/扩展/智能） |

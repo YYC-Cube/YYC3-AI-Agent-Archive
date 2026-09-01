@@ -1,4 +1,6 @@
 {
   "markdown.extension.completion.enabled": false,
-  "markdown.extension.tableFormatter.enabled": false
+  "markdown.extension.tableFormatter.enabled": false,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false
 }
