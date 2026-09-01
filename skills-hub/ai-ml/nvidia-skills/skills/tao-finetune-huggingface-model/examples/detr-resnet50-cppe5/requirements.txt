@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # DETR ships safetensors → could use latest transformers, but pin for consistency across pipelines
-transformers==4.49.0
+transformers==5.10.1
 tokenizers==0.21.0
 # NGC 25.01 ships numpy 1.x; a transitive upgrade breaks compiled torchvision ops
 numpy<2
