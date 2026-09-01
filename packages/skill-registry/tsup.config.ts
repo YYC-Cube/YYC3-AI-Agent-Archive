@@ -6,6 +6,8 @@ export default defineConfig({
   dts: true,
   splitting: false,
   sourcemap: true,
+  treeshake: true,
   clean: true,
   target: 'es2022',
+  tsconfig: 'tsconfig.build.json',
 });

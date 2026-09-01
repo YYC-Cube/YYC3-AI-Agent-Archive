@@ -4,7 +4,10 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ES2022", "DOM"],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
@@ -13,12 +16,25 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": false,
-    "baseUrl": ".",
     "paths": {
-      "@yyc3/skill-registry": ["packages/skill-registry/src"],
-      "@yyc3/skill-registry/*": ["packages/skill-registry/src/*"],
-      "@yyc3/mcp-runtime": ["packages/mcp-runtime/src"],
-      "@yyc3/mcp-runtime/*": ["packages/mcp-runtime/src/*"]
+      "@yyc3/skill-registry": [
+        "./packages/skill-registry/dist"
+      ],
+      "@yyc3/skill-registry/*": [
+        "./packages/skill-registry/dist/*"
+      ],
+      "@yyc3/mcp-runtime": [
+        "./packages/mcp-runtime/dist"
+      ],
+      "@yyc3/mcp-runtime/*": [
+        "./packages/mcp-runtime/dist/*"
+      ],
+      "@yyc3/agent-runtime": [
+        "./packages/agent-runtime/dist"
+      ],
+      "@yyc3/agent-runtime/*": [
+        "./packages/agent-runtime/dist/*"
+      ]
     }
   }
 }

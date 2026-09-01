@@ -1,0 +1,92 @@
+version: '3.8'
+
+# ============================================================
+# YYC³ AI Agent Archive — 全栈部署编排
+# 服务：Skill Gateway / MCP Runtime / Agent Runtime
+# 端口：3030-3039
+# ============================================================
+
+services:
+  # ---- Skill Gateway API (技能网关) ----
+  skill-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: skill-gateway
+    user: "1001:1001"
+    ports:
+      - "${GATEWAY_PORT:-3030}:3030"
+    environment:
+      - NODE_ENV=production
+      - PORT=3030
+      - MCP_RUNTIME_URL=http://mcp-runtime:3031
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - skills-data:/app/skills:ro
+    depends_on:
+      mcp-runtime:
+        condition: service_healthy
+    networks:
+      - yyc3-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3030/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ---- MCP Runtime (MCP 运行时) ----
+  mcp-runtime:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: mcp-runtime
+    user: "1001:1001"
+    ports:
+      - "${MCP_PORT:-3031}:3031"
+    environment:
+      - NODE_ENV=production
+      - PORT=3031
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    networks:
+      - yyc3-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3031/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ---- Agent Runtime (智能体运行时) ----
+  agent-runtime:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: agent-runtime
+    user: "1001:1001"
+    ports:
+      - "${AGENT_PORT:-3032}:3032"
+    environment:
+      - NODE_ENV=production
+      - PORT=3032
+      - GATEWAY_URL=http://skill-gateway:3030
+      - MCP_RUNTIME_URL=http://mcp-runtime:3031
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    depends_on:
+      skill-gateway:
+        condition: service_healthy
+    networks:
+      - yyc3-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3032/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  skills-data:
+
+networks:
+  yyc3-network:
+    driver: bridge

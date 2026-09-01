@@ -5,7 +5,6 @@ on:
     branches: [master]
   pull_request:
 
-# 最小权限原则：仅读取仓库内容
 permissions:
   contents: read
 
@@ -14,17 +13,20 @@ jobs:
     name: 代码质量检查（lint / typecheck / test / build）
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    strategy:
+      matrix:
+        node-version: [20, 22]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4 # 版本取自 package.json 的 packageManager 字段
+        uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
           cache: pnpm
 
       - name: Install dependencies
@@ -42,8 +44,58 @@ jobs:
       - name: Build
         run: pnpm run build
 
+  coverage:
+    name: 测试覆盖率
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: skill-registry coverage
+        run: pnpm --filter @yyc3/skill-registry test -- --coverage
+
+      - name: mcp-runtime coverage
+        run: pnpm --filter @yyc3/mcp-runtime test -- --coverage
+
+      - name: agent-runtime coverage
+        run: pnpm --filter @yyc3/agent-runtime test -- --coverage
+
+      - name: conductor coverage
+        run: pnpm --filter @yyc3/conductor test -- --coverage
+
+      - name: orchestrator coverage
+        run: pnpm --filter @yyc3/orchestrator test -- --coverage
+
+      - name: plugin-marketplace coverage
+        run: pnpm --filter @yyc3/plugin-marketplace test -- --coverage
+
+      - name: skill-gateway coverage
+        run: pnpm --filter @yyc3/skill-gateway test -- --coverage
+
+      - name: skill-sandbox coverage
+        run: pnpm --filter @yyc3/skill-sandbox test -- --coverage
+
+      - name: observability coverage
+        run: pnpm --filter @yyc3/observability test -- --coverage
+
+      - name: yyc3-i18n coverage
+        run: pnpm --filter @yyc3/i18n-core test -- --coverage
+
   skills-audit:
-    name: 技能资产审计（validate / dedup）
+    name: 技能资产审计（validate / dedup / naming）
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -51,12 +103,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4 # 版本取自 package.json 的 packageManager 字段
+        uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies

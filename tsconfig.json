@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
+  "files": [],
+  "exclude": [
+    "**/node_modules"
+  ],
+  "references": [
+    {
+      "path": "packages/skill-registry"
+    },
+    {
+      "path": "packages/mcp-runtime"
+    },
+    {
+      "path": "packages/skill-gateway"
+    },
+    {
+      "path": "packages/skill-sandbox"
+    },
+    {
+      "path": "packages/plugin-marketplace"
+    },
+    {
+      "path": "packages/observability"
+    },
+    {
+      "path": "packages/conductor"
+    },
+    {
+      "path": "packages/agent-runtime"
+    },
+    {
+      "path": "packages/orchestrator"
+    },
+    {
+      "path": "packages/yyc3-i18n"
+    }
+  ]
+}
