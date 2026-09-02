@@ -29,11 +29,11 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
+    "jest": "^30.5.0",
     "eslint": "^10.9.1",
     "prettier": "^3.1.0",
     "nodemon": "^3.0.1",
-    "@types/jest": "^29.5.11",
+    "@types/jest": "^30.0.0",
     "standard-version": "^9.5.0",
     "eslint-config-prettier": "^10.1.8"
   },
