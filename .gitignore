@@ -54,29 +54,19 @@ venv/
 .ruff_cache/
 
 # ==================== 第三方资产 lockfile（不由本仓库维护，消除 GitHub 安全误报） ====================
-_external/*/package-lock.json
-_external/*/Cargo.lock
-_external/*/*/package-lock.json
-_external/*/*/Cargo.lock
-_external/*/*/*/package-lock.json
-_external/*/*/*/Cargo.lock
-skills-hub/*/package-lock.json
-skills-hub/*/*/package-lock.json
-skills-hub/*/uv.lock
-skills-hub/*/*/uv.lock
-agents-hub/*/package-lock.json
-agents-hub/*/*/package-lock.json
-agents-hub/*/*/Cargo.lock
-agents-hub/*/*/uv.lock
-agents-hub/*/*/*/uv.lock
-plugins-hub/*/package-lock.json
-plugins-hub/*/*/package-lock.json
-tools-hub/*/package-lock.json
-tools-hub/*/*/package-lock.json
-tools-hub/*/Cargo.lock
-mcp-hub/*/package-lock.json
-mcp-hub/*/*/package-lock.json
-core/*/package-lock.json
+# 仅追踪根 pnpm-lock.yaml，忽略所有第三方目录下的 lockfile
+_external/**/package-lock.json
+_external/**/Cargo.lock
+skills-hub/**/package-lock.json
+skills-hub/**/uv.lock
+agents-hub/**/package-lock.json
+agents-hub/**/Cargo.lock
+agents-hub/**/uv.lock
+plugins-hub/**/package-lock.json
+tools-hub/**/package-lock.json
+tools-hub/**/Cargo.lock
+mcp-hub/**/package-lock.json
+core/**/package-lock.json
 
 # ==================== Node ====================
 .npm/

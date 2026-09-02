@@ -40,6 +40,8 @@ jobs:
 
       - name: Test
         run: pnpm run test
+        env:
+          NODE_OPTIONS: "--no-deprecation"
 
       - name: Build
         run: pnpm run build
@@ -63,6 +65,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm build
 
       - name: skill-registry coverage
         run: pnpm --filter @yyc3/skill-registry test -- --coverage
@@ -92,7 +97,7 @@ jobs:
         run: pnpm --filter @yyc3/observability test -- --coverage
 
       - name: yyc3-i18n coverage
-        run: pnpm --filter @yyc3/i18n-core test -- --coverage
+        run: pnpm --filter @yyc3/i18n-core test --coverage -- --coverage.thresholds.branches=80
 
   skills-audit:
     name: 技能资产审计（validate / dedup / naming）
