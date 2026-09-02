@@ -4,7 +4,7 @@
  * 支持 Counter（计数器）、Gauge（仪表盘）、Histogram（直方图）
  * 提供指标注册、快照导出、Prometheus 格式输出
  */
-import type { Labels, MetricDef, MetricSnapshot, MetricType } from './types.js';
+import type { Labels, MetricDef, MetricSnapshot } from './types.js';
 
 interface MetricValue {
   def: MetricDef;

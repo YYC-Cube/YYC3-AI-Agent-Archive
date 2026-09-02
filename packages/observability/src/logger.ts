@@ -97,6 +97,7 @@ export class Logger {
     if (this.config.enableConsole) {
       const formatted = this.format(entry);
       const consoleMethod = level === 'error' || level === 'fatal' ? 'error' : level === 'warn' ? 'warn' : 'log';
+      // eslint-disable-next-line no-console
       console[consoleMethod](formatted);
     }
 
