@@ -4,7 +4,7 @@
  * 基于 child_process 实现安全隔离执行
  * 支持 Node / Python / Shell 运行时
  */
-import { spawn, execSync } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import type { SandboxRequest, SandboxResult, SandboxRuntime } from './types.js';
 
 /** 运行时命令映射 */
@@ -140,11 +140,17 @@ export class Executor {
         return { command: runtime, args: ['-c', code] };
       case 'shell':
         return { command: runtime, args: ['-c', code] };
-      case 'native':
+      case 'native': {
+        const parts = code.split(/\s+/);
+        const cmd = parts[0];
+        if (!cmd || cmd.includes('/') || cmd.includes('..')) {
+          throw new Error(`Invalid native command: ${cmd}`);
+        }
         return {
-          command: code.split(' ')[0],
-          args: [...code.split(' ').slice(1), ...(request.args ?? [])],
+          command: cmd,
+          args: [...parts.slice(1), ...(request.args ?? [])],
         };
+      }
       default:
         throw new Error(`Unsupported runtime: ${request.runtime}`);
     }
@@ -154,7 +160,7 @@ export class Executor {
   static isRuntimeAvailable(runtime: SandboxRuntime): boolean {
     if (runtime === 'native') return true;
     try {
-      execSync(`which ${RUNTIME_COMMANDS[runtime]}`, { stdio: 'ignore' });
+      execFile('which', [RUNTIME_COMMANDS[runtime]], {});
       return true;
     } catch {
       return false;
