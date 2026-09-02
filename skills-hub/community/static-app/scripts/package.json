@@ -7,7 +7,7 @@
     "deploy": "node deploy.js"
   },
   "dependencies": {
-    "adm-zip": "^0.5.16",
+    "adm-zip": "^0.6.0",
     "archiver": "^8.0.0",
     "form-data": "^4.0.6",
     "node-fetch": "^2.7.0"
