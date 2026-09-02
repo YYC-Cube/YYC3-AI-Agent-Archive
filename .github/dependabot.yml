@@ -1,5 +1,10 @@
 version: 2
+
 updates:
+  # ========================================
+  # 核心 Monorepo (唯一需要审计的 npm 范围)
+  # ========================================
+
   # 根 Monorepo npm 依赖
   - package-ecosystem: npm
     directory: /
@@ -43,3 +48,26 @@ updates:
     directory: /
     schedule:
       interval: monthly
+
+  # ========================================
+  # 以下目录为第三方参考代码/社区资产
+  # 不由本仓库维护，禁止 Dependabot 扫描
+  # ========================================
+  # _external/     — 外部参考代码（ClickHouse/Qwen/SuperPowers）
+  # skills-hub/    — 社区技能资产（含独立 uv.lock/requirements.txt）
+  # agents-hub/    — 智能体定义（含第三方框架子目录）
+  # plugins-hub/   — 插件资产（含独立 package-lock.json）
+  # tools-hub/     — 工具资产（含独立 package-lock.json）
+  # mcp-hub/       — MCP 提示词服务（含独立 package-lock.json）
+  # core/          — 核心工具（含独立 package-lock.json）
+  # 若需扫描以上目录，请取消对应注释
+  #
+  # - package-ecosystem: npm
+  #   directory: /skills-hub/ai-ml/quantitative-signal
+  #   schedule:
+  #     interval: weekly
+  #
+  # - package-ecosystem: pip
+  #   directory: /skills-hub/ai-ml/quantitative-signal
+  #   schedule:
+  #     interval: weekly
