@@ -58,7 +58,7 @@ export class SkillGateway {
     app.use('*', bodySizeLimit(1024 * 1024)); // 1MB
     app.use('*', rateLimiter({ windowMs: 60_000, maxRequests: 100 }));
     app.use('*', logger());
-    app.use('*', errorHandler());
+    app.onError(errorHandler());
 
     app.use('*', async (c, next) => {
       c.set('registry', this.deps.registry);
