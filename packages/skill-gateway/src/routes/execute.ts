@@ -51,8 +51,18 @@ executeRoutes.post('/', async (c) => {
       skillId: body.skillId,
       duration: Date.now() - start,
       output,
+      error: output.success ? undefined : (output.error ?? 'Execution failed'),
     };
-    const resp: ApiResponse = { ok: true, data: result };
+    const resp: ApiResponse<SkillExecuteResult> = {
+      ok: output.success,
+      data: result,
+      ...(output.success
+        ? {}
+        : { error: { code: 'EXECUTION_ERROR', message: result.error ?? 'Execution failed' } }),
+    };
+    if (!output.success) {
+      c.status(500);
+    }
     return c.json(resp);
   } catch (err) {
     const errorMsg = err instanceof Error ? err.message : 'Execution failed';
