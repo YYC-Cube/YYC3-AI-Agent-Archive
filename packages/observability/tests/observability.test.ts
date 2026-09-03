@@ -1,11 +1,11 @@
 /**
  * Observability 测试套件
  */
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { HealthRegistry } from '../src/health.js';
 import { Logger } from '../src/logger.js';
 import { MetricsRegistry } from '../src/metrics.js';
 import { Tracer } from '../src/tracer.js';
-import { HealthRegistry } from '../src/health.js';
 
 // ============================================================
 // Logger 测试
@@ -105,6 +105,55 @@ describe('Logger', () => {
     const entry = textLogger.getEntries()[0];
     expect(entry.message).toBe('hello');
   });
+
+  it('控制台输出调用对应级别方法', () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => { });
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => { });
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => { });
+
+    const consoleLogger = new Logger({ enableConsole: true });
+    consoleLogger.error('to-error');
+    consoleLogger.warn('to-warn');
+    consoleLogger.info('to-log');
+
+    expect(errorSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+    warnSpy.mockRestore();
+    logSpy.mockRestore();
+  });
+
+  it('JSON 与文本 formatter 输出格式区分', () => {
+    const jsonSpy = vi.spyOn(console, 'log').mockImplementation(() => { });
+    const textSpy = vi.spyOn(console, 'log').mockImplementation(() => { });
+
+    new Logger({ enableConsole: true }).info('json-line');
+    expect(jsonSpy).toHaveBeenCalledWith(expect.stringContaining('{'));
+
+    const tl = new Logger({ enableConsole: true, formatter: 'text' });
+    tl.clear();
+    tl.info('text-line');
+    expect(textSpy).toHaveBeenCalledWith(expect.stringMatching(/^\[/));
+
+    jsonSpy.mockRestore();
+    textSpy.mockRestore();
+  });
+
+  it('无 context 的文本日志不含额外字段', () => {
+    const spy = vi.spyOn(console, 'log').mockImplementation(() => { });
+    new Logger({ enableConsole: true, formatter: 'text' }).info('bare');
+    expect(spy).toHaveBeenCalledWith(expect.not.stringContaining('{'));
+    spy.mockRestore();
+  });
+
+  it('child 覆盖 component 与运行时 context 合并', () => {
+    const child = logger.child('gw', { route: '/x' });
+    child.warn('msg', { extra: 1 });
+    const entry = child.getEntries()[0];
+    expect(entry.context).toMatchObject({ component: 'gw', route: '/x', extra: 1 });
+  });
 });
 
 // ============================================================
@@ -202,6 +251,39 @@ describe('MetricsRegistry', () => {
     registry.clear();
     expect(registry.snapshot()).toHaveLength(0);
   });
+
+  it('snapshot 包含 histogram 的 count/sum 与 counter 的 labels', () => {
+    registry.counter('labeled', 'with labels', { env: 'prod' });
+    registry.histogram('h', 'hist', [10]);
+    registry.snapshot(); // 触发分支
+    const snap = registry.snapshot();
+    expect(snap.find(s => s.name === 'labeled')!.labels).toEqual({ env: 'prod' });
+    const h = snap.find(s => s.name === 'h')!;
+    expect(h.count).toBe(0);
+    expect(h.sum).toBe(0);
+  });
+
+  it('toPrometheus 导出 histogram 桶与 Inf', () => {
+    const h = registry.histogram('ph', 'prom hist', [10, 100]);
+    h.observe(5);   // 命中 le=10
+    h.observe(50);  // 命中 le=100
+    h.observe(500); // 超出所有桶，仅计入 +Inf
+    const output = registry.toPrometheus();
+    expect(output).toContain('ph_bucket{le="10"} 1');
+    expect(output).toContain('ph_bucket{le="100"} 1');
+    expect(output).toContain('ph_bucket{le="+Inf"} 3');
+  });
+
+  it('gauge/counter 的 inc 与 dec 在 registry 快照中一致', () => {
+    const c = registry.counter('cc', 'c');
+    const g = registry.gauge('gg', 'g');
+    c.inc(4);
+    g.set(9);
+    g.dec(4);
+    const snap = registry.snapshot();
+    expect(snap.find(s => s.name === 'cc')!.value).toBe(4);
+    expect(snap.find(s => s.name === 'gg')!.value).toBe(5);
+  });
 });
 
 // ============================================================
@@ -282,6 +364,28 @@ describe('Tracer', () => {
     tracer.startSpan('test');
     tracer.clear();
     expect(tracer.getActiveSpans()).toHaveLength(0);
+  });
+
+  it('endSpan 不存在的 span 返回 undefined', () => {
+    expect(tracer.endSpan('nope')).toBeUndefined();
+  });
+
+  it('addEvent 到不存在的 span 不抛错', () => {
+    expect(() => tracer.addEvent('nope', 'ev')).not.toThrow();
+  });
+
+  it('无根 span 的 trace 树返回空对象', () => {
+    expect(tracer.getTraceTree('unknown-trace')).toEqual({});
+  });
+
+  it('span 可携带 tags', () => {
+    const span = tracer.startSpan('tagged', undefined, { region: 'cn-north' });
+    expect(tracer.getSpan(span.id)!.tags).toEqual({ region: 'cn-north' });
+  });
+
+  it('父 span 不存在时生成新 traceId', () => {
+    const span = tracer.startSpan('orphan', 'ghost-parent');
+    expect(span.traceId).toBeTruthy();
   });
 });
 
