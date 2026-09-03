@@ -247,4 +247,86 @@ describe('Orchestrator', () => {
     await orchestrator.execute('test', ['不存在的技能'], agents);
     expect(handler).toHaveBeenCalled();
   });
+
+  it('部分任务失败时抛出 Workflow partially completed', async () => {
+    let call = 0;
+    orchestrator.registerHandler('代码审查', async () => {
+      call++;
+      if (call <= 4) throw new Error('handler always fails'); // 耗尽重试次数
+    });
+    const failedHandler = vi.fn();
+    orchestrator.on('task:failed', failedHandler);
+
+    const wf = await orchestrator.execute(
+      'failing goal',
+      ['代码审查'],
+      agents
+    );
+    expect(wf.status).toBe('failed');
+    expect(failedHandler).toHaveBeenCalled();
+  });
+
+  it('失败任务应重试后成功', async () => {
+    let call = 0;
+    orchestrator.registerHandler('代码审查', async () => {
+      call++;
+      if (call === 1) throw new Error('transient failure');
+      return 'retry success';
+    });
+    const workflow = await orchestrator.execute('retry goal', ['代码审查'], agents);
+    expect(workflow.status).toBe('completed');
+    expect(workflow.tasks.every(t => t.status === 'completed')).toBe(true);
+    expect(call).toBeGreaterThanOrEqual(2);
+  });
+
+  it('依赖失败的任务应被标记为 Dependency failed', async () => {
+    // 构造：首个任务执行永久失败，后续任务依赖它 → stuck → Dependency failed
+    orchestrator.registerHandler('代码审查', async () => {
+      throw new Error('permanent failure');
+    });
+    const failedHandler = vi.fn();
+    orchestrator.on('task:failed', failedHandler);
+
+    const wf = await orchestrator.execute(
+      'dep-failure goal',
+      ['代码审查'],
+      agents
+    );
+    const depFailed = wf.tasks.filter(t => t.error === 'Dependency failed');
+    expect(depFailed.length).toBeGreaterThan(0);
+    expect(failedHandler).toHaveBeenCalled();
+  });
+
+  it('autoRetry=false 时失败任务直接标记 failed', async () => {
+    const orch = new Orchestrator({ autoRetry: false });
+    let call = 0;
+    orch.registerHandler('性能分析', async () => {
+      call++;
+      throw new Error('no retry');
+    });
+    const failedHandler = vi.fn();
+    orch.on('task:failed', failedHandler);
+
+    const wf = await orch.execute('no-retry goal', ['性能分析'], agents);
+    expect(wf.status).toBe('failed');
+    expect(call).toBe(1);
+    expect(failedHandler).toHaveBeenCalled();
+  });
+
+  it('load-balance 策略应可正常调度', () => {
+    const lb = new SmartScheduler({ strategy: 'load-balance' });
+    const task: AtomicTask = {
+      id: 'lb-1',
+      description: 'lb task',
+      requiredCapabilities: ['代码审查'],
+      priority: 'medium',
+      status: 'pending',
+      dependencies: [],
+      estimatedComplexity: 3,
+      createdAt: new Date().toISOString(),
+    };
+    const decision = lb.schedule(task, agents);
+    expect(decision.score).toBeGreaterThan(0);
+    expect(decision.assignedAgentId).toBeTruthy();
+  });
 });
