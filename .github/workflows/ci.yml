@@ -97,7 +97,7 @@ jobs:
         run: pnpm --filter @yyc3/observability test -- --coverage
 
       - name: yyc3-i18n coverage
-        run: pnpm --filter @yyc3/i18n-core test --coverage -- --coverage.thresholds.branches=80
+        run: pnpm --filter @yyc3/i18n-core exec vitest run --coverage --coverage.thresholds.branches=80
 
   skills-audit:
     name: 技能资产审计（validate / dedup / naming）
