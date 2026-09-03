@@ -120,7 +120,9 @@ export class Sanitizer {
 
   /** 检查命令是否被禁止 */
   isCommandBlocked(command: string): boolean {
-    const base = command.split('/').pop()?.split(' ')[0] ?? '';
+    // 取第一个空白分隔 token 的 basename（兼容绝对路径/尾部斜杠）
+    const firstToken = command.trim().split(/\s+/)[0] ?? '';
+    const base = firstToken.split('/').filter(Boolean).pop() ?? '';
     return this.blockedCommands.has(base.toLowerCase());
   }
 
