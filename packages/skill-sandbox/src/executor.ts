@@ -60,7 +60,7 @@ export class Executor {
         child.stdout?.on('data', (chunk: Buffer) => onData(chunk, 'stdout'));
         child.stderr?.on('data', (chunk: Buffer) => onData(chunk, 'stderr'));
 
-        child.on('error', (err) => {
+        child.on('error', (err: Error) => {
           if (!killed) {
             resolve({
               ok: false,
@@ -75,7 +75,7 @@ export class Executor {
           }
         });
 
-        child.on('close', (exitCode, signal) => {
+        child.on('close', (exitCode: number | null, signal: NodeJS.Signals | null) => {
           if (killed) return;
           killed = true;
 
