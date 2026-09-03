@@ -1,10 +1,29 @@
 /**
  * SkillExecutor 执行器测试 — 降级链与熔断器
  */
-import { describe, it, expect } from 'vitest';
-import { SkillRegistry } from '../src/registry.js';
+import { chmodSync, mkdtempSync, rmSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
+import { join } from 'path';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { SkillExecutor } from '../src/executor.js';
+import { SkillRegistry } from '../src/registry.js';
 import type { UnifiedSkill } from '../src/types.js';
+
+/** 临时目录：存放真实可执行脚本 fixture */
+let FIXTURES_DIR: string;
+
+beforeAll(() => {
+  FIXTURES_DIR = mkdtempSync(join(tmpdir(), 'yyc3-exec-'));
+  writeFileSync(join(FIXTURES_DIR, 'main.js'), "console.log('node-script-ok');\n");
+  writeFileSync(join(FIXTURES_DIR, 'fail.js'), 'process.exit(1);\n');
+  const sh = join(FIXTURES_DIR, 'main.sh');
+  writeFileSync(sh, '#!/bin/sh\necho "shell-script-ok"\n');
+  chmodSync(sh, 0o755);
+});
+
+afterAll(() => {
+  rmSync(FIXTURES_DIR, { recursive: true, force: true });
+});
 
 function makeSkill(overrides: Partial<UnifiedSkill> = {}): UnifiedSkill {
   return {
@@ -112,5 +131,98 @@ describe('SkillExecutor', () => {
     registry.register(makeSkill({ id: 'X-MIX' })); // 换成 native 成功执行
     const ok = await executor.execute('X-MIX', {});
     expect(ok.success).toBe(true);
+  });
+
+  it('脚本技能无 entry 时返回失败', async () => {
+    const registry = new SkillRegistry();
+    registry.register(makeSkill({ id: 'X-NOENTRY', runtime: 'node', entry: '' }));
+    const executor = new SkillExecutor(registry);
+
+    const result = await executor.execute('X-NOENTRY', {}, { allowFallback: false });
+    expect(result.success).toBe(false);
+    expect(result.error).toContain('No entry point');
+  });
+
+  it('node 脚本技能成功执行并捕获输出', async () => {
+    const registry = new SkillRegistry();
+    registry.register(
+      makeSkill({
+        id: 'X-NODE',
+        runtime: 'node',
+        entry: 'main.js',
+        source: FIXTURES_DIR,
+      })
+    );
+    const executor = new SkillExecutor(registry);
+
+    const result = await executor.execute('X-NODE', {});
+    expect(result.success).toBe(true);
+    expect(String(result.output)).toBe('node-script-ok');
+  });
+
+  it('node 脚本非零退出时返回失败', async () => {
+    const registry = new SkillRegistry();
+    registry.register(
+      makeSkill({
+        id: 'X-NODE-FAIL',
+        runtime: 'node',
+        entry: 'fail.js',
+        source: FIXTURES_DIR,
+      })
+    );
+    const executor = new SkillExecutor(registry);
+
+    const result = await executor.execute('X-NODE-FAIL', {}, { allowFallback: false });
+    expect(result.success).toBe(false);
+  });
+
+  it('超过最大降级深度后停止降级', async () => {
+    const registry = new SkillRegistry();
+    registry.register(makeFailingSkill({ id: 'D0', fallback: 'D1' }));
+    registry.register(makeFailingSkill({ id: 'D1', fallback: 'D2' }));
+    registry.register(makeFailingSkill({ id: 'D2', fallback: 'D3' }));
+    registry.register(makeFailingSkill({ id: 'D3' }));
+    const executor = new SkillExecutor(registry);
+
+    const result = await executor.execute('D0', {}, { maxFallbackDepth: 2 });
+    expect(result.success).toBe(false);
+    expect(result.skillId).toBe('D2'); // 在深度 2 停止
+  });
+
+  it('shell 运行时执行真实脚本', async () => {
+    const registry = new SkillRegistry();
+    registry.register(
+      makeSkill({
+        id: 'X-SH',
+        runtime: 'shell',
+        entry: 'main.sh',
+        source: FIXTURES_DIR,
+      })
+    );
+    const executor = new SkillExecutor(registry);
+
+    const result = await executor.execute('X-SH', {});
+    expect(result.success).toBe(true);
+    expect(String(result.output)).toContain('shell-script-ok');
+  });
+
+  it('half-open 状态下成功探测后熔断器闭合', async () => {
+    const registry = new SkillRegistry();
+    registry.register(makeFailingSkill({ id: 'X-HALF' }));
+    const executor = new SkillExecutor(registry, {
+      failureThreshold: 1,
+      recoveryTimeout: 50, // 50ms 后进入 half-open
+    });
+
+    await executor.execute('X-HALF', {}, { allowFallback: false }); // 熔断打开
+    expect(executor.getCircuitState('X-HALF')).toBe('open');
+
+    await new Promise((r) => setTimeout(r, 80)); // 等待恢复窗口
+
+    registry.unregister('X-HALF');
+    registry.register(makeSkill({ id: 'X-HALF' })); // 替换为可成功执行的技能
+    const result = await executor.execute('X-HALF', {});
+    expect(result.success).toBe(true);
+    expect(executor.getCircuitState('X-HALF')).toBe('closed');
   });
 });
