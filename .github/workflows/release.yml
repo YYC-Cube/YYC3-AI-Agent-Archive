@@ -72,3 +72,4 @@ jobs:
         with:
           body: ${{ steps.changelog.outputs.changelog }}
           generate_release_notes: true
+          target_commitish: ${{ github.sha }}
