@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.test.json && tsc --noEmit",
     "test": "vitest run",
     "lint": "eslint src/",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
