@@ -109,8 +109,9 @@ export class Executor {
 
         child.on('close', () => clearTimeout(timer));
 
-        // 写入 stdin
+        // 写入 stdin（子进程可能提前退出导致管道关闭，吞掉 EPIPE）
         if (request.code) {
+          child.stdin?.on('error', () => { });
           child.stdin?.write(request.code);
           child.stdin?.end();
         }
