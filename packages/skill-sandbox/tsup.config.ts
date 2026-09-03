@@ -9,4 +9,5 @@ export default defineConfig({
   treeshake: true,
   target: 'es2022',
   outDir: 'dist',
+  tsconfig: 'tsconfig.build.json',
 });
