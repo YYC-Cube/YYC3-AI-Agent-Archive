@@ -131,11 +131,11 @@ export class Orchestrator extends EventEmitter<OrchestratorEvents> {
       // 获取可执行任务（依赖已满足），传入完整任务列表以正确计算依赖
       const ready = this.scheduler.getReadyTasks(workflow.tasks);
       if (ready.length === 0) {
-        // 检查是否有卡住的任务（依赖了失败的任务）
+        // 检查是否有卡住的任务（依赖了失败的任务，需基于全量任务判断）
         const failedIds = new Set(
-          remaining.filter(t => t.status === 'failed').map(t => t.id)
+          workflow.tasks.filter(t => t.status === 'failed').map(t => t.id)
         );
-        const stuck = remaining.filter(
+        const stuck = workflow.tasks.filter(
           t => t.status === 'pending' && t.dependencies.some(d => failedIds.has(d))
         );
         if (stuck.length > 0) {
