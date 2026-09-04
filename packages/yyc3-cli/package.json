@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "commander": "^11.0.0",
-    "chalk": "^4.1.2",
+    "chalk": "^6.0.0",
     "figlet": "^1.7.0",
     "inquirer": "^14.2.0",
     "ora": "^9.4.1",
