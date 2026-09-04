@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run lint && npm run test"
   },
   "dependencies": {
-    "commander": "^11.0.0",
+    "commander": "^15.0.0",
     "chalk": "^4.1.2",
     "figlet": "^1.7.0",
     "inquirer": "^14.2.0",
