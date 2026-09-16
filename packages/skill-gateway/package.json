@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/skill-gateway",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "YYC³ Skill Gateway API — REST 接口层，提供 Skill 注册/发现/执行的 HTTP 接口",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",

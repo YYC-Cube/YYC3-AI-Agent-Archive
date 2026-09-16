@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/observability",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "YYC³ 可观测性 & 监控 — 结构化日志、指标收集、链路追踪、健康检查",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
