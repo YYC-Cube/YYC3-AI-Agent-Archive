@@ -11,6 +11,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: skill-gateway
+    image: ${IMAGE_PREFIX:-yyc3}/skill-gateway:${TAG:-local}
     user: "1001:1001"
     ports:
       - "${GATEWAY_PORT:-3030}:3030"
@@ -40,6 +41,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: mcp-runtime
+    image: ${IMAGE_PREFIX:-yyc3}/mcp-runtime:${TAG:-local}
     user: "1001:1001"
     ports:
       - "${MCP_PORT:-3031}:3031"
@@ -63,6 +65,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: agent-runtime
+    image: yyc3/agent-runtime:${TAG:-local}
     user: "1001:1001"
     ports:
       - "${AGENT_PORT:-3032}:3032"

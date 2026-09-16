@@ -146,6 +146,70 @@ describe('UnifiedMCPRuntime', () => {
     expect(failures).toHaveLength(0); // 不存在的工具不进入执行流程，不触发 failed
   });
 
+  it('来源桥接缺失时返回 No executor 错误（skill-registry / cowagent / custom）', async () => {
+    const runtime = new UnifiedMCPRuntime();
+    await runtime.initialize();
+    runtime.registerTool({
+      tool: { name: 'orphan_skill', description: '', inputSchema: { type: 'object', properties: {} } },
+      source: 'skill-registry',
+      sourceId: 'orphan_skill',
+    });
+    runtime.registerTool({
+      tool: { name: 'orphan_cow', description: '', inputSchema: { type: 'object', properties: {} } },
+      source: 'cowagent',
+      sourceId: 'orphan_cow',
+    });
+
+    const r1 = await runtime.callTool('orphan_skill', {});
+    expect(r1.isError).toBe(true);
+    expect(r1.content[0].text).toContain('No executor available');
+    expect(r1.content[0].text).toContain('skill-registry');
+
+    const r2 = await runtime.callTool('orphan_cow', {});
+    expect(r2.isError).toBe(true);
+    expect(r2.content[0].text).toContain('cowagent');
+  });
+
+  it('custom 来源未配置执行器时返回 No executor 错误', async () => {
+    const runtime = new UnifiedMCPRuntime({
+      customTools: [
+        {
+          tool: { name: 'c_noexec', description: '', inputSchema: { type: 'object', properties: {} } },
+          source: 'custom',
+          sourceId: 'c_noexec',
+        },
+      ],
+    });
+    await runtime.initialize();
+    const result = await runtime.callTool('c_noexec', {});
+    expect(result.isError).toBe(true);
+    expect(result.content[0].text).toContain('source: custom');
+  });
+
+  it('执行器返回失败结果时发出 tool:failed 事件', async () => {
+    const failures: string[] = [];
+    const runtime = new UnifiedMCPRuntime({
+      customTools: [
+        {
+          tool: { name: 'c_fail', description: '', inputSchema: { type: 'object', properties: {} } },
+          source: 'custom',
+          sourceId: 'c_fail',
+        },
+      ],
+      customExecutor: async call => ({
+        id: call.id,
+        content: [{ type: 'text', text: 'boom' }],
+        isError: true,
+      }),
+    });
+    await runtime.initialize();
+    runtime.on('tool:failed', ({ error }) => failures.push(error));
+
+    const result = await runtime.callTool('c_fail', {});
+    expect(result.isError).toBe(true);
+    expect(failures).toEqual(['boom']);
+  });
+
   it('统计按来源聚合', async () => {
     const registry = new SkillRegistry();
     registry.register(makeSkill({ id: 'S-A' }));
