@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitest/config';
 import { resolve } from 'path';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   resolve: {
@@ -16,10 +16,10 @@ export default defineConfig({
       include: ['src/**/*.ts'],
       exclude: ['src/index.ts', 'src/server.ts'],
       thresholds: {
-        statements: 70,
-        branches: 65,
-        functions: 70,
-        lines: 70,
+        statements: 75,
+        branches: 75,
+        functions: 75,
+        lines: 75,
       },
     },
   },

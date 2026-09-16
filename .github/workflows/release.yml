@@ -3,11 +3,14 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 permissions:
   contents: write
   packages: write
+
+env:
+  REGISTRY: ghcr.io
 
 jobs:
   publish:
@@ -29,7 +32,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -54,6 +57,137 @@ jobs:
         run: |
           echo "::notice::NPM_TOKEN 未配置，已跳过 npm 发布（验证流程正常完成）"
           echo "配置方法: repo Settings → Secrets and variables → Actions → New repository secret → NPM_TOKEN"
+
+  docker:
+    name: Docker 构建冒烟 + 推送 GHCR
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lowercase image names
+        id: images
+        run: |
+          REPO_LC=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')
+          {
+            echo "repo_lc=${REPO_LC}"
+            echo "gateway=${REGISTRY}/${REPO_LC}/skill-gateway"
+            echo "mcp=${REGISTRY}/${REPO_LC}/mcp-runtime"
+            echo "agent=${REGISTRY}/${REPO_LC}/agent-runtime"
+            echo "tag=${GITHUB_REF_NAME}"
+          } >> "$GITHUB_OUTPUT"
+        env:
+          REGISTRY: ${{ env.REGISTRY }}
+
+      - name: Build skill-gateway image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: skill-gateway
+          load: true
+          tags: ${{ steps.images.outputs.gateway }}:${{ steps.images.outputs.tag }}
+          cache-from: type=gha,scope=gateway
+          cache-to: type=gha,scope=gateway,mode=max
+
+      - name: Build mcp-runtime image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: mcp-runtime
+          load: true
+          tags: ${{ steps.images.outputs.mcp }}:${{ steps.images.outputs.tag }}
+          cache-from: type=gha,scope=mcp
+          cache-to: type=gha,scope=mcp,mode=max
+
+      - name: Build agent-runtime image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: agent-runtime
+          load: true
+          tags: ${{ steps.images.outputs.agent }}:${{ steps.images.outputs.tag }}
+          cache-from: type=gha,scope=agent
+          cache-to: type=gha,scope=agent,mode=max
+
+      - name: Smoke test（compose 启动三容器 + API 冒烟）
+        env:
+          # 与 compose 的 image: 字段对齐，直接使用刚构建的本地镜像
+          IMAGE_PREFIX: ghcr.io/${{ steps.images.outputs.repo_lc }}
+          TAG: ${{ steps.images.outputs.tag }}
+        run: |
+          set -e
+          # 用刚构建的本地镜像起服务（覆盖 compose 默认 build 行为）
+          docker compose up -d --no-build
+          docker compose ps
+
+          cleanup() { docker compose down -v --timeout 10 || true; }
+          trap cleanup EXIT
+
+          # 等待三容器 healthy（最多 90s）
+          for i in $(seq 1 45); do
+            UNHEALTHY=$(docker compose ps --format json | node -e "
+              let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{
+                const ps=d.trim()?JSON.parse('['+d.trim().split('\n').join(',')+']'):[];
+                console.log(ps.filter(p=>p.Health!=='healthy').length);
+              });")
+            if [ "$UNHEALTHY" = "0" ]; then echo "✅ 三容器全部 healthy"; break; fi
+            if [ "$i" = "45" ]; then echo "❌ 容器未在期限内 healthy"; docker compose logs --tail 30; exit 1; fi
+            sleep 2
+          done
+
+          # API 冒烟 8 项
+          assert() { # assert <描述> <期望片段> <实际响应>
+            if echo "$3" | grep -q "$2"; then echo "✅ $1"; else echo "❌ $1 — got: $3"; exit 1; fi
+          }
+          H=$(curl -fsS http://127.0.0.1:3030/api/v1/health)
+          assert "gateway health" '"ok":true' "$H"
+          V=$(curl -fsS http://127.0.0.1:3030/api/v1/health/version)
+          assert "gateway version" '"ok":true' "$V"
+          S=$(curl -fsS http://127.0.0.1:3030/api/v1/skills)
+          assert "gateway skills 列表" '"ok":true' "$S"
+          R=$(curl -fsS -o /dev/null -w '%{http_code}' http://127.0.0.1:3030/api/v1/health/ready)
+          assert "gateway ready=200" '200' "$R"
+          M=$(curl -fsS http://127.0.0.1:3031/health)
+          assert "mcp health" '"ok":true' "$M"
+          A=$(curl -fsS http://127.0.0.1:3032/health)
+          assert "agent health" '"ok":true' "$A"
+          P=$(curl -fsS http://127.0.0.1:3032/api/v1/profiles)
+          assert "agent AI Family 档案" '"ok":true' "$P"
+          C=$(curl -fsS -X POST http://127.0.0.1:3032/api/v1/agents -H 'Content-Type: application/json' -d '{"profileName":"QianHang"}')
+          assert "agent 创建实例" '"ok":true' "$C"
+
+          echo "🎉 冒烟测试 8/8 全部通过"
+
+      - name: Push images to GHCR
+        run: |
+          for IMG in \
+            "${{ steps.images.outputs.gateway }}" \
+            "${{ steps.images.outputs.mcp }}" \
+            "${{ steps.images.outputs.agent }}"; do
+            docker push "${IMG}:${{ steps.images.outputs.tag }}"
+          done
+
+      - name: Push latest tag
+        if: "!startsWith(github.ref_name, 'v0.')"
+        run: |
+          for IMG in \
+            "${{ steps.images.outputs.gateway }}" \
+            "${{ steps.images.outputs.mcp }}" \
+            "${{ steps.images.outputs.agent }}"; do
+            docker tag "${IMG}:${{ steps.images.outputs.tag }}" "${IMG}:latest"
+            docker push "${IMG}:latest"
+          done
 
   github-release:
     name: GitHub Release
