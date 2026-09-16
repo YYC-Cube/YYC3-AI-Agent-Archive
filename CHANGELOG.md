@@ -2,6 +2,28 @@
 
 All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
+## [2.3.0] - 2026-09-17
+
+### Docker 实机冒烟闭环（P0-2 完成 · 生产就绪全链路闭环）
+
+#### 新增
+
+- **三服务独立入口**：`skill-gateway/src/server.ts`（组装 registry/loader/executor + gateway.start）、`mcp-runtime/src/server.ts`（Hono 暴露 `/health` + `/api/v1/tools` + `/api/v1/tools/call`）、`agent-runtime/src/server.ts`（`/health` + `/api/v1/profiles` + `/api/v1/agents` 创建 AI Family 实例）；tsup entry 同步加入 server.ts
+- **mcp-runtime / agent-runtime 补齐 hono + @hono/node-server 依赖**（此前为纯库包，无 HTTP 服务能力）
+
+#### 修复
+
+- **Dockerfile healthcheck**：`localhost` 在 busybox wget 中解析为 `::1`（IPv6）而服务绑定 IPv4，Connection refused 导致容器永远 unhealthy → 改用 `127.0.0.1`；路由修正为实际存在的 `/api/v1/health`
+- **pnpm workspace 运行时依赖缺失**：镜像仅拷贝根 node_modules，包级依赖（symlink 到 .pnpm）丢失，`ERR_MODULE_NOT_FOUND: hono` → 三运行阶段补拷贝 `packages/*/node_modules`
+- **构建上下文缺失**：.dockerignore 排除了 `tsconfig*.json`（frozen-lockfile 校验需要）→ 保留；deps 阶段补 `COPY turbo.json`（`pnpm turbo build` 前置条件）
+- **compose healthcheck** 补 `start_period: 10s` 防启动期误判；移除过时的 `version` 字段
+
+#### 验证记录
+
+- 容器编排：`skill-gateway`(3030) / `mcp-runtime`(3031) / `agent-runtime`(3032) 三容器全部 **healthy**
+- API 冒烟 8/8 通过：gateway health/version/skills、mcp health、agent health/profiles/创建实例（QianHang-1）、安全头（x-frame-options/x-content-type-options/referrer-policy）
+- 回归：typecheck 13/13、build 11/11、test 22/22 全绿
+
 ## [2.2.1] - 2026-09-03
 
 ### 全链路 CI/CD 闭环（CI + Release + Security 三绿灯）
