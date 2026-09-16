@@ -65,7 +65,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: agent-runtime
-    image: yyc3/agent-runtime:${TAG:-local}
+    image: ${IMAGE_PREFIX:-yyc3}/agent-runtime:${TAG:-local}
     user: "1001:1001"
     ports:
       - "${AGENT_PORT:-3032}:3032"
