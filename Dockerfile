@@ -11,7 +11,7 @@ WORKDIR /app
 
 # 仅复制锁文件和包清单，最大化缓存
 COPY pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY package.json tsconfig.json tsconfig.base.json ./
+COPY package.json tsconfig.json tsconfig.base.json turbo.json ./
 COPY packages/yyc3-i18n/package.json packages/yyc3-i18n/
 COPY packages/skill-registry/package.json packages/skill-registry/
 COPY packages/mcp-runtime/package.json packages/mcp-runtime/
@@ -44,6 +44,15 @@ RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
+# pnpm workspace: 各包自身依赖在其包级 node_modules（symlink 到 .pnpm），必须一并拷贝
+COPY --from=builder /app/packages/yyc3-i18n/node_modules ./packages/yyc3-i18n/node_modules
+COPY --from=builder /app/packages/skill-registry/node_modules ./packages/skill-registry/node_modules
+COPY --from=builder /app/packages/mcp-runtime/node_modules ./packages/mcp-runtime/node_modules
+COPY --from=builder /app/packages/skill-gateway/node_modules ./packages/skill-gateway/node_modules
+COPY --from=builder /app/packages/skill-sandbox/node_modules ./packages/skill-sandbox/node_modules
+COPY --from=builder /app/packages/plugin-marketplace/node_modules ./packages/plugin-marketplace/node_modules
+COPY --from=builder /app/packages/conductor/node_modules ./packages/conductor/node_modules
+COPY --from=builder /app/packages/observability/node_modules ./packages/observability/node_modules
 COPY --from=builder /app/packages/yyc3-i18n/dist ./packages/yyc3-i18n/dist
 COPY --from=builder /app/packages/yyc3-i18n/package.json ./packages/yyc3-i18n/
 COPY --from=builder /app/packages/skill-registry/dist ./packages/skill-registry/dist
@@ -64,9 +73,9 @@ COPY --from=builder /app/packages/observability/package.json ./packages/observab
 RUN addgroup -g 1001 -S yyc3 && adduser -u 1001 -S yyc3 -G yyc3
 USER yyc3
 EXPOSE 3030
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-  CMD wget -qO- http://localhost:3030/health || exit 1
-CMD ["node", "packages/skill-gateway/dist/index.js"]
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 --start-period=10s \
+  CMD wget -qO- http://127.0.0.1:3030/api/v1/health || exit 1
+CMD ["node", "packages/skill-gateway/dist/server.js"]
 
 # ---- Stage 4: MCP Runtime 运行镜像 ----
 FROM node:22-alpine AS mcp-runtime
@@ -74,6 +83,10 @@ RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
+# pnpm workspace: 包级 node_modules 必须一并拷贝（mcp-runtime 自身 hono 依赖）
+COPY --from=builder /app/packages/yyc3-i18n/node_modules ./packages/yyc3-i18n/node_modules
+COPY --from=builder /app/packages/mcp-runtime/node_modules ./packages/mcp-runtime/node_modules
+COPY --from=builder /app/packages/observability/node_modules ./packages/observability/node_modules
 COPY --from=builder /app/packages/yyc3-i18n/dist ./packages/yyc3-i18n/dist
 COPY --from=builder /app/packages/yyc3-i18n/package.json ./packages/yyc3-i18n/
 COPY --from=builder /app/packages/mcp-runtime/dist ./packages/mcp-runtime/dist
@@ -84,9 +97,9 @@ COPY --from=builder /app/packages/observability/package.json ./packages/observab
 RUN addgroup -g 1001 -S yyc3 && adduser -u 1001 -S yyc3 -G yyc3
 USER yyc3
 EXPOSE 3031
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-  CMD wget -qO- http://localhost:3031/health || exit 1
-CMD ["node", "packages/mcp-runtime/dist/index.js"]
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 --start-period=10s \
+  CMD wget -qO- http://127.0.0.1:3031/health || exit 1
+CMD ["node", "packages/mcp-runtime/dist/server.js"]
 
 # ---- Stage 5: Agent Runtime 运行镜像 ----
 FROM node:22-alpine AS agent-runtime
@@ -94,6 +107,11 @@ RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
+# pnpm workspace: 包级 node_modules 必须一并拷贝（agent-runtime 自身 hono 依赖）
+COPY --from=builder /app/packages/yyc3-i18n/node_modules ./packages/yyc3-i18n/node_modules
+COPY --from=builder /app/packages/agent-runtime/node_modules ./packages/agent-runtime/node_modules
+COPY --from=builder /app/packages/orchestrator/node_modules ./packages/orchestrator/node_modules
+COPY --from=builder /app/packages/observability/node_modules ./packages/observability/node_modules
 COPY --from=builder /app/packages/yyc3-i18n/dist ./packages/yyc3-i18n/dist
 COPY --from=builder /app/packages/yyc3-i18n/package.json ./packages/yyc3-i18n/
 COPY --from=builder /app/packages/agent-runtime/dist ./packages/agent-runtime/dist
@@ -106,6 +124,6 @@ COPY --from=builder /app/packages/observability/package.json ./packages/observab
 RUN addgroup -g 1001 -S yyc3 && adduser -u 1001 -S yyc3 -G yyc3
 USER yyc3
 EXPOSE 3032
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-  CMD wget -qO- http://localhost:3032/health || exit 1
-CMD ["node", "packages/agent-runtime/dist/index.js"]
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 --start-period=10s \
+  CMD wget -qO- http://127.0.0.1:3032/health || exit 1
+CMD ["node", "packages/agent-runtime/dist/server.js"]

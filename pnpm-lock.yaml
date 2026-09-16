@@ -42,9 +42,15 @@ importers:
 
   packages/agent-runtime:
     dependencies:
+      '@hono/node-server':
+        specifier: ^1.18.0
+        version: 1.19.17(hono@4.13.5)
       eventemitter3:
         specifier: ^5.0.0
         version: 5.0.4
+      hono:
+        specifier: ^4.11.0
+        version: 4.13.5
     devDependencies:
       '@types/node':
         specifier: ^26.4.0
@@ -95,12 +101,18 @@ importers:
 
   packages/mcp-runtime:
     dependencies:
+      '@hono/node-server':
+        specifier: ^1.18.0
+        version: 1.19.17(hono@4.13.5)
       '@yyc3/skill-registry':
         specifier: workspace:*
         version: link:../skill-registry
       eventemitter3:
         specifier: ^5.0.0
         version: 5.0.4
+      hono:
+        specifier: ^4.11.0
+        version: 4.13.5
     devDependencies:
       '@types/node':
         specifier: ^26.4.0
@@ -4693,7 +4705,6 @@ snapshots:
   '@hono/node-server@1.19.17(hono@4.13.5)':
     dependencies:
       hono: 4.13.5
-    optional: true
 
   '@humanfs/core@0.19.2':
     dependencies:

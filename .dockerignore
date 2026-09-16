@@ -30,7 +30,7 @@ docs
 vitest.config.ts
 
 # Config (not needed at runtime)
-tsconfig*.json
+# NOTE: tsconfig*.json 必须保留 — pnpm install 的 lockfile 校验与 turbo build 依赖包级 tsconfig
 .eslintrc*
 .prettierrc*
 .husky
