@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/skill-sandbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "YYC³ Skill 沙箱执行环境 — 安全隔离执行、资源限制、输入净化、输出捕获",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",

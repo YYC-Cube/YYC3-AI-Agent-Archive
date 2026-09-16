@@ -4,6 +4,18 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [2.3.0] - 2026-09-17
 
+### 版本发布（v2.3.0）
+
+- 全部 @yyc3 包版本 bump：skill-gateway 1.1.0 / mcp-runtime 1.2.0 / agent-runtime 1.1.0 / skill-registry 1.1.1 / skill-sandbox、plugin-marketplace、conductor、orchestrator、observability 1.0.1 / i18n-core 2.4.3（防 registry latest 回退）
+
+### CI/CD（发布流水线）
+
+- Release workflow 新增 docker job：buildx 构建三镜像（gha 缓存 scope 隔离）→ compose 冒烟 8 项断言 → 通过后推送 GHCR（tag + latest）
+- docker-compose.yml 镜像名参数化：`${IMAGE_PREFIX:-yyc3}/...:${TAG:-local}`，CI 复用刚构建镜像免二次构建
+- mcp-runtime 分支覆盖率 72.09% → 86.04%（补无执行器路由 ×3、tool:failed 事件 4 个测试），全门禁提至 75%
+- turbo test 缓存禁用（cache: false），杜绝缓存假绿
+- server.ts HTTP 引导层排除出单测覆盖率统计（由容器冒烟验证）
+
 ### Docker 实机冒烟闭环（P0-2 完成 · 生产就绪全链路闭环）
 
 #### 新增

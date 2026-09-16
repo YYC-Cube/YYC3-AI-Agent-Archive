@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/conductor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "YYC³ Conductor 协同编排引擎 — 多 Agent 任务编排、DAG 流水线、并行执行、错误恢复",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
