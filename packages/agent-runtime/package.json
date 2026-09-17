@@ -27,10 +27,10 @@
     "hono": "^4.11.0"
   },
   "devDependencies": {
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.5.1",
     "@vitest/coverage-v8": "^4.1.11",
-    "tsup": "^8.4.0",
-    "typescript": "5.9.3",
+    "tsup": "^8.5.1",
+    "typescript": "7.0.2",
     "typescript-eslint": "^8.58.0",
     "vitest": "^4.1.11"
   }
