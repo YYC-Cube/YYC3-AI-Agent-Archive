@@ -25,6 +25,15 @@
 
 export { SkillGateway } from './gateway.js';
 export type { GatewayDependencies } from './gateway.js';
+export { apiKeyAuth, apiKeysFromEnv } from './middleware/auth.js';
+export type { AuthConfig } from './middleware/auth.js';
+export {
+  createRateLimitStore,
+  MemoryStore,
+  RedisStore,
+} from './middleware/rate-limit-store.js';
+export type { Bucket, RateLimitStore } from './middleware/rate-limit-store.js';
+export { rateLimiter } from './middleware/security.js';
 export type {
   ApiResponse,
   SkillQueryParams,
