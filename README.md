@@ -202,7 +202,7 @@ YYC³ AI Agent Archive
 | [`@yyc3/mcp-runtime`](packages/mcp-runtime/)　　　　　　　　| 2.0.0 | 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接　　　　 | ✅ **Active**　　 |
 | [`@yyc3/conductor`](packages/conductor/)　　　　　　　　　　| 1.0.0 | 协同编排引擎 — 多智能体协同、任务编排、工作流执行　　　　 | ✅ **Active**　　 |
 | [`@yyc3/agent-runtime`](packages/agent-runtime/)　　　　　　| 1.0.0 | Agent 智能体运行时 — 生命周期管理、对话上下文、工具调用　 | ✅ **Active**　　 |
-| [`@yyc3/agent-registry`](packages/agent-registry/)　　　　　| 1.0.0 | Agent 注册中心 — 智能体发现与能力匹配　　　　　　　　　　 | ✅ **Active**　　 |
+| [`@yyc3/agent-registry`](packages/agent-registry/)　　　　　| 1.0.0 | Agent 角色注册表（数据资产）— 20 角色定义 + JSON Schema 校验 | 📊 **Data**　　 |
 | [`@yyc3/orchestrator`](packages/orchestrator/)　　　　　　　| 1.0.0 | 智能编排调度器 — LLM 任务分解、多策略调度、工作流引擎　　 | ✅ **Active**　　 |
 | [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/)　| 1.0.0 | Plugin Marketplace 运行时 — 插件注册、激活、依赖管理　　　| ✅ **Active**　　 |
 | [`@yyc3/observability`](packages/observability/)　　　　　　| 1.0.0 | 可观测性监控 — 结构化日志、指标收集、链路追踪、健康检查　 | ✅ **Active**　　 |

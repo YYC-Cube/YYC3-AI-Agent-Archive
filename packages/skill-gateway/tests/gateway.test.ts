@@ -33,8 +33,10 @@ describe('SkillGateway', () => {
     const loader = new SkillLoader(registry, { rootDir: './skills' });
     const executor = new SkillExecutor(registry);
 
-    gateway = new SkillGateway({ registry, loader, executor });
+    gateway = new SkillGateway({ registry, loader, executor }, { apiKeys: ['test-key'] });
   });
+
+  const AUTH_HEADERS = { 'X-API-Key': 'test-key' };
 
   it('创建 app 实例', () => {
     expect(gateway.app).toBeDefined();
@@ -137,7 +139,10 @@ describe('SkillGateway', () => {
 
   describe('POST /api/v1/skills/reload', () => {
     it('重新加载技能', async () => {
-      const res = await gateway.app.request('/api/v1/skills/reload', { method: 'POST' });
+      const res = await gateway.app.request('/api/v1/skills/reload', {
+        method: 'POST',
+        headers: AUTH_HEADERS,
+      });
       expect(res.status).toBe(200);
       const body = await res.json();
       expect(body.data.reloaded).toBe(2);
@@ -148,7 +153,7 @@ describe('SkillGateway', () => {
     it('缺少参数返回 400', async () => {
       const res = await gateway.app.request('/api/v1/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
         body: JSON.stringify({}),
       });
       expect(res.status).toBe(400);
@@ -157,7 +162,7 @@ describe('SkillGateway', () => {
     it('不存在的技能返回 404', async () => {
       const res = await gateway.app.request('/api/v1/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
         body: JSON.stringify({ skillId: 'NOT-EXIST', params: {} }),
       });
       expect(res.status).toBe(404);
@@ -166,7 +171,7 @@ describe('SkillGateway', () => {
     it('成功执行 native 技能', async () => {
       const res = await gateway.app.request('/api/v1/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
         body: JSON.stringify({ skillId: 'GW-001', params: { text: 'demo' } }),
       });
       expect(res.status).toBe(200);
@@ -188,7 +193,7 @@ describe('SkillGateway', () => {
       );
       const res = await gateway.app.request('/api/v1/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
         body: JSON.stringify({ skillId: 'GW-BOOM', params: {} }),
       });
       expect(res.status).toBe(500);
@@ -199,16 +204,28 @@ describe('SkillGateway', () => {
     it('timeout 超过上限时被截断（不抛错）', async () => {
       const res = await gateway.app.request('/api/v1/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
         body: JSON.stringify({ skillId: 'GW-001', params: {}, timeout: 999_999 }),
       });
       expect(res.status).toBe(200);
+    });
+
+    it('缺少认证凭据返回 401（认证层集成）', async () => {
+      const res = await gateway.app.request('/api/v1/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skillId: 'GW-001', params: {} }),
+      });
+      expect(res.status).toBe(401);
     });
   });
 
   describe('POST /api/v1/execute/mcp/list', () => {
     it('无 MCP 运行时返回 503', async () => {
-      const res = await gateway.app.request('/api/v1/execute/mcp/list', { method: 'POST' });
+      const res = await gateway.app.request('/api/v1/execute/mcp/list', {
+        method: 'POST',
+        headers: AUTH_HEADERS,
+      });
       expect(res.status).toBe(503);
     });
   });
@@ -217,7 +234,7 @@ describe('SkillGateway', () => {
     it('无 MCP 运行时返回 503', async () => {
       const res = await gateway.app.request('/api/v1/execute/mcp/call', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
         body: JSON.stringify({ name: 'x', args: {} }),
       });
       expect(res.status).toBe(503);

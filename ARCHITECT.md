@@ -33,7 +33,7 @@
 | `@yyc3/agent-runtime` | Phase 4 | Agent 智能体运行时 | 42 |
 | `@yyc3/orchestrator` | Phase 4 | 智能编排调度器 | 24 |
 | `@yyc3/observability` | Phase 4 | 可观测性监控 | 42 |
-| `@yyc3/agent-registry` | Phase 4 | Agent 注册中心 | — |
+| `@yyc3/agent-registry` | Phase 4 | Agent 角色注册表（数据资产，非 TS 包） | — |
 
 ## Phase 5: 生产就绪
 

@@ -36,7 +36,6 @@
   "workspaces": [
     "packages/yyc3-i18n",
     "packages/yyc3-cli",
-    "packages/agent-registry",
     "packages/mcp-runtime",
     "packages/skill-registry",
     "packages/@yyc3/icons"

@@ -5,60 +5,59 @@
  */
 import type { MiddlewareHandler } from 'hono';
 import type { ApiResponse } from '../types.js';
+import { createRateLimitStore, MemoryStore, type RateLimitStore } from './rate-limit-store.js';
 
 // ================================================================
-// 1. 速率限制 (Token Bucket)
+// 1. 速率限制 (Token Bucket + 可插拔存储)
 // ================================================================
 
 interface RateLimitConfig {
   windowMs: number;
   maxRequests: number;
+  /** 自定义存储后端（默认按 REDIS_URL 环境变量自动选择） */
+  store?: RateLimitStore;
   keyGenerator?: (c: Parameters<MiddlewareHandler>[0]) => string;
 }
 
-interface Bucket {
-  tokens: number;
-  lastRefill: number;
+interface CreatedRateLimiter extends MiddlewareHandler {
+  /** 释放底层存储资源（server.ts 关闭时调用） */
+  close: () => Promise<void>;
 }
 
 export function rateLimiter(config: RateLimitConfig = {
   windowMs: 60_000,
   maxRequests: 100,
-}): MiddlewareHandler {
-  const buckets = new Map<string, Bucket>();
+}): CreatedRateLimiter {
   const { windowMs, maxRequests, keyGenerator } = config;
 
-  // 定期清理过期桶
-  const cleanupInterval = setInterval(() => {
-    const now = Date.now();
-    for (const [key, bucket] of buckets) {
-      if (now - bucket.lastRefill > windowMs * 2) {
-        buckets.delete(key);
-      }
-    }
-  }, windowMs * 5);
-  if (cleanupInterval.unref) cleanupInterval.unref();
+  // 存储异步初始化：首个请求前若未就绪则临时用内存桶，就绪后切换
+  let store: RateLimitStore = new MemoryStore(windowMs);
+  let backendName: 'redis' | 'memory' = 'memory';
+  const ownedStore = config.store ? undefined : createRateLimitStore(windowMs);
+  ownedStore
+    ?.then(({ store: s, backend }) => {
+      // 异步切换：保留内存桶中已扣减状态无必要（初始化窗口极短）
+      const old = store;
+      store = s;
+      backendName = backend;
+      if (old !== s) void old.close();
+    })
+    .catch(() => {
+      // createRateLimitStore 内部已降级，此处仅兜底
+    });
 
-  return async (c, next) => {
+  const middleware = (async (c, next) => {
     const key = keyGenerator
       ? keyGenerator(c)
       : c.req.header('x-forwarded-for') || c.req.header('x-real-ip') || '127.0.0.1';
 
-    const now = Date.now();
-    let bucket = buckets.get(key);
-
-    if (!bucket) {
-      bucket = { tokens: maxRequests, lastRefill: now };
-      buckets.set(key, bucket);
+    let bucket: { tokens: number; lastRefill: number };
+    try {
+      bucket = await store.consume(key, { windowMs, maxRequests });
+    } catch {
+      // Redis 运行时故障：fail-open 记录并放行（高可用优先）
+      bucket = { tokens: maxRequests - 1, lastRefill: Date.now() };
     }
-
-    // Token Bucket 算法: 按时间恢复 tokens
-    const elapsed = now - bucket.lastRefill;
-    const refillTokens = (elapsed / windowMs) * maxRequests;
-    bucket.tokens = Math.min(maxRequests, bucket.tokens + refillTokens);
-    bucket.lastRefill = now;
-
-    bucket.tokens -= 1;
 
     if (bucket.tokens < 0) {
       const resp: ApiResponse = {
@@ -76,9 +75,21 @@ export function rateLimiter(config: RateLimitConfig = {
     c.header('X-RateLimit-Limit', String(maxRequests));
     c.header('X-RateLimit-Remaining', String(Math.floor(bucket.tokens)));
     c.header('X-RateLimit-Reset', String(Math.ceil((bucket.lastRefill + windowMs) / 1000)));
+    c.header('X-RateLimit-Backend', backendName);
 
     await next();
+  }) as CreatedRateLimiter;
+
+  middleware.close = async () => {
+    if (ownedStore) {
+      const { store: s } = await ownedStore;
+      await s.close();
+    } else if (config.store) {
+      await config.store.close();
+    }
   };
+
+  return middleware;
 }
 
 // ================================================================

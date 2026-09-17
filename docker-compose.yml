@@ -20,6 +20,10 @@ services:
       - PORT=3030
       - MCP_RUNTIME_URL=http://mcp-runtime:3031
       - LOG_LEVEL=${LOG_LEVEL:-info}
+      # 认证: 逗号分隔 API Key 列表；未配置时写操作 fail-closed 拒绝
+      - YYC3_API_KEYS=${YYC3_API_KEYS:-}
+      # 限流: 配置后分布式共享；不可达自动降级内存模式
+      - REDIS_URL=${REDIS_URL:-}
     volumes:
       - skills-data:/app/skills:ro
     depends_on:

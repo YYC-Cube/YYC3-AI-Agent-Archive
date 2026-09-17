@@ -13,6 +13,7 @@ import type {
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import './context.js';
+import { apiKeyAuth, apiKeysFromEnv } from './middleware/auth.js';
 import { errorHandler } from './middleware/error-handler.js';
 import { logger } from './middleware/logger.js';
 import { bodySizeLimit, rateLimiter, securityHeaders } from './middleware/security.js';
@@ -36,6 +37,8 @@ const DEFAULT_CONFIG: Required<GatewayConfig> = {
   defaultTimeout: 30_000,
   maxTimeout: 120_000,
   corsOrigins: ['*'],
+  apiKeys: [],
+  authMode: 'write',
 };
 
 export class SkillGateway {
@@ -46,6 +49,10 @@ export class SkillGateway {
 
   constructor(deps: GatewayDependencies, config: GatewayConfig = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
+    // apiKeys 未显式提供时回退环境变量
+    if (!config.apiKeys) {
+      this.config.apiKeys = apiKeysFromEnv(process.env.YYC3_API_KEYS);
+    }
     this.deps = deps;
     this.app = this.createApp();
   }
@@ -56,8 +63,17 @@ export class SkillGateway {
     app.use('*', cors({ origin: this.config.corsOrigins }));
     app.use('*', securityHeaders());
     app.use('*', bodySizeLimit(1024 * 1024)); // 1MB
-    app.use('*', rateLimiter({ windowMs: 60_000, maxRequests: 100 }));
+    const limiter = rateLimiter({ windowMs: 60_000, maxRequests: 100 });
+    app.use('*', limiter);
     app.use('*', logger());
+    app.use(
+      '*',
+      apiKeyAuth({
+        apiKeys: this.config.apiKeys,
+        // 'all' 模式下 GET 发现类端点也纳入保护
+        protectedPrefixes: this.config.authMode === 'all' ? ['/api/v1'] : [],
+      })
+    );
     app.onError(errorHandler());
 
     app.use('*', async (c, next) => {

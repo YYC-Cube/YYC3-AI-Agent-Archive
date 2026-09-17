@@ -207,7 +207,7 @@
   "stats": {
     "totalRoles": 20,
     "byCategory": {
-      "engineering": 7,
+      "engineering": 6,
       "workflow": 3,
       "language-expert": 6,
       "automation": 1,

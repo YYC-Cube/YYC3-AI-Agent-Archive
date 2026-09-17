@@ -48,6 +48,10 @@ export interface GatewayConfig {
   defaultTimeout?: number;
   maxTimeout?: number;
   corsOrigins?: string[];
+  /** API Key 列表（认证层）；未提供时回退读取 YYC3_API_KEYS 环境变量 */
+  apiKeys?: string[];
+  /** 认证保护模式：'write'（默认，保护非 GET）/ 'all'（保护 /api/v1 全部） */
+  authMode?: 'write' | 'all';
 }
 
 /** 健康检查响应 */
