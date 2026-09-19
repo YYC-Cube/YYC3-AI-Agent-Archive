@@ -194,23 +194,23 @@ YYC³ AI Agent Archive
 
 ## 📦 核心包清单
 
-| 包名　　　　　　　　　　　　　　　　　　　　　　　　　　　　| 版本　| 描述　　　　　　　　　　　　　　　　　　　　　　　　　　　| 状态　　　　　　 |
-| -------------------------------------------------------------| :-----:| -----------------------------------------------------------| :----------------:|
-| [`@yyc3/skill-registry`](packages/skill-registry/)　　　　　| 2.0.0 | 统一 Skill 注册中心 — 标准化注册、发现、调度、降级熔断　　| ✅ **Active**　　 |
-| [`@yyc3/skill-gateway`](packages/skill-gateway/)　　　　　　| 1.0.0 | Skill Gateway API — REST 接口、安全中间件、速率限制　　　 | ✅ **Active**　　 |
-| [`@yyc3/skill-sandbox`](packages/skill-sandbox/)　　　　　　| 1.0.0 | Skill 沙箱执行环境 — 多运行时安全隔离 (Node/Python/Shell) | ✅ **Active**　　 |
-| [`@yyc3/mcp-runtime`](packages/mcp-runtime/)　　　　　　　　| 2.0.0 | 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接　　　　 | ✅ **Active**　　 |
-| [`@yyc3/conductor`](packages/conductor/)　　　　　　　　　　| 1.0.0 | 协同编排引擎 — 多智能体协同、任务编排、工作流执行　　　　 | ✅ **Active**　　 |
-| [`@yyc3/agent-runtime`](packages/agent-runtime/)　　　　　　| 1.0.0 | Agent 智能体运行时 — 生命周期管理、对话上下文、工具调用　 | ✅ **Active**　　 |
-| [`@yyc3/agent-registry`](packages/agent-registry/)　　　　　| 1.0.0 | Agent 角色注册表（数据资产）— 20 角色定义 + JSON Schema 校验 | 📊 **Data**　　 |
-| [`@yyc3/orchestrator`](packages/orchestrator/)　　　　　　　| 1.0.0 | 智能编排调度器 — LLM 任务分解、多策略调度、工作流引擎　　 | ✅ **Active**　　 |
-| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/)　| 1.0.0 | Plugin Marketplace 运行时 — 插件注册、激活、依赖管理　　　| ✅ **Active**　　 |
-| [`@yyc3/observability`](packages/observability/)　　　　　　| 1.0.0 | 可观测性监控 — 结构化日志、指标收集、链路追踪、健康检查　 | ✅ **Active**　　 |
-| [`@yyc3/i18n-core`](packages/yyc3-i18n/)　　　　　　　　　　| 2.4.0 | 生产级国际化框架 — 高性能、零依赖、插件化 i18n 方案　　　 | ✅ **Active**　　 |
-| [`yyc3-cli`](packages/yyc3-cli/)　　　　　　　　　　　　　　| 2.0.0 | 命令行界面 — 技能构建/验证/去重/统计　　　　　　　　　　　| ✅ **Active**　　 |
-| [`@yyc3/skills`](_archive/packages-skills-legacy/)　　　　　| 1.0.0 | 旧技能系统（184 技能）— **已归档**，由 `@yyc3/skill-registry` 取代　 | 🗄️ **Archived**　 |
-| [`@yyc3/skills-registry`](_archive/packages-skills-registry-legacy/) | 1.0.0 | 旧注册中心（146 渐进式技能）— **已归档**，由 `@yyc3/skill-registry` 取代 | 🗄️ **Archived**　 |
-| [`@yyc3/icons`](packages/@yyc3/icons/)　　　　　　　　　　　| —　　 | Lucide 图标库子集（1000+ 图标）　　　　　　　　　　　　　 | ✅ **Active**　　 |
+| 包名　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 版本　| 描述　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 状态　　　　　　|
+| ----------------------------------------------------------------------| :-----:| --------------------------------------------------------------------------| :---------------:|
+| [`@yyc3/skill-registry`](packages/skill-registry/)　　　　　　　　　 | 2.0.0 | 统一 Skill 注册中心 — 标准化注册、发现、调度、降级熔断　　　　　　　　　 | ✅ **Active**　　|
+| [`@yyc3/skill-gateway`](packages/skill-gateway/)　　　　　　　　　　 | 1.0.0 | Skill Gateway API — REST 接口、安全中间件、速率限制　　　　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/skill-sandbox`](packages/skill-sandbox/)　　　　　　　　　　 | 1.0.0 | Skill 沙箱执行环境 — 多运行时安全隔离 (Node/Python/Shell)　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/mcp-runtime`](packages/mcp-runtime/)　　　　　　　　　　　　 | 2.0.0 | 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接　　　　　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/conductor`](packages/conductor/)　　　　　　　　　　　　　　 | 1.0.0 | 协同编排引擎 — 多智能体协同、任务编排、工作流执行　　　　　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/agent-runtime`](packages/agent-runtime/)　　　　　　　　　　 | 1.0.0 | Agent 智能体运行时 — 生命周期管理、对话上下文、工具调用　　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/agent-registry`](packages/agent-registry/)　　　　　　　　　 | 1.0.0 | Agent 角色注册表（数据资产）— 20 角色定义 + JSON Schema 校验　　　　　　 | 📊 **Data**　　 |
+| [`@yyc3/orchestrator`](packages/orchestrator/)　　　　　　　　　　　 | 1.0.0 | 智能编排调度器 — LLM 任务分解、多策略调度、工作流引擎　　　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/)　　　　　 | 1.0.0 | Plugin Marketplace 运行时 — 插件注册、激活、依赖管理　　　　　　　　　　 | ✅ **Active**　　|
+| [`@yyc3/observability`](packages/observability/)　　　　　　　　　　 | 1.0.0 | 可观测性监控 — 结构化日志、指标收集、链路追踪、健康检查　　　　　　　　　| ✅ **Active**　　|
+| [`@yyc3/i18n-core`](packages/yyc3-i18n/)　　　　　　　　　　　　　　 | 2.4.0 | 生产级国际化框架 — 高性能、零依赖、插件化 i18n 方案　　　　　　　　　　　| ✅ **Active**　　|
+| [`yyc3-cli`](packages/yyc3-cli/)　　　　　　　　　　　　　　　　　　 | 2.0.0 | 命令行界面 — 技能构建/验证/去重/统计　　　　　　　　　　　　　　　　　　 | ✅ **Active**　　|
+| [`@yyc3/skills`](_archive/packages-skills-legacy/)　　　　　　　　　 | 1.0.0 | 旧技能系统（184 技能）— **已归档**，由 `@yyc3/skill-registry` 取代　　　 | 🗄️ **Archived** |
+| [`@yyc3/skills-registry`](_archive/packages-skills-registry-legacy/) | 1.0.0 | 旧注册中心（146 渐进式技能）— **已归档**，由 `@yyc3/skill-registry` 取代 | 🗄️ **Archived** |
+| [`@yyc3/icons`](packages/@yyc3/icons/)　　　　　　　　　　　　　　　 | —　　 | Lucide 图标库子集（1000+ 图标）　　　　　　　　　　　　　　　　　　　　　| ✅ **Active**　　|
 
 ### 包依赖关系
 
