@@ -32,7 +32,8 @@ export default [
   },
   eslint.configs.recommended,
   {
-    files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
+    // CommonJS 仓库脚本（.js/.cjs 默认按 script 解析）
+    files: ['**/*.js', '**/*.cjs'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'script',
@@ -50,6 +51,24 @@ export default [
         clearTimeout: 'readonly',
         clearInterval: 'readonly',
         fetch: 'readonly',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
+  },
+  {
+    // .mjs 按定义即 ESM（scripts/dismiss-vendor-alerts.mjs 等运维脚本）
+    files: ['**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        fetch: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
       },
     },
     rules: {
