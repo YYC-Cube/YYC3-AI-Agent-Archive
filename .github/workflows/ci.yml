@@ -127,3 +127,22 @@ jobs:
 
       - name: Skills dedup check
         run: node packages/yyc3-cli/bin/yyc3-cli.js skills dedup
+
+  dependency-review:
+    name: 依赖审查（PR 边界阻断高危漏洞）
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4
+        with:
+          fail-on-severity: high
+          retry-on-snapshot-warnings: true
+          comment-summary-in-pr: always
