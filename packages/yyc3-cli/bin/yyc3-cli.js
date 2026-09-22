@@ -22,6 +22,7 @@ const { generateStats } = require('../lib/skills-stats');
 const { lintNaming, migrateNaming } = require('../lib/skills-naming');
 const { generateAyncIndex } = require('../lib/skills-aync-index');
 const { exportMcp } = require('../lib/skills-mcp-export');
+const { scoreCommand } = require('../lib/skills-score-report');
 
 // 设置全局错误处理
 process.on('uncaughtException', (error) => {
@@ -187,6 +188,15 @@ skills
   .option('-o, --out <path>', '输出目录（默认 public/registry）', 'public/registry')
   .action(async (options) => {
     try { await exportMcp(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+  });
+
+skills
+  .command('score')
+  .description('五维加权质量评分（元数据/文档/资产/活跃度/安全）→ 0-100 分 + A-E 等级')
+  .option('-o, --out <path>', '报告输出目录（默认 docs/skill-score）', 'docs/skill-score')
+  .option('--json', '仅输出 JSON 报告', false)
+  .action(async (options) => {
+    try { await scoreCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
 // naming 命令组（AYNC 编码）
