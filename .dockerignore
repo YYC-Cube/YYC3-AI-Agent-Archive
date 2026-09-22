@@ -21,6 +21,8 @@ dist
 docs
 *.md
 !README.md
+# Task I2: 镜像内置技能快照需要 SKILL.md（~4.4MB）
+!skills-hub/community/**/SKILL.md
 
 # Tests
 **/tests
