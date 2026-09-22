@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencent-musician-skills",
+  "title": "tencent-musician-skills",
+  "description": "腾讯音乐人智能分析助手（数据分析 + 宣推）。当用户提到以下任一类请求时触发：【数据分析类】分析数据、看播放趋势、歌曲表现、听众画像、数据洞察、粉丝构成、我的数据怎么样、分析这首歌、最近播放量、用户画",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-musician-skills/SKILL.md"
+  }
+}

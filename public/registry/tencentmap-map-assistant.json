@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencentmap-map-assistant",
+  "title": "tencentmap-map-assistant",
+  "description": "腾讯位置服务·地图助手 Skill，一句自然语言调用腾讯地图全套能力，无需开发者账号、开箱即用。提供 AI 旅游攻略、地点搜索（含评分/人均/营业时间）、关键词提示、路线规划（驾车/步行/公交/骑行）",
+  "version": "1.4.4",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "MIT",
+    "io.github.yyc-cube/source": "skills-hub/community/tencentmap-map-assistant/SKILL.md"
+  }
+}

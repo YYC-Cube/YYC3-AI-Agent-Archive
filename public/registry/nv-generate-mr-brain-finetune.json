@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/nv-generate-mr-brain-finetune",
+  "title": "nv-generate-mr-brain-finetune",
+  "description": "Used for finetuning NV-Generate-CTMR MR-brain diffusion UNet from a NIfTI datalist. Not for clinical",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nv-generate-mr-brain-finetune/SKILL.md"
+  }
+}

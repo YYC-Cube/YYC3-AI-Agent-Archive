@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/plan-tracker",
+  "title": "plan-tracker",
+  "description": "当用户需要目标拆解、每日打卡、连续签到、学习热力图、进度预警时使用。支持 SMART 澄清 + OKR 月周拆解 + ABC 三档每日任务（A 完美 / B 基础 / C ≤15min 兜底），融合 ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "Productivity",
+    "io.github.yyc-cube/source": "skills-hub/community/plan-tracker/SKILL.md"
+  }
+}

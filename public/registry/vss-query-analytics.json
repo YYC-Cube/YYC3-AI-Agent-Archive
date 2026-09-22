@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/vss-query-analytics",
+  "title": "vss-query-analytics",
+  "description": "Use this skill when reading video-analytics metrics, incidents, alerts, and sensor data via the VA-M",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-query-analytics/SKILL.md"
+  }
+}

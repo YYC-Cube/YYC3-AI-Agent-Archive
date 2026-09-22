@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/price-history",
+  "title": "price-history",
+  "description": "封装慢慢买（manmanbuy.com）官方 MCP，按关键词搜索全网商品的参考好价、实时价格与隐藏优惠券，并基于返回数据判断当前价是否为真实低价、识别\"先涨后降\"的虚假促销。当用户询问价格走势、61",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/price-history/SKILL.md"
+  }
+}

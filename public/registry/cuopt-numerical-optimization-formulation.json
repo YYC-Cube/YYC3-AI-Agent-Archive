@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/cuopt-numerical-optimization-formulation",
+  "title": "cuopt-numerical-optimization-formulation",
+  "description": "LP, MILP, QP — concepts, problem-text parsing, and formulation patterns (parameters, constraints, de",
+  "version": "26.08.00",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-formulation/SKILL.md"
+  }
+}

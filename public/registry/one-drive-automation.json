@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/one-drive-automation",
+  "title": "one-drive-automation",
+  "description": "Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "storage-docs",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/one-drive-automation/SKILL.md"
+  }
+}

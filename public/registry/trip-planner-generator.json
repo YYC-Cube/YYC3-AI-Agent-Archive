@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/trip-planner-generator",
+  "title": "trip-planner-generator",
+  "description": "通过交互式问答帮助用户生成结构化的旅行行程计划，输出包含每日行程、预算明细、行前清单和注意事项的 Markdown 文档。在用户做旅行计划、行程规划、安排出行（travel plan / itiner",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/trip-planner-generator/SKILL.md"
+  }
+}

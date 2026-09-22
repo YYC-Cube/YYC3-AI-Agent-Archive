@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/skill-scanner",
+  "title": "skill-scanner",
+  "description": "Scan any agent skill for security risks before you install or use it. Powered by Tencent Zhuque Lab ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "MIT",
+    "io.github.yyc-cube/source": "skills-hub/community/skill-scanner/SKILL.md"
+  }
+}

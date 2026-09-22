@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/mailchimp-automation",
+  "title": "mailchimp-automation",
+  "description": "Automate Mailchimp email marketing including campaigns, audiences, subscribers, segments, and analyt",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "email",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/mailchimp-automation/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/sentry-automation",
+  "title": "sentry-automation",
+  "description": "Automate Sentry tasks via Rube MCP (Composio): manage issues/events, configure alerts, track release",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "devops",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/sentry-automation/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/revenue-intelligence",
+  "title": "revenue-intelligence",
+  "description": "收入归因分析，销售通话洞察与客户报告自动生成",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/source": "skills-hub/community/revenue-intelligence/SKILL.md"
+  }
+}

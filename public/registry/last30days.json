@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/last30days",
+  "title": "last30days",
+  "description": "Research what people actually say about any topic in the last 30 days. Pulls posts and engagement fr",
+  "version": "3.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "data-analysis",
+    "io.github.yyc-cube/license": "MIT",
+    "io.github.yyc-cube/source": "skills-hub/social-search/last30days/SKILL.md"
+  }
+}

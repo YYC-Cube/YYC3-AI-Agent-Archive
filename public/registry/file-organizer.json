@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/file-organizer",
+  "title": "file-organizer",
+  "description": "Intelligently organizes your files and folders across your computer by understanding context, findin",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/file-organizer/SKILL.md"
+  }
+}

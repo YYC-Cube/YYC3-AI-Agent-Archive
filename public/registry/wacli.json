@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/wacli",
+  "title": "wacli",
+  "description": "Send WhatsApp messages to other people or search/sync WhatsApp history via the wacli CLI (not for no",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/wacli/SKILL.md"
+  }
+}

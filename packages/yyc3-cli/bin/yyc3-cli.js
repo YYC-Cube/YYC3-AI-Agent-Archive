@@ -21,6 +21,7 @@ const { findDuplicates, findNameCollisions } = require('../lib/skills-deduper');
 const { generateStats } = require('../lib/skills-stats');
 const { lintNaming, migrateNaming } = require('../lib/skills-naming');
 const { generateAyncIndex } = require('../lib/skills-aync-index');
+const { exportMcp } = require('../lib/skills-mcp-export');
 
 // 设置全局错误处理
 process.on('uncaughtException', (error) => {
@@ -178,6 +179,14 @@ skills
   .description('生成 AYNC 统一索引（docs/AYNC-INDEX.md + .json）')
   .action(async () => {
     try { await generateAyncIndex(); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+  });
+
+skills
+  .command('export-mcp')
+  .description('导出为 MCP Registry 兼容的 server.json 格式（public/registry/）')
+  .option('-o, --out <path>', '输出目录（默认 public/registry）', 'public/registry')
+  .action(async (options) => {
+    try { await exportMcp(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
 // naming 命令组（AYNC 编码）

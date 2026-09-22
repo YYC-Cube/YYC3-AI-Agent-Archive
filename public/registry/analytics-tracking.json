@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/analytics-tracking",
+  "title": "analytics-tracking",
+  "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/analytics-tracking/SKILL.md"
+  }
+}

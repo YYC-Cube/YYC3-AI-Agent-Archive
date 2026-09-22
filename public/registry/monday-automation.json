@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/monday-automation",
+  "title": "monday-automation",
+  "description": "Automate Monday.com work management including boards, items, columns, groups, subitems, and updates ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "project-management",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/monday-automation/SKILL.md"
+  }
+}

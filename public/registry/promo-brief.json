@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/promo-brief",
+  "title": "promo-brief",
+  "description": "产品宣传片创意简报。输入产品说明或 GitHub 链接，自动抓取产品信息，提炼核心卖点，推荐视觉风格和叙事结构。当用户提到\"宣传片\"\"promo\"\"产品视频\"\"做个视频介绍\"\"项目宣传\"时触发。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-brief/SKILL.md"
+  }
+}

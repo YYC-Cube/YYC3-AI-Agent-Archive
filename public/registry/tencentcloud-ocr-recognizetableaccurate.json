@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencentcloud-ocr-recognizetableaccurate",
+  "title": "tencentcloud-ocr-recognizetableaccurate",
+  "description": "腾讯云表格识别v3(RecognizeTableAccurateOCR)接口调用技能。当用户需要从表格图片或PDF中识别常规表格、无线表格、多表格的内容,提取每个单元格的文字信息,或将表格图片识别结果",
+  "version": "1.0.3",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-ocr-recognizetableaccurate/SKILL.md"
+  }
+}

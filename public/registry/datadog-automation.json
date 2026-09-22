@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/datadog-automation",
+  "title": "datadog-automation",
+  "description": "Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "devops",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/datadog-automation/SKILL.md"
+  }
+}

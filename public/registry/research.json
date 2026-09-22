@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/research",
+  "title": "research",
+  "description": "对目标话题进行初步调研，生成调研outline。用于学术调研、benchmark调研、技术选型等场景。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research/SKILL.md"
+  }
+}

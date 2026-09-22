@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/intelligent-architecture",
+  "title": "intelligent-architecture",
+  "description": "Five Highs Five Standards Five Modernizations intelligent architecture framework. Invoke when design",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/yyc3/yyc3-skills/SKILL.md"
+  }
+}

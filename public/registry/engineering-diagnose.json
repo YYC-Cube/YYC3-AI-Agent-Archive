@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/engineering-diagnose",
+  "title": "diagnose",
+  "description": "Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce → minimise → hypothe",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/diagnose/SKILL.md"
+  }
+}

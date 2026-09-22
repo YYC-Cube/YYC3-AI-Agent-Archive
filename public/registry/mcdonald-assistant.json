@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/mcdonald-assistant",
+  "title": "mcdonald-assistant",
+  "description": "麦当劳中国点餐与优惠助手。用户提到麦当劳、麦麦、麦当劳外卖、点餐、查菜单、领麦当劳优惠券、查麦当劳积分/订单/活动时使用。依赖 WorkBuddy 已配置并信任的麦当劳 MCP Server（stre",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/mcdonald-assistant/SKILL.md"
+  }
+}

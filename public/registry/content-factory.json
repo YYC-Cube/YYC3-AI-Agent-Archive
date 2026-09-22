@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/content-factory",
+  "title": "content-factory",
+  "description": "Multi-agent content production system. One piece of source content becomes many formats — social pos",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/content-factory/SKILL.md"
+  }
+}

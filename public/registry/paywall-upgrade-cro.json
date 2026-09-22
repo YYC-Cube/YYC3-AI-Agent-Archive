@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/paywall-upgrade-cro",
+  "title": "paywall-upgrade-cro",
+  "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/paywall-upgrade-cro/SKILL.md"
+  }
+}

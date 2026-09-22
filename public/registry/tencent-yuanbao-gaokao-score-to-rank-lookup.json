@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencent-yuanbao-gaokao-score-to-rank-lookup",
+  "title": "tencent-yuanbao-gaokao-score-to-rank-lookup",
+  "description": "高考一分一段信息检索助手，帮助考生根据分数查询全省排名位次，或根据位次估算对应分数区间，或提供一分一段表。",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-yuanbao-gaokao-score-to-rank-lookup/SKILL.md"
+  }
+}

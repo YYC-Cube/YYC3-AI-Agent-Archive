@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/web-search-exa",
+  "title": "web-search-exa",
+  "description": "Neural web search, content extraction, company and people research, code search, and deep research v",
+  "version": "2.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/web-search-exa/SKILL.md"
+  }
+}

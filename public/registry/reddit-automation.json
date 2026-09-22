@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/reddit-automation",
+  "title": "reddit-automation",
+  "description": "Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "social-media",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/reddit-automation/SKILL.md"
+  }
+}

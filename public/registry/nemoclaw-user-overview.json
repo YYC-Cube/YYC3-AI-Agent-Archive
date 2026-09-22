@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/nemoclaw-user-overview",
+  "title": "nemoclaw-user-overview",
+  "description": "Explains how OpenClaw, OpenShell, and NemoClaw form the ecosystem, NemoClaw's position in the stack,",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-overview/SKILL.md"
+  }
+}

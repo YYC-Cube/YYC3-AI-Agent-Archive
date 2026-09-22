@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/install-futu-opend",
+  "title": "install-futu-opend",
+  "description": "Futu OpenD 安装助手。自动下载安装Futu OpenD 并升级 Python SDK。支持 Windows、MacOS、Linux。用户提到安装、下载、启动、运行、配置 OpenD、开发环境",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/install-futu-opend/SKILL.md"
+  }
+}

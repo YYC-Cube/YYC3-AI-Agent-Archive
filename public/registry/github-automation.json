@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/github-automation",
+  "title": "github-automation",
+  "description": "Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "devops",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/github-automation/SKILL.md"
+  }
+}

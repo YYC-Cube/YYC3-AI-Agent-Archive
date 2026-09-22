@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/marketplace-xlsx",
+  "title": "xlsx",
+  "description": "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, dat",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "document-processing",
+    "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/xlsx/SKILL.md"
+  }
+}

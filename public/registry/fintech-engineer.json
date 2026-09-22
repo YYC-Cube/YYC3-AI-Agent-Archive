@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/fintech-engineer",
+  "title": "fintech-engineer",
+  "description": "Expert fintech engineer specializing in financial systems, regulatory compliance (PCI DSS, AML, KYC)",
+  "version": "1.0.3",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/fintech-engineer/SKILL.md"
+  }
+}

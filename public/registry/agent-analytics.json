@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/agent-analytics",
+  "title": "agent-analytics",
+  "description": "Analytics your AI agent can actually use. Track, analyze, run A/B experiments, and optimize across a",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "analytics",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/agent-analytics/SKILL.md"
+  }
+}

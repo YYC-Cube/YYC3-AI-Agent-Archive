@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/cudaq-guide",
+  "title": "Cuda Quantum",
+  "description": "CUDA-Q onboarding guide for installation, test programs, GPU simulation, QPU hardware, and quantum a",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/cudaq-guide/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/promo-asset-producer",
+  "title": "promo-asset-producer",
+  "description": "宣传片两包素材生产。Pack A 使用当前可用图片生成能力生成产品图、概念图、UI 模拟图或风格补充图；Pack B 使用官网、应用截图、浏览器搜索、GitHub 或开源素材收集真实产品信号。当 st",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-asset-producer/SKILL.md"
+  }
+}

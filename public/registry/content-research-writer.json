@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/content-research-writer",
+  "title": "content-research-writer",
+  "description": "Assists in writing high-quality content by conducting research, adding citations, improving hooks, i",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/content-research-writer/SKILL.md"
+  }
+}

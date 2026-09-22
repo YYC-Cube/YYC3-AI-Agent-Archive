@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tilegym-improve-cutile-kernel-perf",
+  "title": "tilegym-improve-cutile-kernel-perf",
+  "description": "Iteratively optimize cuTile kernel performance through systematic profiling, bottleneck analysis, IR",
+  "version": "2026.04.11",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/tilegym-improve-cutile-kernel-perf/SKILL.md"
+  }
+}

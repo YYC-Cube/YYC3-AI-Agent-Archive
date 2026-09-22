@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/football-bayes",
+  "title": "football-bayes",
+  "description": "20年经验的足球竞彩策略官：贝叶斯统计 + 现代战术周期化，输出胜平负概率与风险提示",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/football-bayes/SKILL.md"
+  }
+}

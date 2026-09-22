@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/b2b-sdr-agent",
+  "title": "b2b-sdr-agent",
+  "description": "Open-source B2B AI SDR template. 7-layer context system with 10-stage sales pipeline, 4-layer anti-a",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/license": "MIT-0",
+    "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/SKILL.md"
+  }
+}

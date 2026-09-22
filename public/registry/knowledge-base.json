@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/knowledge-base",
+  "title": "knowledge-base",
+  "description": "搜索知识库后，用返回的 ID 列表调用 `get_knowledge_base` 获取描述信息，一并展示。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "document-processing",
+    "io.github.yyc-cube/source": "skills-hub/community/ima-skills/knowledge-base/SKILL.md"
+  }
+}

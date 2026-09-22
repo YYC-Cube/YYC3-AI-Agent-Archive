@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/research-deep",
+  "title": "research-deep",
+  "description": "读取调研outline，为每个item启动独立agent进行深度调研。禁用task output。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-deep/SKILL.md"
+  }
+}

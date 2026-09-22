@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/outlook-automation",
+  "title": "outlook-automation",
+  "description": "Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Al",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "email",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/outlook-automation/SKILL.md"
+  }
+}

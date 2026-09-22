@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/oiloil-ui-ux-guide",
+  "title": "oiloil-ui-ux-guide",
+  "description": "Modern, clean UI/UX guidance + review skill. Use when you need actionable UX/UI recommendations, des",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "automation",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/oiloil-ui-ux-guide/SKILL.md"
+  }
+}

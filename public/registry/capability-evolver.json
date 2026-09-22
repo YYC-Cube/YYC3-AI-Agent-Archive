@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/capability-evolver",
+  "title": "capability-evolver",
+  "description": "A self-evolution engine for AI agents. Analyzes runtime history to identify improvements and applies",
+  "version": "1.53.2",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/capability-evolver/SKILL.md"
+  }
+}

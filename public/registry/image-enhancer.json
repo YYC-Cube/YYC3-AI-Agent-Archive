@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/image-enhancer",
+  "title": "image-enhancer",
+  "description": "Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clar",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "document-processing",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/image-enhancer/SKILL.md"
+  }
+}

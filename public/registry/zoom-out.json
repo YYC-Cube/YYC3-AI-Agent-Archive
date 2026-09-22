@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/zoom-out",
+  "title": "zoom-out",
+  "description": "Tell the agent to zoom out and give broader context or a higher-level perspective on unfamiliar code",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/zoom-out/SKILL.md"
+  }
+}

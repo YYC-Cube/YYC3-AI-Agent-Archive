@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/academic-translation",
+  "title": "academic-translation",
+  "description": "当用户需要学术论文中英互译、润色、Chinglish 修复时使用。三步法（直译→反思→雅化），公式/cite 零损伤，顶会术语库，双栏对照，不动原文件。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "Education",
+    "io.github.yyc-cube/source": "skills-hub/community/academic-translation/SKILL.md"
+  }
+}

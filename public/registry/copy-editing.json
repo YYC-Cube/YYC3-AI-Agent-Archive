@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/copy-editing",
+  "title": "copy-editing",
+  "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/copy-editing/SKILL.md"
+  }
+}

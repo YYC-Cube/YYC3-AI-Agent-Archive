@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/glmv-pdf-to-ppt",
+  "title": "glmv-pdf-to-ppt",
+  "description": "Convert a PDF (research paper, report, or any document) into a polished multi-sl",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-pdf-to-ppt/SKILL.md"
+  }
+}

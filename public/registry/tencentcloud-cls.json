@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencentcloud-cls",
+  "title": "tencentcloud-cls",
+  "description": "腾讯云日志服务 CLS 技能。支持 CQL 日志检索、上下文查看、日志主题/日志集查看、机器组与机器状态查看、采集规则查看、日志直方图、指标采集与 PromQL 查询、告警策略与告警历史分析。触发词：",
+  "version": "1.1.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-cls/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/glmocr-table",
+  "title": "glmocr-table",
+  "description": "Official skill for recognizing and extracting tables from images and PDFs into M",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmocr-table/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/promo-workflow",
+  "title": "promo-workflow",
+  "description": "产品宣传片制作总控流程。串联 6 个 Skills，按阶段执行并暂停确认。从产品 URL 到带 BGM 成片 MP4 的全自动流水线。当用户提到\"做个宣传片\"\"promo\"\"产品视频\"\"项目介绍视频\"",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-workflow/SKILL.md"
+  }
+}

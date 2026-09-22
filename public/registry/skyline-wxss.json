@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/skyline-wxss",
+  "title": "skyline-wxss",
+  "description": "Skyline WXSS 样式支持技能。提供 Skyline 支持的 CSS 属性、值和限制信息。触发关键词：WXSS、CSS 支持、样式兼容性、属性支持、不支持的属性、display grid、po",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/wxss/SKILL.md"
+  }
+}

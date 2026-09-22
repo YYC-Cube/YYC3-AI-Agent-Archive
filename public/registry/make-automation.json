@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/make-automation",
+  "title": "make-automation",
+  "description": "Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "automation",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/make-automation/SKILL.md"
+  }
+}

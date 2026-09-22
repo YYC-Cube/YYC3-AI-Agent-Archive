@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/glmv-prompt-gen",
+  "title": "glmv-prompt-gen",
+  "description": "Analyze images/videos and generate professional prompts for text-to-image and",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-prompt-gen/SKILL.md"
+  }
+}

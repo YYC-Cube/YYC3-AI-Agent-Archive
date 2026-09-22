@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/skyline-components",
+  "title": "skyline-components",
+  "description": "Skyline 组件开发技能。涵盖 scroll-view 及其增强模式（列表/嵌套滚动）、swiper 高级特性、表单组件、图片/文本组件、半屏可拖拽组件、共享元素动画等。适用于需要开发滚动列表、轮",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/components/SKILL.md"
+  }
+}

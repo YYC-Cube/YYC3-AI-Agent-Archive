@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/ad-creative",
+  "title": "ad-creative",
+  "description": "When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary te",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/ad-creative/SKILL.md"
+  }
+}

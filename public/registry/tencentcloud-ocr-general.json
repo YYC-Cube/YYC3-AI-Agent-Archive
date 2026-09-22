@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencentcloud-ocr-general",
+  "title": "tencentcloud-ocr-general",
+  "description": "腾讯云广告文字识别(AdvertiseOCR)接口调用技能。当用户需要从图片中识别文字内容时,应使用此技能。支持中英文、横排、竖排及倾斜场景的图片文字识别,支持90度、180度、270度翻转场景的图片",
+  "version": "1.0.3",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-ocr-general/SKILL.md"
+  }
+}

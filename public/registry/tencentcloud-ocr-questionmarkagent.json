@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencentcloud-ocr-questionmarkagent",
+  "title": "tencentcloud-ocr-questionmarkagent",
+  "description": "腾讯云试题批改Agent(SubmitQuestionMarkAgentJob/DescribeQuestionMarkAgentJob)接口调用技能。当用户需要对试卷图片或试题图片中的K12试卷或试",
+  "version": "1.0.3",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-ocr-questionmarkagent/SKILL.md"
+  }
+}

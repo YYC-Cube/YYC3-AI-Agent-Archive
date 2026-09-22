@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/marketplace-slack-gif-creator",
+  "title": "slack-gif-creator",
+  "description": "Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and com",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "creative-collaboration",
+    "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/slack-gif-creator/SKILL.md"
+  }
+}

@@ -297,6 +297,58 @@ describe('SkillGateway', () => {
     });
   });
 
+  describe('GET /api/v1/registry（MCP Registry 聚合，Task G1-4）', () => {
+    it('透传 registry.json（导出产物已存在时）', async () => {
+      const res = await gateway.app.request('/api/v1/registry');
+      // CI 环境可能未先执行 export-mcp，仅在产物存在时校验 200 结构
+      if (res.status === 200) {
+        const body = await res.json();
+        expect(body.$schema).toContain('server.schema.json');
+        expect(Array.isArray(body.servers)).toBe(true);
+      } else {
+        expect(res.status).toBe(404);
+        const body = await res.json();
+        expect(body.error.code).toBe('REGISTRY_NOT_EXPORTED');
+      }
+    });
+
+    it('servers 列表返回 ApiResponse 包装', async () => {
+      const res = await gateway.app.request('/api/v1/registry/servers');
+      expect(res.status).toBe(200);
+      const body = await res.json();
+      expect(body.ok).toBe(true);
+      expect(Array.isArray(body.data)).toBe(true);
+      expect(body.data.length).toBeGreaterThan(0);
+      expect(body.meta.total).toBe(body.data.length);
+      for (const s of body.data) {
+        expect(s.name).toMatch(/^io\.github\.yyc-cube\//);
+      }
+    });
+
+    it('q 关键词过滤生效', async () => {
+      const all = await (await gateway.app.request('/api/v1/registry/servers')).json();
+      const res = await gateway.app.request('/api/v1/registry/servers?q=12306');
+      const body = await res.json();
+      expect(body.data.length).toBeGreaterThan(0);
+      expect(body.data.length).toBeLessThan(all.data.length);
+    });
+
+    it('按 slug 查询单个 server', async () => {
+      const res = await gateway.app.request('/api/v1/registry/servers/12306');
+      expect(res.status).toBe(200);
+      const body = await res.json();
+      expect(body.ok).toBe(true);
+      expect(body.data.name).toBe('io.github.yyc-cube/12306');
+    });
+
+    it('不存在的 slug 返回 404 SERVER_NOT_FOUND', async () => {
+      const res = await gateway.app.request('/api/v1/registry/servers/no-such-slug-xyz');
+      expect(res.status).toBe(404);
+      const body = await res.json();
+      expect(body.error.code).toBe('SERVER_NOT_FOUND');
+    });
+  });
+
   describe('Security', () => {
     it('应包含安全响应头', async () => {
       const res = await gateway.app.request('/api/v1/health');

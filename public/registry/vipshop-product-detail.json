@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/vipshop-product-detail",
+  "title": "vipshop-product-detail",
+  "description": "唯品会（vip.com）商品详情查询技能。当用户想查看某件商品的详细信息时触发，包括但不限于：看商品详情、查规格尺码、 看商品图片、查活动优惠、看用户评价、问商品是否打折、确认库存、查品牌介绍等。 支",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/vip-skill/vipshop-product-detail/SKILL.md"
+  }
+}

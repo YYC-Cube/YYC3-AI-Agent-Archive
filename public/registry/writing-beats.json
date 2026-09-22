@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/writing-beats",
+  "title": "writing-beats",
+  "description": "Shape an article as a journey of beats, choose-your-own-adventure style. The user picks a starting b",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats/SKILL.md"
+  }
+}

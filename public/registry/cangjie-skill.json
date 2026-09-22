@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/cangjie-skill",
+  "title": "cangjie-skill",
+  "description": "Distill a book into a coherent set of executable skills. Use when the user asks to \"拆书\" / \"蒸馏一本书\" / ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/cangjie-skill/SKILL.md"
+  }
+}

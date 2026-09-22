@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/supermemory",
+  "title": "supermemory",
+  "description": "Semantic memory layer powered by vector search. Store, recall, and connect conversation insights acr",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "b2b",
+    "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/supermemory/SKILL.md"
+  }
+}

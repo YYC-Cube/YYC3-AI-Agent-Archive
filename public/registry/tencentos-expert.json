@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencentos-expert",
+  "title": "tencentos-expert",
+  "description": "TencentOS Server 全栈运维诊断，根据用户的自然语言描述，自动识别需要的能力接口，查询能力实现，使用具体能力解决客户问题。覆盖磁盘空间/分区/文件系统/LVM/健康检测、网络连通性/丢包",
+  "version": "2.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencentos-expert/SKILL.md"
+  }
+}

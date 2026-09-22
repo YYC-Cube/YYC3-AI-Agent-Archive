@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/obsidian-markdown",
+  "title": "obsidian-markdown",
+  "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other O",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "document-processing",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/obsidian-markdown/SKILL.md"
+  }
+}

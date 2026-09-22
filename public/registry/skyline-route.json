@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/skyline-route",
+  "title": "skyline-route",
+  "description": "Skyline 自定义路由与页面转场技能。涵盖自定义路由动画（routeBuilder）、预设路由（7 种 wx:// 类型）、页面返回手势、容器转场动画（open-container）、Router",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/route/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/multi-search-engine",
+  "title": "multi-search-engine",
+  "description": "Multi search engine integration with 16 engines (7 CN + 9 Global). Supports advanced search operator",
+  "version": "2.1.3",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/multi-search-engine/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/misc-setup-pre-commit",
+  "title": "setup-pre-commit",
+  "description": "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current r",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/setup-pre-commit/SKILL.md"
+  }
+}

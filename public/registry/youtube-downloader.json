@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/youtube-downloader",
+  "title": "youtube-downloader",
+  "description": "Download YouTube videos with customizable quality and format options. Use this skill when the user a",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "document-processing",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/video-downloader/SKILL.md"
+  }
+}

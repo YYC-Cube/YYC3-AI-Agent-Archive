@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/data-storytelling",
+  "title": "data-storytelling",
+  "description": "Transform data into compelling narratives using visualization, context, and persuasive structure. Us",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/data-storytelling/SKILL.md"
+  }
+}

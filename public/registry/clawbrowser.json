@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/clawbrowser",
+  "title": "clawbrowser",
+  "description": "Use when the agent needs to drive a browser through the Microsoft Playwright CLI (`playwright-cli`) ",
+  "version": "0.1.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/clawbrowser/SKILL.md"
+  }
+}

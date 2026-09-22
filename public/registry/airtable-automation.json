@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/airtable-automation",
+  "title": "airtable-automation",
+  "description": "Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always searc",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "storage-docs",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/airtable-automation/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/sino-drug-instructions-search",
+  "title": "sino-drug-instructions-search",
+  "description": "在用户询问药品说明书、用药信息、适应症、禁忌、用法用量、不良反应、成分、规格、厂家，或根据症状/疾病查找药品时使用此技能。⚠️ 调用前须已通过 use_skill 加载本技能（sino-drug-in",
+  "version": "1.0.4",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/sino-drug-instructions-search/SKILL.md"
+  }
+}

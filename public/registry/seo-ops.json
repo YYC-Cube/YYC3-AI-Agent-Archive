@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/seo-ops",
+  "title": "seo-ops",
+  "description": "SEO 运营自动化，内容攻击简报、GSC 优化与趋势侦察",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "marketing",
+    "io.github.yyc-cube/source": "skills-hub/community/seo-ops/SKILL.md"
+  }
+}

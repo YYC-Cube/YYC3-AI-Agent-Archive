@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/ppt-orchestra-skill",
+  "title": "ppt-orchestra-skill",
+  "description": "Plan and orchestrate multi-slide PowerPoint creation from scratch. Use before generating a full deck",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/ppt-orchestra-skill/SKILL.md"
+  }
+}

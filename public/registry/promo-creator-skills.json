@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/promo-creator-skills",
+  "title": "promo-creator-skills",
+  "description": "产品宣传片制作总控 skill pack。用于从产品说明、官网、应用截图或 GitHub 仓库制作 60-90 秒宣传视频，按阶段完成 brief、storyboard、素材、HyperFrames ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/SKILL.md"
+  }
+}

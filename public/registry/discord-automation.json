@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/discord-automation",
+  "title": "discord-automation",
+  "description": "Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Alwa",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "communication",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/discord-automation/SKILL.md"
+  }
+}

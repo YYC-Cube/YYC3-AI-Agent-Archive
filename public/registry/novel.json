@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/novel",
+  "title": "novel",
+  "description": "Manage novel data — chapters, characters, plots — from the terminal fast. Use when outlining chapter",
+  "version": "2.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/novel/SKILL.md"
+  }
+}

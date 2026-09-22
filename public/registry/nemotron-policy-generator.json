@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/nemotron-policy-generator",
+  "title": "Nemotron Policy Generator",
+  "description": "Generates BYO custom safety policies for NVIDIA Nemotron content-safety guardrails — Nemotron-Conten",
+  "version": "0.1.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0 AND CC-BY-4.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemotron-policy-generator/SKILL.md"
+  }
+}

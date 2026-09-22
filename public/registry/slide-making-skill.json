@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/slide-making-skill",
+  "title": "slide-making-skill",
+  "description": "Implement single-slide PowerPoint pages with PptxGenJS. Use when writing or fixing slide JS files: d",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/slide-making-skill/SKILL.md"
+  }
+}

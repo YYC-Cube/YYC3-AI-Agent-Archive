@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/cli-anything-hub",
+  "title": "cli-anything-hub",
+  "description": "Discover agent-native CLIs for professional software. Access the live catalog to find tools for crea",
+  "version": "1.0.1",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/cli-anything-hub/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/porteden-email",
+  "title": "porteden-email",
+  "description": "Email Management - Secure Gmail, Outlook & Exchange - multi account support. Read, search, or triage",
+  "version": "1.0.7",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/porteden-email/SKILL.md"
+  }
+}

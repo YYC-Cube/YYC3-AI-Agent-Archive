@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencent-ssv-techforgood",
+  "title": "tencent-ssv-techforgood",
+  "description": "专注公益机构数字化赋能的智能助手，围绕腾讯技术公益数字工具箱（techforgood.qq.com）为社会组织匹配免费或低成本数字化产品，支持需求诊断、产品推荐、申领指引、数字化实施参考与必要的机构合",
+  "version": "1.4.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "industry-consultant",
+    "io.github.yyc-cube/license": "Tencent SSV Internal",
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-ssv-techforgood/SKILL.md"
+  }
+}

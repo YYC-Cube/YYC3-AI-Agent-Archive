@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/colleague-skill",
+  "title": "colleague-skill",
+  "description": "Distill a colleague into an AI Skill. Auto-collect Feishu/DingTalk/Slack data, generate Work Skill +",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/colleague-skill/SKILL.md"
+  }
+}

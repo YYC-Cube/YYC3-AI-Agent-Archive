@@ -19,6 +19,7 @@ import { logger } from './middleware/logger.js';
 import { bodySizeLimit, rateLimiter, securityHeaders } from './middleware/security.js';
 import { executeRoutes } from './routes/execute.js';
 import { healthRoutes } from './routes/health.js';
+import { registryRoutes } from './routes/registry.js';
 import { skillsRoutes } from './routes/skills.js';
 import type { GatewayConfig } from './types.js';
 
@@ -89,6 +90,7 @@ export class SkillGateway {
     app.route('/api/v1/skills', skillsRoutes);
     app.route('/api/v1/execute', executeRoutes);
     app.route('/api/v1/health', healthRoutes);
+    app.route('/api/v1/registry', registryRoutes);
 
     return app;
   }

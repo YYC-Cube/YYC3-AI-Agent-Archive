@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/marketplace-internal-comms",
+  "title": "internal-comms",
+  "description": "A set of resources to help me write all kinds of internal communications, using the formats that my ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/internal-comms/SKILL.md"
+  }
+}

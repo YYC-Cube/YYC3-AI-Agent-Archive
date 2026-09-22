@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/xiaobai-coach",
+  "title": "xiaobai-coach",
+  "description": "给小白讲清理财、基金、股票知识，并配套实操工具与清单的财商陪跑技能。当用户问个人理财、攒钱、基金/ETF/股票/债券入门、定投、资产配置、复利计算、估值、止盈止损、识别投资骗局等问题时使用。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/xiaobai-coach/SKILL.md"
+  }
+}

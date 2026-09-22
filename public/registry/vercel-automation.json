@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/vercel-automation",
+  "title": "vercel-automation",
+  "description": "Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects,",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "devops",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/vercel-automation/SKILL.md"
+  }
+}

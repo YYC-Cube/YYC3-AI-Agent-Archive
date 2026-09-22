@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/airchina-travel-assistant",
+  "title": "airchina-travel-assistant",
+  "description": "帮用户领取中国国航（Air China / 国航 / 国际航空）的优惠券。当用户说\"我想领国航的券\"、\"帮我领张国航机票券\"、\"国航有活动券吗\"、\"给我发国航优惠券\"、\"airchina 券\"、\"国航",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/airchina-travel-assistant/SKILL.md"
+  }
+}

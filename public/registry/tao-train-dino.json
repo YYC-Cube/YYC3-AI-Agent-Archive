@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tao-train-dino",
+  "title": "tao-train-dino",
+  "description": "DINO (DETR with Improved DeNoising Anchor Boxes) for 2D object detection. Transformer-based detector",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/tao-train-dino/SKILL.md"
+  }
+}

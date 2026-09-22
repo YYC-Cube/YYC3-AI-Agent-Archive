@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/nemo-mbridge-perf-sequence-packing",
+  "title": "nemo-mbridge-perf-sequence-packing",
+  "description": "Validate and use packed sequences and long-context training in Megatron-Bridge, distinguishing offli",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-sequence-packing/SKILL.md"
+  }
+}

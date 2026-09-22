@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/academic-tutor",
+  "title": "academic-tutor",
+  "description": "当大学生问题目、需要苏格拉底式引导讲解、或论文写作指导时使用。不直接给答案，每轮三段式（引导问题→关键提示→下一步建议），数理化/编程/经管/文史哲全覆盖。",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "Education",
+    "io.github.yyc-cube/source": "skills-hub/community/academic-tutor/SKILL.md"
+  }
+}

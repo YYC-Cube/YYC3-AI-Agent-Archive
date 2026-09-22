@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/self-improvement",
+  "title": "self-improvement",
+  "description": "Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A comman",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/self-improving/SKILL.md"
+  }
+}

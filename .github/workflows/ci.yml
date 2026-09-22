@@ -43,6 +43,9 @@ jobs:
         env:
           NODE_OPTIONS: "--no-deprecation"
 
+      - name: MCP Registry schema 校验（Task G1）
+        run: node scripts/validate-mcp-registry.mjs
+
       - name: Build
         run: pnpm run build
 

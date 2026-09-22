@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/guizang-ppt-skill",
+  "title": "guizang-ppt-skill",
+  "description": "生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。提供两种风格：① \"电子杂志 × 电子墨水\"（衬线 + 流体背景 + 暖色） ② \"瑞士国际",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "Design Tools",
+    "io.github.yyc-cube/source": "skills-hub/community/guizang-ppt-skill/SKILL.md"
+  }
+}

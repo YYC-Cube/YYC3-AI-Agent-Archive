@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/docusign-automation",
+  "title": "docusign-automation",
+  "description": "Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document manageme",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/docusign-automation/SKILL.md"
+  }
+}

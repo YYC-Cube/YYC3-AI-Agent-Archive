@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/deep-research",
+  "title": "deep-research",
+  "description": "Structured deep research workflow with human-in-the-loop control. Use /research to generate research",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "MIT",
+    "io.github.yyc-cube/source": "skills-hub/community/deep-research/SKILL.md"
+  }
+}

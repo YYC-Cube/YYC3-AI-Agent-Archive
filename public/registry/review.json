@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/review",
+  "title": "review",
+  "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standar",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "testing",
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/review/SKILL.md"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/helpdesk-automation",
+  "title": "helpdesk-automation",
+  "description": "Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "customer-support",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/helpdesk-automation/SKILL.md"
+  }
+}

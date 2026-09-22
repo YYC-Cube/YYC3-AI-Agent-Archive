@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/baidu-drive",
+  "title": "baidu-drive",
+  "description": "百度网盘(Baidu Drive)文件管理 — 上传、下载、转存、分享、搜索、移动、复制、重命名、创建文件夹。TRIGGER: 用户提及\\\"百度网盘/bdpan/网盘/云盘/baidu drive/B",
+  "version": "1.4.3",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/baidu-drive/SKILL.md"
+  }
+}

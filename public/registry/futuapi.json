@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/futuapi",
+  "title": "futuapi",
+  "description": "富途 OpenAPI 交易与行情助手。查询股票行情、K线、报价、快照、买卖盘、逐笔成交、分时数据；解析期权简写代码、查询期权链、期权到期日；执行买入/卖出/下单/撤单/改单；查询持仓/资金/账户/订单",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/futuapi/SKILL.md"
+  }
+}

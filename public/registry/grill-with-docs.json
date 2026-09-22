@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/grill-with-docs",
+  "title": "grill-with-docs",
+  "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, ",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/grill-with-docs/SKILL.md"
+  }
+}

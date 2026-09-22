@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/tencent-music-campus-recruit",
+  "title": "tencent-music-campus-recruit",
+  "description": "当用户询问腾讯校园招聘相关问题时使用，包括：校招/实习投递流程与时间节点、岗位搜索与推荐、 招聘公告与宣讲会动态、组织架构/BG/部门介绍、简历诊断与优化、面试准备与模拟陪练、校招防诈骗识别。 通过 ",
+  "version": "1.0.7",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-music-campus-recruit/SKILL.md"
+  }
+}

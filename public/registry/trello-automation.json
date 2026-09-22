@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/trello-automation",
+  "title": "trello-automation",
+  "description": "Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "project-management",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/trello-automation/SKILL.md"
+  }
+}

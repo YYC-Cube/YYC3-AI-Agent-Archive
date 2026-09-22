@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/apple-notes",
+  "title": "apple-notes",
+  "description": "Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/source": "skills-hub/community/apple-notes/SKILL.md"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/skills-dynamo-router-starter",
+  "title": "dynamo-router-starter",
+  "description": "Start or patch Dynamo router modes and run router endpoint smoke checks. Use for round-robin, KV-awa",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-router-starter/SKILL.md"
+  }
+}

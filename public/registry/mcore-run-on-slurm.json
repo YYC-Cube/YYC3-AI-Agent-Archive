@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/mcore-run-on-slurm",
+  "title": "mcore-run-on-slurm",
+  "description": "How to launch distributed Megatron-LM training jobs on a SLURM cluster. Covers a minimal sbatch skel",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "development-code",
+    "io.github.yyc-cube/license": "Apache-2.0",
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/mcore-run-on-slurm/SKILL.md"
+  }
+}

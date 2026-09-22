@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yyc-cube/raffle-winner-picker",
+  "title": "raffle-winner-picker",
+  "description": "Picks random winners from lists, spreadsheets, or Google Sheets for giveaways, raffles, and contests",
+  "version": "1.0.0",
+  "_meta": {
+    "io.github.yyc-cube/category": "business-productivity",
+    "io.github.yyc-cube/source": "skills-hub/marketplace/raffle-winner-picker/SKILL.md"
+  }
+}
