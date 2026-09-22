@@ -24,8 +24,9 @@ services:
       - YYC3_API_KEYS=${YYC3_API_KEYS:-}
       # 限流: 配置后分布式共享；不可达自动降级内存模式
       - REDIS_URL=${REDIS_URL:-}
-    volumes:
-      - skills-data:/app/skills:ro
+    # Task I2: 默认使用镜像内置技能快照（/app/skills，仅 SKILL.md ~4.4MB）；
+    # 注入外部技能: docker compose -f docker-compose.yml -f docker-compose.skills.yml up
+    # （docker-compose.skills.yml 挂载 skills-data 卷覆盖内置快照）
     depends_on:
       mcp-runtime:
         condition: service_healthy

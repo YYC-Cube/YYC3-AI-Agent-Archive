@@ -2,6 +2,42 @@
 
 All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
+## [2.4.0] - 2026-09-22
+
+### 版本主题：Supply-Chain Hardened（供应链加固 + MCP 生态卡位 + 智能评分）
+
+蓝图五阶段（E–I）全部落地，项目评分预期 90.0 (A−) → 96 (A+)。
+
+### 供应链三防线（Phase E/F）
+
+- **Dependabot vendor 告警清零**：`scripts/dismiss-vendor-alerts.mjs`（Link-header 手动翻页 + `--apply --yes` 双保险 + 限流重试），565 条参考资产告警 dismissed，核心 12 项保留跟踪
+- **Actions SHA 锁定**：`scripts/pin-actions-sha.mjs` 表驱动替换，4 workflow 30 处 uses 全部 pin 到 commit SHA + `# vX` 注释（防 tag 劫持/投毒）
+- **dependency-review PR 门禁**：ci.yml 新增 job，`fail-on-severity: high` 阻断高危依赖引入（供应链第三层）
+
+### MCP Registry 生态（Phase G）
+
+- **CLI `skills export-mcp`**：831 技能 → 官方 server.json 格式（namespace `io.github.yyc-cube/<slug>`，schema pin 2025-12-11）；46 组 slug 碰撞逐级拼父目录消歧，全局唯一
+- **Gateway 聚合 API**：`GET /api/v1/registry[/servers[/:slug]]`（mtime 缓存，REGISTRY_NOT_EXPORTED 404 引导）
+- **静态分发**：`public/registry/` 832 文件随 Pages 上线（`https://ai-agent.yyc3.vip/registry/registry.json`）
+- **CI schema 门禁**：`scripts/validate-mcp-registry.mjs`（ajv draft-07 校验官方 schema，零新增依赖）
+
+### 智能评分体系（Phase H）
+
+- **CLI `skills score`**：五维加权（元数据 25%/文档 20%/资产健康 25%/活跃度 15%/安全 15%），0–100 + A–E
+- 首份报告归档 `docs/skill-score/`：831 技能均分 80，A:110/B:503/C:217/D:1/E:0，低分 TOP20 治理清单
+
+### 治理收尾（Phase I）
+
+- **I1 口径统一**：release 冒烟 `/api/v1/health/version` 与路由表核对一致（文档收口，无代码改动）
+- **I2 skills 卷生产化**：镜像内置 community SKILL.md 快照（~4.4MB，开箱 total>0）；server.ts 空载 WARN；`docker-compose.skills.yml` override 支持外部卷注入
+- **I3 dedup 四分类**：默认忽略构建产物/依赖目录；重复组分类 license-template/reference-asset/build-artifact/genuine（实测 14/163/1/3529），genuine 聚焦真实裁决
+- **I4 断供演习 runbook**：`docs/runbooks/上游断供演习-Runbook.md`（GitHub/npm/Pages 三场景 + 季度/半年排期 + 记录节）
+
+### 质量
+
+- 新增测试：CLI scorer 22 用例（jest）+ gateway registry 5 用例（vitest 36/36）
+- 全门禁绿：tsc 0 errors / eslint 0 errors / coverage ≥75% 分支门禁不降
+
 ## [2.3.0] - 2026-09-17
 
 ### 版本发布（v2.3.0）

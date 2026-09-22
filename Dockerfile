@@ -38,10 +38,21 @@ RUN pnpm turbo build
 # 清理 node_modules 仅保留生产依赖
 RUN pnpm install --frozen-lockfile --prod=true
 
+# 技能快照（Task I2）：从 community 提取仅 SKILL.md（~4.4MB）保持目录结构
+RUN mkdir -p /skills-snapshot && cd skills-hub/community && \
+    find . -name "SKILL.md" -type f | while read f; do \
+      mkdir -p "/skills-snapshot/$(dirname "$f")"; \
+      cp "$f" "/skills-snapshot/$f"; \
+    done
+
 # ---- Stage 3: Skill Gateway 运行镜像 ----
 FROM node:22-alpine AS skill-gateway
 RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
+
+# 内置技能快照（Task I2）：仅 SKILL.md 元数据（~4.4MB），保证开箱 total>0；
+# 运维可在 compose 挂载完整 skills 卷覆盖 /app/skills
+COPY --from=builder /skills-snapshot/ /app/skills/
 
 COPY --from=builder /app/node_modules ./node_modules
 # pnpm workspace: 各包自身依赖在其包级 node_modules（symlink 到 .pnpm），必须一并拷贝

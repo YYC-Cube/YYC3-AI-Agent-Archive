@@ -1,0 +1,14 @@
+# Task I2 — 外部技能卷注入 override
+#
+# 用法: docker compose -f docker-compose.yml -f docker-compose.skills.yml up -d
+# 效果: 挂载 skills-data 卷（只读）覆盖镜像内置的 SKILL.md 快照
+#
+# 技能卷本身需要单独填充（如 docker cp 或专用同步任务）
+
+services:
+  skill-gateway:
+    volumes:
+      - skills-data:/app/skills:ro
+
+volumes:
+  skills-data:

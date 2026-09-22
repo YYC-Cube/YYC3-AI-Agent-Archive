@@ -25,6 +25,14 @@ const gateway = new SkillGateway(
 
 await gateway.start(port);
 
+// 技能卷空载预警（Task I2）：镜像内置快照缺失或卷未挂载时提示
+if (globalSkillRegistry.getStats().totalSkills === 0) {
+  console.warn(
+    `[SkillGateway] ⚠ skills 目录空载（${skillsRootDir}）：total=0。` +
+      '请确认已挂载 skills 卷或使用内置技能快照的镜像。'
+  );
+}
+
 const authMode = apiKeysFromEnv(process.env.YYC3_API_KEYS).length > 0 ? 'key' : 'fail-closed（未配置 YYC3_API_KEYS，写操作拒绝）';
 console.warn(`[SkillGateway] 认证模式: ${authMode}`);
 
