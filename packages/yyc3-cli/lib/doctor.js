@@ -149,7 +149,12 @@ function checkExample() {
   const run = (cmd, args, opts = {}) => spawnSync(cmd, args, { cwd: exampleDir, encoding: 'utf-8', timeout: 300_000, ...opts });
   // install 独立于 workspace lockfile（--ignore-workspace）
   const inst = run('pnpm', ['install', '--frozen-lockfile', '--ignore-workspace', '--prefer-offline']);
-  if (inst.status !== 0) {
+  // ERR_PNPM_IGNORED_BUILDS：esbuild postinstall 被忽略属预期（P2-3 决策：不批准构建脚本；
+  // esbuild 二进制由平台 optional dep 提供，build 可用性以下方实际构建为准）
+  const instOut = (inst.stderr || '') + (inst.stdout || '');
+  const onlyIgnoredBuilds = inst.status !== 0 && /ERR_PNPM_IGNORED_BUILDS/.test(instOut)
+    && !/ERR_(?!PNPM_IGNORED_BUILDS)/.test(instOut.replace(/Progress:[^\n]*\n/g, ''));
+  if (inst.status !== 0 && !onlyIgnoredBuilds) {
     return { gate: false, error: 'install failed:\n' + (inst.stderr || inst.stdout || '').split('\n').slice(-5).join('\n') };
   }
   const build = run('pnpm', ['run', 'build']);
