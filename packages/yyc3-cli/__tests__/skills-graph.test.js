@@ -26,7 +26,7 @@ describe('v2.6.0: skills-graph 关联维度', () => {
     const s = g.summary;
     expect(s.totalNodes).toBeGreaterThan(700); // 831 SKILL.md，个别缺 name
     expect(s.totalEdges).toBe(s.explicitEdges + s.implicitEdges);
-    expect(s.explicitEdges).toBe(0); // 当前 frontmatter 声明为空白（数据基础探测结论）
+    expect(s.explicitEdges).toBeGreaterThan(0); // graph-suggest 批量补全后（原为 0，117 技能声明 → 78 条去重边）
     expect(s.implicitEdges).toBeGreaterThan(1000);
     expect(s.isolatedNodes).toBeLessThan(s.totalNodes);
     expect(s.components).toBeGreaterThan(1);
