@@ -6,6 +6,7 @@ description_zh: 腾讯云鼎出品，Skill 安全审计工具
 description_en: Scan a third-party skill for security risks before enabling it
 version: 1.0.2
 allowed-tools: Read, Grep, Glob, Bash
+security-context: audit
 ---
 
 ## 功能描述

@@ -40,6 +40,17 @@ describe('Task V2: doctor 质量门禁', () => {
       expect(GATES.dedup.genuineWarn).toBeLessThan(GATES.dedup.genuineFail);
     });
 
+    test('P3: advisory 语义 — doctorCommand 在 advisory 下失败项放行（exit 不触发）', async () => {
+      // 逻辑级验证：advisory 分支先于 process.exit(1) 返回 ok:true
+      // （此处静态断言 CLI 选项存在 + doctorCommand 返回语义，避免 27s 全量评分）
+      const cliSrc = await fs.readFile(path.join(REPO_ROOT, 'packages/yyc3-cli/bin/yyc3-cli.js'), 'utf-8');
+      expect(cliSrc).toContain('--advisory');
+      const doctorSrc = await fs.readFile(path.join(REPO_ROOT, 'packages/yyc3-cli/lib/doctor.js'), 'utf-8');
+      // advisory 分支必须出现在 process.exit(1) 之前（灰度放行先于阻断）
+      expect(doctorSrc.indexOf('options.advisory')).toBeLessThan(doctorSrc.indexOf('process.exit(1)'));
+      expect(doctorSrc).toContain("advisory: true");
+    });
+
     test('score 阈值：均分下限 78、允许下降 2 分', () => {
       expect(GATES.score.minAvg).toBe(78);
       expect(GATES.score.avgDropMax).toBe(2);

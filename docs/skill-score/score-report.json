@@ -5,11 +5,11 @@
     "byGrade": {
       "A": 110,
       "B": 503,
-      "C": 217,
-      "D": 1,
+      "C": 218,
+      "D": 0,
       "E": 0
     },
-    "generatedAt": "2026-09-22T09:45:18.824Z",
+    "generatedAt": "2026-09-23T11:15:05.431Z",
     "weights": {
       "metadata": 0.25,
       "docs": 0.2,
@@ -5744,14 +5744,14 @@
       "file": "skills-hub/community/skill-vetter/SKILL.md"
     },
     {
-      "score": 58,
-      "grade": "D",
+      "score": 73,
+      "grade": "C",
       "dims": {
         "metadata": 67,
         "docs": 67,
         "assets": 100,
         "activity": 20,
-        "security": 0
+        "security": 100
       },
       "file": "skills-hub/community/skills-security-check/SKILL.md"
     },

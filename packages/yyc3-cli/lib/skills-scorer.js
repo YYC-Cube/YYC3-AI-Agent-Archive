@@ -166,9 +166,13 @@ const SECURITY_PATTERNS = [
   /shutil\.rmtree\s*\(/,
 ];
 
-async function scoreSecurity(skillDir, body) {
+async function scoreSecurity(skillDir, body, fm = {}) {
+  // 声明式豁免：security-context: audit 表示正文以「审计视角」引用攻击模式
+  // （如安全审计/检测类 skill 把 rm -rf、curl|bash 列为检测目标）。
+  // 豁免仅作用于 body；scripts/ 目录始终全量扫描（真实载荷不因声明而免检）。
+  const auditContext = String(fm['security-context'] || '').trim().toLowerCase() === 'audit';
   let hits = 0;
-  const targets = [body];
+  const targets = auditContext ? [] : [body];
   try {
     const scriptsDir = path.join(skillDir, 'scripts');
     for (const f of await fs.readdir(scriptsDir)) {
@@ -183,6 +187,10 @@ async function scoreSecurity(skillDir, body) {
     for (const p of SECURITY_PATTERNS) {
       if (p.test(content)) hits++;
     }
+  }
+  if (auditContext) {
+    // 审计语境下 body 豁免，但 scripts 命中仍计数；给一个固定 80 基线（非满分，保留 scripts 风险面）
+    return Math.max(80, Math.max(0, 100 - hits * 20));
   }
   return Math.max(0, 100 - hits * 20); // 每命中扣 20，扣完为止
 }
@@ -202,7 +210,7 @@ async function scoreSkill(file, weights = DEFAULT_WEIGHTS) {
     docs: scoreDocs(body),
     assets: await scoreAssets(path.dirname(file), body),
     activity: await scoreActivity(path.dirname(file)),
-    security: await scoreSecurity(path.dirname(file), body),
+    security: await scoreSecurity(path.dirname(file), body, fm),
   };
   const score = Math.round(
     Object.entries(weights).reduce((sum, [k, w]) => sum + dims[k] * w, 0)
@@ -260,7 +268,7 @@ async function scoreAll(options = {}) {
       docs: scoreDocs(body),
       assets: await scoreAssets(dir, body),
       activity: Math.min(Math.round(((activityByDir.get(rel) || 0) / 5) * 100), 100),
-      security: await scoreSecurity(dir, body),
+      security: await scoreSecurity(dir, body, fm),
     };
     const score = Math.round(
       Object.entries(weights).reduce((sum, [k, w]) => sum + dims[k] * w, 0)

@@ -139,7 +139,39 @@ function checkExample() {
 }
 
 /**
- * doctor 主入口：四检聚合，返回整体退出码
+ * CI Job Summary 可视化 — 检测 GITHUB_STEP_SUMMARY 时自动追加 Markdown 报告
+ */
+function writeJobSummary(checks, failed) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+  const fs = require('fs');
+  const score = checks.find((c) => c.name === 'score');
+  const sr = (score && score.result) || {};
+  const lines = ['## 🩺 YYC³ Doctor 质量门禁', ''];
+  lines.push(`**结论**: ${failed ? '🔴 存在阻断项' : '🟢 全部通过'}`, '');
+  lines.push('| 检查 | 状态 | 耗时 |', '|------|------|------|');
+  for (const c of checks) {
+    const r = c.result || {};
+    const st = !c.ok ? '💥 CRASH' : r.gate === false ? '🔴 FAIL' : r.warn ? '🟡 WARN' : '✅ PASS';
+    lines.push(`| ${c.name} | ${st} | ${(c.durationMs / 1000).toFixed(1)}s |`);
+  }
+  if (sr.average !== undefined) {
+    lines.push('', `**评分**: 均分 **${sr.average}**（基线 ${sr.baselineAverage ?? '—'} @ ${sr.baselineSource ? path.basename(sr.baselineSource) : '无'}）`, '');
+    lines.push(`等级分布: ${Object.entries(sr.byGrade || {}).map(([g, n]) => `${g}:${n}`).join(' / ')}`);
+  }
+  if (sr.failures && sr.failures.length) {
+    lines.push('', '**阻断明细**:', ...(sr.failures.map((f) => `- ${f}`)));
+  }
+  if (sr.worst && sr.worst.length) {
+    lines.push('', '<details><summary>低分 TOP5（治理参考）</summary>', '', '| 文件 | 分数 | 等级 |', '|------|------|------|');
+    for (const w of sr.worst) lines.push(`| ${w.file} | ${w.score} | ${w.grade} |`);
+    lines.push('', '</details>');
+  }
+  fs.appendFileSync(summaryPath, lines.join('\n') + '\n');
+}
+
+/**
+ * doctor 主入口：五检聚合，返回整体退出码
  */
 async function doctorCommand(options = {}) {
   options = options || {};
@@ -175,11 +207,20 @@ async function doctorCommand(options = {}) {
 
   console.log('──────────────────────────────────────');
   if (failed) {
+    // advisory 模式：新检查灰度期仅报告不阻断（exit 0），供 CI 渐进接入
+    if (options.advisory) {
+      console.log('🟡 Doctor (advisory): 存在问题项但按建议模式放行 — 用于新检查灰度验证，勿长期开启\n');
+      writeJobSummary(checks, true);
+      if (options.json) console.log(JSON.stringify({ ok: true, advisory: true, checks }, null, 2));
+      return { ok: true, advisory: true, checks };
+    }
     console.log('🔴 Doctor: 存在门禁阻断项，禁止合并/发布\n');
+    writeJobSummary(checks, true);
     if (options.json) console.log(JSON.stringify({ ok: false, checks }, null, 2));
     process.exit(1);
   }
   console.log('🟢 Doctor: 全部门禁通过\n');
+  writeJobSummary(checks, false);
   if (options.json) console.log(JSON.stringify({ ok: true, checks }, null, 2));
   return { ok: true, checks };
 }

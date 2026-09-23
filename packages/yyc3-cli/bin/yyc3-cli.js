@@ -226,6 +226,7 @@ program
   .description('五检聚合质量门禁（validate/dedup/score/registry/example），CI 退出码语义')
   .option('--json', '附加输出 JSON 结果', false)
   .option('--skip-example', '跳过 example 构建检（CI 已单独覆盖时）', false)
+  .option('--advisory', '建议模式：问题仅报告不阻断（新检查灰度期用）', false)
   .action(async (options) => {
     try { await doctorCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });

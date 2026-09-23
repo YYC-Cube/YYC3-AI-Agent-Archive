@@ -1,6 +1,6 @@
 # 技能质量评分报告
 
-> 生成时间: 2026-09-22T09:45:18.824Z | 引擎: yyc3-cli skills score（五维加权）
+> 生成时间: 2026-09-23T11:15:05.431Z | 引擎: yyc3-cli skills score（五维加权）
 
 ## 总览
 
@@ -8,7 +8,7 @@
 |------|------|
 | 技能总数 | 831 |
 | 平均分 | 80 |
-| 等级分布 | A:110 B:503 C:217 D:1 E:0 |
+| 等级分布 | A:110 B:503 C:218 D:0 E:0 |
 
 ## 权重配置
 
@@ -24,7 +24,6 @@
 
 | 分数 | 等级 | 文件 | 最弱维度 |
 |------|------|------|----------|
-| 58 | D | skills-hub/community/skills-security-check/SKILL.md | 安全(0) |
 | 60 | C | skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out/SKILL.md | 文档(3) |
 | 60 | C | skills-hub/marketplace/anthropics-skills/template/SKILL.md | 文档(1) |
 | 61 | C | skills-hub/community/openai-whisper/SKILL.md | 文档(8) |
@@ -44,3 +43,4 @@
 | 64 | C | skills-hub/community/xurl/SKILL.md | 活跃度(20) |
 | 64 | C | skills-hub/marketplace/anthropics-skills/skills/skill-creator/SKILL.md | 安全(0) |
 | 65 | C | skills-hub/community/apple-notes/SKILL.md | 活跃度(20) |
+| 65 | C | skills-hub/community/gifgrep/SKILL.md | 活跃度(20) |
