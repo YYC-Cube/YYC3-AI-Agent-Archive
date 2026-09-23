@@ -2,6 +2,48 @@
 
 All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
+## [2.6.0] - 2026-09-24
+
+### 版本主题：Association-Dimension Graph（关联维度图谱）
+
+从「Quality-Gated」演进为「Graph-Aware」：831 技能资产新增关联维度（Association Dimension）分析——双层边模型 + PageRank 枢纽识别 + 连通分量/孤立率度量 + 显式声明建议引擎。
+
+### 关联维度图谱引擎（核心）
+
+- **双层边模型**：explicit（frontmatter `related_skills`/`depends_on`，权重 2）+ implicit（正文提及，权重 1）；`skills-graph.js` 单一引擎四输出（summary/hubs/clusters/nodes）
+- **简化 PageRank**：20 轮迭代、damping 0.85，识别核心枢纽技能（hub 排名）
+- **并查集连通分量**：孤立节点率、最大连通分量、边密度（密度过高的重写信号）
+- **领域簇聚合**：按 domain 分簇（簇技能数总和 = 总节点，测试断言自洽）
+- **首份图报告**：`docs/skill-score/graph-report.{json,md}` — 831 节点 / 937+ 边 / 孤立率 ~18% / top hub
+
+### related_skills 建议引擎 + 批量补全
+
+- **`yyc3 skills graph-suggest`**（dry-run / `--apply` / `--top-n` / `--min-confidence`）：从 implicit 边推导显式声明候选
+- **置信度算法**：双向提及 +3（最强信号）/ 同领域 +1 / 每条单向提及 +1；阈值 4、Top 5
+- **批量落地**：117 个 SKILL.md frontmatter 追加 `related_skills` 声明——262 候选全部置信度 5（双向+同领域最高档）
+- **图谱提升**：explicit 边 0 → 78（去重后）；孤立节点 149 保持（写入关联均指向非孤立节点）；validate 零回归
+- 候选清单归档：`docs/skill-score/related-skills-suggestions.json`
+
+### Doctor 六检 + 发布闭环增强
+
+- **第六检 graph**（信息性，永不阻断）：孤立率 > 25% WARN——积累期看板信号
+- **Job Summary 可视化**：doctor 检测 `GITHUB_STEP_SUMMARY` 环境变量自动追加 Markdown 报告（CI Actions 页直接可见六检表格 + 评分 + 图指标）
+- **advisory 模式**（`doctor --advisory`）：新检查灰度期失败仅报告不阻断（exit 0），CI 渐进接入
+- **baseline-advance 自动闭环**（release.yml）：tag 触发 → gen-baseline 新基线 → doctor GATES.baseline 同步 → 测试断言更新 → 自动开 PR（人工确认合入）—— 本版本首次实跑演示
+- **example 检修复**：容忍 `ERR_PNPM_IGNORED_BUILDS`（esbuild postinstall 被忽略属 P2-3 预期决策，esbuild 二进制由平台 optional dep 提供；门禁以实际 vite build 结果为准）
+
+### P2/P3 治理收尾
+
+- **D 级技能清零（D:1 → 0）**：`security-context: audit` 声明式豁免——安全审计类技能（skills-security-check）正文以检测目标身份引用攻击模式属合法语境；body 豁免但 scripts/ 始终扫描，安全下限 80
+- **vendor 告警周度清理**：`vendor-alerts-cleanup.yml` 每周一自动 dismiss 参考资产 Dependabot 告警（核心依赖保留跟踪）
+- **esbuild postinstall 白名单**：评估后关闭（维持不批准构建脚本的供应链立场）
+
+### 统计
+
+- 版本跨度：`v2.5.0..v2.6.0` 共 11 commits（feat 3 / fix 1 / test 1 / docs 4 / chore 2）
+- CLI 测试：62/62 全绿（+图谱 4 用例）；doctor 六检本地 + CI 双绿
+- 资产变更：117 个 SKILL.md（related_skills 声明）+ 4 个 CLI 模块
+
 ## [2.5.0] - 2026-09-23
 
 ### 版本主题：Doctor Integrated Quality Gate（质量门禁一体化）
