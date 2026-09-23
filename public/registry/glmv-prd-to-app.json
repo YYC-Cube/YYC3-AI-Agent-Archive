@@ -4,6 +4,11 @@
   "title": "glmv-prd-to-app",
   "description": ">",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-prd-to-app",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-prd-to-app",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-prd-to-app/SKILL.md"

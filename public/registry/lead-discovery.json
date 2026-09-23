@@ -4,6 +4,11 @@
   "title": "lead-discovery",
   "description": "AI-driven lead discovery for B2B export. Searches web for potential buyers matching ICP, evaluates f",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/b2b/b2b-sdr-template/skills/lead-discovery",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/lead-discovery",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/lead-discovery/SKILL.md"

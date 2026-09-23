@@ -4,6 +4,11 @@
   "title": "vip-skill",
   "description": "唯品会（vip.com）电商服务技能包（vipshop-skills），整合唯品会搜索、商品查询、活动查询、图片搜索等多项购物服务，是一套完整的唯品会购物 AI 助手解决方案。当用户有购物、搜商品、看",
   "version": "1.0.6",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/vip-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vip-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/vip-skill/SKILL.md"

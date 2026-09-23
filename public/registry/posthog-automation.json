@@ -4,6 +4,11 @@
   "title": "posthog-automation",
   "description": "Automate PostHog tasks via Rube MCP (Composio): events, feature flags, projects, user profiles, anno",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/posthog-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/posthog-automation",
   "_meta": {
     "io.github.yyc-cube/category": "devops",
     "io.github.yyc-cube/source": "skills-hub/marketplace/posthog-automation/SKILL.md"

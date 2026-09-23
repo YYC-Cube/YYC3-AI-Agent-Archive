@@ -4,6 +4,11 @@
   "title": "nemotron-retrieval-recipes",
   "description": "Use when planning, debugging, tuning, evaluating, exporting, or deploying public Nemotron `embed`/`r",
   "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemotron-retrieval-recipes",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemotron-retrieval-recipes",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

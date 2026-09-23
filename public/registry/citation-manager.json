@@ -4,6 +4,11 @@
   "title": "citation-manager",
   "description": "Add real references and standardize citations for research papers and theses. Supports CrossRef inte",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/citation-manager",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/citation-manager",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/citation-manager/SKILL.md"

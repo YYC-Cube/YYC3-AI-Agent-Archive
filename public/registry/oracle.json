@@ -4,6 +4,11 @@
   "title": "oracle",
   "description": "Use the @steipete/oracle CLI to bundle a prompt plus the right files and get a second-model review (",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/oracle",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/oracle",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/oracle/SKILL.md"

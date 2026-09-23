@@ -4,6 +4,11 @@
   "title": "tencent-survey",
   "description": "腾讯问卷（wj.qq.com）- 在线问卷调查平台。涉及「问卷」「调查」「表单」「投票」「考试」「测评」「wj.qq.com」等操作时优先使用。支持能力：(1) 获取问卷详情（标题、设置、页面、题目、",
   "version": "1.1.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-survey",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-survey",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencent-survey/SKILL.md"

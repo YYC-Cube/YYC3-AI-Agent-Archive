@@ -4,6 +4,11 @@
   "title": "glmocr-table",
   "description": "Official skill for recognizing and extracting tables from images and PDFs into M",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmocr-table",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmocr-table",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmocr-table/SKILL.md"

@@ -4,8 +4,20 @@
   "title": "write-a-skill",
   "description": "Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use wh",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/productivity/write-a-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/write-a-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/productivity/write-a-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/productivity/write-a-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "cnb-skill",
+      "colleague-skill",
+      "crash-expert-skill",
+      "darwin-skill"
+    ]
   }
 }

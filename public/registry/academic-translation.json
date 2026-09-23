@@ -4,6 +4,11 @@
   "title": "academic-translation",
   "description": "当用户需要学术论文中英互译、润色、Chinglish 修复时使用。三步法（直译→反思→雅化），公式/cite 零损伤，顶会术语库，双栏对照，不动原文件。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/academic-translation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/academic-translation",
   "_meta": {
     "io.github.yyc-cube/category": "Education",
     "io.github.yyc-cube/source": "skills-hub/community/academic-translation/SKILL.md"

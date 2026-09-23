@@ -4,6 +4,11 @@
   "title": "promo-editor",
   "description": "使用 HyperFrames 将所有素材按分镜时间码串联，添加文字层、动画、转场，渲染成完整宣传片 MP4。这是整个流程的核心渲染引擎。当素材确认后自动进入。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/promo-creator-skills/promo-editor",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/promo-editor",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-editor/SKILL.md"

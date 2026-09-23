@@ -4,8 +4,16 @@
   "title": "research-deep",
   "description": "读取调研outline，为每个item启动独立agent进行深度调研。禁用task output。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/deep-research/research-deep",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/research-deep",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-deep/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-deep/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "research"
+    ]
   }
 }

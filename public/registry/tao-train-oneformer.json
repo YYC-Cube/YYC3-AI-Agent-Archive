@@ -4,6 +4,11 @@
   "title": "tao-train-oneformer",
   "description": "OneFormer for universal image segmentation. Unifies panoptic, instance, and semantic segmentation wi",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-oneformer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-oneformer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

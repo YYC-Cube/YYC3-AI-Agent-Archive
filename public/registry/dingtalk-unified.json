@@ -4,6 +4,11 @@
   "title": "dingtalk-unified",
   "description": "钉钉 CLI 全能套件，基于官方 DingTalk Workspace CLI（dws）操作钉钉消息、群聊、通讯录、日历、待办、审批、考勤、日志、DING、AI 表格、钉钉文档、钉盘、AI 听记、邮箱",
   "version": "1.0.5",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/dingtalk-unified",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/dingtalk-unified",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/dingtalk-unified/SKILL.md"

@@ -4,9 +4,21 @@
   "title": "vss-generate-video-report",
   "description": "Use this skill when producing a VSS analysis report — Mode A per-clip VLM, Mode B incident-range via",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/vss-generate-video-report",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vss-generate-video-report",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-generate-video-report/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-generate-video-report/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "vss-ask-video",
+      "vss-manage-alerts",
+      "vss-manage-video-io-storage",
+      "vss-query-analytics",
+      "vss-summarize-video"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "stagehand-browser-cli",
   "description": "Automate web browser interactions using natural language via CLI commands. Use when the user asks to",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/stagehand-browser-cli",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/stagehand-browser-cli",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/stagehand-browser-cli/SKILL.md"

@@ -4,8 +4,20 @@
   "title": "yourself-skill",
   "description": "Distill yourself into an AI Skill. Deconstruct chat history, diaries, social media, and photos into ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/yourself-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/yourself-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/yourself-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/yourself-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "cnb-skill",
+      "colleague-skill",
+      "crash-expert-skill",
+      "darwin-skill"
+    ]
   }
 }

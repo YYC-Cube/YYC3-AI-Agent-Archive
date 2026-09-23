@@ -4,8 +4,16 @@
   "title": "cloudbase-platform",
   "description": "CloudBase platform knowledge and best practices. Use this skill for general CloudBase platform under",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/cloudbase-platform",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cloudbase-platform",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/cloudbase-platform/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/cloudbase-platform/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cloudbase"
+    ]
   }
 }

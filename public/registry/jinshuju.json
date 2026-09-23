@@ -4,6 +4,11 @@
   "title": "jinshuju",
   "description": "Use when the user wants to create or edit forms, collect or query entries, bulk-update form data, ch",
   "version": "1.3.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/jinshuju",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/jinshuju",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

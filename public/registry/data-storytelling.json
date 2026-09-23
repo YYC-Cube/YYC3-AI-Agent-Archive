@@ -4,6 +4,11 @@
   "title": "data-storytelling",
   "description": "Transform data into compelling narratives using visualization, context, and persuasive structure. Us",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/data-storytelling",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/data-storytelling",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketplace/data-storytelling/SKILL.md"

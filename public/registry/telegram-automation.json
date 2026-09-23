@@ -4,6 +4,11 @@
   "title": "telegram-automation",
   "description": "Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/telegram-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/telegram-automation",
   "_meta": {
     "io.github.yyc-cube/category": "communication",
     "io.github.yyc-cube/source": "skills-hub/marketplace/telegram-automation/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "glmocr",
   "description": "Extract text from images using GLM-OCR API. Supports images and PDFs with",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmocr",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmocr",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmocr/SKILL.md"

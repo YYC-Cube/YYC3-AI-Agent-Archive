@@ -4,6 +4,11 @@
   "title": "apple-reminders",
   "description": "Manage Apple Reminders via the `remindctl` CLI on macOS (list, add, edit, complete, delete). Support",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/apple-reminders",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/apple-reminders",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/apple-reminders/SKILL.md"

@@ -4,9 +4,21 @@
   "title": "nemo-mbridge-perf-moe-dispatcher-selection",
   "description": "Choose the right MoE token dispatcher (`alltoall`, DeepEP, or HybridEP) for the hardware, EP degree,",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-dispatcher-selection",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-perf-moe-dispatcher-selection",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-dispatcher-selection/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-dispatcher-selection/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-mbridge-mlm-bridge-training",
+      "nemo-mbridge-multi-node-slurm",
+      "nemo-mbridge-perf-activation-recompute",
+      "nemo-mbridge-perf-cpu-offloading",
+      "nemo-mbridge-perf-cuda-graphs"
+    ]
   }
 }

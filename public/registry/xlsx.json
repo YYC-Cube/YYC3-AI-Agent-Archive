@@ -4,6 +4,11 @@
   "title": "xlsx",
   "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/xlsx",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/xlsx",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

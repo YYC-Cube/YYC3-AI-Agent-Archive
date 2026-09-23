@@ -4,6 +4,11 @@
   "title": "auth-web-cloudbase",
   "description": "CloudBase Web Authentication Quick Guide for frontend integration after auth-tool has already been c",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/auth-web",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/auth-web-cloudbase",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-web/SKILL.md"

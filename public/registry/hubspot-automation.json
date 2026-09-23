@@ -4,8 +4,20 @@
   "title": "hubspot-automation",
   "description": "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/hubspot-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/hubspot-automation",
   "_meta": {
     "io.github.yyc-cube/category": "crm",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/hubspot-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/hubspot-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

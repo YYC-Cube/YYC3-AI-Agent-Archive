@@ -4,6 +4,11 @@
   "title": "paid-ads",
   "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/paid-ads",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/paid-ads",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/paid-ads/SKILL.md"

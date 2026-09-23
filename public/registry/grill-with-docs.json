@@ -4,8 +4,17 @@
   "title": "grill-with-docs",
   "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/engineering/grill-with-docs",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/grill-with-docs",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/grill-with-docs/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/grill-with-docs/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-rl-docs",
+      "tencent-docs"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "team-ops",
   "description": "Audit team performance using the Elon Algorithm (identify A/B/C players) and extract action items fr",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/team-ops",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/team-ops",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/team-ops/SKILL.md"

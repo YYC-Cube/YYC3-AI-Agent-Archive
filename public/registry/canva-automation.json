@@ -4,6 +4,11 @@
   "title": "canva-automation",
   "description": "Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/canva-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/canva-automation",
   "_meta": {
     "io.github.yyc-cube/category": "design",
     "io.github.yyc-cube/source": "skills-hub/marketplace/canva-automation/SKILL.md"

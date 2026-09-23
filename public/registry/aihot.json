@@ -4,6 +4,11 @@
   "title": "aihot",
   "description": "AI HOT (aihot.virxact.com) 中文 AI 资讯查询 Skill。当用户想知道\"今天 AI 圈有什么\"、\"AI 日报\"、\"AI HOT\"、\"AI 资讯\"、\"AI 热点\"、\"最近 ",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/aihot",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/aihot",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/aihot/SKILL.md"

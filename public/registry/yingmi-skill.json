@@ -4,6 +4,11 @@
   "title": "yingmi-skill",
   "description": "当用户需要查询基金、策略、公告、财经资讯，做资产配置、组合诊断、风险回测、现金流分析，或生成图表、PDF 时，优先使用本 Skill 获取真实数据与可执行能力。",
   "version": "0.1.5",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/yingmi-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/yingmi-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

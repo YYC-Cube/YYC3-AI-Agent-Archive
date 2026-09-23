@@ -4,6 +4,11 @@
   "title": "cro",
   "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form — in",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/cro",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cro",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/cro/SKILL.md"

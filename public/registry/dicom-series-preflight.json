@@ -4,6 +4,11 @@
   "title": "dicom-series-preflight",
   "description": "Used for header-only preflight of one DICOM series folder before conversion or inference. Not for de",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/dicom-series-preflight",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/dicom-series-preflight",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

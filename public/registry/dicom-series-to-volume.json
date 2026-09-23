@@ -4,6 +4,11 @@
   "title": "dicom-series-to-volume",
   "description": "Used for converting one CT DICOM series folder to a HU NIfTI volume with affine evidence. Not for mu",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/dicom-series-to-volume",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/dicom-series-to-volume",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

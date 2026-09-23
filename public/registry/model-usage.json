@@ -4,6 +4,11 @@
   "title": "model-usage",
   "description": "Use CodexBar CLI local cost usage to summarize per-model usage for Codex or Claude, including the cu",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/model-usage",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/model-usage",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/model-usage/SKILL.md"

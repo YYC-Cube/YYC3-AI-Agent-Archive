@@ -4,9 +4,18 @@
   "title": "vss-search-archive",
   "description": "Use to run top-level VSS fusion search on archived video, or to ingest video files / RTSP streams fo",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/vss-search-archive",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vss-search-archive",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-search-archive/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-search-archive/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "vss-manage-video-io-storage",
+      "vss-query-analytics"
+    ]
   }
 }

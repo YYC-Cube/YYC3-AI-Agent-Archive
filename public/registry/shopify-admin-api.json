@@ -4,8 +4,19 @@
   "title": "shopify-admin-api",
   "description": "Full read/write access to Shopify Admin REST API for managing orders, products, customers, inventory",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/shopify-admin-api",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/shopify-admin-api",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/shopify-admin-api/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/shopify-admin-api/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "openai-whisper-api",
+      "skyline-scroll-api",
+      "vss-setup-video-analytics-api",
+      "claude-api"
+    ]
   }
 }

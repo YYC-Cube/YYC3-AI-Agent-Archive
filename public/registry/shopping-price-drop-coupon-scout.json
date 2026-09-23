@@ -4,6 +4,11 @@
   "title": "shopping-price-drop-coupon-scout",
   "description": "监控用户指定商品的价格变动并汇总官方优惠券与促销信息，全程只读、不登录账号、不加购物车、不下单、不处理支付。当用户希望设置降价提醒、整理可用优惠券清单，或获取某商品/商家的促销汇总（price ale",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/shopping-price-drop-coupon-scout",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/shopping-price-drop-coupon-scout",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/shopping-price-drop-coupon-scout/SKILL.md"

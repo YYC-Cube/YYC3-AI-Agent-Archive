@@ -4,6 +4,11 @@
   "title": "accelerated-computing-cudf",
   "description": "Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ET",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/accelerated-computing-cudf",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/accelerated-computing-cudf",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",

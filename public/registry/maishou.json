@@ -4,6 +4,11 @@
   "title": "maishou",
   "description": "商品价格全网对比技能，获取商品在淘宝(Taobao)、天猫(TMall)、京东(JD.com)、拼多多(PinDuoDuo)、抖音(Douyin)、快手(KaiShou)的最优价格、优惠券，当用户想购",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/taobao",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/maishou",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/taobao/SKILL.md"

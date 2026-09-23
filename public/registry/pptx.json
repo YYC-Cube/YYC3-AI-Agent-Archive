@@ -4,6 +4,11 @@
   "title": "pptx",
   "description": "Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. Th",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/pptx",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/pptx",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

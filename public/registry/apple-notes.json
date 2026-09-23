@@ -4,6 +4,11 @@
   "title": "apple-notes",
   "description": "Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/apple-notes",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/apple-notes",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/apple-notes/SKILL.md"

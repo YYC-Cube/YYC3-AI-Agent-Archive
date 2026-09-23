@@ -4,6 +4,11 @@
   "title": "skill-scanner",
   "description": "Scan any agent skill for security risks before you install or use it. Powered by Tencent Zhuque Lab ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/skill-scanner",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skill-scanner",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

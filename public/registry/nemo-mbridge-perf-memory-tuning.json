@@ -4,9 +4,17 @@
   "title": "nemo-mbridge-perf-memory-tuning",
   "description": "Techniques for reducing peak GPU memory in Megatron Bridge — expandable segments, parallelism resizi",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-memory-tuning",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-perf-memory-tuning",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-memory-tuning/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-memory-tuning/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-mbridge-perf-activation-recompute"
+    ]
   }
 }

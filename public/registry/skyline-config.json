@@ -4,8 +4,18 @@
   "title": "skyline-config",
   "description": "Skyline 小程序 JSON 配置规范技能。涵盖 app.json 全局配置（renderer、rendererOptions、componentFramework）、页面 json 配置（nav",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/skyline/references/config",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skyline-config",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/config/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/config/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "skyline-overview",
+      "skyline-route",
+      "skyline-wxss"
+    ]
   }
 }

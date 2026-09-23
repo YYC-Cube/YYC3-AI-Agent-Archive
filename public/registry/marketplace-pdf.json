@@ -4,6 +4,11 @@
   "title": "pdf",
   "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/sp",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/pdf",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/pdf",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

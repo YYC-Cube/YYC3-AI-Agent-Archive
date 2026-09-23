@@ -4,6 +4,11 @@
   "title": "intelligent-architecture",
   "description": "Five Highs Five Standards Five Modernizations intelligent architecture framework. Invoke when design",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/yyc3/yyc3-skills",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/intelligent-architecture",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/yyc3/yyc3-skills/SKILL.md"

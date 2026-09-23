@@ -4,6 +4,11 @@
   "title": "porteden-email",
   "description": "Email Management - Secure Gmail, Outlook & Exchange - multi account support. Read, search, or triage",
   "version": "1.0.7",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/porteden-email",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/porteden-email",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/porteden-email/SKILL.md"

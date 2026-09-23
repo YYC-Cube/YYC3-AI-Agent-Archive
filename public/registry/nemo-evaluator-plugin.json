@@ -4,6 +4,11 @@
   "title": "nemo-evaluator-plugin",
   "description": "Use when working on the Evaluator plugin CLI, jobs, SDK-backed specs, metric types, or plugin-owned ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-evaluator-plugin",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-evaluator-plugin",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

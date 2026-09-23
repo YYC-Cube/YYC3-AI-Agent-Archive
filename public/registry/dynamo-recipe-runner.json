@@ -4,9 +4,18 @@
   "title": "dynamo-recipe-runner",
   "description": "Select, validate, patch, and deploy existing NVIDIA Dynamo Kubernetes recipes. Use for model/backend",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/dynamo-recipe-runner",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/dynamo-recipe-runner",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-recipe-runner/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-recipe-runner/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "dynamo-interconnect-check",
+      "dynamo-router-starter"
+    ]
   }
 }

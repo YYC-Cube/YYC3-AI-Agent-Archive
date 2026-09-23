@@ -4,6 +4,11 @@
   "title": "weiyun",
   "description": "微云网盘 MCP 接口完整技能。包含 weiyun.list、weiyun.list_by_category、weiyun.download、weiyun.delete、weiyun.upload、w",
   "version": "1.0.5",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/weiyun",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/weiyun",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/weiyun/SKILL.md"

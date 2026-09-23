@@ -4,8 +4,20 @@
   "title": "square-automation",
   "description": "Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/square-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/square-automation",
   "_meta": {
     "io.github.yyc-cube/category": "ecommerce",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/square-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/square-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

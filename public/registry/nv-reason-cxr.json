@@ -4,6 +4,11 @@
   "title": "nv-reason-cxr",
   "description": "Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnosis or",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nv-reason-cxr",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nv-reason-cxr",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

@@ -4,8 +4,20 @@
   "title": "jira-automation",
   "description": "Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/jira-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/jira-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/jira-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/jira-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

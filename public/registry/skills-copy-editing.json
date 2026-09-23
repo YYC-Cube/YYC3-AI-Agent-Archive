@@ -4,8 +4,16 @@
   "title": "copy-editing",
   "description": "When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/copy-editing",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/copy-editing",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/copy-editing/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/copy-editing/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "copywriting"
+    ]
   }
 }

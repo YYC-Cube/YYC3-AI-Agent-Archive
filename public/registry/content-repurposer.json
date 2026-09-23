@@ -4,6 +4,11 @@
   "title": "content-repurposer",
   "description": "Transform long-form content into platform-optimized snippets. Your agent takes one blog post, video ",
   "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/content-repurposer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/content-repurposer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/content-repurposer/SKILL.md"

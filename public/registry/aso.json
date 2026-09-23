@@ -4,6 +4,11 @@
   "title": "aso",
   "description": "When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/aso",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/aso",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/aso/SKILL.md"

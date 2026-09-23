@@ -4,8 +4,21 @@
   "title": "revops",
   "description": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/revops",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/revops",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/revops/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/revops/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "analytics",
+      "cold-email",
+      "emails",
+      "pricing",
+      "prospecting",
+      "sales-enablement"
+    ]
   }
 }

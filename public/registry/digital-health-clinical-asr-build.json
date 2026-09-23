@@ -4,9 +4,19 @@
   "title": "digital-health-clinical-asr-build",
   "description": "Stage 2 of the Clinical ASR Flywheel. Use when curating clinical terms, tagging IPA, and synthesizin",
   "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-build",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/digital-health-clinical-asr-build",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-build/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-build/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "digital-health-clinical-asr-eval",
+      "digital-health-clinical-asr-finetune",
+      "digital-health-clinical-asr-setup"
+    ]
   }
 }

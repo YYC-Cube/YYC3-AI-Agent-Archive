@@ -4,6 +4,11 @@
   "title": "edgeone-pages-deploy",
   "description": "Deploy frontend and full-stack projects to Tencent EdgeOne Pages using the EdgeOne CLI. Use when the",
   "version": "1.0.5",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/edgeone-pages-deploy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/edgeone-pages-deploy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/edgeone-pages-deploy/SKILL.md"

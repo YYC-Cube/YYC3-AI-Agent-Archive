@@ -4,6 +4,11 @@
   "title": "tencentcloud-ocr-questionmarkagent",
   "description": "腾讯云试题批改Agent(SubmitQuestionMarkAgentJob/DescribeQuestionMarkAgentJob)接口调用技能。当用户需要对试卷图片或试题图片中的K12试卷或试",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencentcloud-ocr-questionmarkagent",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencentcloud-ocr-questionmarkagent",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-ocr-questionmarkagent/SKILL.md"

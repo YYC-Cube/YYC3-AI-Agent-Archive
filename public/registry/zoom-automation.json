@@ -4,8 +4,20 @@
   "title": "zoom-automation",
   "description": "Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/zoom-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/zoom-automation",
   "_meta": {
     "io.github.yyc-cube/category": "automation",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/zoom-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/zoom-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

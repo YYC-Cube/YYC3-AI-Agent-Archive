@@ -4,6 +4,11 @@
   "title": "x-longform-post",
   "description": "Write long-form X (Twitter) posts and threads in a founder/CEO voice. Use when drafting X articles, ",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/x-longform-post",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/x-longform-post",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/x-longform-post/SKILL.md"

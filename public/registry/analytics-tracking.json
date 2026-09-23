@@ -4,8 +4,16 @@
   "title": "analytics-tracking",
   "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/analytics-tracking",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/analytics-tracking",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/analytics-tracking/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/analytics-tracking/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "ab-test-setup"
+    ]
   }
 }

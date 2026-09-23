@@ -4,6 +4,11 @@
   "title": "songsee",
   "description": "Generate spectrograms and feature-panel visualizations from audio with the songsee CLI.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/songsee",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/songsee",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/songsee/SKILL.md"

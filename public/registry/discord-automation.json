@@ -4,8 +4,20 @@
   "title": "discord-automation",
   "description": "Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Alwa",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/discord-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/discord-automation",
   "_meta": {
     "io.github.yyc-cube/category": "communication",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/discord-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/discord-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

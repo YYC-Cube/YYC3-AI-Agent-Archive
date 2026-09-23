@@ -4,6 +4,11 @@
   "title": "aviation-weather",
   "description": "Fetch aviation weather data (METAR, TAF, PIREPs) from aviationweather.gov. Use for flight planning, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/aviation-weather",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/aviation-weather",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/aviation-weather/SKILL.md"

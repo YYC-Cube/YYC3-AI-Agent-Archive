@@ -4,6 +4,11 @@
   "title": "doc-coauthoring",
   "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/doc-coauthoring",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/doc-coauthoring",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/doc-coauthoring/SKILL.md"

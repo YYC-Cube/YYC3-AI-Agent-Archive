@@ -4,6 +4,11 @@
   "title": "capability-evolver",
   "description": "A self-evolution engine for AI agents. Analyzes runtime history to identify improvements and applies",
   "version": "1.53.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/capability-evolver",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/capability-evolver",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/capability-evolver/SKILL.md"

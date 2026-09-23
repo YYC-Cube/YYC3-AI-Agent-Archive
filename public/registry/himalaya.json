@@ -4,6 +4,11 @@
   "title": "himalaya",
   "description": "CLI to manage emails via IMAP/SMTP. Use `himalaya` to list, read, write, reply, forward, search, and",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/himalaya",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/himalaya",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/himalaya/SKILL.md"

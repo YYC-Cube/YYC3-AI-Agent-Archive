@@ -4,6 +4,11 @@
   "title": "playwright-scraper-skill",
   "description": "Playwright-based web scraping OpenClaw Skill with anti-bot protection. Successfully tested on comple",
   "version": "1.2.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/playwright-scraper-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/playwright-scraper-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/playwright-scraper-skill/SKILL.md"

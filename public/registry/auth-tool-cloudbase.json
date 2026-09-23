@@ -4,8 +4,20 @@
   "title": "auth-tool-cloudbase",
   "description": "First-step CloudBase auth provider setup skill for login and registration flows. Use it before auth-",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/auth-tool",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/auth-tool-cloudbase",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-tool/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-tool/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "auth-nodejs-cloudbase",
+      "auth-web-cloudbase",
+      "http-api-cloudbase",
+      "relational-database-mcp-cloudbase",
+      "relational-database-web-cloudbase"
+    ]
   }
 }

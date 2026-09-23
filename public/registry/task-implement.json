@@ -4,8 +4,16 @@
   "title": "task-implement",
   "description": "Autonomous task execution driven by documents under `.task/<MMDD_slug>/` (produced by /task-alignmen",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/task-implement",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/task-implement",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/task-implement/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/task-implement/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "task-alignment"
+    ]
   }
 }

@@ -4,9 +4,17 @@
   "title": "tao-run-automl",
   "description": "Run AutoML / hyperparameter optimization (HPO) for NVIDIA TAO networks using AutoMLRunner. Handles a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-run-automl",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "tao-train-single-step"
+    ]
   }
 }

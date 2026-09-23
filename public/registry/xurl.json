@@ -4,6 +4,11 @@
   "title": "xurl",
   "description": "A Twitter research and content intelligence skill. Use to analyze Twitter profiles, threads, and con",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/xurl",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/xurl",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/xurl/SKILL.md"

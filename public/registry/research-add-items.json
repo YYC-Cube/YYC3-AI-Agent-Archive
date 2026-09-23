@@ -4,8 +4,16 @@
   "title": "research-add-items",
   "description": "向现有调研outline补充items（调研对象）。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/deep-research/research-add-items",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/research-add-items",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-add-items/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-add-items/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "research"
+    ]
   }
 }

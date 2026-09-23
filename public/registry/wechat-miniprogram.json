@@ -4,8 +4,18 @@
   "title": "wechat-miniprogram",
   "description": "WeChat Mini Program (微信小程序) development framework. Use when building WeChat mini apps with WXML temp",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/wechat-miniprogram",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/wechat-miniprogram",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/wechat-miniprogram/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/wechat-miniprogram/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "auth-wechat-miniprogram",
+      "cloudbase-document-database-in-wechat-miniprogram",
+      "tdesign-miniprogram"
+    ]
   }
 }

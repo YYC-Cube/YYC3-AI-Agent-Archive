@@ -4,6 +4,11 @@
   "title": "research-report",
   "description": "将deep调研结果汇总为markdown报告，覆盖所有字段，跳过不确定值。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/deep-research/research-report",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/research-report",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-report/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "domain-name-brainstormer",
   "description": "Generates creative domain name ideas for your project and checks availability across multiple TLDs (",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/domain-name-brainstormer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/domain-name-brainstormer",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/domain-name-brainstormer/SKILL.md"

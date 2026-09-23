@@ -4,6 +4,11 @@
   "title": "buddy-sings",
   "description": ">",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/claude-code-skills/skills/buddy-sings",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/buddy-sings",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

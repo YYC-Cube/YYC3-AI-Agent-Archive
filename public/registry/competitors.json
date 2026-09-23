@@ -4,8 +4,20 @@
   "title": "competitors",
   "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/competitors",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/competitors",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/competitors/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/competitors/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "programmatic-seo",
+      "seo-audit",
+      "pricing",
+      "product-marketing",
+      "sales-enablement"
+    ]
   }
 }

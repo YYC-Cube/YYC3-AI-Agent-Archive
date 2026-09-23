@@ -4,8 +4,17 @@
   "title": "khazix-writer",
   "description": "|",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/khazix-writer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/khazix-writer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/khazix-writer/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/khazix-writer/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "novel-writer",
+      "content-research-writer"
+    ]
   }
 }

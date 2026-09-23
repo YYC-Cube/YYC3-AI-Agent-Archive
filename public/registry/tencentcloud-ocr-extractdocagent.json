@@ -4,6 +4,11 @@
   "title": "tencentcloud-ocr-extractdocagent",
   "description": "腾讯云实时文档抽取Agent(ExtractDocAgent)接口调用技能。当用户需要从图片或PDF中按自定义字段名称进行结构化信息抽取时，应使用此技能。支持自定义字段名称、字段类型（KV对或表格字段",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencentcloud-ocr-extractdocagent",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencentcloud-ocr-extractdocagent",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-ocr-extractdocagent/SKILL.md"

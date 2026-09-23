@@ -4,6 +4,11 @@
   "title": "revenue-intelligence",
   "description": "收入归因分析，销售通话洞察与客户报告自动生成",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/revenue-intelligence",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/revenue-intelligence",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/community/revenue-intelligence/SKILL.md"

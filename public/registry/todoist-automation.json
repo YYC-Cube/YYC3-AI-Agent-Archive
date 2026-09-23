@@ -4,6 +4,11 @@
   "title": "todoist-automation",
   "description": "Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (C",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/todoist-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/todoist-automation",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/todoist-automation/SKILL.md"

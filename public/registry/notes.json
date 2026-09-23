@@ -4,6 +4,11 @@
   "title": "notes",
   "description": "⛔ Before ANY write (`import_doc`/`append_doc`): validate ALL string fields (`content`, `title`) are ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/ima-skills/notes",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/notes",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/source": "skills-hub/community/ima-skills/notes/SKILL.md"

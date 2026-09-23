@@ -4,6 +4,11 @@
   "title": "miro-automation",
   "description": "Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connector",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/miro-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/miro-automation",
   "_meta": {
     "io.github.yyc-cube/category": "design",
     "io.github.yyc-cube/source": "skills-hub/marketplace/miro-automation/SKILL.md"

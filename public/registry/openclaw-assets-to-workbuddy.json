@@ -4,6 +4,11 @@
   "title": "openclaw-assets-to-workbuddy",
   "description": "将 OpenClaw 用户的个人资产迁移到 WorkBuddy 对应位置，重点覆盖 SOUL.md、IDENTITY.md、USER.md、memory、skills、MCP 配置、bot/chann",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/openclaw-assets-to-workbuddy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/openclaw-assets-to-workbuddy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/openclaw-assets-to-workbuddy/SKILL.md"

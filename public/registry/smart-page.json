@@ -4,6 +4,11 @@
   "title": "smart-page",
   "description": "腾讯文档智能页面（Smart Page）是可交互在线汇报网页生成工具，适用于汇报、述职、周报、复盘、数据看板、课件、培训、调研报告、会议纪要和本地 HTML 上云。区别于 PPT 与普通网页，内置叙事",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/smart-page",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/smart-page",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/smart-page/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "anti-distill",
   "description": "Anti-distillation defense for employee Skills. Clean your skill files to look complete but with core",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/anti-distill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/anti-distill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/anti-distill/SKILL.md"

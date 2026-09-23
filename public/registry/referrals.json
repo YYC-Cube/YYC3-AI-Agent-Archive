@@ -4,8 +4,16 @@
   "title": "referrals",
   "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/referrals",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/referrals",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/referrals/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/referrals/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "marketing-psychology"
+    ]
   }
 }

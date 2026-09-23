@@ -4,9 +4,20 @@
   "title": "web-artifacts-builder",
   "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern fronten",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/web-artifacts-builder",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/web-artifacts-builder",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/web-artifacts-builder/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/web-artifacts-builder/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "mcp-builder",
+      "artifacts-builder",
+      "cloudflare-worker-builder",
+      "knowledge-framework-builder"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "nemo-mbridge-perf-megatron-fsdp",
   "description": "Operational guide for enabling Megatron FSDP in Megatron-Bridge, including config knobs, code anchor",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-megatron-fsdp",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-perf-megatron-fsdp",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

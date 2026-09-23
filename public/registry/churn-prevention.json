@@ -4,8 +4,18 @@
   "title": "churn-prevention",
   "description": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/churn-prevention",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/churn-prevention",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/churn-prevention/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/churn-prevention/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "emails",
+      "paywalls",
+      "pricing"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "changelog-generator",
   "description": "Automatically creates user-facing changelogs from git commits by analyzing commit history, categoriz",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/changelog-generator",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/changelog-generator",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/source": "skills-hub/marketplace/changelog-generator/SKILL.md"

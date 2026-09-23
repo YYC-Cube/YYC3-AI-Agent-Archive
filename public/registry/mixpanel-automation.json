@@ -4,6 +4,11 @@
   "title": "mixpanel-automation",
   "description": "Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profil",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/mixpanel-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/mixpanel-automation",
   "_meta": {
     "io.github.yyc-cube/category": "analytics",
     "io.github.yyc-cube/source": "skills-hub/marketplace/mixpanel-automation/SKILL.md"

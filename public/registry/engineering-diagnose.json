@@ -4,6 +4,11 @@
   "title": "diagnose",
   "description": "Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce → minimise → hypothe",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/engineering/diagnose",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/diagnose",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/diagnose/SKILL.md"

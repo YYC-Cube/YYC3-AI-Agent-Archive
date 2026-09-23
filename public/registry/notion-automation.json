@@ -4,6 +4,11 @@
   "title": "notion-automation",
   "description": "Automate Notion tasks via Rube MCP (Composio): pages, databases, blocks, comments, users. Always sea",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/notion-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/notion-automation",
   "_meta": {
     "io.github.yyc-cube/category": "storage-docs",
     "io.github.yyc-cube/source": "skills-hub/marketplace/notion-automation/SKILL.md"

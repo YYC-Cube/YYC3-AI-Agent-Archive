@@ -4,8 +4,19 @@
   "title": "skyline-worklet",
   "description": "Skyline Worklet 动画系统技能。使用 worklet 函数、共享变量（SharedValue）、动画类型（timing/spring/decay）、Easing 缓动函数、组合动画和线程",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/skyline/references/worklet",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skyline-worklet",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/worklet/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/worklet/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "skyline-components",
+      "skyline-overview",
+      "skyline-route",
+      "skyline-wxss"
+    ]
   }
 }

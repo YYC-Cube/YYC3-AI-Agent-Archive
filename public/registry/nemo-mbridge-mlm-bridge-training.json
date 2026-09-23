@@ -4,9 +4,21 @@
   "title": "nemo-mbridge-mlm-bridge-training",
   "description": "Run Megatron-LM (MLM) and Megatron Bridge training with mock or real data. Covers correlation testin",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-mlm-bridge-training",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-mlm-bridge-training",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-mlm-bridge-training/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-mlm-bridge-training/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-mbridge-perf-moe-vlm-training",
+      "nemo-mbridge-multi-node-slurm",
+      "nemo-mbridge-perf-activation-recompute",
+      "nemo-mbridge-perf-cpu-offloading",
+      "nemo-mbridge-perf-cuda-graphs"
+    ]
   }
 }

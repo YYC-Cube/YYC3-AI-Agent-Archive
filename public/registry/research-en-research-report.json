@@ -4,6 +4,11 @@
   "title": "research-en-research-report",
   "description": "Summarize deep research results into markdown report, cover all fields, skip uncertain values.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/deep-research/research-en/research-report",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/research-en-research-report",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-en/research-report/SKILL.md"

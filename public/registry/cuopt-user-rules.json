@@ -4,6 +4,11 @@
   "title": "cuopt-user-rules",
   "description": "Base rules for end users calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server). Not for cuOpt int",
   "version": "26.08.00",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/plugins/nvidia-skills/skills/cuopt-user-rules",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cuopt-user-rules",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

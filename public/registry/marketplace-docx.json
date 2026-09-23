@@ -4,6 +4,11 @@
   "title": "docx",
   "description": "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, f",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/docx",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/docx",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

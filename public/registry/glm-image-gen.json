@@ -4,6 +4,11 @@
   "title": "glm-image-gen",
   "description": "Official skill for generating high-quality images from text prompts using ZhiPu",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glm-image-gen",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glm-image-gen",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glm-image-gen/SKILL.md"

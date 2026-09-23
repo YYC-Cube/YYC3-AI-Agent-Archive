@@ -4,6 +4,11 @@
   "title": "healthcheck",
   "description": "Track water and sleep with JSON file storage.",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/healthcheck",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/healthcheck",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/healthcheck/SKILL.md"

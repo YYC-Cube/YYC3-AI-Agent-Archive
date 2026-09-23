@@ -53,24 +53,39 @@ function semverOr(v) {
 
 /**
  * 单个 skill → server.json 对象
+ * @param {object} frontmatter
+ * @param {string} skillPath
+ * @param {object} [ctx] 扩展上下文（v2.6.1+ 生态扩展）
+ *   - related: string[] 关联技能 name 列表（关联维度图反哺 registry）
  */
-function skillToServer(frontmatter, skillPath) {
+const REPO_URL = 'https://github.com/YYC-Cube/YYC3-AI-Agent-Archive';
+const PAGES_URL = 'https://ai-agent.yyc3.vip';
+
+function skillToServer(frontmatter, skillPath, ctx = {}) {
   const name = `${NAMESPACE}/${slugify(frontmatter.name)}`;
   const rel = path.relative(ROOT, skillPath).split(path.sep).join('/');
   const title = String(frontmatter.title || frontmatter.name || 'Untitled skill').slice(0, 100);
-  return {
+  // 生态扩展：repository（源码定位）+ website（Pages 详情）+ related（关联维度）
+  const server = {
     $schema: SCHEMA_URL,
     name,
     title,
     description:
       foldDescription(frontmatter.description) || `YYC3 skill asset: ${rel}`.slice(0, 100),
     version: semverOr(frontmatter.version),
+    repository: { url: `${REPO_URL}/tree/main/${path.dirname(rel)}`, source: 'github' },
+    website: `${PAGES_URL}/skill/${slugify(frontmatter.name)}`,
     _meta: {
       [`${NAMESPACE}/category`]: frontmatter.category || 'uncategorized',
       ...(frontmatter.license ? { [`${NAMESPACE}/license`]: String(frontmatter.license) } : {}),
       [`${NAMESPACE}/source`]: rel,
     },
   };
+  const related = ctx.related || [];
+  if (related.length) {
+    server._meta[`${NAMESPACE}/related`] = related.map(slugify);
+  }
+  return server;
 }
 
 /**
@@ -103,15 +118,19 @@ function disambiguateNames(servers) {
 
 /**
  * 生成聚合 registry 文件（v0.1 servers[] 格式，兼容 AWS Q 等 allow-list 消费方）
+ * v2.6.1+：注入关联维度（related_skills 图）到 _meta.related — registry 消费方可按关联跳转
  */
 async function buildRegistryOutput() {
+  const { buildGraph } = require('./skills-graph');
+  const g = await buildGraph({}); // related 取自 frontmatter 显式声明（含 graph-suggest 补全成果）
   const files = await scanSkillFiles();
   const servers = [];
   for (const f of files) {
     const content = await fs.readFile(f, 'utf-8');
     const fm = parseFrontmatter(content);
     if (!fm.name && !fm.description) continue; // 无有效元数据的跳过
-    servers.push(skillToServer(fm, f));
+    const related = g.nodes[String(fm.name)] ? g.nodes[String(fm.name)].related : [];
+    servers.push(skillToServer(fm, f, { related }));
   }
   disambiguateNames(servers);
   return { servers, total: files.length };

@@ -4,8 +4,20 @@
   "title": "programmatic-seo",
   "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/programmatic-seo",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/programmatic-seo",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/programmatic-seo/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/programmatic-seo/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "seo-audit",
+      "competitors",
+      "launch",
+      "schema",
+      "site-architecture"
+    ]
   }
 }

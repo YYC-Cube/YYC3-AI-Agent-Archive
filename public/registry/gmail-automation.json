@@ -4,6 +4,11 @@
   "title": "gmail-automation",
   "description": "Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Alway",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/gmail-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/gmail-automation",
   "_meta": {
     "io.github.yyc-cube/category": "email",
     "io.github.yyc-cube/source": "skills-hub/marketplace/gmail-automation/SKILL.md"

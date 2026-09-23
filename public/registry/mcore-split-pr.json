@@ -4,6 +4,11 @@
   "title": "mcore-split-pr",
   "description": "Split a PR into multiple PRs to reduce the number of required CODEOWNERS reviewer groups.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/mcore-split-pr",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/mcore-split-pr",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

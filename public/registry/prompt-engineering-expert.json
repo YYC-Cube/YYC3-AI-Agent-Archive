@@ -4,8 +4,16 @@
   "title": "prompt-engineering-expert",
   "description": "Advanced expert in prompt engineering, custom instructions design, and prompt optimization for AI ag",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/prompt-engineering-expert",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/prompt-engineering-expert",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/prompt-engineering-expert/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/prompt-engineering-expert/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "tencentos-expert"
+    ]
   }
 }

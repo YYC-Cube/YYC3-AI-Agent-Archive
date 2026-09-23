@@ -4,6 +4,11 @@
   "title": "novel-writer",
   "description": "章节正文生成器 - 根据章节大纲、Voice Profile 和角色档案构建 LLM 提示词，用于生成章节正文。当需要根据大纲创作具体章节时使用。",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/novel-writer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/novel-writer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/novel-writer/SKILL.md"

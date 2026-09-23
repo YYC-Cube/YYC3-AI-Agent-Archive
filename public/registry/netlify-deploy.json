@@ -4,8 +4,20 @@
   "title": "netlify-deploy",
   "description": "Deploy and manage Netlify sites with npx netlify. Use for first deploys, preview deploys, production",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/netlify-deploy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/netlify-deploy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/netlify-deploy/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/netlify-deploy/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "edgeone-pages-deploy",
+      "github-pages-auto-deploy",
+      "html-deploy",
+      "vercel-deploy",
+      "web-deploy"
+    ]
   }
 }

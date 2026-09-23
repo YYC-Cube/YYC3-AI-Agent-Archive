@@ -4,6 +4,11 @@
   "title": "goal-tracker",
   "description": "Track long-term goals with milestones, daily logging, and accountability. Use when users want to set",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/goal-tracker",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/goal-tracker",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/goal-tracker/SKILL.md"

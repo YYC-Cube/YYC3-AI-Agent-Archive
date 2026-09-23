@@ -4,6 +4,11 @@
   "title": "nemo-automodel-model-onboarding",
   "description": "Guide for onboarding new model architectures into NeMo AutoModel, including architecture discovery, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-automodel-model-onboarding",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-automodel-model-onboarding",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

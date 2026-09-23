@@ -4,6 +4,11 @@
   "title": "mcporter",
   "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/mcporter",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/mcporter",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/mcporter/SKILL.md"

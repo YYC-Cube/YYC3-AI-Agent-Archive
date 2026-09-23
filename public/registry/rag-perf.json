@@ -4,9 +4,17 @@
   "title": "rag-perf",
   "description": ">-",
   "version": "2.6.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/rag-perf",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/rag-perf",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/rag-perf/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/rag-perf/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "rag-eval"
+    ]
   }
 }

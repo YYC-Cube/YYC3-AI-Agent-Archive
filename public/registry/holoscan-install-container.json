@@ -4,6 +4,11 @@
   "title": "holoscan-install-container",
   "description": "Install Holoscan SDK via the NGC Docker container. Use for container-based installs; not for native ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-container",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/holoscan-install-container",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

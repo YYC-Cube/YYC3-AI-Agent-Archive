@@ -4,6 +4,11 @@
   "title": "things-mac",
   "description": "Manage Things 3 via the `things` CLI on macOS (add/update projects+todos via URL scheme; read/search",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/things-mac",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/things-mac",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/things-mac/SKILL.md"

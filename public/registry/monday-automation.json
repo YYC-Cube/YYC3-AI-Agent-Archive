@@ -4,6 +4,11 @@
   "title": "monday-automation",
   "description": "Automate Monday.com work management including boards, items, columns, groups, subitems, and updates ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/monday-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/monday-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
     "io.github.yyc-cube/source": "skills-hub/marketplace/monday-automation/SKILL.md"

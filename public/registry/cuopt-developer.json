@@ -4,6 +4,11 @@
   "title": "cuopt-developer",
   "description": "Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for s",
   "version": "26.08.00",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/cuopt-developer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cuopt-developer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

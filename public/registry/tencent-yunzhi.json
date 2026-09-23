@@ -4,6 +4,11 @@
   "title": "tencent-yunzhi",
   "description": "腾讯乐享（lexiangla.com / csig.lexiangla.com）知识库专用操作。仅在用户消息包含 lexiangla.com 链接、或明确提及『乐享/云知/Lexiang/知识库』关键",
   "version": "1.3.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-yunzhi",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-yunzhi",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencent-yunzhi/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "linear-automation",
   "description": "Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always searc",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/linear-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/linear-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
     "io.github.yyc-cube/source": "skills-hub/marketplace/linear-automation/SKILL.md"

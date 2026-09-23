@@ -4,6 +4,11 @@
   "title": "docx",
   "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx fi",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/docx",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/docx",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

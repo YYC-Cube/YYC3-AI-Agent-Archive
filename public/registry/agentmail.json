@@ -4,6 +4,11 @@
   "title": "agentmail",
   "description": "Email inbox for AI agents. Check messages, send emails, and communicate via your own @agentmail.to a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/agent-mail",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/agentmail",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/agent-mail/SKILL.md"

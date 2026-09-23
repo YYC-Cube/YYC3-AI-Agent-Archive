@@ -4,8 +4,20 @@
   "title": "charity-finance-assistant",
   "description": "Nonprofit finance and receipt management assistant. Use when users need to organize donation receipt",
   "version": "1.3.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/charity-finance-assistant",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/charity-finance-assistant",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/charity-finance-assistant/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/charity-finance-assistant/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "12306-train-assistant",
+      "airchina-travel-assistant",
+      "charity-writing-assistant",
+      "gsap-animation-assistant",
+      "haina-shopping-assistant"
+    ]
   }
 }

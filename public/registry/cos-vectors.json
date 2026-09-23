@@ -4,6 +4,11 @@
   "title": "cos-vectors",
   "description": "腾讯云 COS 向量桶全功能管理技能。覆盖向量桶、索引、向量数据的全生命周期管理，包括创建/删除/查询向量桶、创建/管理索引、插入/查询/搜索/删除向量数据、策略管理等 16 个核心能力。Trigge",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cos-vectors",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cos-vectors",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cos-vectors/SKILL.md"

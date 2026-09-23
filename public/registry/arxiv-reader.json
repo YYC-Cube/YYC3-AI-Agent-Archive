@@ -4,8 +4,17 @@
   "title": "arxiv-reader",
   "description": "利用python，指定某个arxiv_id/url， 基于 LLM Agent 对这篇arxiv论文进行分类与深度阅读，直接print打印阅读笔记",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/arxiv-reader",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/arxiv-reader",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/arxiv-reader/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/arxiv-reader/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "english-intensive-reader",
+      "paper-quick-reader"
+    ]
   }
 }

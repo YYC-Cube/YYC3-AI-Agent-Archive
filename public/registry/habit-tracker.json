@@ -4,8 +4,20 @@
   "title": "habit-tracker",
   "description": "Build habits with streaks, reminders, and progress visualization. Use when users want to create dail",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/habit-tracker",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/habit-tracker",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/habit-tracker/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/habit-tracker/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "aviationstack-flight-tracker",
+      "earnings-tracker",
+      "flight-tracker",
+      "goal-tracker",
+      "plan-tracker"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "nemoclaw-user-monitor-sandbox",
   "description": "Inspects sandbox health, traces agent behavior, and diagnoses problems. Use when monitoring a runnin",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-monitor-sandbox",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemoclaw-user-monitor-sandbox",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

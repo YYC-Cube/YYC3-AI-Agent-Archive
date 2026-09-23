@@ -4,6 +4,11 @@
   "title": "landing-page-generator",
   "description": "Generate a complete, deployable landing page from a brief. Produces a single self-contained HTML fil",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/landing-page-generator",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/landing-page-generator",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/landing-page-generator/SKILL.md"

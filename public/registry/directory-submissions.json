@@ -4,6 +4,11 @@
   "title": "directory-submissions",
   "description": "When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review dir",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/directory-submissions",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/directory-submissions",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/directory-submissions/SKILL.md"

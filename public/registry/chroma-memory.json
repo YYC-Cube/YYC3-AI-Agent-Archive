@@ -4,6 +4,11 @@
   "title": "chroma-memory",
   "description": "Long-term vector memory for customer conversations. Stores every turn with customer isolation, auto-",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/b2b/b2b-sdr-template/skills/chroma-memory",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/chroma-memory",
   "_meta": {
     "io.github.yyc-cube/category": "b2b",
     "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/chroma-memory/SKILL.md"

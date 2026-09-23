@@ -4,6 +4,11 @@
   "title": "research-en-research-add-items",
   "description": "Add items (research objects) to existing research outline.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/deep-research/research-en/research-add-items",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/research-en-research-add-items",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/deep-research/research-en/research-add-items/SKILL.md"

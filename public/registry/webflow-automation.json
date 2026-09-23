@@ -4,6 +4,11 @@
   "title": "webflow-automation",
   "description": "Automate Webflow CMS collections, site publishing, page management, asset uploads, and ecommerce ord",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/webflow-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/webflow-automation",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketplace/webflow-automation/SKILL.md"

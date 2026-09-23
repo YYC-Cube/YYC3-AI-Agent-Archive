@@ -4,6 +4,11 @@
   "title": "tencentcloud-cls",
   "description": "腾讯云日志服务 CLS 技能。支持 CQL 日志检索、上下文查看、日志主题/日志集查看、机器组与机器状态查看、采集规则查看、日志直方图、指标采集与 PromQL 查询、告警策略与告警历史分析。触发词：",
   "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencentcloud-cls",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencentcloud-cls",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-cls/SKILL.md"

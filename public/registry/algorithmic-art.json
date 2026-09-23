@@ -4,6 +4,11 @@
   "title": "algorithmic-art",
   "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/algorithmic-art",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/algorithmic-art",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",

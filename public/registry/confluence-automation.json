@@ -4,8 +4,20 @@
   "title": "confluence-automation",
   "description": "Automate Confluence page creation, content search, space management, labels, and hierarchy navigatio",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/confluence-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/confluence-automation",
   "_meta": {
     "io.github.yyc-cube/category": "storage-docs",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/confluence-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/confluence-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

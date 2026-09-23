@@ -4,6 +4,11 @@
   "title": "cloudbase-document-database-in-wechat-miniprogram",
   "description": "Use CloudBase document database WeChat MiniProgram SDK to query, create, update, and delete data. Su",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/no-sql-wx-mp-sdk",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cloudbase-document-database-in-wechat-miniprogram",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/no-sql-wx-mp-sdk/SKILL.md"

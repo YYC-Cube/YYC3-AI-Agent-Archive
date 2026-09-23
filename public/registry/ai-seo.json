@@ -4,8 +4,18 @@
   "title": "ai-seo",
   "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/ai-seo",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ai-seo",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/ai-seo/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/ai-seo/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "seo-audit",
+      "content-strategy",
+      "schema"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "sendgrid-automation",
   "description": "Automate SendGrid email operations including sending emails, managing contacts/lists, sender identit",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/sendgrid-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/sendgrid-automation",
   "_meta": {
     "io.github.yyc-cube/category": "email",
     "io.github.yyc-cube/source": "skills-hub/marketplace/sendgrid-automation/SKILL.md"

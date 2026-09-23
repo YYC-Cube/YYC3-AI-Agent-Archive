@@ -4,6 +4,11 @@
   "title": "cuopt-install",
   "description": "Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install. For building c",
   "version": "26.08.00",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/cuopt-install",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cuopt-install",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

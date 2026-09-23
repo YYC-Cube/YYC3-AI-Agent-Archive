@@ -4,6 +4,11 @@
   "title": "lexiang-knowledge-base",
   "description": "用于访问乐享知识库平台的专用 skill。当用户明确提到「乐享」「lexiang」「知识库」「知识」「文档」等关键词，或用户提供的链接 host 为 lexiangla.com，应优先调用本 skil",
   "version": "2.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/lexiang-knowledge-base",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/lexiang-knowledge-base",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/lexiang-knowledge-base/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "nemoclaw-user-deploy-remote",
   "description": "Explains how to run NemoClaw on a remote GPU instance, including the deprecated Brev compatibility p",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-deploy-remote",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemoclaw-user-deploy-remote",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

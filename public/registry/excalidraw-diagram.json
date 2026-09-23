@@ -4,6 +4,11 @@
   "title": "excalidraw-diagram",
   "description": "Create Excalidraw diagrams for workflows, architectures, protocols, concepts, and system explanation",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/excalidraw-diagram",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/excalidraw-diagram",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/excalidraw-diagram/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "nv-generate-mr-brain-finetune",
   "description": "Used for finetuning NV-Generate-CTMR MR-brain diffusion UNet from a NIfTI datalist. Not for clinical",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nv-generate-mr-brain-finetune",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nv-generate-mr-brain-finetune",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

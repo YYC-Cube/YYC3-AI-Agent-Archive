@@ -4,8 +4,20 @@
   "title": "render-automation",
   "description": "Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/render-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/render-automation",
   "_meta": {
     "io.github.yyc-cube/category": "devops",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/render-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/render-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

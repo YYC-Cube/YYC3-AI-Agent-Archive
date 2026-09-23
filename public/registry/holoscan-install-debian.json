@@ -4,9 +4,17 @@
   "title": "holoscan-install-debian",
   "description": "Install Holoscan SDK natively on Ubuntu via apt. Use for C++ installs on Ubuntu; pair with /holoscan",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-debian",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/holoscan-install-debian",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-debian/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-debian/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "holoscan-install-wheel"
+    ]
   }
 }

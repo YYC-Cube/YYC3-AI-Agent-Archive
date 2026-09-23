@@ -4,6 +4,11 @@
   "title": "wechat-viral-topic",
   "description": "公众号编辑、短视频博主、漫画作者、H5 策划必备的热点爆款策划助手。当用户需要选题灵感、起爆款标题、把热点做成文章/短视频/漫画/H5 等全形态创作方案，或评估某个素材能不能爆时使用。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/wechat-viral-topic",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/wechat-viral-topic",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/wechat-viral-topic/SKILL.md"

@@ -4,8 +4,20 @@
   "title": "klaviyo-automation",
   "description": "Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign message",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/klaviyo-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/klaviyo-automation",
   "_meta": {
     "io.github.yyc-cube/category": "email",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/klaviyo-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/klaviyo-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

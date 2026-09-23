@@ -4,6 +4,11 @@
   "title": "clawring",
   "description": "Phone calling skill for OpenClaw: agent makes real outbound phone calls to users for alerts, briefin",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/clawring",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/clawring",
   "_meta": {
     "io.github.yyc-cube/category": "communication",
     "io.github.yyc-cube/source": "skills-hub/marketplace/clawring/SKILL.md"

@@ -4,8 +4,17 @@
   "title": "cold-email",
   "description": "Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/cold-email",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cold-email",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/cold-email/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/cold-email/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "prospecting",
+      "revops"
+    ]
   }
 }

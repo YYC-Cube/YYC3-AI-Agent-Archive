@@ -4,8 +4,17 @@
   "title": "ab-test-setup",
   "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/ab-test-setup",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ab-test-setup",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/ab-test-setup/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/ab-test-setup/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "analytics-tracking",
+      "page-cro"
+    ]
   }
 }

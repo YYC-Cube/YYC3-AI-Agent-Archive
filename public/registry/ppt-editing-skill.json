@@ -4,6 +4,11 @@
   "title": "ppt-editing-skill",
   "description": "Edit existing PowerPoint files or templates with XML-safe workflows. Use for template-based deck upd",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/ppt-editing-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ppt-editing-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

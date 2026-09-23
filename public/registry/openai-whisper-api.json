@@ -4,8 +4,19 @@
   "title": "openai-whisper-api",
   "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper).",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/openai-whisper-api",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/openai-whisper-api",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/openai-whisper-api/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/openai-whisper-api/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "shopify-admin-api",
+      "skyline-scroll-api",
+      "vss-setup-video-analytics-api",
+      "claude-api"
+    ]
   }
 }

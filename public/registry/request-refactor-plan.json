@@ -4,6 +4,11 @@
   "title": "request-refactor-plan",
   "description": "Create a detailed refactor plan with tiny commits via user interview, then file it as a GitHub issue",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/deprecated/request-refactor-plan",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/request-refactor-plan",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/request-refactor-plan/SKILL.md"

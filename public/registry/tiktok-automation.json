@@ -4,6 +4,11 @@
   "title": "tiktok-automation",
   "description": "Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/tiktok-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tiktok-automation",
   "_meta": {
     "io.github.yyc-cube/category": "social-media",
     "io.github.yyc-cube/source": "skills-hub/marketplace/tiktok-automation/SKILL.md"

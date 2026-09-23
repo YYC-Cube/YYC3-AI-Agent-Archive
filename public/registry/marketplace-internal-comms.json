@@ -4,6 +4,11 @@
   "title": "internal-comms",
   "description": "A set of resources to help me write all kinds of internal communications, using the formats that my ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/internal-comms",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/internal-comms",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",

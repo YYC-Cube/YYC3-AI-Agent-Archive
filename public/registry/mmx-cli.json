@@ -4,6 +4,11 @@
   "title": "mmx-cli",
   "description": "Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/claude-code-skills/skills/minimax-multimodal-toolkit",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/mmx-cli",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/minimax-multimodal-toolkit/SKILL.md"

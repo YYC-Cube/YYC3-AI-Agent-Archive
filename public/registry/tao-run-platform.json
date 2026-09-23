@@ -4,6 +4,11 @@
   "title": "tao-run-platform",
   "description": "TAO Execution SDK for submitting and monitoring GPU training jobs on supported platforms (Lepton, Br",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-run-platform",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-run-platform",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

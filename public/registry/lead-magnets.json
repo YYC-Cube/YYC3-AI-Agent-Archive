@@ -4,8 +4,18 @@
   "title": "lead-magnets",
   "description": "When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/lead-magnets",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/lead-magnets",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/lead-magnets/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/lead-magnets/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "emails",
+      "free-tools",
+      "popups"
+    ]
   }
 }

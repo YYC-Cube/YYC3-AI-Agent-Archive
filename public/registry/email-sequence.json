@@ -4,8 +4,17 @@
   "title": "email-sequence",
   "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/email-sequence",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/email-sequence",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/email-sequence/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/email-sequence/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "onboarding-cro",
+      "popup-cro"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "self-improvement",
   "description": "Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A comman",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/self-improving",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/self-improvement",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/self-improving/SKILL.md"

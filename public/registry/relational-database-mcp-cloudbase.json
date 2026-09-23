@@ -4,6 +4,11 @@
   "title": "relational-database-mcp-cloudbase",
   "description": "This is the required documentation for agents operating on the CloudBase Relational Database through",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/relational-database-tool",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/relational-database-mcp-cloudbase",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/relational-database-tool/SKILL.md"

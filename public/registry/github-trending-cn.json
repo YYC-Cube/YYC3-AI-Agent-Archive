@@ -4,6 +4,11 @@
   "title": "github-trending-cn",
   "description": "GitHub Trending Monitor. Fetch GitHub trending repos by daily/weekly/monthly period using real GitHu",
   "version": "2.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/github-trending-cn",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/github-trending-cn",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/github-trending-cn/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "spec-workflow",
   "description": "Standard software engineering workflow for requirement analysis, technical design, and task planning",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/spec-workflow",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/spec-workflow",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/spec-workflow/SKILL.md"

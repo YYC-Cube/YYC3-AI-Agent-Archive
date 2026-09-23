@@ -4,8 +4,20 @@
   "title": "tencentmap-lbs-skill",
   "description": "腾讯地图位置服务，支持POI搜索、路径规划、旅游规划、周边搜索，轨迹数据可视化和地图数据可视化。⚠️ 强制行为：本 Skill 加载后，第一个动作必须是检查是否存在正式 Key（环境变量 TMAP_W",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencentmap-lbs-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencentmap-lbs-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tencentmap-lbs-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencentmap-lbs-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "cnb-skill",
+      "colleague-skill",
+      "crash-expert-skill",
+      "darwin-skill"
+    ]
   }
 }

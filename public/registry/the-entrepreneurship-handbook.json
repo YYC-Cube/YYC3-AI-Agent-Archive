@@ -4,6 +4,11 @@
   "title": "the-entrepreneurship-handbook",
   "description": "Q&A skill for entrepreneurs, managers, and business leaders. Triggers when users ask about entrepren",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/the-entrepreneurship-handbook",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/the-entrepreneurship-handbook",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/the-entrepreneurship-handbook/SKILL.md"

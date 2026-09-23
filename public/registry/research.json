@@ -4,8 +4,18 @@
   "title": "research",
   "description": "对目标话题进行初步调研，生成调研outline。用于学术调研、benchmark调研、技术选型等场景。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/deep-research/research",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/research",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/deep-research/research/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "research-add-fields",
+      "research-add-items",
+      "research-deep"
+    ]
   }
 }

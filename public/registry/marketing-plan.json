@@ -4,8 +4,17 @@
   "title": "marketing-plan",
   "description": "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/marketing-plan",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/marketing-plan",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/marketing-plan/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/marketing-plan/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "marketing-ideas",
+      "customer-research"
+    ]
   }
 }

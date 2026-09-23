@@ -4,6 +4,11 @@
   "title": "tao-train-pose-classification",
   "description": "Pose classification using ST-GCN (Spatial Temporal Graph Convolutional Network). Classifies skeleton",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-pose-classification",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-pose-classification",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

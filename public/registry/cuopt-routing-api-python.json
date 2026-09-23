@@ -4,9 +4,20 @@
   "title": "cuopt-routing-api-python",
   "description": "Vehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solvi",
   "version": "26.08.00",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/cuopt-routing-api-python",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cuopt-routing-api-python",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-routing-api-python/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-routing-api-python/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cuopt-routing-formulation",
+      "cuopt-numerical-optimization-api-python",
+      "cuopt-server-api-python",
+      "tilegym-cutile-python"
+    ]
   }
 }

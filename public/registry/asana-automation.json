@@ -4,6 +4,11 @@
   "title": "asana-automation",
   "description": "Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/asana-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/asana-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
     "io.github.yyc-cube/source": "skills-hub/marketplace/asana-automation/SKILL.md"

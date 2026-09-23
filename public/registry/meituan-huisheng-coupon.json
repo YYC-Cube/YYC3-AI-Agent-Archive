@@ -4,8 +4,16 @@
   "title": "meituan-huisheng-coupon",
   "description": ">",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/meituan-huisheng-coupon",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/meituan-huisheng-coupon",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/meituan-huisheng-coupon/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/meituan-huisheng-coupon/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "wechatpay-product-coupon"
+    ]
   }
 }

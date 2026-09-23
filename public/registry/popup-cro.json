@@ -4,8 +4,18 @@
   "title": "popup-cro",
   "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/popup-cro",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/popup-cro",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/popup-cro/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/popup-cro/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "email-sequence",
+      "form-cro",
+      "page-cro"
+    ]
   }
 }

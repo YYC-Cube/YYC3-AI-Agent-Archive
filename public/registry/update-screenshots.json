@@ -4,6 +4,11 @@
   "title": "update-screenshots",
   "description": "Download screenshot baselines from the latest CI run and commit them. Use when asked to update, acce",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/update-screenshots",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/update-screenshots",
   "_meta": {
     "io.github.yyc-cube/category": "ai-ml",
     "io.github.yyc-cube/source": "skills-hub/glm/update-screenshots/SKILL.md"

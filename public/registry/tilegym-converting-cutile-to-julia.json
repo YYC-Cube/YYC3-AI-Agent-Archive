@@ -4,6 +4,11 @@
   "title": "tilegym-converting-cutile-to-julia",
   "description": "Converts cuTile Python GPU kernels (@ct.kernel) to cuTile.jl Julia equivalents. Handles kernel synta",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tilegym-converting-cutile-to-julia",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tilegym-converting-cutile-to-julia",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",

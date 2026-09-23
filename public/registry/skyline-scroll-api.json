@@ -4,8 +4,16 @@
   "title": "skyline-scroll-api",
   "description": "Skyline 滚动控制 API 技能。涵盖 ScrollViewContext（程序化下拉刷新、下拉二级、滚动定位）、DraggableSheetContext（半屏面板程序化滚动）、worklet",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/skyline/references/scroll-api",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skyline-scroll-api",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/scroll-api/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/scroll-api/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "skyline-components"
+    ]
   }
 }

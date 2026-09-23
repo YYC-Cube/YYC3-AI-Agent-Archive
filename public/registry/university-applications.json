@@ -4,6 +4,11 @@
   "title": "university-applications",
   "description": "全体系命理大师 — 八字四柱、紫微斗数、奇门遁甲、六爻、梅花易数、塔罗、星盘、",
   "version": "1.2.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/university-applications",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/university-applications",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/university-applications/SKILL.md"

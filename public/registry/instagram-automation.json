@@ -4,6 +4,11 @@
   "title": "instagram-automation",
   "description": "Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insight",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/instagram-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/instagram-automation",
   "_meta": {
     "io.github.yyc-cube/category": "social-media",
     "io.github.yyc-cube/source": "skills-hub/marketplace/instagram-automation/SKILL.md"

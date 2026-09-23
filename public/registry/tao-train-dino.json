@@ -4,6 +4,11 @@
   "title": "tao-train-dino",
   "description": "DINO (DETR with Improved DeNoising Anchor Boxes) for 2D object detection. Transformer-based detector",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-dino",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-dino",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

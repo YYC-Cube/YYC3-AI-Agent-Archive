@@ -4,6 +4,11 @@
   "title": "edit-article",
   "description": "Edit and improve articles by restructuring sections, improving clarity, and tightening prose. Use wh",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/edit-article",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article/SKILL.md"

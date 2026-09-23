@@ -4,6 +4,11 @@
   "title": "ai-shifu-course-creator",
   "description": "Use when the user works with AI-Shifu (AI师傅) courses in any capacity of creating, writing, editing, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/ai-shifu-course-creator",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ai-shifu-course-creator",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/ai-shifu-course-creator/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "tao-train-foundation-stereo",
   "description": "Stereo depth estimation using FoundationStereo. Predicts disparity maps from stereo image pairs for ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-foundation-stereo",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-foundation-stereo",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

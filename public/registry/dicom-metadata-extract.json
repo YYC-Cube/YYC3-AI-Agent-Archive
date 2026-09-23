@@ -4,6 +4,11 @@
   "title": "dicom-metadata-extract",
   "description": "Used for extracting selected metadata from one DICOM file and flagging standard-tag PHI presence. No",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/dicom-metadata-extract",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/dicom-metadata-extract",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

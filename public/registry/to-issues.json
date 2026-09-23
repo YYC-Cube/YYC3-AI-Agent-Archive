@@ -4,8 +4,16 @@
   "title": "to-issues",
   "description": "Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tr",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/engineering/to-issues",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/to-issues",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/to-issues/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/to-issues/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "setup-matt-pocock-skills"
+    ]
   }
 }

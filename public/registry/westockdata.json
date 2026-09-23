@@ -4,6 +4,11 @@
   "title": "westockdata",
   "description": "查询A股、港股、美股个股/指数/ETF的详细数据，包括：K线/分时、财务报表（三大报表多期查询，支持跨市场批量对比）、资金流向、技术指标、筹码分析、股东结构、分红除权、业绩预告、公司简况、ETF基金数",
   "version": "1.0.5",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/westockdata",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/westockdata",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/westockdata/SKILL.md"

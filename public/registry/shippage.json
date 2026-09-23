@@ -4,6 +4,11 @@
   "title": "shippage",
   "description": "Publish HTML or Markdown to a public URL instantly with ShipPage. Use when a user wants to share, pr",
   "version": "1.2.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/shippage",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/shippage",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/shippage/SKILL.md"

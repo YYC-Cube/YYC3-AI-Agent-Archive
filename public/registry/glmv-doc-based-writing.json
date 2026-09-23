@@ -4,6 +4,11 @@
   "title": "glmv-doc-based-writing",
   "description": "Write a textual content based on given document(s) and requirements, using ZhiPu",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-doc-based-writing",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-doc-based-writing",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-doc-based-writing/SKILL.md"

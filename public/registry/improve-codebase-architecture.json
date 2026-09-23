@@ -4,6 +4,11 @@
   "title": "improve-codebase-architecture",
   "description": "Find deepening opportunities in a codebase, informed by the domain language in CONTEXT.md and the de",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/engineering/improve-codebase-architecture",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/improve-codebase-architecture",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/improve-codebase-architecture/SKILL.md"

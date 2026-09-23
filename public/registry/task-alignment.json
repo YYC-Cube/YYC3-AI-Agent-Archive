@@ -4,8 +4,16 @@
   "title": "task-alignment",
   "description": "Alignment conversation starting from a user's rough idea. Co-decides with the user whether the idea ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/task-alignment",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/task-alignment",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/task-alignment/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/task-alignment/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "task-implement"
+    ]
   }
 }

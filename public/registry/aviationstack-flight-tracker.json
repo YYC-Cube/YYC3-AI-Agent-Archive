@@ -4,6 +4,11 @@
   "title": "aviationstack-flight-tracker",
   "description": "Track flights in real-time with detailed status, gate info, delays, and live position. Use when user",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/aviationstack-flight-tracker",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/aviationstack-flight-tracker",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/aviationstack-flight-tracker/SKILL.md"

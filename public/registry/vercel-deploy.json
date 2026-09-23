@@ -4,8 +4,20 @@
   "title": "vercel-deploy",
   "description": "Deploy and manage Vercel projects from the terminal. Use for Vercel deployments, preview or producti",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/vercel-deploy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vercel-deploy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/vercel-deploy/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/vercel-deploy/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "edgeone-pages-deploy",
+      "github-pages-auto-deploy",
+      "html-deploy",
+      "netlify-deploy",
+      "web-deploy"
+    ]
   }
 }

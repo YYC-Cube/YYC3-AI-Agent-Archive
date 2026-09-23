@@ -4,8 +4,20 @@
   "title": "cnb-skill",
   "description": "Interact with CNB (Cloud Native Build) platform via OpenAPI. Manage organizations, repositories, iss",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cnb-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cnb-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cnb-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cnb-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "colleague-skill",
+      "crash-expert-skill",
+      "darwin-skill",
+      "didi-ride-skill"
+    ]
   }
 }

@@ -4,9 +4,20 @@
   "title": "vss-manage-video-io-storage",
   "description": "Use to call the VIOS REST API (sensor list, timelines, clip extraction, snapshots, add/delete sensor",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/vss-manage-video-io-storage",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vss-manage-video-io-storage",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-manage-video-io-storage/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/vss-manage-video-io-storage/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "vss-ask-video",
+      "vss-generate-video-report",
+      "vss-search-archive",
+      "vss-summarize-video"
+    ]
   }
 }

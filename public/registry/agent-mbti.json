@@ -4,6 +4,11 @@
   "title": "agent-mbti",
   "description": "AI Agent personality diagnosis and configuration system based on MBTI framework. Use when users want",
   "version": "0.1.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/agent-mbti",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/agent-mbti",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/agent-mbti/SKILL.md"

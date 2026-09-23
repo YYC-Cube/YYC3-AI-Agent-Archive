@@ -4,6 +4,11 @@
   "title": "deepstream-dev",
   "description": "NVIDIA DeepStream SDK 9.0 development with Python pyservicemaker API. Use when building video analyt",
   "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/deepstream-dev",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/deepstream-dev",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",

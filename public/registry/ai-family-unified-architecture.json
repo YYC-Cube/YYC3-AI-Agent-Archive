@@ -4,6 +4,11 @@
   "title": "ai-family-unified-architecture",
   "description": "AI-Family 统一架构实施方案 — 对 Agent/Skills/MCP/Plugins/Tools 五类实体进行统一分类、统一标识、统一调用、合并完善、整理去除、修复除错的完整实施计划（v2.",
   "version": "2.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/yyc3/ai-family-unified-architecture",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ai-family-unified-architecture",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/yyc3/ai-family-unified-architecture/SKILL.md"

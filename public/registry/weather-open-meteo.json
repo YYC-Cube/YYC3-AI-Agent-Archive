@@ -4,6 +4,11 @@
   "title": "weather-open-meteo",
   "description": "通过 open-meteo.com 公共 API 查询指定地点的当前天气和未来预报，无需 API key；当 open-meteo 请求失败时可降级使用 wttr.in。",
   "version": "0.1.7",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/weather-open-meteo",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/weather-open-meteo",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/weather-open-meteo/SKILL.md"

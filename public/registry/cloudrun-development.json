@@ -4,8 +4,16 @@
   "title": "cloudrun-development",
   "description": "CloudBase Run backend development rules (Function mode/Container mode). Use this skill when deployin",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/cloudrun-development",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cloudrun-development",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/cloudrun-development/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/cloudrun-development/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cloudbase"
+    ]
   }
 }

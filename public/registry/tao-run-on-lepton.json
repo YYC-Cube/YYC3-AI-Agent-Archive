@@ -4,6 +4,11 @@
   "title": "tao-run-on-lepton",
   "description": "DGX Cloud Lepton managed GPU compute platform with run/status/cancel interface. Use when submitting ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-run-on-lepton",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-run-on-lepton",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

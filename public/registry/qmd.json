@@ -4,6 +4,11 @@
   "title": "qmd",
   "description": "Local hybrid search for markdown notes and docs. Use when searching notes, finding related content, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/qmd",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/qmd",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/qmd/SKILL.md"

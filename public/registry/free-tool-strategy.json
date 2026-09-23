@@ -4,6 +4,11 @@
   "title": "free-tool-strategy",
   "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/free-tool-strategy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/free-tool-strategy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/free-tool-strategy/SKILL.md"

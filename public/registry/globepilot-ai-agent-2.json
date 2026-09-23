@@ -4,6 +4,11 @@
   "title": "globepilot-ai-agent-2",
   "description": "AI-powered global travel assistant providing visa info, currency conversion, airport status, events,",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/globepilot-ai-agent-2",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/globepilot-ai-agent-2",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/globepilot-ai-agent-2/SKILL.md"

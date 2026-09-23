@@ -4,8 +4,18 @@
   "title": "marketing-psychology",
   "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marke",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/marketing-psychology",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/marketing-psychology",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/marketing-psychology/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/marketing-psychology/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "pricing",
+      "referrals",
+      "social"
+    ]
   }
 }

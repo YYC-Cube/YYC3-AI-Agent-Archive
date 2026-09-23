@@ -4,8 +4,17 @@
   "title": "popups",
   "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/popups",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/popups",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/popups/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/popups/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "emails",
+      "lead-magnets"
+    ]
   }
 }

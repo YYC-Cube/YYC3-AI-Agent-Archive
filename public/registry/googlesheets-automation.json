@@ -4,8 +4,20 @@
   "title": "googlesheets-automation",
   "description": "Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/googlesheets-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/googlesheets-automation",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/googlesheets-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/googlesheets-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

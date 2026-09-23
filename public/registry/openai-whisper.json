@@ -4,6 +4,11 @@
   "title": "openai-whisper",
   "description": "Local speech-to-text with the Whisper CLI (no API key).",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/openai-whisper",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/openai-whisper",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/openai-whisper/SKILL.md"

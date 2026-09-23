@@ -4,6 +4,11 @@
   "title": "google-drive-automation",
   "description": "Automate Google Drive file operations (upload, download, search, share, organize) via Rube MCP (Comp",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/google-drive-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/google-drive-automation",
   "_meta": {
     "io.github.yyc-cube/category": "storage-docs",
     "io.github.yyc-cube/source": "skills-hub/marketplace/google-drive-automation/SKILL.md"

@@ -4,8 +4,20 @@
   "title": "us-stock-analysis",
   "description": "Comprehensive US stock analysis including fundamental analysis (financial metrics, business quality,",
   "version": "0.1.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/us-stock-analysis",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/us-stock-analysis",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/us-stock-analysis/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/us-stock-analysis/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "legal-logic-analysis",
+      "stock-analysis",
+      "yt-competitive-analysis",
+      "vision-analysis",
+      "developer-growth-analysis"
+    ]
   }
 }

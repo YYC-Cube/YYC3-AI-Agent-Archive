@@ -4,6 +4,11 @@
   "title": "promo-workflow",
   "description": "产品宣传片制作总控流程。串联 6 个 Skills，按阶段执行并暂停确认。从产品 URL 到带 BGM 成片 MP4 的全自动流水线。当用户提到\"做个宣传片\"\"promo\"\"产品视频\"\"项目介绍视频\"",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/promo-creator-skills/promo-workflow",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/promo-workflow",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-workflow/SKILL.md"

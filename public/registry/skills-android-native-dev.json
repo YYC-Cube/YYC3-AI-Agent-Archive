@@ -4,6 +4,11 @@
   "title": "android-native-dev",
   "description": "Android native application development and UI design guide. Covers Material Design 3, Kotlin/Compose",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/claude-code-skills/skills/android-native-dev",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/android-native-dev",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

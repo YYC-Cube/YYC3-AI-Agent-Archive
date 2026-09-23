@@ -4,6 +4,11 @@
   "title": "cn-ecommerce-search",
   "description": ">",
   "version": "2.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cn-ecommerce-search",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cn-ecommerce-search",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

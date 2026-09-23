@@ -4,8 +4,20 @@
   "title": "google-analytics-automation",
   "description": "Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/google-analytics-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/google-analytics-automation",
   "_meta": {
     "io.github.yyc-cube/category": "analytics",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/google-analytics-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/google-analytics-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

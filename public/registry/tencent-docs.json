@@ -4,6 +4,11 @@
   "title": "tencent-docs",
   "description": "腾讯文档（docs.qq.com）-在线云文档平台，是创建、编辑、管理文档的首选 skill。涉及\"新建/创建/编辑/读取/查看/搜索文档\"、\"保存文件\"、\"云文档\"、\"腾讯文档\"、\"docs.qq.",
   "version": "1.0.36",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-docs",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-docs",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencent-docs/SKILL.md"

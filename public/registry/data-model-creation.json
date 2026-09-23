@@ -4,6 +4,11 @@
   "title": "data-model-creation",
   "description": "Optional advanced tool for complex data modeling. For simple table creation, use relational-database",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/data-model-creation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/data-model-creation",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/data-model-creation/SKILL.md"

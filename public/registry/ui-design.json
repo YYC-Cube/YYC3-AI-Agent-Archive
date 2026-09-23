@@ -4,8 +4,17 @@
   "title": "ui-design",
   "description": "Professional UI design and frontend interface guidelines. Use this skill when creating web pages, mi",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/ui-design",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ui-design",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/ui-design/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/ui-design/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "miniprogram-development",
+      "web-development"
+    ]
   }
 }

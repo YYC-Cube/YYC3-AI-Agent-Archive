@@ -4,6 +4,11 @@
   "title": "twitter-algorithm-optimizer",
   "description": "Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrit",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/twitter-algorithm-optimizer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/twitter-algorithm-optimizer",
   "_meta": {
     "io.github.yyc-cube/category": "creative-collaboration",
     "io.github.yyc-cube/license": "AGPL-3.0 (referencing Twitter's algorithm source)",

@@ -4,6 +4,11 @@
   "title": "education",
   "description": "Generate study plans, quizzes, flashcards, review materials, track learning progress and schedule st",
   "version": "3.4.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/education",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/education",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/education/SKILL.md"

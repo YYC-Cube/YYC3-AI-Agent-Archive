@@ -4,8 +4,20 @@
   "title": "crash-expert-skill",
   "description": "Linux kernel vmcore/coredump analysis expert skill. Use when users need to analyze Linux kernel cras",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/crash-expert-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/crash-expert-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/crash-expert-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/crash-expert-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "cnb-skill",
+      "colleague-skill",
+      "darwin-skill",
+      "didi-ride-skill"
+    ]
   }
 }

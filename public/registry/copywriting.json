@@ -4,8 +4,19 @@
   "title": "copywriting",
   "description": "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/copywriting",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/copywriting",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/copywriting/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/copywriting/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "copy-editing",
+      "ab-testing",
+      "emails",
+      "pricing"
+    ]
   }
 }

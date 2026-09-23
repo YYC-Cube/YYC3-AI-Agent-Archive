@@ -4,8 +4,23 @@
   "title": "pricing",
   "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/pricing",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/pricing",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/pricing/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/pricing/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "copywriting",
+      "marketing-psychology",
+      "ab-testing",
+      "churn-prevention",
+      "competitors",
+      "product-marketing",
+      "revops",
+      "sales-enablement"
+    ]
   }
 }

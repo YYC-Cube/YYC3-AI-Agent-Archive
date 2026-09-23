@@ -4,6 +4,11 @@
   "title": "vipshop-user-login",
   "description": ">",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/vip-skill/vipshop-user-login",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vipshop-user-login",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/vip-skill/vipshop-user-login/SKILL.md"

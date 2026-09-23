@@ -4,8 +4,16 @@
   "title": "meituan-coupon-workbuddy",
   "description": "【美团官方】美团生活助手，支持外卖、餐饮团购、酒店住宿、门票度假、休闲娱乐、闪购、医药等多品类优惠券/红包/神券的一键领取与历史领取记录查询。核心能力：1）一键领券，覆盖上述多品类场景，领取秒到账；2",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/meituan-coupon-workbuddy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/meituan-coupon-workbuddy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/meituan-coupon-workbuddy/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/meituan-coupon-workbuddy/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "openclaw-assets-to-workbuddy"
+    ]
   }
 }

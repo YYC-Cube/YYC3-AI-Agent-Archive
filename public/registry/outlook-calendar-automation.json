@@ -4,6 +4,11 @@
   "title": "outlook-calendar-automation",
   "description": "Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeti",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/outlook-calendar-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/outlook-calendar-automation",
   "_meta": {
     "io.github.yyc-cube/category": "automation",
     "io.github.yyc-cube/source": "skills-hub/marketplace/outlook-calendar-automation/SKILL.md"

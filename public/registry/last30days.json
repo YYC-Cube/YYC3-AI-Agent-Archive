@@ -4,6 +4,11 @@
   "title": "last30days",
   "description": "Research what people actually say about any topic in the last 30 days. Pulls posts and engagement fr",
   "version": "3.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/social-search/last30days",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/last30days",
   "_meta": {
     "io.github.yyc-cube/category": "data-analysis",
     "io.github.yyc-cube/license": "MIT",

@@ -4,8 +4,20 @@
   "title": "basecamp-automation",
   "description": "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/basecamp-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/basecamp-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/basecamp-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/basecamp-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

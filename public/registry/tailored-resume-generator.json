@@ -4,6 +4,11 @@
   "title": "tailored-resume-generator",
   "description": "Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills,",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/tailored-resume-generator",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tailored-resume-generator",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/tailored-resume-generator/SKILL.md"

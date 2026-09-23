@@ -4,6 +4,11 @@
   "title": "arxiv-watcher",
   "description": "Search and summarize papers from ArXiv. Use when the user asks for the latest research, specific top",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/arxiv-watcher",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/arxiv-watcher",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/arxiv-watcher/SKILL.md"

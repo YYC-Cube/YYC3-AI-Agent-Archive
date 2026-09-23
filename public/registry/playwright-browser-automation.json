@@ -4,6 +4,11 @@
   "title": "playwright-browser-automation",
   "description": "Direct Playwright API for browser automation without MCP complexity. Navigate websites, interact wit",
   "version": "2.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/playwright-browser-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/playwright-browser-automation",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/playwright-browser-automation/SKILL.md"

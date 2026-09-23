@@ -4,6 +4,11 @@
   "title": "ios-hig-design-guide",
   "description": "Build, update, and apply iOS design specifications using Apple Human Interface Guidelines (HIG) sour",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/ios-hig-design-guide",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ios-hig-design-guide",
   "_meta": {
     "io.github.yyc-cube/category": "automation",
     "io.github.yyc-cube/source": "skills-hub/marketplace/ios-hig-design-guide/SKILL.md"

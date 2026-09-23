@@ -4,8 +4,18 @@
   "title": "onboarding-cro",
   "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/onboarding-cro",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/onboarding-cro",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/onboarding-cro/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/onboarding-cro/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "email-sequence",
+      "paywall-upgrade-cro",
+      "signup-flow-cro"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "nv-segment-ct-finetune",
   "description": "Used for smoke or dataset finetuning of NV-Segment-CT VISTA3D on CT NIfTI labels. Not for clinical v",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nv-segment-ct-finetune",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nv-segment-ct-finetune",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

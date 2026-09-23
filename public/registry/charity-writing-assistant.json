@@ -4,8 +4,20 @@
   "title": "charity-writing-assistant",
   "description": "当用户提到公益文书、项目申请、结项报告、传播计划、写文书（公益场景）、写报告（公益项目）、整理材料（公益机构）、捐赠人服务方案、肖像授权书、项目上线、平台申请时使用。⚠️ 不适用于：企业商业文档（季度",
   "version": "6.7.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/charity-writing-assistant",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/charity-writing-assistant",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/charity-writing-assistant/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/charity-writing-assistant/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "12306-train-assistant",
+      "airchina-travel-assistant",
+      "charity-finance-assistant",
+      "gsap-animation-assistant",
+      "haina-shopping-assistant"
+    ]
   }
 }

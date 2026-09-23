@@ -4,6 +4,11 @@
   "title": "teachany",
   "description": "K-12 interactive courseware creation. Use for school-subject lesson pages, animations, AI tutor, TTS",
   "version": "7.14.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/teachany",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/teachany",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/teachany/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "oiloil-ui-ux-guide",
   "description": "Modern, clean UI/UX guidance + review skill. Use when you need actionable UX/UI recommendations, des",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/oiloil-ui-ux-guide",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/oiloil-ui-ux-guide",
   "_meta": {
     "io.github.yyc-cube/category": "automation",
     "io.github.yyc-cube/source": "skills-hub/marketplace/oiloil-ui-ux-guide/SKILL.md"

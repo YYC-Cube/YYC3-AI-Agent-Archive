@@ -4,6 +4,11 @@
   "title": "glmv-prompt-gen",
   "description": "Analyze images/videos and generate professional prompts for text-to-image and",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-prompt-gen",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-prompt-gen",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-prompt-gen/SKILL.md"

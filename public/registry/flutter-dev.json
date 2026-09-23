@@ -4,9 +4,21 @@
   "title": "flutter-dev",
   "description": "Flutter cross-platform development guide covering widget patterns, Riverpod/Bloc state management, G",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/flutter-dev",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/flutter-dev",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",
-    "io.github.yyc-cube/source": "skills-hub/community/flutter-dev/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/flutter-dev/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "android-native-dev",
+      "frontend-dev",
+      "fullstack-dev",
+      "ios-application-dev",
+      "react-native-dev"
+    ]
   }
 }

@@ -4,9 +4,21 @@
   "title": "cuopt-numerical-optimization-api-cli",
   "description": "LP, MILP, and QP (beta) with cuOpt — CLI only (MPS files, cuopt_cli). Use when the user is solving L",
   "version": "26.08.00",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-api-cli",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cuopt-numerical-optimization-api-cli",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-api-cli/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-api-cli/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cuopt-numerical-optimization-api-c",
+      "cuopt-numerical-optimization-api-python",
+      "cuopt-numerical-optimization-formulation",
+      "stagehand-browser-cli",
+      "mmx-cli"
+    ]
   }
 }

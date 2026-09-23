@@ -4,8 +4,18 @@
   "title": "social",
   "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/social",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/social",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/social/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/social/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "marketing-psychology",
+      "launch",
+      "video"
+    ]
   }
 }

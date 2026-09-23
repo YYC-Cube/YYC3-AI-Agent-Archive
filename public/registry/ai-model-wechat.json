@@ -4,8 +4,17 @@
   "title": "ai-model-wechat",
   "description": "Use this skill when developing WeChat Mini Programs (小程序, 企业微信小程序, wx.cloud-based apps) that need AI",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/ai-model-wechat",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ai-model-wechat",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/ai-model-wechat/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/ai-model-wechat/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "ai-model-nodejs",
+      "ai-model-web"
+    ]
   }
 }

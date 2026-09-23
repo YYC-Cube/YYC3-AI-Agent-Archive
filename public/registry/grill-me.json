@@ -4,6 +4,11 @@
   "title": "grill-me",
   "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolvin",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/grill-me",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/grill-me",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/grill-me/SKILL.md"

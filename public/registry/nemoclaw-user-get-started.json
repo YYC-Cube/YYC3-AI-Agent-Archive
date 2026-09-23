@@ -4,9 +4,17 @@
   "title": "nemoclaw-user-get-started",
   "description": "Installs NemoClaw, launches a sandbox, and runs the first agent prompt. Use when onboarding, install",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/plugins/nvidia-skills/skills/nemoclaw-user-get-started",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemoclaw-user-get-started",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/plugins/nvidia-skills/skills/nemoclaw-user-get-started/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/plugins/nvidia-skills/skills/nemoclaw-user-get-started/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemoclaw-user-manage-sandboxes"
+    ]
   }
 }

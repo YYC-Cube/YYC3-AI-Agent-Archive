@@ -4,6 +4,11 @@
   "title": "cupynumeric-parallel-data-load",
   "description": "Load a sharded, on-disk dataset (sharded .npy, Parquet/Arrow, raw binary, sharded HDF5, custom layou",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/cupynumeric-parallel-data-load",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cupynumeric-parallel-data-load",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 OR Apache-2.0",

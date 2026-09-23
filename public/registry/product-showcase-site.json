@@ -4,6 +4,11 @@
   "title": "product-showcase-site",
   "description": "Generate a comprehensive deployable product showcase website for an existing web app. Captures or us",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/product-showcase-site",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/product-showcase-site",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/product-showcase-site/SKILL.md"

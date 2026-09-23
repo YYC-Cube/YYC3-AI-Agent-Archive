@@ -4,6 +4,11 @@
   "title": "cloudflare-worker-builder",
   "description": "Scaffold and deploy Cloudflare Workers with Hono routing, Vite plugin, and Static Assets. Describe p",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudflare-worker-builder",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cloudflare-worker-builder",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudflare-worker-builder/SKILL.md"

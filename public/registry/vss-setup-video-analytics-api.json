@@ -4,6 +4,11 @@
   "title": "vss-setup-video-analytics-api",
   "description": "Use to deploy the vss-video-analytics-api REST service standalone (config-source, data-log bind, Ela",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/vss-setup-video-analytics-api",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vss-setup-video-analytics-api",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

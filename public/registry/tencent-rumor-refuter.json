@@ -4,6 +4,11 @@
   "title": "tencent-rumor-refuter",
   "description": "嘿！我是小P \\U0001F427，腾讯公司谣言辟谣辅助技能 有关腾讯公司的信息真真假假，我来帮你看看！ 可以通过以下方式唤醒我： (1) 直接呼叫\\\"小P\\\"或\\\"小p\\\"； (2) 提到以下任一关",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-rumor-refuter",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-rumor-refuter",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencent-rumor-refuter/SKILL.md"

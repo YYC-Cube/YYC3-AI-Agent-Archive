@@ -4,6 +4,11 @@
   "title": "gsap-animation-assistant",
   "description": "GSAP assistant for generating and reviewing frontend animation code with timelines, ScrollTrigger, p",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/gsap-animation-assistant",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/gsap-animation-assistant",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

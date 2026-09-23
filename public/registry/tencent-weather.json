@@ -4,6 +4,11 @@
   "title": "tencent-weather",
   "description": "Weather lookup tool covering Chinese cities and counties via the tencent-news CLI. Use when the user",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-weather",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-weather",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tencent-weather/SKILL.md"

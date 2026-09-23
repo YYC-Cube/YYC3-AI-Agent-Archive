@@ -4,6 +4,11 @@
   "title": "api-gateway",
   "description": "Connect to external services through Maton-managed API routes.",
   "version": "1.0.120",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/api-gateway",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/api-gateway",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/api-gateway/SKILL.md"

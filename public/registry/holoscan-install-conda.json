@@ -4,6 +4,11 @@
   "title": "holoscan-install-conda",
   "description": "Install Holoscan SDK v4.3+ via Conda in a CUDA 13 environment. Use for Conda installs; redirect CUDA",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-conda",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/holoscan-install-conda",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

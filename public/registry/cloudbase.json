@@ -4,8 +4,23 @@
   "title": "cloudbase",
   "description": "CloudBase is a full-stack development and deployment toolkit for building and launching websites, We",
   "version": "2.15.4",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cloudbase",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "ai-model-nodejs",
+      "ai-model-web",
+      "cloud-functions",
+      "cloud-storage-web",
+      "cloudbase-platform",
+      "cloudrun-development",
+      "miniprogram-development",
+      "web-development"
+    ]
   }
 }

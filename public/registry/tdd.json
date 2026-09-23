@@ -4,6 +4,11 @@
   "title": "tdd",
   "description": "Test-driven development with red-green-refactor loop. Use when user wants to build features or fix b",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tdd",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tdd",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tdd/SKILL.md"

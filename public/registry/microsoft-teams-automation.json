@@ -4,6 +4,11 @@
   "title": "microsoft-teams-automation",
   "description": "Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meeti",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/microsoft-teams-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/microsoft-teams-automation",
   "_meta": {
     "io.github.yyc-cube/category": "communication",
     "io.github.yyc-cube/source": "skills-hub/marketplace/microsoft-teams-automation/SKILL.md"

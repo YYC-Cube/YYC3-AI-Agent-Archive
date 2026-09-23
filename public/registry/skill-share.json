@@ -4,6 +4,11 @@
   "title": "skill-share",
   "description": "A skill that creates new Claude skills and automatically shares them on Slack using Rube for seamles",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/skill-share",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skill-share",
   "_meta": {
     "io.github.yyc-cube/category": "creative-collaboration",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",

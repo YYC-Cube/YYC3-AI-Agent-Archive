@@ -4,6 +4,11 @@
   "title": "stripe-automation",
   "description": "Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/stripe-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/stripe-automation",
   "_meta": {
     "io.github.yyc-cube/category": "ecommerce",
     "io.github.yyc-cube/source": "skills-hub/marketplace/stripe-automation/SKILL.md"

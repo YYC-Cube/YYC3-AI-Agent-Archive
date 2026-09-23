@@ -4,8 +4,16 @@
   "title": "tencent-campus-recruit",
   "description": "当用户询问腾讯校园招聘相关问题时使用，包括：校招/实习投递流程与时间节点、岗位搜索与推荐、 招聘公告与宣讲会动态、简历诊断与优化、面试准备与模拟陪练、校招防诈骗识别。 通过 join.qq.com 官",
   "version": "1.0.4",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-campus-recruit",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-campus-recruit",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tencent-campus-recruit/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-campus-recruit/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "tencent-music-campus-recruit"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "humanizer",
   "description": "Remove signs of AI-generated writing from text. Use when editing or reviewing text to make it sound ",
   "version": "2.1.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/humanizer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/humanizer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/humanizer/SKILL.md"

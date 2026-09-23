@@ -4,8 +4,20 @@
   "title": "coda-automation",
   "description": "Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/coda-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/coda-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/coda-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/coda-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

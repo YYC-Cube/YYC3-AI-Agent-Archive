@@ -4,6 +4,11 @@
   "title": "tilegym-improve-cutile-kernel-perf",
   "description": "Iteratively optimize cuTile kernel performance through systematic profiling, bottleneck analysis, IR",
   "version": "2026.04.11",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tilegym-improve-cutile-kernel-perf",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tilegym-improve-cutile-kernel-perf",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",

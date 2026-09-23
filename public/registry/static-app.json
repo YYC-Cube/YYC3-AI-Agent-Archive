@@ -4,6 +4,11 @@
   "title": "static-app",
   "description": "Deploy static websites and built frontend apps to Static.app hosting. Use when a user wants to uploa",
   "version": "1.0.4",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/static-app",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/static-app",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/static-app/SKILL.md"

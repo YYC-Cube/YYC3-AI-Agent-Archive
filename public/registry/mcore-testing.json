@@ -4,6 +4,11 @@
   "title": "mcore-testing",
   "description": "Test system for Megatron-LM. Covers test layout, recipe YAML structure, adding and running unit and ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/mcore-testing",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/mcore-testing",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

@@ -4,8 +4,19 @@
   "title": "site-architecture",
   "description": "When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL str",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/site-architecture",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/site-architecture",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/site-architecture/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/site-architecture/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "programmatic-seo",
+      "seo-audit",
+      "content-strategy",
+      "schema"
+    ]
   }
 }

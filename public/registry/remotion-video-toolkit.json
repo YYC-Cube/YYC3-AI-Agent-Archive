@@ -4,6 +4,11 @@
   "title": "remotion-video-toolkit",
   "description": "Complete toolkit for programmatic video creation with Remotion + React. Covers animations, timing, r",
   "version": "1.4.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/remotion-video-toolkit",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/remotion-video-toolkit",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/remotion-video-toolkit/SKILL.md"

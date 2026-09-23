@@ -4,6 +4,11 @@
   "title": "cuopt-skill-evolution",
   "description": "After solving a non-trivial problem, detect generalizable learnings and propose skill updates. Alway",
   "version": "26.08.00",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/cuopt-skill-evolution",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cuopt-skill-evolution",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

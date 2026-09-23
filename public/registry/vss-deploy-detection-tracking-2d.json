@@ -4,6 +4,11 @@
   "title": "vss-deploy-detection-tracking-2d",
   "description": "Use this skill when the user wants to deploy, run, debug, tear down, or call the REST API of the RTV",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/vss-deploy-detection-tracking-2d",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vss-deploy-detection-tracking-2d",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

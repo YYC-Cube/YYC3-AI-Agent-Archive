@@ -4,6 +4,11 @@
   "title": "travel-cn",
   "description": "旅行信息查询 - 去哪儿/携程/飞猪数据查询（Expedia 中国版）",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/travel-cn",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/travel-cn",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/travel-cn/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "figma-automation",
   "description": "Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/figma-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/figma-automation",
   "_meta": {
     "io.github.yyc-cube/category": "design",
     "io.github.yyc-cube/source": "skills-hub/marketplace/figma-automation/SKILL.md"

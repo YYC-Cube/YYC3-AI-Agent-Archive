@@ -4,6 +4,11 @@
   "title": "json-canvas",
   "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when wor",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/json-canvas",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/json-canvas",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/source": "skills-hub/marketplace/json-canvas/SKILL.md"

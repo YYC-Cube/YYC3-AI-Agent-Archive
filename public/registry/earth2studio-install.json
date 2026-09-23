@@ -4,6 +4,11 @@
   "title": "earth2studio-install",
   "description": ">",
   "version": "0.16.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/earth2studio-install",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/earth2studio-install",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

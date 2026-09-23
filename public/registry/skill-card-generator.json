@@ -4,6 +4,11 @@
   "title": "skill-card-generator",
   "description": "Use only to generate or update a governance skill card for a specified existing agent skill director",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/skill-card-generator",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skill-card-generator",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",

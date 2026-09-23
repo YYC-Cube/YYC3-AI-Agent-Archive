@@ -4,6 +4,11 @@
   "title": "pdf",
   "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extra",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/pdf",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/pdf",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Proprietary. LICENSE.txt has complete terms",

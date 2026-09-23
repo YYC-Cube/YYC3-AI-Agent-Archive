@@ -4,6 +4,11 @@
   "title": "seo-ops",
   "description": "SEO 运营自动化，内容攻击简报、GSC 优化与趋势侦察",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/seo-ops",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/seo-ops",
   "_meta": {
     "io.github.yyc-cube/category": "marketing",
     "io.github.yyc-cube/source": "skills-hub/community/seo-ops/SKILL.md"

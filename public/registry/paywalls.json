@@ -4,8 +4,17 @@
   "title": "paywalls",
   "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketing/marketing-skills/skills/paywalls",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/paywalls",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/paywalls/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketing/marketing-skills/skills/paywalls/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "churn-prevention",
+      "onboarding"
+    ]
   }
 }

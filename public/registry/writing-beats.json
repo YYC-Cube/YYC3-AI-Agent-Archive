@@ -4,6 +4,11 @@
   "title": "writing-beats",
   "description": "Shape an article as a journey of beats, choose-your-own-adventure style. The user picks a starting b",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/writing-beats",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats/SKILL.md"

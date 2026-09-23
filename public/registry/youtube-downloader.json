@@ -4,6 +4,11 @@
   "title": "youtube-downloader",
   "description": "Download YouTube videos with customizable quality and format options. Use this skill when the user a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/video-downloader",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/youtube-downloader",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/source": "skills-hub/marketplace/video-downloader/SKILL.md"

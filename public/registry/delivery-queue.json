@@ -4,6 +4,11 @@
   "title": "delivery-queue",
   "description": "Schedule and deliver messages in timed segments to simulate human-like sending patterns. - Break lon",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/b2b/b2b-sdr-template/skills/delivery-queue",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/delivery-queue",
   "_meta": {
     "io.github.yyc-cube/category": "b2b",
     "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/delivery-queue/SKILL.md"

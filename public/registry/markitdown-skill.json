@@ -4,6 +4,11 @@
   "title": "markitdown-skill",
   "description": "Convert documents to Markdown using Microsoft's MarkItDown CLI (`markitdown`). Supports PDF, Word, P",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/markitdown-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/markitdown-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/markitdown-skill/SKILL.md"

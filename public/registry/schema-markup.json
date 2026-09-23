@@ -4,6 +4,11 @@
   "title": "schema-markup",
   "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/schema-markup",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/schema-markup",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/schema-markup/SKILL.md"

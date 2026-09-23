@@ -4,8 +4,20 @@
   "title": "slack-automation",
   "description": "Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Composio)",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/slack-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/slack-automation",
   "_meta": {
     "io.github.yyc-cube/category": "communication",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/slack-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/slack-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

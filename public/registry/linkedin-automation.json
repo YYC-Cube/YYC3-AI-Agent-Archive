@@ -4,6 +4,11 @@
   "title": "linkedin-automation",
   "description": "Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comment",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/linkedin-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/linkedin-automation",
   "_meta": {
     "io.github.yyc-cube/category": "social-media",
     "io.github.yyc-cube/source": "skills-hub/marketplace/linkedin-automation/SKILL.md"

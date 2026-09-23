@@ -4,6 +4,11 @@
   "title": "content-ops",
   "description": "Score, evaluate, and iteratively improve any content or strategy using an auto-assembled panel of do",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/content-ops",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/content-ops",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/content-ops/SKILL.md"

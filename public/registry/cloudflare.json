@@ -4,6 +4,11 @@
   "title": "cloudflare",
   "description": "Comprehensive Cloudflare platform skill covering Workers, Pages, storage (KV, D1, R2), AI (Workers A",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudflare",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cloudflare",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudflare/SKILL.md"

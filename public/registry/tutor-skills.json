@@ -4,6 +4,11 @@
   "title": "tutor-skills",
   "description": "Turn PDFs, docs, and codebases into Obsidian StudyVaults with structured notes, then quiz yourself w",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tutor-skills",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tutor-skills",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tutor-skills/SKILL.md"

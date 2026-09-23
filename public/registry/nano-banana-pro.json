@@ -4,6 +4,11 @@
   "title": "nano-banana-pro",
   "description": "Generate/edit images with Nano Banana Pro (Gemini 3 Pro Image). Use for image create/modify requests",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/nano-banana-pro",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nano-banana-pro",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/nano-banana-pro/SKILL.md"

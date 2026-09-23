@@ -4,8 +4,17 @@
   "title": "skills-security-check",
   "description": "腾讯云鼎实验室出品，Skill安全审查工具。对用户指定的skill.md文件及其配套的文档、程序、脚本等进行全面安全审计，确保引用安全",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/skills-security-check",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skills-security-check",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/skills-security-check/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/skills-security-check/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "responsiveness-check",
+      "dynamo-interconnect-check"
+    ]
   }
 }

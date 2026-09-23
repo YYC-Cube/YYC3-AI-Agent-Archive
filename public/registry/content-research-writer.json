@@ -4,6 +4,11 @@
   "title": "content-research-writer",
   "description": "Assists in writing high-quality content by conducting research, adding citations, improving hooks, i",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/content-research-writer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/content-research-writer",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/content-research-writer/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "tao-analyze-gaps-vlm-bcq",
   "description": "Extract false-positive and false-negative gaps from VLM binary-classification-question (BCQ, yes/no)",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-analyze-gaps-vlm-bcq",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-analyze-gaps-vlm-bcq",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

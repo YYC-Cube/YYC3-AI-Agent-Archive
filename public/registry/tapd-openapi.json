@@ -4,6 +4,11 @@
   "title": "tapd-openapi",
   "description": "TAPD OpenAPI skill，用于需求、缺陷、任务、迭代、Wiki、评论、工时、附件等 TAPD 平台操作。当用户提到「TAPD」「需求」「story」「缺陷」「bug」「任务」「task」「",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tapd-openapi",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tapd-openapi",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/tapd-openapi/SKILL.md"

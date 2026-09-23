@@ -4,6 +4,11 @@
   "title": "cal-com-automation",
   "description": "Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webho",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/cal-com-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/cal-com-automation",
   "_meta": {
     "io.github.yyc-cube/category": "automation",
     "io.github.yyc-cube/source": "skills-hub/marketplace/cal-com-automation/SKILL.md"

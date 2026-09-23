@@ -4,6 +4,11 @@
   "title": "invoice-organizer",
   "description": "Automatically organizes invoices and receipts for tax preparation by reading messy files, extracting",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/invoice-organizer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/invoice-organizer",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/invoice-organizer/SKILL.md"

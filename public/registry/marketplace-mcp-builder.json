@@ -4,6 +4,11 @@
   "title": "mcp-builder",
   "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/mcp-builder",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/mcp-builder",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",

@@ -4,8 +4,20 @@
   "title": "tencent-meeting-skill",
   "description": "在用户提及腾讯会议、视频会议、线上会议相关内容与操作时使用此技能。触发关键词包括：预约会议、创建会议、修改会议、取消会议、查询会议、会议详情、会议号、meeting_id、meeting_code、参",
   "version": "1.0.10",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-meeting-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-meeting-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tencent-meeting-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-meeting-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "cnb-skill",
+      "colleague-skill",
+      "crash-expert-skill",
+      "darwin-skill"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "example-laozhou",
   "description": "老周（示例），某大厂 3-2 技术总监，我的直属老板，MBTI ENTJ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/boss-skills/bosses/example-laozhou",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/example-laozhou",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/boss-skills/bosses/example-laozhou/SKILL.md"

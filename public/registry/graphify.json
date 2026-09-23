@@ -4,6 +4,11 @@
   "title": "graphify",
   "description": "Knowledge graph engine for B2B sales intelligence. Builds queryable graphs from product catalogs, cu",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/b2b/b2b-sdr-template/skills/graphify",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/graphify",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/graphify/SKILL.md"

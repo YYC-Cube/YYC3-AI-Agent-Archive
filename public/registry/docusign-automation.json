@@ -4,8 +4,20 @@
   "title": "docusign-automation",
   "description": "Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document manageme",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/docusign-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/docusign-automation",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/docusign-automation/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/docusign-automation/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "activecampaign-automation",
+      "airtable-automation",
+      "amplitude-automation",
+      "asana-automation",
+      "bamboohr-automation"
+    ]
   }
 }

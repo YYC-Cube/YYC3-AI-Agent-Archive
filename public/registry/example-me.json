@@ -4,6 +4,11 @@
   "title": "example_me",
   "description": "小北（示例），25岁，产品经理，上海",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/yourself-skill/selves/example_me",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/example-me",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/yourself-skill/selves/example_me/SKILL.md"

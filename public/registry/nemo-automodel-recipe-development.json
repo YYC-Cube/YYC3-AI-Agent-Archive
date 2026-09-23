@@ -4,6 +4,11 @@
   "title": "nemo-automodel-recipe-development",
   "description": "Create and modify NeMo AutoModel training and evaluation recipes, including YAML structure, builders",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-automodel-recipe-development",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-automodel-recipe-development",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

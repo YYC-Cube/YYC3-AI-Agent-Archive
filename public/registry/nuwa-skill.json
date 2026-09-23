@@ -4,6 +4,11 @@
   "title": "nuwa-skill",
   "description": "女娲造人：输入人名/主题/甚至只是模糊需求，自动深度调研→思维框架提炼→生成可运行的人物Skill。",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/nuwa-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nuwa-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/nuwa-skill/SKILL.md"

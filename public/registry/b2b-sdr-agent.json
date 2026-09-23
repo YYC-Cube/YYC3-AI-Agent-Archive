@@ -4,6 +4,11 @@
   "title": "b2b-sdr-agent",
   "description": "Open-source B2B AI SDR template. 7-layer context system with 10-stage sales pipeline, 4-layer anti-a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/b2b/b2b-sdr-template",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/b2b-sdr-agent",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/license": "MIT-0",

@@ -4,6 +4,11 @@
   "title": "supermemory",
   "description": "Semantic memory layer powered by vector search. Store, recall, and connect conversation insights acr",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/b2b/b2b-sdr-template/skills/supermemory",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/supermemory",
   "_meta": {
     "io.github.yyc-cube/category": "b2b",
     "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/supermemory/SKILL.md"

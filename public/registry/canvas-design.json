@@ -4,9 +4,20 @@
   "title": "canvas-design",
   "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/canvas-design",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/canvas-design",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/canvas-design/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/canvas-design/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "frontend-design",
+      "kpi-dashboard-design",
+      "macos-design",
+      "ui-design"
+    ]
   }
 }

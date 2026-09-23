@@ -4,8 +4,19 @@
   "title": "skyline-overview",
   "description": "Skyline 渲染引擎概览与迁移技能。了解 Skyline 架构、性能优势、功能特性、迁移指南和最佳实践时使用此技能。适用于初次接触 Skyline、评估迁移成本、或需要了解整体框架的场景。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/skyline/references/overview",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/skyline-overview",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/overview/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/skyline/references/overview/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "skyline-config",
+      "skyline-route",
+      "skyline-worklet",
+      "skyline-wxss"
+    ]
   }
 }

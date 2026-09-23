@@ -4,6 +4,11 @@
   "title": "hsb-test",
   "description": "Execute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, filte",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/hsb-test",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/hsb-test",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

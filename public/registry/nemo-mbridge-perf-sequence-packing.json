@@ -4,9 +4,21 @@
   "title": "nemo-mbridge-perf-sequence-packing",
   "description": "Validate and use packed sequences and long-context training in Megatron-Bridge, distinguishing offli",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-sequence-packing",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-perf-sequence-packing",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-sequence-packing/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-sequence-packing/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-mbridge-mlm-bridge-training",
+      "nemo-mbridge-multi-node-slurm",
+      "nemo-mbridge-perf-activation-recompute",
+      "nemo-mbridge-perf-cpu-offloading",
+      "nemo-mbridge-perf-cuda-graphs"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "omniverse-cad-to-simready",
   "description": "Coordinate the end-to-end CAD/source-asset to SimReady workflow. Use for broad requests such as CAD ",
   "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/plugins/nvidia-skills/skills/omniverse-cad-to-simready",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/omniverse-cad-to-simready",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

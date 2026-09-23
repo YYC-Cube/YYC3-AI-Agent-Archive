@@ -4,6 +4,11 @@
   "title": "tao-train-segformer",
   "description": "SegFormer for semantic segmentation. Lightweight transformer-based architecture with hierarchical fe",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-segformer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-segformer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

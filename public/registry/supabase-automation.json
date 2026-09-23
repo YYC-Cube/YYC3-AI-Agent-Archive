@@ -4,6 +4,11 @@
   "title": "supabase-automation",
   "description": "Automate Supabase database queries, table management, project administration, storage, edge function",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/supabase-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/supabase-automation",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/marketplace/supabase-automation/SKILL.md"

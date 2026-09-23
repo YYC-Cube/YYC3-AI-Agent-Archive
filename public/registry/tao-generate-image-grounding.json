@@ -4,6 +4,11 @@
   "title": "tao-generate-image-grounding",
   "description": "Two-step image grounding pipeline: extracts referring expressions from (image, caption) pairs and gr",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-generate-image-grounding",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-generate-image-grounding",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

@@ -4,6 +4,11 @@
   "title": "ubiquitous-language",
   "description": "Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ubiquitous-language",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language/SKILL.md"

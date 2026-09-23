@@ -4,8 +4,20 @@
   "title": "tencent-yuanbao-standard-search",
   "description": "Search the web using TencentCloud Web Search API (WSA). Prioritize using it when you need to retriev",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/tencent-yuanbao-standard-search",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tencent-yuanbao-standard-search",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tencent-yuanbao-standard-search/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-yuanbao-standard-search/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "tencent-yuanbao-gaokao-regional-passing-scores",
+      "tencent-yuanbao-gaokao-score-to-rank-lookup",
+      "cn-ecommerce-search",
+      "neodata-financial-search",
+      "sino-drug-instructions-search"
+    ]
   }
 }

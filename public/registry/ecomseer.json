@@ -4,6 +4,11 @@
   "title": "ecomseer",
   "description": "TikTok Shop e-commerce data assistant. Search products, find trending items, analyze influencers, ex",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/ecomseer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/ecomseer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/ecomseer/SKILL.md"

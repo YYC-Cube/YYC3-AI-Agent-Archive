@@ -4,6 +4,11 @@
   "title": "english-intensive-reader",
   "description": "|",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/english-intensive-reader",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/english-intensive-reader",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/english-intensive-reader/SKILL.md"

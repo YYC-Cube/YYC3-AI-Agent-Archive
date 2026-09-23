@@ -4,6 +4,11 @@
   "title": "shader-dev",
   "description": "Comprehensive GLSL shader techniques for creating stunning visual effects — ray marching, SDF modeli",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/shader-dev",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/shader-dev",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

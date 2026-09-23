@@ -4,6 +4,11 @@
   "title": "frontend-design",
   "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing on",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/frontend-design",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/frontend-design",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",

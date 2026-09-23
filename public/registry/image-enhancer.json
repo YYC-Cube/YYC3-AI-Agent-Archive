@@ -4,6 +4,11 @@
   "title": "image-enhancer",
   "description": "Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clar",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/image-enhancer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/image-enhancer",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/source": "skills-hub/marketplace/image-enhancer/SKILL.md"

@@ -4,9 +4,17 @@
   "title": "holoscan-install-wheel",
   "description": "Install Holoscan SDK Python wheel via pip into a venv. Use for Python installs; not for native C++/a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-wheel",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/holoscan-install-wheel",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-wheel/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-wheel/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "holoscan-install-debian"
+    ]
   }
 }

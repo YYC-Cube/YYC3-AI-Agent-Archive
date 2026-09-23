@@ -4,6 +4,11 @@
   "title": "nemo-mbridge-perf-moe-vlm-training",
   "description": "Practical guidance for training MoE VLMs in Megatron Bridge. Compares FSDP and 3D-parallel approache",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-vlm-training",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-perf-moe-vlm-training",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

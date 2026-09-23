@@ -4,6 +4,11 @@
   "title": "gifgrep",
   "description": "Search GIF providers with CLI/TUI, download results, and extract stills/sheets.",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/gifgrep",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/gifgrep",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/gifgrep/SKILL.md"

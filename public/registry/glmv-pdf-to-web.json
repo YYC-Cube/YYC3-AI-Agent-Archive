@@ -4,6 +4,11 @@
   "title": "glmv-pdf-to-web",
   "description": "Convert a PDF (research paper, technical report, or project document) into a bea",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-pdf-to-web",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-pdf-to-web",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-pdf-to-web/SKILL.md"

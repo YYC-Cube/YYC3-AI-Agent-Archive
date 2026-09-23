@@ -4,6 +4,11 @@
   "title": "glmv-pdf-to-ppt",
   "description": "Convert a PDF (research paper, report, or any document) into a polished multi-sl",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-pdf-to-ppt",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-pdf-to-ppt",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-pdf-to-ppt/SKILL.md"

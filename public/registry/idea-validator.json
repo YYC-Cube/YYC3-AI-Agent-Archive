@@ -4,6 +4,11 @@
   "title": "idea-validator",
   "description": "Validate startup ideas using Hexa's Opportunity Memo framework and Perceived Created Value (PCV) met",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/idea-validator",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/idea-validator",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/idea-validator/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "http-api-cloudbase",
   "description": "Use CloudBase HTTP API to access CloudBase platform features (database, authentication, cloud functi",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/cloudbase/references/http-api",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/http-api-cloudbase",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/http-api/SKILL.md"

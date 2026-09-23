@@ -4,6 +4,11 @@
   "title": "web-access",
   "description": "所有联网操作必须通过此 skill 处理，包括：搜索、网页抓取、登录后操作、网络交互等。",
   "version": "2.5.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/web-access",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/web-access",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",

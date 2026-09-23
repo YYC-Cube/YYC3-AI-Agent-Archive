@@ -4,6 +4,11 @@
   "title": "xiaojia-free-marketing-pack",
   "description": "Free Xiaojia marketing helper pack for skill ideas, holiday hotspots, poster screenshots, and lightw",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/xiaojia-free-marketing-pack",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/xiaojia-free-marketing-pack",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/xiaojia-free-marketing-pack/SKILL.md"

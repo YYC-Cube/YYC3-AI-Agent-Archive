@@ -4,6 +4,11 @@
   "title": "glmv-web-replication",
   "description": ">",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-web-replication",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-web-replication",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-web-replication/SKILL.md"

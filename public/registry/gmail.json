@@ -4,6 +4,11 @@
   "title": "gmail",
   "description": "Gmail API integration with managed OAuth. Read, send, and manage emails, threads, labels, and drafts",
   "version": "1.0.8",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/gmail",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/gmail",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/gmail/SKILL.md"

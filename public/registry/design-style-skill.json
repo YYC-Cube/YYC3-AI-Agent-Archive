@@ -4,8 +4,20 @@
   "title": "design-style-skill",
   "description": ">",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/design-style-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/design-style-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/design-style-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/design-style-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "template-skill",
+      "color-font-skill",
+      "ppt-editing-skill",
+      "ppt-orchestra-skill",
+      "slide-making-skill"
+    ]
   }
 }

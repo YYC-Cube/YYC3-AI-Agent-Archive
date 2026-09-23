@@ -4,8 +4,16 @@
   "title": "install-futu-opend",
   "description": "Futu OpenD 安装助手。自动下载安装Futu OpenD 并升级 Python SDK。支持 Windows、MacOS、Linux。用户提到安装、下载、启动、运行、配置 OpenD、开发环境",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/install-futu-opend",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/install-futu-opend",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/install-futu-opend/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/install-futu-opend/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "futuapi"
+    ]
   }
 }

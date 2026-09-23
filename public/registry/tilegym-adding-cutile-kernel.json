@@ -4,6 +4,11 @@
   "title": "tilegym-adding-cutile-kernel",
   "description": "Add a new cuTile GPU kernel operator to TileGym. Covers dispatch registration in ops.py, cuTile back",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tilegym-adding-cutile-kernel",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tilegym-adding-cutile-kernel",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "CC-BY-4.0 AND Apache-2.0",

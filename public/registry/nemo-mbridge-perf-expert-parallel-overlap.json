@@ -4,9 +4,21 @@
   "title": "nemo-mbridge-perf-expert-parallel-overlap",
   "description": "Validate and use MoE expert-parallel communication overlap in Megatron-Bridge, including overlap_moe",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-expert-parallel-overlap",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-mbridge-perf-expert-parallel-overlap",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-expert-parallel-overlap/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-expert-parallel-overlap/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-mbridge-perf-moe-comm-overlap",
+      "nemo-mbridge-perf-tp-dp-comm-overlap",
+      "nemo-mbridge-mlm-bridge-training",
+      "nemo-mbridge-multi-node-slurm",
+      "nemo-mbridge-perf-activation-recompute"
+    ]
   }
 }

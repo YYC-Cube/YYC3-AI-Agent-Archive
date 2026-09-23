@@ -4,8 +4,20 @@
   "title": "legal-logic-analysis",
   "description": "Think through any legal situation like a lawyer. Issue spotting, jurisdiction, risk assessment, acti",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/legal-logic-analysis",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/legal-logic-analysis",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/legal-logic-analysis/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/legal-logic-analysis/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "stock-analysis",
+      "us-stock-analysis",
+      "yt-competitive-analysis",
+      "vision-analysis",
+      "developer-growth-analysis"
+    ]
   }
 }

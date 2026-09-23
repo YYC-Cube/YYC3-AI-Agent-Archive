@@ -4,6 +4,11 @@
   "title": "autoresearch",
   "description": "Run Karpathy-style autoresearch optimization on any content. Generates 50+ variants, scores with a 5",
   "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/autoresearch",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/autoresearch",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/autoresearch/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "workbuddy-asset-migration",
   "description": "在 WorkBuddy 国内版（~/.workbuddy/）和海外版（~/.workbuddy-ai/）之间，或跨机器之间，迁移用户个人资产（skills、memory、conversations、a",
   "version": "0.2.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/workbuddy-asset-migration",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/workbuddy-asset-migration",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/workbuddy-asset-migration/SKILL.md"

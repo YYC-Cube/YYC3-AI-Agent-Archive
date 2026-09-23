@@ -4,6 +4,11 @@
   "title": "intercom-automation",
   "description": "Automate Intercom tasks via Rube MCP (Composio): conversations, contacts, companies, segments, admin",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/intercom-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/intercom-automation",
   "_meta": {
     "io.github.yyc-cube/category": "customer-support",
     "io.github.yyc-cube/source": "skills-hub/marketplace/intercom-automation/SKILL.md"

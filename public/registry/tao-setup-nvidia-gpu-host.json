@@ -4,6 +4,11 @@
   "title": "tao-setup-nvidia-gpu-host",
   "description": ">-",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-setup-nvidia-gpu-host",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-setup-nvidia-gpu-host",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

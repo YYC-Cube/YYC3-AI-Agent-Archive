@@ -4,9 +4,17 @@
   "title": "nemo-rl-brev-etiquette",
   "description": "Brev instance operating guidance for NeMo-RL agents working in /home/ubuntu/RL with limited workspac",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-brev-etiquette",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-rl-brev-etiquette",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",
-    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-brev-etiquette/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-brev-etiquette/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemo-rl-auto-research"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "andonq",
   "description": "AndonQ 腾讯云智能客服\"领域虾\" — 不切窗口、不排队，即刻获得腾讯云全产品线专业解答。支持工单查询（列表/详情/流水）、集团/MC 工单与需求单管理、腾讯云全产品线智能问答、云产品资源查询等。",
   "version": "2.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/andonq",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/andonq",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/andonq/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "physical-ai-neural-reconstruction",
   "description": "Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, PhysicalAI HF ",
   "version": "0.3.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/plugins/nvidia-skills/skills/physical-ai-neural-reconstruction",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/physical-ai-neural-reconstruction",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

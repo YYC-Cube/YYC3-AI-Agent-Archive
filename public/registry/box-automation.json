@@ -4,6 +4,11 @@
   "title": "box-automation",
   "description": "Automate Box cloud storage operations including file upload/download, search, folder management, sha",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/box-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/box-automation",
   "_meta": {
     "io.github.yyc-cube/category": "storage-docs",
     "io.github.yyc-cube/source": "skills-hub/marketplace/box-automation/SKILL.md"

@@ -4,6 +4,11 @@
   "title": "study-planner",
   "description": "当用户需要制定学习计划、备考计划、拆解复习目标时使用。输入目标+截止日+每日时长，输出每天可执行的学习计划，支持雅思/考研/期末复习等场景。",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/study-planner",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/study-planner",
   "_meta": {
     "io.github.yyc-cube/category": "Education",
     "io.github.yyc-cube/source": "skills-hub/community/study-planner/SKILL.md"

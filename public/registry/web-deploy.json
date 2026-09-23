@@ -4,8 +4,20 @@
   "title": "web-deploy",
   "description": "Build, preview, and deploy websites, web apps, and APIs using Vercel, Railway, GitHub Pages, or loca",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/web-deploy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/web-deploy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/web-deploy/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/web-deploy/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "edgeone-pages-deploy",
+      "github-pages-auto-deploy",
+      "html-deploy",
+      "netlify-deploy",
+      "vercel-deploy"
+    ]
   }
 }

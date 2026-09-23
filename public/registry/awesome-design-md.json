@@ -4,6 +4,11 @@
   "title": "awesome-design-md",
   "description": "Curated collection of 54 DESIGN.md files extracted from real developer-focused websites (Vercel, Str",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/awesome-design-md",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/awesome-design-md",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/awesome-design-md/SKILL.md"

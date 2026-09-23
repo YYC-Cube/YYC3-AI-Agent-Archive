@@ -4,6 +4,11 @@
   "title": "tao-train-nvdinov2",
   "description": "NVDINOv2 for self-supervised visual representation learning. Trains vision transformers via self-dis",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-nvdinov2",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-nvdinov2",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

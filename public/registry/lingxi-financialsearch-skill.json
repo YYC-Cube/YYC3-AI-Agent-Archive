@@ -4,8 +4,20 @@
   "title": "lingxi-financialsearch-skill",
   "description": "国泰海通金融数据查询Skill，通过自然语言查询A股实时行情、公司基本信息、F10财务数据、个股技术指标等金融数据。遵循沪深交易所行情转发规则，仅提供授权范围内基础行情数据。触发词：查行情、看股票、财",
   "version": "1.11.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/lingxi-financialsearch-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/lingxi-financialsearch-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/lingxi-financialsearch-skill/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/lingxi-financialsearch-skill/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cangjie-skill",
+      "cnb-skill",
+      "colleague-skill",
+      "crash-expert-skill",
+      "darwin-skill"
+    ]
   }
 }

@@ -4,8 +4,22 @@
   "title": "seo-audit",
   "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user m",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/seo-audit",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/seo-audit",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/seo-audit/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/seo-audit/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "programmatic-seo",
+      "ai-seo",
+      "analytics",
+      "competitors",
+      "image",
+      "schema",
+      "site-architecture"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "wecom-weisheng-scrm",
   "description": "当用户需要查询或管理微盛企微管家（企业微信） SCRM 中的客户信息、客户标签、客户群、营销素材、活码、群发、跟进记录、聊天记录、联系人、商机、汇报、抽奖、客户日程等相关业务能力时触发。即使用户未明确",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/wecom-weisheng-scrm",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/wecom-weisheng-scrm",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/wecom-weisheng-scrm/SKILL.md"

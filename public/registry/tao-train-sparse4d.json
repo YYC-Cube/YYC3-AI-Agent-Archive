@@ -4,6 +4,11 @@
   "title": "tao-train-sparse4d",
   "description": "Sparse4D for multi-camera temporal 3D object detection and tracking. Uses sparse queries with deform",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-train-sparse4d",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-train-sparse4d",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

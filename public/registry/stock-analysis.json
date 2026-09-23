@@ -4,6 +4,11 @@
   "title": "stock-analysis",
   "description": "Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management, watchli",
   "version": "6.2.1",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/stock-analysis",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/stock-analysis",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/stock-analysis/SKILL.md"

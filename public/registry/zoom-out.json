@@ -4,6 +4,11 @@
   "title": "zoom-out",
   "description": "Tell the agent to zoom out and give broader context or a higher-level perspective on unfamiliar code",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/zoom-out",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/zoom-out",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/zoom-out/SKILL.md"

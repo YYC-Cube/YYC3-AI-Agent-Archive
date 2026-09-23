@@ -4,6 +4,11 @@
   "title": "segment-automation",
   "description": "Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page vi",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/segment-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/segment-automation",
   "_meta": {
     "io.github.yyc-cube/category": "analytics",
     "io.github.yyc-cube/source": "skills-hub/marketplace/segment-automation/SKILL.md"

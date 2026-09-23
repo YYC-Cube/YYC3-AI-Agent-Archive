@@ -4,6 +4,11 @@
   "title": "datadog-automation",
   "description": "Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/datadog-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/datadog-automation",
   "_meta": {
     "io.github.yyc-cube/category": "devops",
     "io.github.yyc-cube/source": "skills-hub/marketplace/datadog-automation/SKILL.md"

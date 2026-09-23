@@ -4,6 +4,11 @@
   "title": "omniverse-usd-performance-tuning",
   "description": "Top-level workflow skill for USD performance diagnosis and optimization. Use for slow loading, high ",
   "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/omniverse-usd-performance-tuning",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/omniverse-usd-performance-tuning",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

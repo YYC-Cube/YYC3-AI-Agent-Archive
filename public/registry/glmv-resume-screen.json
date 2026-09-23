@@ -4,6 +4,11 @@
   "title": "glmv-resume-screen",
   "description": "Screen and evaluate resumes against criteria using ZhiPu GLM-V multimodal model.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmv-resume-screen",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmv-resume-screen",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmv-resume-screen/SKILL.md"

@@ -4,8 +4,16 @@
   "title": "vipshop-product-search",
   "description": "在唯品会（vip.com）搜索商品、比价、找折扣的技能。当用户想要网购、买东西、选商品、种草、比价、找平价好物、找品牌折扣时触发，包括但不限于：搜商品、买东西、查价格、找优惠、逛街、种草、推荐好物、薅",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/vip-skill/vipshop-product-search",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/vipshop-product-search",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/vip-skill/vipshop-product-search/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/vip-skill/vipshop-product-search/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "vipshop-product-detail"
+    ]
   }
 }

@@ -4,6 +4,11 @@
   "title": "clickup-automation",
   "description": "Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team oper",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/clickup-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/clickup-automation",
   "_meta": {
     "io.github.yyc-cube/category": "project-management",
     "io.github.yyc-cube/source": "skills-hub/marketplace/clickup-automation/SKILL.md"

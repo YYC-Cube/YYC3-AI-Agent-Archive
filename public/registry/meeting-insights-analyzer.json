@@ -4,6 +4,11 @@
   "title": "meeting-insights-analyzer",
   "description": "Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/meeting-insights-analyzer",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/meeting-insights-analyzer",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/meeting-insights-analyzer/SKILL.md"

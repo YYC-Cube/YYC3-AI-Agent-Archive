@@ -4,6 +4,11 @@
   "title": "darwin-skill",
   "description": "Darwin Skill (达尔文.skill): autonomous skill optimizer inspired by Karpathy's autoresearch. Evaluates ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/darwin-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/darwin-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/darwin-skill/SKILL.md"

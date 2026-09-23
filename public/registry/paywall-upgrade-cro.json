@@ -4,8 +4,16 @@
   "title": "paywall-upgrade-cro",
   "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/paywall-upgrade-cro",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/paywall-upgrade-cro",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/paywall-upgrade-cro/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/paywall-upgrade-cro/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "onboarding-cro"
+    ]
   }
 }

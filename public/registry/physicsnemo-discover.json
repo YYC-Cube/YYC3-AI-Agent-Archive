@@ -4,6 +4,11 @@
   "title": "physicsnemo-discover",
   "description": "Official NVIDIA-authored guidance for navigating PhysicsNeMo — pick the model, datapipe, or example ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/physicsnemo-discover",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/physicsnemo-discover",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

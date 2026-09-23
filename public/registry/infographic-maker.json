@@ -4,6 +4,11 @@
   "title": "infographic-maker",
   "description": "Generate hand-drawn cartoon-style infographics from articles, concepts, reports, or data. Use when a",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/infographic-maker",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/infographic-maker",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/infographic-maker/SKILL.md"

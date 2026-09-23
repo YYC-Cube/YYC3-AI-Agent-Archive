@@ -4,6 +4,11 @@
   "title": "claude-api",
   "description": "|-",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/anthropics-skills/skills/claude-api",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/claude-api",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",

@@ -4,6 +4,11 @@
   "title": "lead-research-assistant",
   "description": "Identifies high-quality leads for your product or service by analyzing your business, searching for ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/lead-research-assistant",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/lead-research-assistant",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/lead-research-assistant/SKILL.md"

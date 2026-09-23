@@ -4,6 +4,11 @@
   "title": "email-skill",
   "description": "Email management and automation. Send, read, search, and organize emails across multiple providers.",
   "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/email-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/email-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/email-skill/SKILL.md"

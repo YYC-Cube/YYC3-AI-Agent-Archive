@@ -4,6 +4,11 @@
   "title": "12306",
   "description": "Query China Railway 12306 for train schedules, remaining tickets, and station info. Use when user as",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/12306",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/12306",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/12306/SKILL.md"

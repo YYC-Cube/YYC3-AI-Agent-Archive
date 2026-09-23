@@ -4,8 +4,16 @@
   "title": "web-performance-audit",
   "description": "Analyze deployed websites and web apps for performance quality. Measures Core Web Vitals, load metri",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/web-performance-audit",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/web-performance-audit",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/web-performance-audit/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/web-performance-audit/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "seo-audit"
+    ]
   }
 }

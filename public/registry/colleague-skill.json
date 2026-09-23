@@ -4,6 +4,11 @@
   "title": "colleague-skill",
   "description": "Distill a colleague into an AI Skill. Auto-collect Feishu/DingTalk/Slack data, generate Work Skill +",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/colleague-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/colleague-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/colleague-skill/SKILL.md"

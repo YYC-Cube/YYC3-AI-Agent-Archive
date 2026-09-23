@@ -4,6 +4,11 @@
   "title": "glmocr-handwriting",
   "description": "Official skill for recognizing handwritten text from images using ZhiPu GLM-OCR",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/glm/glm-skills/skills/glmocr-handwriting",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/glmocr-handwriting",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/glm/glm-skills/skills/glmocr-handwriting/SKILL.md"

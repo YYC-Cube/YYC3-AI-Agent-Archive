@@ -4,6 +4,11 @@
   "title": "design-an-interface",
   "description": "Generate multiple radically different interface designs for a module using parallel sub-agents. Use ",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/dev-workflow/engineering-skills/skills/deprecated/design-an-interface",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/design-an-interface",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/design-an-interface/SKILL.md"

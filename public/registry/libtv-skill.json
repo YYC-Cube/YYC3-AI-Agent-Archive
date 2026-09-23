@@ -4,6 +4,11 @@
   "title": "libtv-skill",
   "description": "agent-im 会话技能 - 通过 liblib.tv 的 AI 能力生成和编辑图片/视频。覆盖场景包括：生成（文生图、文生视频、图生视频、做动画、画一个xxx、来段xxx）、编辑修改（把xxx换成",
   "version": "1.0.3",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/libtv-skill",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/libtv-skill",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/libtv-skill/SKILL.md"

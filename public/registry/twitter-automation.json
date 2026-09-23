@@ -4,6 +4,11 @@
   "title": "twitter-automation",
   "description": "Automate Twitter/X tasks via Rube MCP (Composio): posts, search, users, bookmarks, lists, media. Alw",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/twitter-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/twitter-automation",
   "_meta": {
     "io.github.yyc-cube/category": "social-media",
     "io.github.yyc-cube/source": "skills-hub/marketplace/twitter-automation/SKILL.md"

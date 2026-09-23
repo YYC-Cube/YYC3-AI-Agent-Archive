@@ -4,6 +4,11 @@
   "title": "obsidian-markdown",
   "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other O",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/obsidian-markdown",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/obsidian-markdown",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
     "io.github.yyc-cube/source": "skills-hub/marketplace/obsidian-markdown/SKILL.md"

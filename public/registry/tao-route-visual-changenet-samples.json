@@ -4,6 +4,11 @@
   "title": "tao-route-visual-changenet-samples",
   "description": "Routes the weakest VCN samples (output of `tao-analyze-gaps-visual-changenet`) into per-augmentation",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/tao-route-visual-changenet-samples",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/tao-route-visual-changenet-samples",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

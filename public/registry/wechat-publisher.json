@@ -4,6 +4,11 @@
   "title": "wechat-publisher",
   "description": "一键发布 Markdown 到微信公众号草稿箱。基于 wenyan-cli，支持多主题、代码高亮、图片自动上传。",
   "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/wechat-publisher",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/wechat-publisher",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/source": "skills-hub/community/wechat-publisher/SKILL.md"

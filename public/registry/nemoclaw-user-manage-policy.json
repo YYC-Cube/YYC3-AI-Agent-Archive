@@ -4,6 +4,11 @@
   "title": "nemoclaw-user-manage-policy",
   "description": "Adds, removes, or modifies allowed endpoints in the sandbox policy. Use when customizing network pol",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-manage-policy",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemoclaw-user-manage-policy",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

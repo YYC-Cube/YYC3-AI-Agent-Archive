@@ -4,6 +4,11 @@
   "title": "nemo-rl-docs",
   "description": "Documentation conventions for NeMo-RL. Covers docs/index.md updates and docstring format. Do NOT use",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-docs",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nemo-rl-docs",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

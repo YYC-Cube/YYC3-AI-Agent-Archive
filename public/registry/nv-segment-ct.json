@@ -4,6 +4,11 @@
   "title": "nv-segment-ct",
   "description": "Used for running NV-Segment-CT VISTA3D on CT NIfTI volumes and recording label-map evidence.",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/ai-ml/nvidia-skills/skills/nv-segment-ct",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/nv-segment-ct",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Apache-2.0",

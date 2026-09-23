@@ -4,6 +4,11 @@
   "title": "bamboohr-automation",
   "description": "Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/marketplace/bamboohr-automation",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/bamboohr-automation",
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/source": "skills-hub/marketplace/bamboohr-automation/SKILL.md"

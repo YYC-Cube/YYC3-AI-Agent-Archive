@@ -4,8 +4,18 @@
   "title": "form-cro",
   "description": "When the user wants to optimize any form that is NOT signup/registration — including lead capture fo",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/skills-hub/community/marketing-skills/references/form-cro",
+    "source": "github"
+  },
+  "website": "https://ai-agent.yyc3.vip/skill/form-cro",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/form-cro/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/marketing-skills/references/form-cro/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "page-cro",
+      "popup-cro",
+      "signup-flow-cro"
+    ]
   }
 }
