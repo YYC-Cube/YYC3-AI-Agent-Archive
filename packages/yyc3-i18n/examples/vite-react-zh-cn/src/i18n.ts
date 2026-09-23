@@ -3,8 +3,8 @@
  * 演示中文国际化最佳实践
  */
 
-import { initI18n, addTranslations } from '@yyc3/i18n-core';
 import type { TranslationMap } from '@yyc3/i18n-core';
+import { i18n } from '@yyc3/i18n-core';
 
 const zhCN: TranslationMap = {
   common: {
@@ -117,13 +117,9 @@ const en: TranslationMap = {
 };
 
 export async function setupI18n() {
-  await initI18n({
-    defaultLocale: 'zh-CN',
-    fallbackLocale: 'en',
-  });
-
-  addTranslations('zh-CN', zhCN);
-  addTranslations('en', en);
+  i18n.registerTranslation('zh-CN', zhCN);
+  i18n.registerTranslation('en', en);
+  await i18n.setLocale('zh-CN');
 
   console.log('🌐 i18n initialized - 中文示例就绪');
 }

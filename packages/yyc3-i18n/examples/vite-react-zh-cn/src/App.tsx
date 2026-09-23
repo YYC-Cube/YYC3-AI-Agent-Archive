@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { t, setLocale, isChineseLocale } from '@yyc3/i18n-core';
-import { setupI18n } from './i18n';
 import type { Locale } from '@yyc3/i18n-core';
+import { i18n, isChineseLocale, t } from '@yyc3/i18n-core';
+import { useEffect, useState } from 'react';
+import { setupI18n } from './i18n';
 
 function App() {
   const [locale, setLocaleState] = useState<Locale>('zh-CN');
@@ -14,7 +14,7 @@ function App() {
   }, []);
 
   const switchLanguage = (newLocale: Locale) => {
-    setLocale(newLocale);
+    i18n.setLocale(newLocale);
     setLocaleState(newLocale);
   };
 
@@ -87,7 +87,7 @@ function App() {
         </div>
 
         <div className="demo-item">
-          <strong>复数处理:</strong> <code>{t('demo.itemCount', { count: 42 })}</code>
+          <strong>复数处理:</strong> <code>{t('demo.itemCount', { count: '42' })}</code>
         </div>
 
         <div className="demo-item">
