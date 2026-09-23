@@ -20,7 +20,9 @@ const ROOT = path.resolve(__dirname, '../../..');
 const GATES = {
   dedup: { genuineWarn: 3600, genuineFail: 4000 },
   score: { avgDropMax: 2, minAvg: 78 }, // 均分下降 >2 或绝对值 <78 → fail
-  baseline: 'docs/skill-score/score-report.json',
+  // 固定基线优先（版本固化，报告更新不漂移）；缺失时回落最近报告
+  baseline: 'docs/skill-score/baseline-v2.5.0.json',
+  baselineFallback: 'docs/skill-score/score-report.json',
 };
 
 /**
@@ -60,13 +62,18 @@ async function checkScore() {
 
   const { results, summary } = await scoreAll({});
 
-  // 基线对比（V3 将切换为 baseline-v2.5.0.json 固化文件）
+  // 基线对比（固定基线优先，回落最近报告）
   let baseline = null;
-  try {
-    const raw = await fs.readFile(path.join(ROOT, GATES.baseline), 'utf-8');
-    baseline = JSON.parse(raw).summary;
-  } catch {
-    // 无基线时退化为绝对门禁
+  let baselineSource = null;
+  for (const rel of [GATES.baseline, GATES.baselineFallback]) {
+    try {
+      const raw = await fs.readFile(path.join(ROOT, rel), 'utf-8');
+      baseline = JSON.parse(raw).summary;
+      baselineSource = rel;
+      break;
+    } catch {
+      // 尝试下一个候选
+    }
   }
 
   const failures = [];
@@ -88,6 +95,7 @@ async function checkScore() {
     failures,
     average: summary.average,
     baselineAverage: baseline ? baseline.average : null,
+    baselineSource,
     byGrade: summary.byGrade,
     total: summary.total,
     // 评分明细（负向测试与漂移排查用）

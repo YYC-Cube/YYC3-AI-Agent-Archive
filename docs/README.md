@@ -119,6 +119,9 @@ audience: all
 | **远程 Tagging 规范** | 三层标签体系（v 版本 / phase 生命周期 / pkg 包级）操作规范 | [链接](./TAGGING.md) |
 | **外部集成分析** | `_external/` 第三方参考代码集成分析与边界声明 | [链接](./YYC3-EXTERNAL-INTEGRATION-ANALYSIS.md) |
 | **i18n 国际化方案** | yyc3-i18n 国际化实施计划 | [链接](./YYC3-I18N-PLAN.md) |
+| **上游断供演习 Runbook** | GitHub/npm/Pages 三场景断供应急 + 季度演习排期（v2.4.0） | [链接](./runbooks/上游断供演习-Runbook.md) |
+| **技能评分报告** | 831 技能五维质量评分（`yyc3 skills score` 生成，doctor 门禁基线源） | [链接](./skill-score/score-report.md) |
+| **评分基线（v2.5.0）** | 版本固化基线 `baseline-v2.5.0.json` — doctor score 门禁「不回退」参照 | [链接](./skill-score/baseline-v2.5.0.json) |
 
 ### 会话工作目录（AI 协同开发存档）
 
@@ -180,6 +183,22 @@ docs/
 │   ├── 03-总结文档与状态同步.md
 │   ├── 04-阶段测试报告与生产落地建议.md
 │   └── 05-v2.3.0发布说明指导.md            ← v2.3.0 发布操作唯一依据
+│
+├── YYC3-AI-Agent-Archive-tutor-20260917/   ← AI 导师会话存档（v2.4.0-v2.5.0：Pages 上线 / 安全加固 / 评分体系 / doctor 门禁）
+│   ├── 00-项目现状审核报告.md
+│   ├── 01-任务规划与节点目标.md
+│   ├── 02-执行日志与进度跟踪.md
+│   ├── 03-总结文档与状态同步.md
+│   ├── 05-可复用技术与项目蓝图-全链路生产闭环.md
+│   ├── 06-蓝图落地实施计划.md
+│   └── 07-v2.5.0-版本规划.md               ← v2.5.0 路线（V1-V4）
+│
+├── runbooks/                               ← 应急运维手册
+│   └── 上游断供演习-Runbook.md              ← GitHub/npm/Pages 断供应急（v2.4.0）
+│
+├── skill-score/                            ← 技能评分资产
+│   ├── score-report.md / .json             ← 五维评分报告（yyc3 skills score）
+│   └── baseline-v2.5.0.json                ← doctor 门禁固化基线（v2.5.0）
 │
 └── ARCH-INVENTORY 01-06 / 平台工程散文档    ← 根目录平台工程与分析文档
 ```

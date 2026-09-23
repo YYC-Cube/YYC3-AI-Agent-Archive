@@ -45,8 +45,9 @@ describe('Task V2: doctor 质量门禁', () => {
       expect(GATES.score.avgDropMax).toBe(2);
     });
 
-    test('baseline 指向入库的评分报告', () => {
-      expect(GATES.baseline).toBe('docs/skill-score/score-report.json');
+    test('baseline 指向 v2.5.0 固化基线，回落指向最近报告', () => {
+      expect(GATES.baseline).toBe('docs/skill-score/baseline-v2.5.0.json');
+      expect(GATES.baselineFallback).toBe('docs/skill-score/score-report.json');
     });
   });
 
@@ -87,9 +88,10 @@ describe('Task V2: doctor 质量门禁', () => {
   });
 
   describe('基线报告存在性与结构', () => {
-    test('baseline 文件入库且含 summary.byGrade', async () => {
+    test('v2.5.0 固化基线入库且含 summary.byGrade', async () => {
       const raw = await fs.readFile(path.join(REPO_ROOT, GATES.baseline), 'utf-8');
       const data = JSON.parse(raw);
+      expect(data.version).toBe('2.5.0');
       expect(data.summary.total).toBeGreaterThan(800);
       expect(Object.keys(data.summary.byGrade)).toEqual(['A', 'B', 'C', 'D', 'E']);
       expect(data.summary.byGrade.E).toBe(0);

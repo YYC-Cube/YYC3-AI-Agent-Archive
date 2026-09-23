@@ -206,8 +206,8 @@ YYC³ AI Agent Archive
 | [`@yyc3/orchestrator`](packages/orchestrator/)　　　　　　　　　　　 | 1.0.0 | 智能编排调度器 — LLM 任务分解、多策略调度、工作流引擎　　　　　　　　　　| ✅ **Active**　　|
 | [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/)　　　　　 | 1.0.0 | Plugin Marketplace 运行时 — 插件注册、激活、依赖管理　　　　　　　　　　 | ✅ **Active**　　|
 | [`@yyc3/observability`](packages/observability/)　　　　　　　　　　 | 1.0.0 | 可观测性监控 — 结构化日志、指标收集、链路追踪、健康检查　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/i18n-core`](packages/yyc3-i18n/)　　　　　　　　　　　　　　 | 2.4.0 | 生产级国际化框架 — 高性能、零依赖、插件化 i18n 方案　　　　　　　　　　　| ✅ **Active**　　|
-| [`yyc3-cli`](packages/yyc3-cli/)　　　　　　　　　　　　　　　　　　 | 2.0.0 | 命令行界面 — 技能构建/验证/去重/统计　　　　　　　　　　　　　　　　　　 | ✅ **Active**　　|
+| [`@yyc3/i18n-core`](packages/yyc3-i18n/)　　　　　　　　　　　　　　 | 2.4.3 | 生产级国际化框架 — 高性能、零依赖、插件化 i18n 方案　　　　　　　　　　　| ✅ **Active**　　|
+| [`yyc3-cli`](packages/yyc3-cli/)　　　　　　　　　　　　　　　　　　 | 2.0.0 | 命令行界面 — 技能构建/验证/去重/统计/评分/Doctor 质量门禁　　　　　　　　 | ✅ **Active**　　|
 | [`@yyc3/skills`](_archive/packages-skills-legacy/)　　　　　　　　　 | 1.0.0 | 旧技能系统（184 技能）— **已归档**，由 `@yyc3/skill-registry` 取代　　　 | 🗄️ **Archived** |
 | [`@yyc3/skills-registry`](_archive/packages-skills-registry-legacy/) | 1.0.0 | 旧注册中心（146 渐进式技能）— **已归档**，由 `@yyc3/skill-registry` 取代 | 🗄️ **Archived** |
 | [`@yyc3/icons`](packages/@yyc3/icons/)　　　　　　　　　　　　　　　 | —　　 | Lucide 图标库子集（1000+ 图标）　　　　　　　　　　　　　　　　　　　　　| ✅ **Active**　　|
@@ -313,8 +313,8 @@ pnpm skills:validate    # 验证技能
 pnpm skills:dedup       # 去重技能
 pnpm skills:stats       # 技能统计
 
-# 健康检查
-pnpm doctor             # 一站式验证 + 去重
+# 健康检查（四检聚合质量门禁）
+pnpm doctor             # validate + dedup + score + registry，CI 同款门禁
 ```
 
 ---
@@ -328,7 +328,7 @@ pnpm doctor             # 一站式验证 + 去重
 | `pnpm typecheck` | TypeScript 类型检查 |
 | `pnpm clean` | 清理构建产物 |
 | `pnpm test` | 运行所有测试 |
-| `pnpm doctor` | 项目健康检查 |
+| `pnpm doctor` | 质量门禁（validate/dedup/score/registry 四检聚合） |
 | `pnpm skills:validate` | 技能验证 |
 | `pnpm skills:dedup` | 技能去重 |
 | `pnpm skills:stats` | 技能统计 |

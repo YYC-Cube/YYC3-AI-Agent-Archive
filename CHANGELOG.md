@@ -2,6 +2,45 @@
 
 All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
+## [2.5.0] - 2026-09-23
+
+### 版本主题：Doctor Integrated Quality Gate（质量门禁一体化）
+
+从「Supply-Chain Hardened」演进为「Quality-Gated」：全资产质量由 doctor 四检门禁看守，版本发布携带评分基线。
+
+### 漏洞清零（V1）
+
+- **12 项 Dependabot 告警清零**（4 high / 7 moderate / 1 low，open 12 → 0）：example lockfile 从零重解析，nanoid 3.3.19 / postcss 8.5.28 / browserslist 4.29.0 / @babel/core 7.29.7 / baseline-browser-mapping 2.11.25 / esbuild 0.25.12 / vite 6.4.3
+- **三层 pre-existing 缺陷一并修复**（v2.2.0 起潜伏，因 example 从未入 CI 而漏网）：
+  - `file:..` off-by-one → `file:../..`（原指向无 package.json 的 examples/ 目录）
+  - example 代码对齐 i18n 单例新 API（initI18n/addTranslations → registerTranslation/setLocale）
+  - vite.config 内嵌 node:crypto / node:timers/promises 浏览器 stub（i18n-core 桶导出含 Node-only 工具）
+
+### Doctor 四检聚合门禁（V2）
+
+- **`yyc3 doctor` 新命令**：validate（errors>0 fail）/ dedup（genuine >3600 WARN、>4000 fail）/ score（均分<78 或较基线降>2 分或 E 级新增或 D 级增长 fail）/ registry（schema 校验），退出码语义可直接作 CI 门禁
+- **CI 独立 doctor job**（fetch-depth: 0 全量历史 — 浅克隆会使活跃度维度失真产生 D 级误报，实测验证）
+- **root script `pnpm doctor`** 从串联两命令升级为单命令聚合
+- 11 用例测试（含负向 4：均分下降/E 级新增/D 级增长/边界 -2 分），CLI 包 57/57
+
+### 评分基线固化（V3）
+
+- **`docs/skill-score/baseline-v2.5.0.json`**：版本固化基线（均分 80，A:110/B:503/C:217/D:1/E:0 + worst TOP10）
+- doctor score 门禁改为固定基线优先、最近报告回落 — 报告更新不再引起门禁漂移
+- `scripts/gen-baseline-v2.5.0.cjs`：基线再生成工具（版本演进复用）
+
+### CI 构建矩阵扩展
+
+- **example（vite-react-zh-cn）纳入 quality job**（node 22/24 双矩阵）：防 off-by-one/API 漂移回潮，实测 803ms/917ms
+
+### 安全与文档治理（发布前全局审核）
+
+- 🔴 P0：`.env.docker` / `.env.permissions` 补入 .gitignore（含密钥类变量，原存在误提交泄漏风险）
+- README：doctor 口径更新（四检聚合）、i18n-core 版本 2.4.0→2.4.3 修正、CLI 描述补 Doctor
+- docs/README.md 索引：补 runbooks/、skill-score/（含 baseline）、20260917 会话目录
+- CLAUDE.md（AGENTS.md symlink 单一信源）：常用命令补 `pnpm run doctor`
+- 审核报告归档：`docs/YYC3-AI-Agent-Archive-tutor-20260917/08-v2.5.0-全局审核与建议报告.md`（P1-P3 演进建议）
+
 ## [2.4.0] - 2026-09-22
 
 ### 版本主题：Supply-Chain Hardened（供应链加固 + MCP 生态卡位 + 智能评分）

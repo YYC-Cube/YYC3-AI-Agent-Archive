@@ -22,6 +22,8 @@ target/
 .env
 .env.local
 .env.*.local
+packages/yyc3-cli/config/environments/.env.docker
+packages/yyc3-cli/config/environments/.env.permissions
 
 # ==================== 系统文件 ====================
 .DS_Store
