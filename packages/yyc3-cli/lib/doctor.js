@@ -23,7 +23,7 @@ const GATES = {
   // 关联维度（v2.6.0 数据积累期）：孤立率 >25% 仅 WARN（信息性，不阻断）
   graph: { isolatedWarnRatio: 0.25 },
   // 固定基线优先（版本固化，报告更新不漂移）；缺失时回落最近报告
-  baseline: 'docs/skill-score/baseline-v2.5.0.json',
+  baseline: 'docs/skill-score/baseline-2.6.0.json',
   baselineFallback: 'docs/skill-score/score-report.json',
 };
 
