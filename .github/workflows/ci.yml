@@ -49,6 +49,15 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Example build（vite-react-zh-cn，防 off-by-one/API 漂移回潮）
+        run: |
+          cd packages/yyc3-i18n/examples/vite-react-zh-cn
+          pnpm install --frozen-lockfile --ignore-workspace
+          pnpm build
+
+      - name: Doctor 质量门禁（四检聚合）
+        run: pnpm run doctor
+
   coverage:
     name: 测试覆盖率
     runs-on: ubuntu-latest

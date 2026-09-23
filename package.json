@@ -31,7 +31,7 @@
     "i18n:translate": "node scripts/translate-en.cjs locales/zh-CN.json locales/en.json",
     "i18n:sync": "cp locales/zh-CN.json packages/yyc3-i18n/src/locales/ && cp locales/en.json packages/yyc3-i18n/src/locales/",
     "sync:upstream": "node scripts/sync-upstream.cjs",
-    "doctor": "node packages/yyc3-cli/bin/yyc3-cli.js skills validate -v && node packages/yyc3-cli/bin/yyc3-cli.js skills dedup -v"
+    "doctor": "node packages/yyc3-cli/bin/yyc3-cli.js doctor"
   },
   "workspaces": [
     "packages/yyc3-i18n",

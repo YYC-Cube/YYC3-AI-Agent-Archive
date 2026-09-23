@@ -23,6 +23,7 @@ const { lintNaming, migrateNaming } = require('../lib/skills-naming');
 const { generateAyncIndex } = require('../lib/skills-aync-index');
 const { exportMcp } = require('../lib/skills-mcp-export');
 const { scoreCommand } = require('../lib/skills-score-report');
+const { doctorCommand } = require('../lib/doctor');
 
 // 设置全局错误处理
 process.on('uncaughtException', (error) => {
@@ -217,6 +218,15 @@ naming
   .option('-v, --verbose', '输出完整迁移清单')
   .action(async (options) => {
     try { await migrateNaming(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+  });
+
+// doctor 命令（质量门禁）
+program
+  .command('doctor')
+  .description('四检聚合质量门禁（validate/dedup/score/registry），CI 退出码语义')
+  .option('--json', '附加输出 JSON 结果', false)
+  .action(async (options) => {
+    try { await doctorCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
 // 默认命令（显示帮助）
