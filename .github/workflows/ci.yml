@@ -55,7 +55,29 @@ jobs:
           pnpm install --frozen-lockfile --ignore-workspace
           pnpm build
 
-      - name: Doctor 质量门禁（四检聚合）
+  doctor:
+    name: Doctor 质量门禁（validate / dedup / score / registry）
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout（全量历史 — score 活跃度维度依赖 90 天 git log）
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Doctor 四检聚合门禁
         run: pnpm run doctor
 
   coverage:
