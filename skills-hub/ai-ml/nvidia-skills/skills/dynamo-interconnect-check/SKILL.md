@@ -12,6 +12,7 @@ metadata:
     - rdma
     - disagg
     - validation
+related_skills: [dynamo-recipe-runner, dynamo-troubleshoot]
 ---
 
 # Dynamo Interconnect Check

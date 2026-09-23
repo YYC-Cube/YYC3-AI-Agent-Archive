@@ -4,6 +4,7 @@ description: "Installs NemoClaw, launches a sandbox, and runs the first agent pr
 category: development-code
 version: 1.0.0
 license: "Apache-2.0"
+related_skills: [nemoclaw-user-manage-sandboxes]
 ---
 # NemoClaw Quickstart with OpenClaw
 

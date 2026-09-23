@@ -28,6 +28,7 @@ metadata:
   agents:
     - claude-code
     - codex
+related_skills: [hsb-flash]
 ---
 
 # Holoscan Sensor Bridge demo bring-up

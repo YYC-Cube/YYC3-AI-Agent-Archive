@@ -32,6 +32,54 @@ function escapeRe(s) {
 }
 
 /**
+ * related_skills 候选生成（显式边补全）
+ *
+ * 从 implicit 边推导置信度：
+ *   双向提及（A 提及 B 且 B 提及 A）  +3 —— 最强信号
+ *   同领域（顶层目录相同）            +1
+ *   每条单向提及                      +1
+ * 过滤：confidence < MIN_CONFIDENCE 剔除；每技能取 TOP N（去重、排除已有声明）
+ *
+ * @param {object} g buildGraph 结果
+ * @returns {Array<{name, file, candidates: Array<{name, confidence, reasons}>}>}
+ */
+function suggestRelated(g, { topN = 5, minConfidence = 4 } = {}) {
+  const nodeNames = new Set(Object.keys(g.nodes));
+  // name → 已声明 related（不重复推荐）
+  const declared = new Map();
+  for (const n of Object.keys(g.nodes)) {
+    declared.set(n, new Set(g.nodes[n].related || []));
+  }
+  // 提及计数（双向判断）
+  const mentions = new Map(); // src → Map(dst → count)
+  for (const e of g.edges) {
+    if (!mentions.has(e.src)) mentions.set(e.src, new Map());
+    mentions.get(e.src).set(e.dst, (mentions.get(e.src).get(e.dst) || 0) + e.weight);
+  }
+
+  const out = [];
+  for (const [name, node] of Object.entries(g.nodes)) {
+    const cands = [];
+    const outs = mentions.get(name) || new Map();
+    for (const [dst, cnt] of outs) {
+      if (!nodeNames.has(dst) || (declared.get(name) || new Set()).has(dst)) continue;
+      const back = (mentions.get(dst) || new Map()).get(name) || 0;
+      let conf = cnt;
+      const reasons = [];
+      if (back > 0) { conf += 3; reasons.push('双向提及'); }
+      if (g.nodes[dst].domain === node.domain) { conf += 1; reasons.push('同领域'); }
+      if (cnt >= 2) reasons.push('高频提及 ' + cnt);
+      cands.push({ name: dst, confidence: conf, reasons: reasons.length ? reasons : ['单向提及'] });
+    }
+    cands.sort((a, b) => b.confidence - a.confidence);
+    const picked = cands.filter((c) => c.confidence >= minConfidence).slice(0, topN);
+    if (picked.length) out.push({ name, file: node.file, candidates: picked });
+  }
+  out.sort((a, b) => b.candidates[0].confidence - a.candidates[0].confidence);
+  return out;
+}
+
+/**
  * 构建图谱
  * @returns {{nodes: object, edges: Array, summary: object, hubs: Array, clusters: Array}}
  */
@@ -139,7 +187,21 @@ async function buildGraph(options = {}) {
     edgeDensity: nodes.size > 1 ? +(edges.length / (nodes.size * (nodes.size - 1))).toFixed(6) : 0,
     generatedAt: new Date().toISOString(),
   };
-  return { nodes: Object.fromEntries([...nodes.entries()].map(([k, v]) => [k, { file: v.file, domain: v.domain, inDeg: degree.in.get(k) || 0, outDeg: degree.out.get(k) || 0 }])), edges, summary, hubs, clusters };
+  return {
+    nodes: Object.fromEntries(
+      [...nodes.entries()].map(([k, v]) => [k, {
+        file: v.file,
+        domain: v.domain,
+        inDeg: degree.in.get(k) || 0,
+        outDeg: degree.out.get(k) || 0,
+        related: EXPLICIT_FIELDS.flatMap((f) => toArray(v.fm[f])),
+      }])
+    ),
+    edges,
+    summary,
+    hubs,
+    clusters,
+  };
 }
 
-module.exports = { buildGraph, EXPLICIT_FIELDS };
+module.exports = { buildGraph, suggestRelated, EXPLICIT_FIELDS };

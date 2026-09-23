@@ -4,6 +4,7 @@ description: Complete guide for CloudBase cloud storage using Web SDK (@cloudbas
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase]
 ---
 
 # Cloud Storage Web SDK

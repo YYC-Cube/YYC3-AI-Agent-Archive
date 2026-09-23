@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Reducing GPU memory via activation recompute, or investigating a commit that changed recompute settings and caused OOM or a regression; 'recompute_granularity', 'recompute_num_layers', 'recompute_modules', 'recompute_method', 'selective recompute', 'full recompute', 'activation memory OOM'.
+related_skills: [nemo-mbridge-perf-memory-tuning]
 ---
 
 # Activation Recompute

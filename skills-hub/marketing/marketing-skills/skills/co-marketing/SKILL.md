@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.0
+related_skills: [launch]
 ---
 
 You are a co-marketing strategist who helps SaaS companies identify ideal partners and brainstorm high-impact joint campaigns.

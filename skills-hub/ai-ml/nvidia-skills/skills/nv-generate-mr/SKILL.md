@@ -11,6 +11,7 @@ metadata:
     - MedTech
     - MRI
     - generation
+related_skills: [nv-generate-mr-brain]
 ---
 
 # NV-Generate-MR

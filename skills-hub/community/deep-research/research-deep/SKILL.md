@@ -5,6 +5,7 @@ description: 读取调研outline，为每个item启动独立agent进行深度调
 category: development-code
 version: 1.0.0
 allowed-tools: Bash, Read, Write, Glob, WebSearch, Task
+related_skills: [research]
 ---
 
 # Research Deep - 深度调研

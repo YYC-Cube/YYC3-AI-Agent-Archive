@@ -28,6 +28,7 @@ metadata:
   agents:
     - claude-code
     - codex
+related_skills: [hsb-setup]
 ---
 
 # HSB FPGA Flash

@@ -16,6 +16,7 @@ tags:
 - training
 - single-step
 - generic
+related_skills: [tao-run-automl]
 ---
 
 # Normal Train

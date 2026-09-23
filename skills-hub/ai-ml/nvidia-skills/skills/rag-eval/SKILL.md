@@ -30,6 +30,7 @@ metadata:
     - fastapi
   domain: ai-ml
 allowed-tools: Read Grep Glob Bash(ls *) Bash(python3 *) Bash(uv *) Write Edit
+related_skills: [rag-blueprint, rag-perf]
 ---
 
 # On-disk RAG evaluation (`corpus/` + `train.json`)

@@ -19,6 +19,7 @@ metadata:
     - video-data-augmentation
     - auto-labeling
     - cosmos
+related_skills: [physical-ai-infrastructure-setup-and-resilient-scaling]
 ---
 
 # Physical AI Video Data Augmentation Workflow Orchestrator

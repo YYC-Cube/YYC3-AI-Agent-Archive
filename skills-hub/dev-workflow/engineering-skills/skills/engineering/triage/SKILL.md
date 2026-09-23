@@ -3,6 +3,7 @@ name: triage
 description: Triage issues through a state machine driven by triage roles. Use when user wants to create an issue, triage issues, review incoming bugs or feature requests, prepare issues for an AFK agent, or manage issue workflow.
 category: development-code
 version: 1.0.0
+related_skills: [setup-matt-pocock-skills]
 ---
 
 # Triage

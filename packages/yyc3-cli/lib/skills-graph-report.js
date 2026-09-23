@@ -49,4 +49,65 @@ async function graphCommand(options = {}) {
   return g;
 }
 
-module.exports = { graphCommand, renderMarkdown };
+/**
+ * related_skills 补全 — 候选列表 dry-run 报告 + apply 写回
+ * apply 语义：仅在 frontmatter 插入/合并 related_skills 数组行，不动正文。
+ * 已有相关声明（四字段任一）则合并去重；无 frontmatter 不处理（非标资产）。
+ */
+async function suggestCommand(options = {}) {
+  const { buildGraph, suggestRelated } = require('./skills-graph');
+  console.log('[skills:graph:suggest] Building graph...');
+  const g = await buildGraph({});
+  const suggestions = suggestRelated(g, { topN: options.topN || 5, minConfidence: options.minConfidence || 4 });
+  const totalCands = suggestions.reduce((n, x) => n + x.candidates.length, 0);
+  console.log(`[skills:graph:suggest] ${suggestions.length} skills / ${totalCands} candidates (minConfidence=${options.minConfidence || 4}, topN=${options.topN || 5})`);
+
+  const outDir = options.out || 'docs/skill-score';
+  await fs.mkdir(outDir, { recursive: true });
+  const jsonPath = path.join(outDir, 'related-skills-suggestions.json');
+  await fs.writeFile(jsonPath, JSON.stringify({ generatedAt: new Date().toISOString(), applied: !!options.apply, suggestions }, null, 2) + '\n');
+  console.log(`[skills:graph:suggest] Suggestions → ${jsonPath}`);
+
+  if (!options.apply) {
+    console.log('[skills:graph:suggest] dry-run 完成（未写入任何文件）。加 --apply 执行批量补全');
+    return suggestions;
+  }
+
+  // apply：写回 SKILL.md frontmatter
+  const ROOT = require('./skills-indexer').ROOT || path.resolve(__dirname, '../../..');
+  let applied = 0, skipped = 0, merged = 0;
+  for (const s of suggestions) {
+    const fileAbs = path.join(ROOT, s.file, 'SKILL.md');
+    let content;
+    try { content = await fs.readFile(fileAbs, 'utf-8'); } catch { skipped++; continue; }
+    const m = content.match(/^---\n([\s\S]*?)\n---\n/);
+    if (!m) { skipped++; continue; }
+    const fmRaw = m[1];
+    const names = s.candidates.map((c) => c.name);
+    let newFm;
+    const existing = fmRaw.match(/^related_skills:\s*(\[.*?\]|\S.*)\s*$/m);
+    if (existing) {
+      // 合并去重（兼容 inline 数组 / 已是 YAML list）
+      let cur = [];
+      const inline = existing[1].match(/^\[(.*)\]$/);
+      if (inline) cur = inline[1].split(',').map((x) => x.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+      else cur = [existing[1].replace(/^['"]|['"]$/g, '').trim()];
+      const set = new Set([...cur, ...names]);
+      newFm = fmRaw.replace(existing[0], 'related_skills: [' + [...set].join(', ') + ']');
+      merged++;
+    } else {
+      // 追加到 frontmatter 末尾（name 之后语义最优，但末尾最安全）
+      newFm = fmRaw + '\nrelated_skills: [' + names.join(', ') + ']';
+      applied++;
+    }
+    const next = content.replace(m[0], '---\n' + newFm + '\n---\n');
+    await fs.writeFile(fileAbs, next);
+  }
+  console.log(`[skills:graph:suggest] applied=${applied} merged=${merged} skipped=${skipped}`);
+  // 写后立即重建图验证显式边增长
+  const g2 = await buildGraph({});
+  console.log(`[skills:graph:suggest] rebuild: explicit=${g2.summary.explicitEdges} isolated=${g2.summary.isolatedNodes} (was explicit=0)`);
+  return suggestions;
+}
+
+module.exports = { graphCommand, renderMarkdown, suggestCommand };

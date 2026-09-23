@@ -1,0 +1,2804 @@
+{
+  "generatedAt": "2026-09-23T18:10:50.811Z",
+  "applied": true,
+  "suggestions": [
+    {
+      "name": "aiq-deploy",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/aiq-deploy",
+      "candidates": [
+        {
+          "name": "aiq-research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aiq-research",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/aiq-research",
+      "candidates": [
+        {
+          "name": "aiq-deploy",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dynamo-interconnect-check",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-interconnect-check",
+      "candidates": [
+        {
+          "name": "dynamo-recipe-runner",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "dynamo-troubleshoot",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dynamo-router-starter",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-router-starter",
+      "candidates": [
+        {
+          "name": "dynamo-recipe-runner",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nemoclaw-user-get-started",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-get-started",
+      "candidates": [
+        {
+          "name": "nemoclaw-user-manage-sandboxes",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/physical-ai-infrastructure-setup-and-resilient-scaling",
+      "candidates": [
+        {
+          "name": "physical-ai-defect-image-generation",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "physical-ai-video-data-augmentation",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "digital-health-clinical-asr-build",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-build",
+      "candidates": [
+        {
+          "name": "digital-health-clinical-asr-eval",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "digital-health-clinical-asr-finetune",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "digital-health-clinical-asr-setup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "digital-health-clinical-asr-eval",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-eval",
+      "candidates": [
+        {
+          "name": "digital-health-clinical-asr-build",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "digital-health-clinical-asr-finetune",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "digital-health-clinical-asr-finetune",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-finetune",
+      "candidates": [
+        {
+          "name": "digital-health-clinical-asr-build",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "digital-health-clinical-asr-eval",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "digital-health-clinical-asr-setup",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-setup",
+      "candidates": [
+        {
+          "name": "digital-health-clinical-asr-build",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dynamo-recipe-runner",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-recipe-runner",
+      "candidates": [
+        {
+          "name": "dynamo-interconnect-check",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "dynamo-router-starter",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dynamo-troubleshoot",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-troubleshoot",
+      "candidates": [
+        {
+          "name": "dynamo-interconnect-check",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "holoscan-install-debian",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-debian",
+      "candidates": [
+        {
+          "name": "holoscan-install-wheel",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "holoscan-install-wheel",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-wheel",
+      "candidates": [
+        {
+          "name": "holoscan-install-debian",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hsb-flash",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/hsb-flash",
+      "candidates": [
+        {
+          "name": "hsb-setup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hsb-setup",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/hsb-setup",
+      "candidates": [
+        {
+          "name": "hsb-flash",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nemo-mbridge-perf-activation-recompute",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-activation-recompute",
+      "candidates": [
+        {
+          "name": "nemo-mbridge-perf-memory-tuning",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nemo-mbridge-perf-memory-tuning",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-memory-tuning",
+      "candidates": [
+        {
+          "name": "nemo-mbridge-perf-activation-recompute",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nemo-rl-auto-research",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-auto-research",
+      "candidates": [
+        {
+          "name": "nemo-rl-brev-etiquette",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nemo-rl-brev-etiquette",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-brev-etiquette",
+      "candidates": [
+        {
+          "name": "nemo-rl-auto-research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nemoclaw-user-manage-sandboxes",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-manage-sandboxes",
+      "candidates": [
+        {
+          "name": "nemoclaw-user-get-started",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nv-generate-mr",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nv-generate-mr",
+      "candidates": [
+        {
+          "name": "nv-generate-mr-brain",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nv-generate-mr-brain",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/nv-generate-mr-brain",
+      "candidates": [
+        {
+          "name": "nv-generate-mr",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical-ai-defect-image-generation",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/physical-ai-defect-image-generation",
+      "candidates": [
+        {
+          "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical-ai-video-data-augmentation",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/physical-ai-video-data-augmentation",
+      "candidates": [
+        {
+          "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rag-blueprint",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/rag-blueprint",
+      "candidates": [
+        {
+          "name": "rag-eval",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rag-eval",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/rag-eval",
+      "candidates": [
+        {
+          "name": "rag-blueprint",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "rag-perf",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rag-perf",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/rag-perf",
+      "candidates": [
+        {
+          "name": "rag-eval",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tao-run-automl",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl",
+      "candidates": [
+        {
+          "name": "tao-train-single-step",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tao-run-automl-deft-pipeline",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl-deft-pipeline",
+      "candidates": [
+        {
+          "name": "tao-run-deft-aoi",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tao-run-deft-aoi",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-deft-aoi",
+      "candidates": [
+        {
+          "name": "tao-run-automl-deft-pipeline",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tao-train-single-step",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-train-single-step",
+      "candidates": [
+        {
+          "name": "tao-run-automl",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-ask-video",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-ask-video",
+      "candidates": [
+        {
+          "name": "vss-generate-video-report",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-manage-video-io-storage",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-generate-video-report",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-generate-video-report",
+      "candidates": [
+        {
+          "name": "vss-ask-video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-manage-alerts",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-manage-video-io-storage",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-query-analytics",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-summarize-video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-manage-alerts",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-manage-alerts",
+      "candidates": [
+        {
+          "name": "vss-generate-video-report",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-manage-video-io-storage",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-manage-video-io-storage",
+      "candidates": [
+        {
+          "name": "vss-ask-video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-generate-video-report",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-search-archive",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-summarize-video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-query-analytics",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-query-analytics",
+      "candidates": [
+        {
+          "name": "vss-generate-video-report",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-search-archive",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-search-archive",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-search-archive",
+      "candidates": [
+        {
+          "name": "vss-manage-video-io-storage",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-query-analytics",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vss-summarize-video",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-summarize-video",
+      "candidates": [
+        {
+          "name": "vss-generate-video-report",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "vss-manage-video-io-storage",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloudbase",
+      "file": "skills-hub/community/cloudbase",
+      "candidates": [
+        {
+          "name": "ai-model-nodejs",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-model-web",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "cloud-functions",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "cloud-storage-web",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "cloudbase-platform",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai-model-nodejs",
+      "file": "skills-hub/community/cloudbase/references/ai-model-nodejs",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-model-web",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-model-wechat",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai-model-web",
+      "file": "skills-hub/community/cloudbase/references/ai-model-web",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-model-nodejs",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-model-wechat",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai-model-wechat",
+      "file": "skills-hub/community/cloudbase/references/ai-model-wechat",
+      "candidates": [
+        {
+          "name": "ai-model-nodejs",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-model-web",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloud-functions",
+      "file": "skills-hub/community/cloudbase/references/cloud-functions",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloud-storage-web",
+      "file": "skills-hub/community/cloudbase/references/cloud-storage-web",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloudbase-platform",
+      "file": "skills-hub/community/cloudbase/references/cloudbase-platform",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloudrun-development",
+      "file": "skills-hub/community/cloudbase/references/cloudrun-development",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "miniprogram-development",
+      "file": "skills-hub/community/cloudbase/references/miniprogram-development",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ui-design",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "web-development",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ui-design",
+      "file": "skills-hub/community/cloudbase/references/ui-design",
+      "candidates": [
+        {
+          "name": "miniprogram-development",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "web-development",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "web-development",
+      "file": "skills-hub/community/cloudbase/references/web-development",
+      "candidates": [
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "miniprogram-development",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ui-design",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "research",
+      "file": "skills-hub/community/deep-research/research",
+      "candidates": [
+        {
+          "name": "research-add-fields",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "research-add-items",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "research-deep",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "research-add-fields",
+      "file": "skills-hub/community/deep-research/research-add-fields",
+      "candidates": [
+        {
+          "name": "research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "research-add-items",
+      "file": "skills-hub/community/deep-research/research-add-items",
+      "candidates": [
+        {
+          "name": "research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "research-deep",
+      "file": "skills-hub/community/deep-research/research-deep",
+      "candidates": [
+        {
+          "name": "research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "futuapi",
+      "file": "skills-hub/community/futuapi",
+      "candidates": [
+        {
+          "name": "install-futu-opend",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "install-futu-opend",
+      "file": "skills-hub/community/install-futu-opend",
+      "candidates": [
+        {
+          "name": "futuapi",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ab-test-setup",
+      "file": "skills-hub/community/marketing-skills/references/ab-test-setup",
+      "candidates": [
+        {
+          "name": "analytics-tracking",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "page-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "analytics-tracking",
+      "file": "skills-hub/community/marketing-skills/references/analytics-tracking",
+      "candidates": [
+        {
+          "name": "ab-test-setup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copy-editing",
+      "file": "skills-hub/marketing/marketing-skills/skills/copy-editing",
+      "candidates": [
+        {
+          "name": "copywriting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copywriting",
+      "file": "skills-hub/marketing/marketing-skills/skills/copywriting",
+      "candidates": [
+        {
+          "name": "copy-editing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ab-testing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "emails",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "email-sequence",
+      "file": "skills-hub/community/marketing-skills/references/email-sequence",
+      "candidates": [
+        {
+          "name": "onboarding-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "popup-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "form-cro",
+      "file": "skills-hub/community/marketing-skills/references/form-cro",
+      "candidates": [
+        {
+          "name": "page-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "popup-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "signup-flow-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "marketing-ideas",
+      "file": "skills-hub/marketing/marketing-skills/skills/marketing-ideas",
+      "candidates": [
+        {
+          "name": "launch",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "marketing-plan",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "marketing-psychology",
+      "file": "skills-hub/marketing/marketing-skills/skills/marketing-psychology",
+      "candidates": [
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "referrals",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "social",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "onboarding-cro",
+      "file": "skills-hub/community/marketing-skills/references/onboarding-cro",
+      "candidates": [
+        {
+          "name": "email-sequence",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "paywall-upgrade-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "signup-flow-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "page-cro",
+      "file": "skills-hub/community/marketing-skills/references/page-cro",
+      "candidates": [
+        {
+          "name": "ab-test-setup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "form-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "popup-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "signup-flow-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "paywall-upgrade-cro",
+      "file": "skills-hub/community/marketing-skills/references/paywall-upgrade-cro",
+      "candidates": [
+        {
+          "name": "onboarding-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "popup-cro",
+      "file": "skills-hub/community/marketing-skills/references/popup-cro",
+      "candidates": [
+        {
+          "name": "email-sequence",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "form-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "page-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "programmatic-seo",
+      "file": "skills-hub/marketing/marketing-skills/skills/programmatic-seo",
+      "candidates": [
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "competitors",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "launch",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "schema",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "site-architecture",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "seo-audit",
+      "file": "skills-hub/marketing/marketing-skills/skills/seo-audit",
+      "candidates": [
+        {
+          "name": "programmatic-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "analytics",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "competitors",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "image",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "signup-flow-cro",
+      "file": "skills-hub/community/marketing-skills/references/signup-flow-cro",
+      "candidates": [
+        {
+          "name": "form-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "onboarding-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "page-cro",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-components",
+      "file": "skills-hub/community/skyline/references/components",
+      "candidates": [
+        {
+          "name": "skyline-route",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-scroll-api",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-worklet",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-wxss",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-config",
+      "file": "skills-hub/community/skyline/references/config",
+      "candidates": [
+        {
+          "name": "skyline-overview",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-route",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-wxss",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-overview",
+      "file": "skills-hub/community/skyline/references/overview",
+      "candidates": [
+        {
+          "name": "skyline-config",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-route",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-worklet",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-wxss",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-route",
+      "file": "skills-hub/community/skyline/references/route",
+      "candidates": [
+        {
+          "name": "skyline-components",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-config",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-overview",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-worklet",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-scroll-api",
+      "file": "skills-hub/community/skyline/references/scroll-api",
+      "candidates": [
+        {
+          "name": "skyline-components",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-worklet",
+      "file": "skills-hub/community/skyline/references/worklet",
+      "candidates": [
+        {
+          "name": "skyline-components",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-overview",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-route",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-wxss",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skyline-wxss",
+      "file": "skills-hub/community/skyline/references/wxss",
+      "candidates": [
+        {
+          "name": "skyline-components",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-config",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-overview",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "skyline-worklet",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "task-alignment",
+      "file": "skills-hub/community/task-alignment",
+      "candidates": [
+        {
+          "name": "task-implement",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "task-implement",
+      "file": "skills-hub/community/task-implement",
+      "candidates": [
+        {
+          "name": "task-alignment",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vipshop-product-detail",
+      "file": "skills-hub/community/vip-skill/vipshop-product-detail",
+      "candidates": [
+        {
+          "name": "vipshop-product-search",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vipshop-product-search",
+      "file": "skills-hub/community/vip-skill/vipshop-product-search",
+      "candidates": [
+        {
+          "name": "vipshop-product-detail",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/setup-matt-pocock-skills",
+      "candidates": [
+        {
+          "name": "to-issues",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "to-prd",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "triage",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "to-issues",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/to-issues",
+      "candidates": [
+        {
+          "name": "setup-matt-pocock-skills",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "to-prd",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/to-prd",
+      "candidates": [
+        {
+          "name": "setup-matt-pocock-skills",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "triage",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/triage",
+      "candidates": [
+        {
+          "name": "setup-matt-pocock-skills",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ab-testing",
+      "file": "skills-hub/marketing/marketing-skills/skills/ab-testing",
+      "candidates": [
+        {
+          "name": "copywriting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "analytics",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "signup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ad-creative",
+      "file": "skills-hub/marketing/marketing-skills/skills/ad-creative",
+      "candidates": [
+        {
+          "name": "image",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai-seo",
+      "file": "skills-hub/marketing/marketing-skills/skills/ai-seo",
+      "candidates": [
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "content-strategy",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "schema",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "analytics",
+      "file": "skills-hub/marketing/marketing-skills/skills/analytics",
+      "candidates": [
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ab-testing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "revops",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "signup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "churn-prevention",
+      "file": "skills-hub/marketing/marketing-skills/skills/churn-prevention",
+      "candidates": [
+        {
+          "name": "emails",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "paywalls",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "co-marketing",
+      "file": "skills-hub/marketing/marketing-skills/skills/co-marketing",
+      "candidates": [
+        {
+          "name": "launch",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cold-email",
+      "file": "skills-hub/marketing/marketing-skills/skills/cold-email",
+      "candidates": [
+        {
+          "name": "prospecting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "revops",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "competitor-profiling",
+      "file": "skills-hub/marketing/marketing-skills/skills/competitor-profiling",
+      "candidates": [
+        {
+          "name": "prospecting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "competitors",
+      "file": "skills-hub/marketing/marketing-skills/skills/competitors",
+      "candidates": [
+        {
+          "name": "programmatic-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "product-marketing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "sales-enablement",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "content-strategy",
+      "file": "skills-hub/marketing/marketing-skills/skills/content-strategy",
+      "candidates": [
+        {
+          "name": "ai-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "site-architecture",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "customer-research",
+      "file": "skills-hub/marketing/marketing-skills/skills/customer-research",
+      "candidates": [
+        {
+          "name": "marketing-plan",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "prospecting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "emails",
+      "file": "skills-hub/marketing/marketing-skills/skills/emails",
+      "candidates": [
+        {
+          "name": "copywriting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "churn-prevention",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "lead-magnets",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "onboarding",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "popups",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "free-tools",
+      "file": "skills-hub/marketing/marketing-skills/skills/free-tools",
+      "candidates": [
+        {
+          "name": "lead-magnets",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "file": "skills-hub/marketing/marketing-skills/skills/image",
+      "candidates": [
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ad-creative",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "launch",
+      "file": "skills-hub/marketing/marketing-skills/skills/launch",
+      "candidates": [
+        {
+          "name": "marketing-ideas",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "programmatic-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "co-marketing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "sales-enablement",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "social",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lead-magnets",
+      "file": "skills-hub/marketing/marketing-skills/skills/lead-magnets",
+      "candidates": [
+        {
+          "name": "emails",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "free-tools",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "popups",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "marketing-plan",
+      "file": "skills-hub/marketing/marketing-skills/skills/marketing-plan",
+      "candidates": [
+        {
+          "name": "marketing-ideas",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "customer-research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "onboarding",
+      "file": "skills-hub/marketing/marketing-skills/skills/onboarding",
+      "candidates": [
+        {
+          "name": "emails",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "paywalls",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "signup",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "paywalls",
+      "file": "skills-hub/marketing/marketing-skills/skills/paywalls",
+      "candidates": [
+        {
+          "name": "churn-prevention",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "onboarding",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "popups",
+      "file": "skills-hub/marketing/marketing-skills/skills/popups",
+      "candidates": [
+        {
+          "name": "emails",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "lead-magnets",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pricing",
+      "file": "skills-hub/marketing/marketing-skills/skills/pricing",
+      "candidates": [
+        {
+          "name": "copywriting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "marketing-psychology",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ab-testing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "churn-prevention",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "competitors",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "product-marketing",
+      "file": "skills-hub/marketing/marketing-skills/skills/product-marketing",
+      "candidates": [
+        {
+          "name": "competitors",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "prospecting",
+      "file": "skills-hub/marketing/marketing-skills/skills/prospecting",
+      "candidates": [
+        {
+          "name": "cold-email",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "competitor-profiling",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "customer-research",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "revops",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "sales-enablement",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "referrals",
+      "file": "skills-hub/marketing/marketing-skills/skills/referrals",
+      "candidates": [
+        {
+          "name": "marketing-psychology",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "revops",
+      "file": "skills-hub/marketing/marketing-skills/skills/revops",
+      "candidates": [
+        {
+          "name": "analytics",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "cold-email",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "emails",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "prospecting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sales-enablement",
+      "file": "skills-hub/marketing/marketing-skills/skills/sales-enablement",
+      "candidates": [
+        {
+          "name": "competitors",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "launch",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "pricing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "prospecting",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "revops",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "schema",
+      "file": "skills-hub/marketing/marketing-skills/skills/schema",
+      "candidates": [
+        {
+          "name": "programmatic-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "ai-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "site-architecture",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "signup",
+      "file": "skills-hub/marketing/marketing-skills/skills/signup",
+      "candidates": [
+        {
+          "name": "ab-testing",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "analytics",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "onboarding",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "site-architecture",
+      "file": "skills-hub/marketing/marketing-skills/skills/site-architecture",
+      "candidates": [
+        {
+          "name": "programmatic-seo",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "seo-audit",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "content-strategy",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "schema",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "social",
+      "file": "skills-hub/marketing/marketing-skills/skills/social",
+      "candidates": [
+        {
+          "name": "marketing-psychology",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "launch",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "video",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "video",
+      "file": "skills-hub/marketing/marketing-skills/skills/video",
+      "candidates": [
+        {
+          "name": "ad-creative",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "image",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        },
+        {
+          "name": "social",
+          "confidence": 5,
+          "reasons": [
+            "双向提及",
+            "同领域"
+          ]
+        }
+      ]
+    }
+  ]
+}

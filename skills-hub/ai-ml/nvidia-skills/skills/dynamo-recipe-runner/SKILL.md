@@ -15,6 +15,7 @@ metadata:
     - file_read
     - network
     - kubectl_exec
+related_skills: [dynamo-interconnect-check, dynamo-router-starter]
 ---
 
 # Dynamo Recipe Runner

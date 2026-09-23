@@ -30,6 +30,7 @@ metadata:
   stage: 3
   previous_skill: digital-health-clinical-asr-build
   next_skill: digital-health-clinical-asr-finetune
+related_skills: [digital-health-clinical-asr-build, digital-health-clinical-asr-finetune]
 ---
 
 <!--

@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 1.0.0
+related_skills: [cold-email, competitor-profiling, customer-research, revops, sales-enablement]
 ---
 
 # Prospecting

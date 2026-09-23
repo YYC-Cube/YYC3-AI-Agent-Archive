@@ -25,7 +25,7 @@ const { exportMcp } = require('../lib/skills-mcp-export');
 const { scoreCommand } = require('../lib/skills-score-report');
 const { doctorCommand } = require('../lib/doctor');
 const { buildGraph } = require('../lib/skills-graph');
-const { graphCommand } = require('../lib/skills-graph-report');
+const { graphCommand, suggestCommand } = require('../lib/skills-graph-report');
 
 // 设置全局错误处理
 process.on('uncaughtException', (error) => {
@@ -209,6 +209,17 @@ skills
   .option('--json', '仅输出 JSON（不渲染 Markdown）', false)
   .action(async (options) => {
     try { await graphCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+  });
+
+skills
+  .command('graph-suggest')
+  .description('related_skills 显式边补全 — 从隐式提及推导候选（默认 dry-run，--apply 批量写回）')
+  .option('-o, --out <path>', '候选报告输出目录（默认 docs/skill-score）', 'docs/skill-score')
+  .option('--apply', '执行写回 frontmatter（默认 dry-run）', false)
+  .option('--top-n <n>', '每技能候选上限（默认 5）', parseInt)
+  .option('--min-confidence <n>', '置信度下限（默认 4）', parseInt)
+  .action(async (options) => {
+    try { await suggestCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
 // naming 命令组（AYNC 编码）

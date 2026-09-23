@@ -4,6 +4,7 @@ description: Web frontend project development rules. Use this skill when develop
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase, miniprogram-development, ui-design]
 ---
 
 ## Activation Contract

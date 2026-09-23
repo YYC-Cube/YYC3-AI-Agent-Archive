@@ -31,6 +31,7 @@ metadata:
     - fastapi
   domain: ai-ml
 allowed-tools: Read Grep Glob Bash(ls *) Bash(python3 *) Bash(uv *) Bash(cat *) Bash(curl *) Write Edit
+related_skills: [rag-eval]
 ---
 
 # RAG-Perf — config-driven perf benchmark CLI

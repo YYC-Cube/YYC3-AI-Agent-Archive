@@ -5,6 +5,7 @@ description: 向现有调研outline补充字段定义。
 category: development-code
 version: 1.0.0
 allowed-tools: Bash, Read, Write, Glob, WebSearch, Task, AskUserQuestion
+related_skills: [research]
 ---
 
 # Research Add Fields - 补充调研字段

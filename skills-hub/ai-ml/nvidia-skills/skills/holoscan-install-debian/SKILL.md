@@ -13,6 +13,7 @@ metadata:
     - debian
     - apt
     - ubuntu
+related_skills: [holoscan-install-wheel]
 ---
 
 # Holoscan Debian/apt Installation

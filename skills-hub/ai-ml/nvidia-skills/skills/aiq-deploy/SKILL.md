@@ -22,6 +22,7 @@ metadata:
     - operations
     - agent-skills
 allowed-tools: Read Bash
+related_skills: [aiq-research]
 ---
 
 # AIQ Deploy Skill

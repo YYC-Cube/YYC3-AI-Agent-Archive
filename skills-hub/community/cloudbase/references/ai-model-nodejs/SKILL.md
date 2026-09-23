@@ -4,6 +4,7 @@ description: Use this skill when developing Node.js backend services or CloudBas
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase, ai-model-web, ai-model-wechat]
 ---
 
 ## When to use this skill

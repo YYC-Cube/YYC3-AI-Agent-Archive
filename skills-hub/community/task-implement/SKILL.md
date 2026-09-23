@@ -12,6 +12,7 @@ display_name: "task-implement"
 display_name_en: "task-implement"
 visibility: "public"
 icon: "https://codebuddy-platform-1258344699.cos.accelerate.myqcloud.com/public/45edac6b-2078-4678-89f3-6f9800cf5e5f/avatar/skill/au_6f87532c-8a4.png"
+related_skills: [task-alignment]
 ---
 
 # Task Implement

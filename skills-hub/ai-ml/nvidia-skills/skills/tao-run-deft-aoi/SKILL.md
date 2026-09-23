@@ -22,6 +22,7 @@ tags:
 - deft
 - aoi
 - loop
+related_skills: [tao-run-automl-deft-pipeline]
 ---
 
 # Skill: tao-run-deft-aoi

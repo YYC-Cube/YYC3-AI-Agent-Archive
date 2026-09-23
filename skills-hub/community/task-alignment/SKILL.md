@@ -12,6 +12,7 @@ display_name: "task-alignment"
 display_name_en: "task-alignment"
 visibility: "public"
 icon: "https://codebuddy-platform-1258344699.cos.accelerate.myqcloud.com/public/45edac6b-2078-4678-89f3-6f9800cf5e5f/avatar/skill/au_3702c705-6a7.png"
+related_skills: [task-implement]
 ---
 
 # Task Alignment

@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: GPU OOM errors, reducing peak memory, or tracing an OOM regression to a specific commit or config change; 'out of memory', 'OOM', 'memory fragmentation', 'expandable_segments', 'reduce GPU memory', 'PYTORCH_CUDA_ALLOC_CONF'.
+related_skills: [nemo-mbridge-perf-activation-recompute]
 ---
 
 # Memory Tuning

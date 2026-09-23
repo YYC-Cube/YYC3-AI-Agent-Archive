@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.0
+related_skills: [competitors, launch, pricing, prospecting, revops]
 ---
 
 # Sales Enablement

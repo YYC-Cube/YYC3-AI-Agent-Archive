@@ -4,6 +4,7 @@ description: CloudBase Run backend development rules (Function mode/Container mo
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase]
 ---
 
 ## When to use this skill

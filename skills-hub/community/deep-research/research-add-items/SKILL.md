@@ -5,6 +5,7 @@ description: 向现有调研outline补充items（调研对象）。
 category: development-code
 version: 1.0.0
 allowed-tools: Bash, Read, Write, Glob, WebSearch, Task, AskUserQuestion
+related_skills: [research]
 ---
 
 # Research Add Items - 补充调研对象

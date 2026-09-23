@@ -36,6 +36,7 @@ metadata:
     - bash
     - hcl
     - yaml
+related_skills: [physical-ai-defect-image-generation, physical-ai-video-data-augmentation]
 ---
 
 # Physical AI Infrastructure Setup And Resilient Scaling

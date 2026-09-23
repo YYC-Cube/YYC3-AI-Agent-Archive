@@ -31,6 +31,7 @@ metadata:
   stage: 4
   previous_skill: digital-health-clinical-asr-eval
   next_skill: riva-asr-custom
+related_skills: [digital-health-clinical-asr-build, digital-health-clinical-asr-eval]
 ---
 
 <!--

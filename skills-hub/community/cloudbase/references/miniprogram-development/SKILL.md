@@ -4,6 +4,7 @@ description: WeChat Mini Program development skill for building, debugging, prev
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase, ui-design, web-development]
 ---
 
 ## Activation Contract

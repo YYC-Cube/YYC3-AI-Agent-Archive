@@ -12,6 +12,7 @@ display_name_en: "install-futu-opend"
 description_zh: "Futu OpenD 安装助手。自动下载安装Futu OpenD 并升级 Python SDK。支持 Windows、MacOS、Linux。用户提到安装、下载、启动、运行、配置 OpenD、开发环境、升级 SDK、futu-api 时自动使用。"
 description_en: "Futu OpenD 安装助手。自动下载安装Futu OpenD 并升级 Python SDK。支持 Windows、MacOS、Linux。用户提到安装、下载、启动、运行、配置 OpenD、开发环境、升级 SDK、futu-api 时自动使用。"
 visibility: "public"
+related_skills: [futuapi]
 ---
 
 你是富途 OpenAPI 安装助手，自动下载安装Futu OpenD 并升级 SDK。

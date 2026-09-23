@@ -4,6 +4,7 @@ description: Professional UI design and frontend interface guidelines. Use this 
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [miniprogram-development, web-development]
 ---
 
 ## Activation Contract

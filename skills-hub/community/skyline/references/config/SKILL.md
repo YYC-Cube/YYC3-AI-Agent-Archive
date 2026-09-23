@@ -3,6 +3,7 @@ name: skyline-config
 description: Skyline 小程序 JSON 配置规范技能。涵盖 app.json 全局配置（renderer、rendererOptions、componentFramework）、页面 json 配置（navigationStyle、disableScroll）、project.config.json 项目配置。适用于创建新 Skyline 项目、迁移 WebView 项目、配置混合渲染。触发关键词：app.json、页面配置、renderer、rendererOptions、skyline配置、navigationStyle、disableScroll、componentFramework、glass-easel、project.config.json。
 category: development-code
 version: 1.0.0
+related_skills: [skyline-overview, skyline-route, skyline-wxss]
 ---
 
 # Skyline JSON 配置规范

@@ -23,6 +23,7 @@ allowed-tools: Read Skill Bash Write
 tags:
 - tao
 - applications
+related_skills: [tao-run-deft-aoi]
 ---
 
 # AutoML + DEFT Pipeline

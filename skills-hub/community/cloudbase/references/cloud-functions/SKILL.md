@@ -4,6 +4,7 @@ description: Complete guide for CloudBase cloud functions development - supports
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase]
 ---
 
 # Cloud Functions Development

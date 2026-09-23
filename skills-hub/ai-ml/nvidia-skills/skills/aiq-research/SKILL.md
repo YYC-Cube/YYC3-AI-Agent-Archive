@@ -30,6 +30,7 @@ metadata:
     - bash
   domain: "research-agents"
 allowed-tools: Read Bash
+related_skills: [aiq-deploy]
 ---
 
 # AIQ Research Skill

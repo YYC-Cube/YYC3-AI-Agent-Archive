@@ -4,6 +4,7 @@ description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs
 category: development-code
 version: 1.0.0
 disable-model-invocation: true
+related_skills: [to-issues, to-prd, triage]
 ---
 
 # Setup Matt Pocock's Skills

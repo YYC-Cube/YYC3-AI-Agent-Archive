@@ -5,6 +5,7 @@ description: Brev instance operating guidance for NeMo-RL agents working in /hom
 category: development-code
 version: 1.0.0
 when_to_use: Running on a Brev instance; launching nemo-rl-auto-research campaigns or long jobs; managing large logs, checkpoints, caches, datasets, Ray temp files, W&B files, or Hugging Face auth on Brev.
+related_skills: [nemo-rl-auto-research]
 ---
 
 # Brev Etiquette

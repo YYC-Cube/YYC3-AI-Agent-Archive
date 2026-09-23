@@ -8,6 +8,7 @@ metadata:
   version: "3.2.0"
   github-url: "https://github.com/NVIDIA-AI-Blueprints/video-search-and-summarization"
   tags: "nvidia blueprint operational"
+related_skills: [vss-ask-video, vss-generate-video-report, vss-search-archive, vss-summarize-video]
 ---
 ## Purpose
 

@@ -13,6 +13,7 @@ metadata:
     - pip
     - wheel
     - python
+related_skills: [holoscan-install-debian]
 ---
 
 # Holoscan pip Wheel Installation

@@ -5,6 +5,7 @@ description: "Autonomous NeMo-RL research agent workflow for directed hypothesis
 category: development-code
 version: 1.0.0
 when_to_use: auto research; run experiments; test these hypotheses; find a better recipe; improve accuracy; long-running NeMo-RL or NeMo-gym research campaigns; autonomous discovery; directed execution.
+related_skills: [nemo-rl-brev-etiquette]
 ---
 
 # Auto Research

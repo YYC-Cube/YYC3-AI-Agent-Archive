@@ -9,6 +9,7 @@ metadata:
   author: "NVIDIA Video Search and Summarization team"
   github-url: "https://github.com/NVIDIA-AI-Blueprints/video-search-and-summarization"
   tags: "nvidia blueprint operational"
+related_skills: [vss-ask-video, vss-manage-alerts, vss-manage-video-io-storage, vss-query-analytics, vss-summarize-video]
 ---
 
 # Report

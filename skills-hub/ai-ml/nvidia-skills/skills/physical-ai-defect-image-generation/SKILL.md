@@ -22,6 +22,7 @@ metadata:
     - aoi
     - anomalygen
     - usd2roi
+related_skills: [physical-ai-infrastructure-setup-and-resilient-scaling]
 ---
 
 # Physical AI Defect Image Generation Workflow Orchestrator

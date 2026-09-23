@@ -31,6 +31,7 @@ metadata:
   stage: 2
   previous_skill: digital-health-clinical-asr-setup
   next_skill: digital-health-clinical-asr-eval
+related_skills: [digital-health-clinical-asr-eval, digital-health-clinical-asr-finetune, digital-health-clinical-asr-setup]
 ---
 
 <!--

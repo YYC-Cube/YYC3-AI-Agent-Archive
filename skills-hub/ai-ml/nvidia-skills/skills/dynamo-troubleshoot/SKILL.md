@@ -11,6 +11,7 @@ metadata:
     - kubernetes
     - troubleshooting
     - day-2
+related_skills: [dynamo-interconnect-check]
 ---
 
 # Dynamo Troubleshoot

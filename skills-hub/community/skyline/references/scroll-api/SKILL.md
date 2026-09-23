@@ -3,6 +3,7 @@ name: skyline-scroll-api
 description: Skyline 滚动控制 API 技能。涵盖 ScrollViewContext（程序化下拉刷新、下拉二级、滚动定位）、DraggableSheetContext（半屏面板程序化滚动）、worklet.scrollViewContext（UI 线程直接控制滚动）。适用于程序化触发刷新/二级、控制 DraggableSheet 位置、在 worklet 中操作滚动。触发关键词：ScrollViewContext、DraggableSheetContext、scrollTo、triggerRefresh、triggerTwoLevel、下拉刷新API、下拉二级API、滚动API、worklet scrollViewContext。
 category: development-code
 version: 1.0.0
+related_skills: [skyline-components]
 ---
 
 # Skyline 滚动控制 API

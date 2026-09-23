@@ -21,6 +21,7 @@ tags:
 - training
 - optimization
 - llm
+related_skills: [tao-train-single-step]
 ---
 
 # TAO AutoML Skill

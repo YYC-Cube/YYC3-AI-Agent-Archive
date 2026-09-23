@@ -4,6 +4,7 @@ description: CloudBase platform knowledge and best practices. Use this skill for
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase]
 ---
 
 ## When to use this skill

@@ -4,6 +4,7 @@ description: Use this skill when developing browser/Web applications (React/Vue/
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase, ai-model-nodejs, ai-model-wechat]
 ---
 
 ## When to use this skill

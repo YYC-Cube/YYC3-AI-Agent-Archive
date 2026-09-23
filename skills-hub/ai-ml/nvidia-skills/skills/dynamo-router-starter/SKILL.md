@@ -11,6 +11,7 @@ metadata:
     - router
     - smoke-test
     - bring-up
+related_skills: [dynamo-recipe-runner]
 ---
 
 # Dynamo Router Starter

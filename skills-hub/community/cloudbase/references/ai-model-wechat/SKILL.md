@@ -4,6 +4,7 @@ description: Use this skill when developing WeChat Mini Programs (小程序, 企
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [ai-model-nodejs, ai-model-web]
 ---
 
 ## When to use this skill

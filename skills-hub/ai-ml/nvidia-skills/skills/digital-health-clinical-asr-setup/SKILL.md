@@ -27,6 +27,7 @@ metadata:
   domain: ai-ml
   stage: 1
   next_skill: digital-health-clinical-asr-build
+related_skills: [digital-health-clinical-asr-build]
 ---
 
 <!--

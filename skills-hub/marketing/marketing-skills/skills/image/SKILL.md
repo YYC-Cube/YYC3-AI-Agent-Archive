@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.1
+related_skills: [seo-audit, ad-creative, video]
 ---
 
 # Image

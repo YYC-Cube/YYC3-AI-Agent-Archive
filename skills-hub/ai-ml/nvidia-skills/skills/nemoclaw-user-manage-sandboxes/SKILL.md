@@ -4,6 +4,7 @@ description: "Explains operational tasks after the quickstart: listing sandboxes
 category: development-code
 version: 1.0.0
 license: "Apache-2.0"
+related_skills: [nemoclaw-user-get-started]
 ---
 
 <!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
