@@ -24,6 +24,8 @@ const { generateAyncIndex } = require('../lib/skills-aync-index');
 const { exportMcp } = require('../lib/skills-mcp-export');
 const { scoreCommand } = require('../lib/skills-score-report');
 const { doctorCommand } = require('../lib/doctor');
+const { buildGraph } = require('../lib/skills-graph');
+const { graphCommand } = require('../lib/skills-graph-report');
 
 // 设置全局错误处理
 process.on('uncaughtException', (error) => {
@@ -200,6 +202,15 @@ skills
     try { await scoreCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });
 
+skills
+  .command('graph')
+  .description('关联维度图分析 — 技能引用图谱（显式/隐式边 + 连通性 + hub 排名 + 领域簇）')
+  .option('-o, --out <path>', '报告输出目录（默认 docs/skill-score）', 'docs/skill-score')
+  .option('--json', '仅输出 JSON（不渲染 Markdown）', false)
+  .action(async (options) => {
+    try { await graphCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
+  });
+
 // naming 命令组（AYNC 编码）
 const naming = skills.command('naming').description('命名规范工具（AYNC 编码）');
 
@@ -223,7 +234,7 @@ naming
 // doctor 命令（质量门禁）
 program
   .command('doctor')
-  .description('五检聚合质量门禁（validate/dedup/score/registry/example），CI 退出码语义')
+  .description('六检聚合质量门禁（validate/dedup/score/registry/graph/example），CI 退出码语义')
   .option('--json', '附加输出 JSON 结果', false)
   .option('--skip-example', '跳过 example 构建检（CI 已单独覆盖时）', false)
   .option('--advisory', '建议模式：问题仅报告不阻断（新检查灰度期用）', false)

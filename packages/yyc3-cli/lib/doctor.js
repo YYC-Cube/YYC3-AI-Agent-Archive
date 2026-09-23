@@ -20,6 +20,8 @@ const ROOT = path.resolve(__dirname, '../../..');
 const GATES = {
   dedup: { genuineWarn: 3600, genuineFail: 4000 },
   score: { avgDropMax: 2, minAvg: 78 }, // 均分下降 >2 或绝对值 <78 → fail
+  // 关联维度（v2.6.0 数据积累期）：孤立率 >25% 仅 WARN（信息性，不阻断）
+  graph: { isolatedWarnRatio: 0.25 },
   // 固定基线优先（版本固化，报告更新不漂移）；缺失时回落最近报告
   baseline: 'docs/skill-score/baseline-v2.5.0.json',
   baselineFallback: 'docs/skill-score/score-report.json',
@@ -114,6 +116,27 @@ function checkRegistry() {
 }
 
 /**
+ * 关联维度图分析（v2.6.0 数据积累期）— 信息性检查：孤立率告警不阻断
+ */
+async function checkGraph() {
+  const { buildGraph } = require('./skills-graph');
+  const g = await buildGraph({});
+  const s = g.summary;
+  const isolatedRatio = s.totalNodes ? s.isolatedNodes / s.totalNodes : 0;
+  return {
+    gate: true, // 积累期永不阻断；孤立率超阈仅 WARN
+    warn: isolatedRatio > GATES.graph.isolatedWarnRatio,
+    isolatedRatio: +isolatedRatio.toFixed(4),
+    totalNodes: s.totalNodes,
+    totalEdges: s.totalEdges,
+    explicitEdges: s.explicitEdges,
+    isolatedNodes: s.isolatedNodes,
+    components: s.components,
+    topHub: g.hubs[0] ? g.hubs[0].name : null,
+  };
+}
+
+/**
  * Example 构建（vite-react-zh-cn）— 本地即可捕获 off-by-one 链接 / i18n API 漂移
  * 前置：packages/yyc3-i18n 需已构建（dist/ 存在）；依赖独立 node_modules
  */
@@ -167,6 +190,11 @@ function writeJobSummary(checks, failed) {
     for (const w of sr.worst) lines.push(`| ${w.file} | ${w.score} | ${w.grade} |`);
     lines.push('', '</details>');
   }
+  const graphChk = checks.find((c) => c.name === 'graph');
+  const gr = (graphChk && graphChk.result) || {};
+  if (gr.totalNodes) {
+    lines.push('', '**关联维度（信息性）**:', `- ${gr.totalNodes} 节点 / ${gr.totalEdges} 边（显式 ${gr.explicitEdges}）· 孤立率 ${(gr.isolatedRatio * 100).toFixed(1)}% · ${gr.components} 连通分量 · top hub: \`${gr.topHub}\``);
+  }
   fs.appendFileSync(summaryPath, lines.join('\n') + '\n');
 }
 
@@ -176,7 +204,7 @@ function writeJobSummary(checks, failed) {
 async function doctorCommand(options = {}) {
   options = options || {};
   console.log('╔══════════════════════════════════════════════════╗');
-  console.log('║  YYC³ Doctor — 质量门禁（validate/dedup/score/registry/example）  ║');
+  console.log('║  YYC³ Doctor — 质量门禁（validate/dedup/score/registry/graph/example）  ║');
   console.log('╚══════════════════════════════════════════════════╝\n');
 
   const checks = [
@@ -184,6 +212,7 @@ async function doctorCommand(options = {}) {
     await runCheck('dedup', checkDedup),
     await runCheck('score', checkScore),
     await runCheck('registry', checkRegistry),
+    await runCheck('graph', checkGraph),
   ];
   // example 检默认开启（--skip-example 跳过，CI 已单独覆盖时可用）
   if (!options.skipExample) {
