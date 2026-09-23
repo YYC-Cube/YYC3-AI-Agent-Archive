@@ -189,6 +189,71 @@ jobs:
             docker push "${IMG}:latest"
           done
 
+  baseline-advance:
+    name: 评分基线随版本推进（gen-baseline + doctor GATES 同步）
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout（全量历史 — 活跃度维度依赖 90 天 git log）
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate baseline-v${TAG_VERSION}.json
+        env:
+          TAG_VERSION: ${{ github.ref_name }}
+        run: node scripts/gen-baseline-v2.5.0.cjs --next "${TAG_VERSION#v}"
+
+      - name: Point doctor GATES.baseline to new file
+        env:
+          TAG_VERSION: ${{ github.ref_name }}
+        run: |
+          VER="${TAG_VERSION#v}"
+          FILE="docs/skill-score/baseline-${VER}.json"
+          sed -i.bak "s#baseline: 'docs/skill-score/baseline-[^']*'#baseline: '${FILE}'#" packages/yyc3-cli/lib/doctor.js && rm packages/yyc3-cli/lib/doctor.js.bak
+          grep -n "baseline:" packages/yyc3-cli/lib/doctor.js | head -2
+
+      - name: Update doctor test baseline assertion
+        env:
+          TAG_VERSION: ${{ github.ref_name }}
+        run: |
+          VER="${TAG_VERSION#v}"
+          FILE="docs/skill-score/baseline-${VER}.json"
+          sed -i.bak "s#expect(GATES.baseline).toBe('[^']*')#expect(GATES.baseline).toBe('${FILE}')#" packages/yyc3-cli/__tests__/doctor.test.js && rm packages/yyc3-cli/__tests__/doctor.test.js.bak
+          sed -i.bak "s#expect(data.version).toBe('[^']*')#expect(data.version).toBe('${VER}')#" packages/yyc3-cli/__tests__/doctor.test.js && rm packages/yyc3-cli/__tests__/doctor.test.js.bak
+
+      - name: Create PR（人工确认合入）
+        env:
+          TAG_VERSION: ${{ github.ref_name }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VER="${TAG_VERSION#v}"
+          BRANCH="chore/baseline-${VER}"
+          git config user.name "yyc3-bot"
+          git config user.email "admin@0379.email"
+          git checkout -b "$BRANCH"
+          git add "docs/skill-score/baseline-${VER}.json" packages/yyc3-cli/lib/doctor.js packages/yyc3-cli/__tests__/doctor.test.js
+          git commit -m "chore(baseline): advance to v${VER} — post-release quality gate baseline"
+          git push origin "$BRANCH"
+          gh pr create --title "chore(baseline): advance score baseline to v${VER}" \
+            --body "Release v${VER} 发布后自动推进评分基线（gen-baseline + doctor GATES 同步）。合并后 doctor 门禁以新基线为准。" \
+            --base main
+
   github-release:
     name: GitHub Release
     runs-on: ubuntu-latest

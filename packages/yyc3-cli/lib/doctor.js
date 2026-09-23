@@ -114,12 +114,37 @@ function checkRegistry() {
 }
 
 /**
+ * Example 构建（vite-react-zh-cn）— 本地即可捕获 off-by-one 链接 / i18n API 漂移
+ * 前置：packages/yyc3-i18n 需已构建（dist/ 存在）；依赖独立 node_modules
+ */
+function checkExample() {
+  const exampleDir = path.join(ROOT, 'packages/yyc3-i18n/examples/vite-react-zh-cn');
+  const dist = path.join(ROOT, 'packages/yyc3-i18n/dist/index.js');
+  if (!require('fs').existsSync(dist)) {
+    return { gate: false, skipped: true, error: `i18n dist 未构建（${path.relative(ROOT, dist)}）— 先运行 pnpm build` };
+  }
+  const run = (cmd, args, opts = {}) => spawnSync(cmd, args, { cwd: exampleDir, encoding: 'utf-8', timeout: 300_000, ...opts });
+  // install 独立于 workspace lockfile（--ignore-workspace）
+  const inst = run('pnpm', ['install', '--frozen-lockfile', '--ignore-workspace', '--prefer-offline']);
+  if (inst.status !== 0) {
+    return { gate: false, error: 'install failed:\n' + (inst.stderr || inst.stdout || '').split('\n').slice(-5).join('\n') };
+  }
+  const build = run('pnpm', ['run', 'build']);
+  const tail = (build.stdout || '').trim().split('\n').slice(-3).join('\n');
+  return {
+    gate: build.status === 0,
+    output: tail,
+    error: build.status !== 0 ? (build.stderr || tail || 'unknown error') : null,
+  };
+}
+
+/**
  * doctor 主入口：四检聚合，返回整体退出码
  */
 async function doctorCommand(options = {}) {
   options = options || {};
   console.log('╔══════════════════════════════════════════════════╗');
-  console.log('║  YYC³ Doctor — 质量门禁（validate/dedup/score/registry）  ║');
+  console.log('║  YYC³ Doctor — 质量门禁（validate/dedup/score/registry/example）  ║');
   console.log('╚══════════════════════════════════════════════════╝\n');
 
   const checks = [
@@ -128,6 +153,10 @@ async function doctorCommand(options = {}) {
     await runCheck('score', checkScore),
     await runCheck('registry', checkRegistry),
   ];
+  // example 检默认开启（--skip-example 跳过，CI 已单独覆盖时可用）
+  if (!options.skipExample) {
+    checks.push(await runCheck('example', () => checkExample()));
+  }
 
   console.log('\n────────────── 门禁汇总 ──────────────');
   let failed = false;

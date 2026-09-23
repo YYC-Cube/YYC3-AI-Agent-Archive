@@ -49,14 +49,8 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Example build（vite-react-zh-cn，防 off-by-one/API 漂移回潮）
-        run: |
-          cd packages/yyc3-i18n/examples/vite-react-zh-cn
-          pnpm install --frozen-lockfile --ignore-workspace
-          pnpm build
-
   doctor:
-    name: Doctor 质量门禁（validate / dedup / score / registry）
+    name: Doctor 质量门禁（validate / dedup / score / registry / example）
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -77,7 +71,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Doctor 四检聚合门禁
+      - name: Build i18n（example 检依赖 dist）
+        run: pnpm --filter @yyc3/i18n-core build
+
+      - name: Doctor 五检聚合门禁（example 检在 doctor 内）
         run: pnpm run doctor
 
   coverage:

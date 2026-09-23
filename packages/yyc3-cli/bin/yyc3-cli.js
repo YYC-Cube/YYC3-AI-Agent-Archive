@@ -223,8 +223,9 @@ naming
 // doctor 命令（质量门禁）
 program
   .command('doctor')
-  .description('四检聚合质量门禁（validate/dedup/score/registry），CI 退出码语义')
+  .description('五检聚合质量门禁（validate/dedup/score/registry/example），CI 退出码语义')
   .option('--json', '附加输出 JSON 结果', false)
+  .option('--skip-example', '跳过 example 构建检（CI 已单独覆盖时）', false)
   .action(async (options) => {
     try { await doctorCommand(options); } catch (e) { console.error('Error:', e.message); process.exit(1); }
   });

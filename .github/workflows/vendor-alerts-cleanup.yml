@@ -1,0 +1,34 @@
+name: Vendor Alerts Cleanup
+
+# 说明：dependabot.yml 仅能豁免「版本更新 PR」；GitHub 安全告警会扫描全仓
+# 所有 lockfile（含 vendor 参考资产）。本工作流按周自动 dismiss vendor 告警，
+# 保持 open=0 免人工介入。核心 workspace（packages/ + 根）告警永不 dismiss。
+on:
+  schedule:
+    - cron: '0 3 * * 1' # 每周一 03:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  dismiss:
+    name: Dismiss vendor Dependabot alerts（dry-run 报告 + apply）
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Dismiss vendor alerts（保留核心 workspace）
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/dismiss-vendor-alerts.mjs --apply --yes
+
+      - name: Summary
+        run: |
+          echo "## Vendor Alerts Cleanup" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 核心 workspace（packages/ + 根）告警：**保留跟踪**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- vendor 参考资产告警：tolerable_risk dismiss（含审计注释）" >> "$GITHUB_STEP_SUMMARY"
