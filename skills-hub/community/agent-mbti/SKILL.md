@@ -5,6 +5,7 @@ category: development-code
 description_zh: "基于 MBTI 框架的 AI Agent 人格诊断与配置系统"
 description_en: "AI Agent personality diagnosis and configuration based on MBTI framework"
 version: 0.1.1
+related_skills: [cloudbase-agent, macos-design, hsb-app, ai-shifu-course-creator, boss-skills]
 ---
 
 # Agent MBTI - 人格诊断系统

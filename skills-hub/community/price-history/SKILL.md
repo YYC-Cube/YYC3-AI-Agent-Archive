@@ -9,6 +9,7 @@ display_name_en: "Price History Checker"
 description_zh: "封装慢慢买（manmanbuy.com）官方 MCP，按关键词搜索全网商品的参考好价、实时价格与隐藏优惠券，并基于返回数据判断当前价是否真实划算、识别先涨后降的虚假促销。纯只读，不替用户下单或领券；导购/返利链接如实披露。"
 description_en: "Wraps the Manmanbuy MCP to search reference deal prices, real-time prices and hidden coupons across Chinese e-commerce, then judges whether a current price is a genuine low or a fake 'raise-then-cut' promotion. Read-only, with full disclosure of affiliate links."
 visibility: "public"
+related_skills: [shopping-price-drop-coupon-scout, vipshop-product-search, vipshop-promotion-search, tencent-campus-recruit, tencent-music-campus-recruit]
 ---
 
 # 历史价格查询助手

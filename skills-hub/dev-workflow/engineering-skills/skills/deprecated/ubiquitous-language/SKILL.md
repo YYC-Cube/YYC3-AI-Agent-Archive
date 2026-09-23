@@ -4,6 +4,7 @@ description: Extract a DDD-style ubiquitous language glossary from the current c
 category: development-code
 version: 1.0.0
 disable-model-invocation: true
+related_skills: [grill-with-docs, qa, improve-codebase-architecture, awesome-design-md, llm-wiki]
 ---
 
 # Ubiquitous Language

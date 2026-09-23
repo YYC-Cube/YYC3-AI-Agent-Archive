@@ -1189,7 +1189,12 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "Apache-2.0",
-        "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/mcore-linting-and-formatting/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/ai-ml/nvidia-skills/skills/mcore-linting-and-formatting/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "mcore-run-on-slurm",
+          "mcore-testing",
+          "nemo-mbridge-mlm-bridge-training"
+        ]
       }
     },
     {
@@ -3905,7 +3910,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/delivery-queue",
       "_meta": {
         "io.github.yyc-cube/category": "b2b",
-        "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/delivery-queue/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/delivery-queue/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "sdr-humanizer"
+        ]
       }
     },
     {
@@ -4017,7 +4025,13 @@
       "website": "https://ai-agent.yyc3.vip/skill/12306",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/12306/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/12306/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "globepilot-ai-agent-2",
+          "tencent-weather",
+          "12306-train-assistant",
+          "aviationstack-flight-tracker"
+        ]
       }
     },
     {
@@ -4146,7 +4160,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/agent-mbti",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/agent-mbti/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/agent-mbti/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cloudbase-agent",
+          "macos-design",
+          "hsb-app",
+          "ai-shifu-course-creator",
+          "boss-skills"
+        ]
       }
     },
     {
@@ -4194,7 +4215,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/aihot",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/aihot/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/aihot/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "tencent-esign-contract",
+          "wechat-article-search",
+          "tencent-news",
+          "qcc-company",
+          "tencentos-expert"
+        ]
       }
     },
     {
@@ -4249,7 +4277,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/andonq",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/andonq/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/andonq/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cloudq",
+          "tencent-meeting-skill",
+          "tapd-openapi",
+          "tencent-news",
+          "tencent-docs"
+        ]
       }
     },
     {
@@ -4330,7 +4365,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/apple-reminders",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/apple-reminders/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/apple-reminders/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "apple-notes",
+          "things-mac",
+          "himalaya",
+          "hsb-app",
+          "vss-manage-video-io-storage"
+        ]
       }
     },
     {
@@ -4510,7 +4552,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/browser",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/browser/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/browser/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "ai-model-wechat",
+          "agent-browser-core",
+          "browser-use",
+          "ai-model-nodejs",
+          "ai-model-web"
+        ]
       }
     },
     {
@@ -4843,7 +4892,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/auth-web-cloudbase",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-web/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-web/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "auth-tool-cloudbase"
+        ]
       }
     },
     {
@@ -5181,7 +5233,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/cloudq",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/cloudq/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/cloudq/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "andonq",
+          "migraq",
+          "tencentos-expert",
+          "tencent-meeting-skill",
+          "tencent-ssv-techforgood"
+        ]
       }
     },
     {
@@ -5317,7 +5376,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/cos-vectors",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/cos-vectors/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/cos-vectors/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "tencent-meeting-skill",
+          "tencentcloud-cos",
+          "tencent-docs",
+          "lexiang-knowledge-base",
+          "tencentcloud-cls"
+        ]
       }
     },
     {
@@ -5356,7 +5422,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/ctrip-wendao",
       "_meta": {
         "io.github.yyc-cube/category": "生活服务",
-        "io.github.yyc-cube/source": "skills-hub/community/ctrip-wendao/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/ctrip-wendao/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "12306-train-assistant",
+          "didi-ride-skill",
+          "meituan-coupon-workbuddy",
+          "qcc-company",
+          "tencent-esign-contract"
+        ]
       }
     },
     {
@@ -5666,7 +5739,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/ecommerce-copywriter",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/ecommerce-copywriter/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/ecommerce-copywriter/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "maishou",
+          "vip-skill",
+          "vipshop-product-search",
+          "vipshop-promotion-search",
+          "haina-shopping-assistant"
+        ]
       }
     },
     {
@@ -5842,7 +5922,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/fbs-bookwriter",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/fbs-bookwriter/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/fbs-bookwriter/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "novel-writing",
+          "tencent-docs",
+          "tencentcloud-ocr",
+          "tencentos-expert",
+          "aihot"
+        ]
       }
     },
     {
@@ -5874,7 +5961,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/fintech-engineer",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/fintech-engineer/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/fintech-engineer/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "lark-unified",
+          "stealth-browser",
+          "churn-prevention",
+          "mcp-builder",
+          "minimax-xlsx"
+        ]
       }
     },
     {
@@ -6064,7 +6158,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/github",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/github/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/github/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cnb-skill",
+          "setup-matt-pocock-skills",
+          "mcore-create-issue",
+          "github-trending-cn",
+          "multi-search-engine"
+        ]
       }
     },
     {
@@ -6176,7 +6277,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/grill-me",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/grill-me/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/grill-me/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "ab-test-setup",
+          "grill-with-docs",
+          "ab-testing",
+          "site-architecture",
+          "analytics-tracking"
+        ]
       }
     },
     {
@@ -6287,7 +6395,11 @@
       "website": "https://ai-agent.yyc3.vip/skill/handoff",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/handoff/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/handoff/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "agent-team-orchestration",
+          "task-alignment"
+        ]
       }
     },
     {
@@ -6374,7 +6486,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/idea-validator",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/idea-validator/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/idea-validator/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "marketing-plan"
+        ]
       }
     },
     {
@@ -6422,7 +6537,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/notes",
       "_meta": {
         "io.github.yyc-cube/category": "document-processing",
-        "io.github.yyc-cube/source": "skills-hub/community/ima-skills/notes/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/ima-skills/notes/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "docx",
+          "ad-creative",
+          "product-marketing",
+          "pptx",
+          "obsidian-markdown"
+        ]
       }
     },
     {
@@ -6471,7 +6593,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/imsg",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/imsg/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/imsg/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "wacli"
+        ]
       }
     },
     {
@@ -6556,7 +6681,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "MIT",
-        "io.github.yyc-cube/source": "skills-hub/community/jinshuju/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/jinshuju/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "seo-audit",
+          "signup-flow-cro",
+          "signup",
+          "copy-editing",
+          "form-cro"
+        ]
       }
     },
     {
@@ -7311,7 +7443,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/md-to-pdf-cjk",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/md-to-pdf-cjk/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/md-to-pdf-cjk/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "markitdown-skill",
+          "nemo-retriever",
+          "quotation-generator",
+          "clawbrowser",
+          "docx"
+        ]
       }
     },
     {
@@ -7365,7 +7504,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/migraq",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/migraq/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/migraq/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cloudq",
+          "tencent-campus-recruit",
+          "tencent-music-campus-recruit",
+          "tencentcloud-cls",
+          "haina-shopping-assistant"
+        ]
       }
     },
     {
@@ -7540,7 +7686,11 @@
       "website": "https://ai-agent.yyc3.vip/skill/notion",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/notion/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/notion/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "lark-unified",
+          "notion-automation"
+        ]
       }
     },
     {
@@ -7684,7 +7834,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/openai-whisper",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/openai-whisper/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/openai-whisper/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cuopt-numerical-optimization-formulation",
+          "airbnb",
+          "edgeone",
+          "flights",
+          "weather"
+        ]
       }
     },
     {
@@ -7834,7 +7991,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/perplexity",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/perplexity/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/perplexity/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "ai-model-wechat",
+          "ai-model-nodejs",
+          "cloudbase-agent",
+          "tavily",
+          "ai-seo"
+        ]
       }
     },
     {
@@ -7930,7 +8094,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/price-history",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/price-history/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/price-history/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "shopping-price-drop-coupon-scout",
+          "vipshop-product-search",
+          "vipshop-promotion-search",
+          "tencent-campus-recruit",
+          "tencent-music-campus-recruit"
+        ]
       }
     },
     {
@@ -7994,7 +8165,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/promo-brief",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-brief/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-brief/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "promo-workflow",
+          "promo-creator-skills",
+          "libtv-skill",
+          "promo-music-maker",
+          "promo-storyboard"
+        ]
       }
     },
     {
@@ -8042,7 +8220,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/promo-storyboard",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-storyboard/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-storyboard/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "promo-editor",
+          "libtv-skill",
+          "promo-brief",
+          "promo-creator-skills",
+          "promo-music-maker"
+        ]
       }
     },
     {
@@ -8093,7 +8278,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/qcc-company",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/qcc-company/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/qcc-company/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "didi-ride-skill",
+          "libtv-skill",
+          "vipshop-product-detail",
+          "vipshop-promotion-search",
+          "vipshop-product-search"
+        ]
       }
     },
     {
@@ -8125,7 +8317,13 @@
       "website": "https://ai-agent.yyc3.vip/skill/qqmusic",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/qqmusic/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/qqmusic/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "admapix",
+          "globepilot-ai-agent-2",
+          "tencent-campus-recruit",
+          "tencent-music-campus-recruit"
+        ]
       }
     },
     {
@@ -8142,7 +8340,10 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "MIT",
-        "io.github.yyc-cube/source": "skills-hub/community/react-native-dev/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/react-native-dev/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "flutter-dev"
+        ]
       }
     },
     {
@@ -8286,7 +8487,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/setup-pre-commit",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/setup-pre-commit/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/setup-pre-commit/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "git-guardrails-claude-code",
+          "cloudflare-worker-builder",
+          "analytics",
+          "aviationstack-flight-tracker",
+          "analytics-tracking"
+        ]
       }
     },
     {
@@ -8357,7 +8565,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/shopping-price-drop-coupon-scout",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/shopping-price-drop-coupon-scout/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/shopping-price-drop-coupon-scout/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "price-history",
+          "maishou",
+          "haina-shopping-assistant",
+          "meituan-coupon-workbuddy",
+          "vipshop-product-detail"
+        ]
       }
     },
     {
@@ -8762,7 +8977,13 @@
       "website": "https://ai-agent.yyc3.vip/skill/summarize",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/summarize/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/summarize/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "markitdown-skill",
+          "nemo-retriever",
+          "notebooklm-studio",
+          "workrally"
+        ]
       }
     },
     {
@@ -8778,7 +8999,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/maishou",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/taobao/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/taobao/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "vipshop-product-search",
+          "vipshop-promotion-search",
+          "shopping-price-drop-coupon-scout",
+          "vip-skill",
+          "price-history"
+        ]
       }
     },
     {
@@ -8794,7 +9022,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/tapd-openapi",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/tapd-openapi/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tapd-openapi/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "lexiang-knowledge-base",
+          "kdocs",
+          "tencent-meeting-skill",
+          "tencent-docs",
+          "tencent-news"
+        ]
       }
     },
     {
@@ -8864,7 +9099,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/tdd",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/tdd/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tdd/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "diagnose",
+          "programmatic-seo",
+          "migrate-to-shoehorn",
+          "ab-testing",
+          "analytics"
+        ]
       }
     },
     {
@@ -9002,7 +9244,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/tencent-music-campus-recruit",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/tencent-music-campus-recruit/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tencent-music-campus-recruit/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "tencent-campus-recruit"
+        ]
       }
     },
     {
@@ -9034,7 +9279,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/tencent-news",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/tencent-news/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tencent-news/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "wechat-article-search",
+          "aihot",
+          "qcc-company",
+          "tapd-openapi",
+          "andonq"
+        ]
       }
     },
     {
@@ -9050,7 +9302,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/tencent-rumor-refuter",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/tencent-rumor-refuter/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tencent-rumor-refuter/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "tencent-musician-skills",
+          "didi-ride-skill",
+          "vipshop-product-search",
+          "wechat-article-search",
+          "12306-train-assistant"
+        ]
       }
     },
     {
@@ -9067,7 +9326,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "industry-consultant",
         "io.github.yyc-cube/license": "Tencent SSV Internal",
-        "io.github.yyc-cube/source": "skills-hub/community/tencent-ssv-techforgood/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tencent-ssv-techforgood/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "charity-writing-assistant",
+          "tencent-music-campus-recruit",
+          "andonq",
+          "tencent-campus-recruit",
+          "tencent-esign-contract"
+        ]
       }
     },
     {
@@ -9194,7 +9460,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/tencentcloud-cls",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-cls/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-cls/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cos-vectors",
+          "meituan-coupon-workbuddy",
+          "migraq",
+          "tencentos-expert",
+          "12306-train-assistant"
+        ]
       }
     },
     {
@@ -9365,7 +9638,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/the-entrepreneurship-handbook",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/the-entrepreneurship-handbook/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/the-entrepreneurship-handbook/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "marketing-plan",
+          "cloudbase",
+          "ai-seo",
+          "nemo-mbridge-perf-moe-optimization-workflow",
+          "nemoclaw-user-agent-skills"
+        ]
       }
     },
     {
@@ -9445,7 +9725,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/trello",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/trello/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/trello/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "trello-automation"
+        ]
       }
     },
     {
@@ -9673,7 +9956,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/wacli",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/wacli/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/wacli/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "cuopt-numerical-optimization-api-cli",
+          "physicsnemo-discover",
+          "agentmail",
+          "apple-notes",
+          "cnb-skill"
+        ]
       }
     },
     {
@@ -9689,7 +9979,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/weather",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/weather/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/weather/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "airbnb",
+          "flights",
+          "edgeone",
+          "openai-whisper",
+          "tencent-weather"
+        ]
       }
     },
     {
@@ -9705,7 +10002,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/weather-open-meteo",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/weather-open-meteo/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/weather-open-meteo/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "aihot",
+          "tencentmap-map-assistant",
+          "qcc-company",
+          "vipshop-promotion-search",
+          "didi-ride-skill"
+        ]
       }
     },
     {
@@ -9892,7 +10196,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/wechat-viral-topic",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/wechat-viral-topic/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/wechat-viral-topic/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "wechat-article-search",
+          "tencent-news",
+          "aihot",
+          "libtv-skill",
+          "promo-creator-skills"
+        ]
       }
     },
     {
@@ -9960,7 +10271,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/wecom-weisheng-scrm",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/wecom-weisheng-scrm/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/wecom-weisheng-scrm/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "wecom-unified",
+          "dingtalk-unified",
+          "didi-ride-skill",
+          "tapd-openapi",
+          "tencentos-expert"
+        ]
       }
     },
     {
@@ -10008,7 +10326,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/westockdata",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/westockdata/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/westockdata/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "a-stock-data",
+          "lingxi-financialsearch-skill",
+          "qcc-company",
+          "futuapi",
+          "stock-analyzer"
+        ]
       }
     },
     {
@@ -10024,7 +10349,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/workbuddy-asset-migration",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/workbuddy-asset-migration/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/workbuddy-asset-migration/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "openclaw-assets-to-workbuddy",
+          "skyline-config",
+          "libtv-skill",
+          "tencent-meeting-skill",
+          "vipshop-product-search"
+        ]
       }
     },
     {
@@ -10105,7 +10437,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/xurl",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/xurl/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/xurl/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "competitor-profiling",
+          "graphify",
+          "content-repurposer",
+          "ecomseer",
+          "x-longform-post"
+        ]
       }
     },
     {
@@ -10193,7 +10532,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/zoom-out",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/community/zoom-out/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/community/zoom-out/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "setup-matt-pocock-skills"
+        ]
       }
     },
     {
@@ -10209,7 +10551,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/design-an-interface",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/design-an-interface/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/design-an-interface/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "prototype",
+          "programmatic-seo",
+          "grill-me",
+          "ab-test-setup",
+          "referral-program"
+        ]
       }
     },
     {
@@ -10257,7 +10606,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/ubiquitous-language",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "grill-with-docs",
+          "qa",
+          "improve-codebase-architecture",
+          "awesome-design-md",
+          "llm-wiki"
+        ]
       }
     },
     {
@@ -10325,7 +10681,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/prototype",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/prototype/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/prototype/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "design-an-interface",
+          "awesome-design-md",
+          "seo-audit",
+          "aviationstack-flight-tracker",
+          "ab-testing"
+        ]
       }
     },
     {
@@ -10362,7 +10725,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/tdd",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/tdd/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/tdd/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "diagnose",
+          "programmatic-seo",
+          "migrate-to-shoehorn",
+          "ab-testing",
+          "analytics"
+        ]
       }
     },
     {
@@ -10435,7 +10805,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/zoom-out",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "setup-matt-pocock-skills"
+        ]
       }
     },
     {
@@ -10483,7 +10856,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/writing-beats",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "writing-shape",
+          "copy-editing",
+          "writing-fragments",
+          "llm-wiki",
+          "paywall-upgrade-cro"
+        ]
       }
     },
     {
@@ -10499,7 +10879,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/writing-fragments",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-fragments/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-fragments/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "writing-shape",
+          "marketing-plan",
+          "ai-shifu-course-creator",
+          "writing-beats",
+          "content-strategy"
+        ]
       }
     },
     {
@@ -10515,7 +10902,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/writing-shape",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-shape/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-shape/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "writing-beats",
+          "writing-fragments",
+          "content-repurposer",
+          "task-alignment",
+          "grill-me"
+        ]
       }
     },
     {
@@ -10531,7 +10925,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/git-guardrails-claude-code",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/git-guardrails-claude-code/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/git-guardrails-claude-code/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "setup-pre-commit",
+          "churn-prevention",
+          "marketing-plan",
+          "product-marketing",
+          "cupynumeric-migration-readiness"
+        ]
       }
     },
     {
@@ -10547,7 +10948,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/migrate-to-shoehorn",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/migrate-to-shoehorn/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/migrate-to-shoehorn/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "tdd",
+          "awesome-design-md",
+          "darwin-skill",
+          "grill-me",
+          "ab-test-setup"
+        ]
       }
     },
     {
@@ -10579,7 +10987,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/setup-pre-commit",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/setup-pre-commit/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/setup-pre-commit/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "git-guardrails-claude-code",
+          "cloudflare-worker-builder",
+          "analytics",
+          "aviationstack-flight-tracker",
+          "analytics-tracking"
+        ]
       }
     },
     {
@@ -10595,7 +11010,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/edit-article",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "copy-editing",
+          "writing-shape",
+          "infographic-maker",
+          "jinshuju",
+          "analytics-tracking"
+        ]
       }
     },
     {
@@ -10643,7 +11065,14 @@
       "website": "https://ai-agent.yyc3.vip/skill/grill-me",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/productivity/grill-me/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/productivity/grill-me/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "ab-test-setup",
+          "grill-with-docs",
+          "ab-testing",
+          "site-architecture",
+          "analytics-tracking"
+        ]
       }
     },
     {
@@ -10659,7 +11088,11 @@
       "website": "https://ai-agent.yyc3.vip/skill/handoff",
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
-        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/productivity/handoff/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/productivity/handoff/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "agent-team-orchestration",
+          "task-alignment"
+        ]
       }
     },
     {
@@ -10970,7 +11403,10 @@
       "website": "https://ai-agent.yyc3.vip/skill/update-screenshots",
       "_meta": {
         "io.github.yyc-cube/category": "ai-ml",
-        "io.github.yyc-cube/source": "skills-hub/glm/update-screenshots/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/glm/update-screenshots/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "review"
+        ]
       }
     },
     {
@@ -11959,7 +12395,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/brand-guidelines/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/brand-guidelines/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "theme-factory",
+          "canvas-design",
+          "docx",
+          "ios-hig-design-guide",
+          "awesome-design-md"
+        ]
       }
     },
     {
@@ -12066,7 +12509,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/internal-comms/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/internal-comms/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "domain-name-brainstormer",
+          "copywriting",
+          "ad-creative",
+          "product-marketing",
+          "site-architecture"
+        ]
       }
     },
     {
@@ -12378,7 +12828,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "document-processing",
         "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/brand-guidelines/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/brand-guidelines/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "theme-factory",
+          "canvas-design",
+          "docx",
+          "ios-hig-design-guide",
+          "awesome-design-md"
+        ]
       }
     },
     {
@@ -12841,7 +13298,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "MIT",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/minimax-xlsx/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/minimax-xlsx/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "xlsx",
+          "customer-research",
+          "docx",
+          "nemo-retriever",
+          "ai-shifu-course-creator"
+        ]
       }
     },
     {
@@ -12882,7 +13346,10 @@
       "_meta": {
         "io.github.yyc-cube/category": "development-code",
         "io.github.yyc-cube/license": "MIT",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/react-native-dev/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/react-native-dev/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "flutter-dev"
+        ]
       }
     },
     {
@@ -12932,7 +13399,11 @@
       "website": "https://ai-agent.yyc3.vip/skill/clawring",
       "_meta": {
         "io.github.yyc-cube/category": "communication",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/clawring/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/clawring/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "nemoclaw-user-configure-inference",
+          "skill-scanner"
+        ]
       }
     },
     {
@@ -13518,7 +13989,14 @@
       "_meta": {
         "io.github.yyc-cube/category": "business-productivity",
         "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-        "io.github.yyc-cube/source": "skills-hub/marketplace/internal-comms/SKILL.md"
+        "io.github.yyc-cube/source": "skills-hub/marketplace/internal-comms/SKILL.md",
+        "io.github.yyc-cube/related": [
+          "domain-name-brainstormer",
+          "copywriting",
+          "ad-creative",
+          "product-marketing",
+          "site-architecture"
+        ]
       }
     },
     {

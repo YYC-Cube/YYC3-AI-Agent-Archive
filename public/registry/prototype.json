@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/prototype",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/prototype/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/prototype/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "design-an-interface",
+      "awesome-design-md",
+      "seo-audit",
+      "aviationstack-flight-tracker",
+      "ab-testing"
+    ]
   }
 }

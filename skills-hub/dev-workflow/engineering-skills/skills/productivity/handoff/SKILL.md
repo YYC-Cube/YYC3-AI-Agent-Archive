@@ -4,6 +4,7 @@ description: Compact the current conversation into a handoff document for anothe
 category: development-code
 version: 1.0.0
 argument-hint: "What will the next session be used for?"
+related_skills: [agent-team-orchestration, task-alignment]
 ---
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.

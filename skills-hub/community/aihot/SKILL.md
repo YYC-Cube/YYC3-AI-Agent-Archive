@@ -8,6 +8,7 @@ display_name_en: "Aihot"
 description_zh: "一句话查到 aihot.virxact.com 上每天精选的 AI 模型 / 产品 / 行业 / 论文动态，自动整理成中文简报，免配置 API Key。"
 description_en: "One-line access to today's curated AI models, products, industry news, and papers from aihot.virxact.com — no API key needed."
 visibility: "public"
+related_skills: [tencent-esign-contract, wechat-article-search, tencent-news, qcc-company, tencentos-expert]
 ---
 
 # AI HOT Skill

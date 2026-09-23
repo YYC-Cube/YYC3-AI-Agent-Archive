@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/westockdata",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/westockdata/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/westockdata/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "a-stock-data",
+      "lingxi-financialsearch-skill",
+      "qcc-company",
+      "futuapi",
+      "stock-analyzer"
+    ]
   }
 }

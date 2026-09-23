@@ -10,6 +10,7 @@ metadata:
   sources:
     - ECMA-376 Office Open XML File Formats
     - Microsoft Open XML SDK documentation
+related_skills: [xlsx, customer-research, docx, nemo-retriever, ai-shifu-course-creator]
 ---
 
 # MiniMax XLSX Skill

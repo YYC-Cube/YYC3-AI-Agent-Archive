@@ -5,6 +5,7 @@ category: development-code
 description_zh: "Twitter 研究与内容情报分析"
 description_en: "Twitter research & content intelligence"
 version: 1.0.0
+related_skills: [competitor-profiling, graphify, content-repurposer, ecomseer, x-longform-post]
 ---
 
 # xurl: Twitter Content Intelligence for WordPress & Shopify

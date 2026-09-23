@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/shopping-price-drop-coupon-scout",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/shopping-price-drop-coupon-scout/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/shopping-price-drop-coupon-scout/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "price-history",
+      "maishou",
+      "haina-shopping-assistant",
+      "meituan-coupon-workbuddy",
+      "vipshop-product-detail"
+    ]
   }
 }

@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/tencentcloud-cls",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-cls/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencentcloud-cls/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cos-vectors",
+      "meituan-coupon-workbuddy",
+      "migraq",
+      "tencentos-expert",
+      "12306-train-assistant"
+    ]
   }
 }

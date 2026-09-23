@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/ctrip-wendao",
   "_meta": {
     "io.github.yyc-cube/category": "生活服务",
-    "io.github.yyc-cube/source": "skills-hub/community/ctrip-wendao/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/ctrip-wendao/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "12306-train-assistant",
+      "didi-ride-skill",
+      "meituan-coupon-workbuddy",
+      "qcc-company",
+      "tencent-esign-contract"
+    ]
   }
 }

@@ -7,6 +7,7 @@ description_en: "Summarize web pages, PDFs, audio & video"
 version: 1.0.0
 homepage: https://summarize.sh
 metadata: {"clawdbot":{"emoji":"🧾","requires":{"bins":["summarize"]},"install":[{"id":"brew","kind":"brew","formula":"steipete/tap/summarize","bins":["summarize"],"label":"Install summarize (brew)"}]}}
+related_skills: [markitdown-skill, nemo-retriever, notebooklm-studio, workrally]
 ---
 
 # Summarize

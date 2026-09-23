@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/promo-storyboard",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-storyboard/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/promo-creator-skills/promo-storyboard/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "promo-editor",
+      "libtv-skill",
+      "promo-brief",
+      "promo-creator-skills",
+      "promo-music-maker"
+    ]
   }
 }

@@ -12,6 +12,13 @@
   "_meta": {
     "io.github.yyc-cube/category": "business-productivity",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/internal-comms/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/internal-comms/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "domain-name-brainstormer",
+      "copywriting",
+      "ad-creative",
+      "product-marketing",
+      "site-architecture"
+    ]
   }
 }

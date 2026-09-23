@@ -8,6 +8,7 @@ version: 1.0.3
 display_name: "fintech-engineer"
 display_name_en: "fintech-engineer"
 visibility: "public"
+related_skills: [lark-unified, stealth-browser, churn-prevention, mcp-builder, minimax-xlsx]
 ---
 
 <!-- Main content in SKILLS.md -->

@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/fintech-engineer",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/fintech-engineer/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/fintech-engineer/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "lark-unified",
+      "stealth-browser",
+      "churn-prevention",
+      "mcp-builder",
+      "minimax-xlsx"
+    ]
   }
 }

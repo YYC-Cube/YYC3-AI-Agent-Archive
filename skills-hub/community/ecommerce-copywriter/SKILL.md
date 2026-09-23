@@ -3,6 +3,7 @@ name: ecommerce-copywriter
 description: 电商爆款文案生成技能。为淘宝/拼多多/抖音/京东卖家生成高转化率的商品标题、详情页文案、卖点提炼和促销文案。使用场景：(1) 商品标题优化，(2) 详情页文案生成，(3) 卖点提炼，(4) 促销活动文案，(5) 竞品文案分析。
 category: development-code
 version: 1.0.0
+related_skills: [maishou, vip-skill, vipshop-product-search, vipshop-promotion-search, haina-shopping-assistant]
 ---
 
 # 电商爆款文案生成器

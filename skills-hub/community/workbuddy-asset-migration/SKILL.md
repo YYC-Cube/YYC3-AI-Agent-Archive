@@ -6,6 +6,7 @@ description_zh: WorkBuddy 国内版/海外版/跨机器之间迁移个人资产
 description_en: Migrate WorkBuddy assets between CN/AI editions or across machines
 version: 0.2.0
 allowed-tools: Read,Write,Bash
+related_skills: [openclaw-assets-to-workbuddy, skyline-config, libtv-skill, tencent-meeting-skill, vipshop-product-search]
 ---
 
 # WorkBuddy 资产迁移

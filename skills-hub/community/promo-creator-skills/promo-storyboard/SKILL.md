@@ -3,6 +3,7 @@ name: promo-storyboard
 description: 宣传片逐镜头分镜脚本。根据创意简报生成每个 Shot 的 7 维画面描述和详细 HyperFrames 提示词，是整条视频质量的关键。当用户确认 brief 后自动进入。
 category: development-code
 version: 1.0.0
+related_skills: [promo-editor, libtv-skill, promo-brief, promo-creator-skills, promo-music-maker]
 ---
 
 # Promo Storyboard — 逐镜头分镜 & 画面提示词

@@ -16,6 +16,7 @@ metadata:
 display_name: "金数据"
 display_name_en: "Jinshuju"
 visibility: "public"
+related_skills: [seo-audit, signup-flow-cro, signup, copy-editing, form-cro]
 ---
 
 # 金数据（Jinshuju）操作专家

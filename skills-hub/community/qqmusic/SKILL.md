@@ -3,6 +3,7 @@ name: qqmusic
 description: QQ Music — search songs, albums, playlists, music videos, artists; daily recommendations; music charts & rankings; AI-powered playlists; personalized listening reports & music insights. QQ音乐官方智能助手：搜索、每日推荐、排行榜、AI歌单、听歌报告、AI解读。
 category: development-code
 version: 0.0.2
+related_skills: [admapix, globepilot-ai-agent-2, tencent-campus-recruit, tencent-music-campus-recruit]
 ---
 
 # QQ音乐官方智能助手

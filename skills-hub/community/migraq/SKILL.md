@@ -22,6 +22,7 @@ metadata:
     - network:https://msp.cloud.tencent.com
     security:
       data_handling: AK/SK 仅在鉴权场景使用，通过环境变量读取，通过 TC3-HMAC-SHA256 签名 header 传输，不写入文件或日志；售前流程无需 AK/SK
+related_skills: [cloudq, tencent-campus-recruit, tencent-music-campus-recruit, tencentcloud-cls, haina-shopping-assistant]
 ---
 
 # MigraQ — 腾讯云迁移服务专家

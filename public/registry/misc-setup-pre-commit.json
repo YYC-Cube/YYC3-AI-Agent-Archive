@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/setup-pre-commit",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/setup-pre-commit/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/setup-pre-commit/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "git-guardrails-claude-code",
+      "cloudflare-worker-builder",
+      "analytics",
+      "aviationstack-flight-tracker",
+      "analytics-tracking"
+    ]
   }
 }

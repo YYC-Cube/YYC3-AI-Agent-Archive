@@ -6,6 +6,7 @@ description_zh: "Puppeteer 无头浏览器，渲染 JS 页面并提取纯文本"
 description_en: "Puppeteer headless browser: render JS pages & extract clean text"
 version: 1.0.0
 allowed-tools: Bash
+related_skills: [ai-model-wechat, agent-browser-core, browser-use, ai-model-nodejs, ai-model-web]
 ---
 
 # SKILL: Browser

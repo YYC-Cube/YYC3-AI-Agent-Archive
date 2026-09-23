@@ -18,6 +18,7 @@ scene-packs: [general, genealogy, consultant, ghostwriter, training, personal-bo
 ui-actions: true
 
   tools: [-Command]
+related_skills: [novel-writing, tencent-docs, tencentcloud-ocr, tencentos-expert, aihot]
 ---
 
 # 福帮手出品 | 高质量长文档手稿工具链（FBS-BookWriter）

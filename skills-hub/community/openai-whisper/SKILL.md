@@ -5,6 +5,7 @@ category: development-code
 description_zh: "本地语音转文字（无需 API 密钥）"
 description_en: "Local speech-to-text (no API key needed)"
 version: 1.0.0
+related_skills: [cuopt-numerical-optimization-formulation, airbnb, edgeone, flights, weather]
 ---
 
 # Whisper (CLI)

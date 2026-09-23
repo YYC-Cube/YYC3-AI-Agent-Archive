@@ -12,6 +12,13 @@
   "_meta": {
     "io.github.yyc-cube/category": "industry-consultant",
     "io.github.yyc-cube/license": "Tencent SSV Internal",
-    "io.github.yyc-cube/source": "skills-hub/community/tencent-ssv-techforgood/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-ssv-techforgood/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "charity-writing-assistant",
+      "tencent-music-campus-recruit",
+      "andonq",
+      "tencent-campus-recruit",
+      "tencent-esign-contract"
+    ]
   }
 }

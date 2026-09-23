@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/ubiquitous-language",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "grill-with-docs",
+      "qa",
+      "improve-codebase-architecture",
+      "awesome-design-md",
+      "llm-wiki"
+    ]
   }
 }

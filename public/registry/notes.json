@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/notes",
   "_meta": {
     "io.github.yyc-cube/category": "document-processing",
-    "io.github.yyc-cube/source": "skills-hub/community/ima-skills/notes/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/ima-skills/notes/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "docx",
+      "ad-creative",
+      "product-marketing",
+      "pptx",
+      "obsidian-markdown"
+    ]
   }
 }

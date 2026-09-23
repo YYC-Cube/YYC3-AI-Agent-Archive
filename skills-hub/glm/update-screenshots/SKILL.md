@@ -4,6 +4,7 @@ description: Download screenshot baselines from the latest CI run and commit the
 category: ai-ml
 version: 1.0.0
 description_zh: Download screenshot baselines from the latest CI run and commit them. Use when a
+related_skills: [review]
 ---
 
 # Update Component Screenshots from CI

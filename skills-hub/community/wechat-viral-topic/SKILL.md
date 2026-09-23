@@ -10,6 +10,7 @@ agent_created: true
 version: 1.0.0
 display_name_en: "Viral Topic Maker"
 visibility: "public"
+related_skills: [wechat-article-search, tencent-news, aihot, libtv-skill, promo-creator-skills]
 ---
 
 # 🔥 10万+爆款选题炼金炉

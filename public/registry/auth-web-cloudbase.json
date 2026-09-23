@@ -11,6 +11,9 @@
   "website": "https://ai-agent.yyc3.vip/skill/auth-web-cloudbase",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-web/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudbase/references/auth-web/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "auth-tool-cloudbase"
+    ]
   }
 }

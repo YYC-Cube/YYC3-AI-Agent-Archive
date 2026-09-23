@@ -11,6 +11,9 @@
   "website": "https://ai-agent.yyc3.vip/skill/imsg",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/imsg/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/imsg/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "wacli"
+    ]
   }
 }

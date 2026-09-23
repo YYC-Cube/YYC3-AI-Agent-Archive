@@ -8,6 +8,7 @@ display_name_en: "Tencent Rumor Refuter"
 description_zh: "面向腾讯相关传闻的辟谣辅助 Skill，结合内部参考与实时联网核查，给出结论、事实依据和防诈提醒，并生成可分享卡片。"
 description_en: "A Tencent rumor-refuting assistant that checks Tencent-related claims with references and web verification, then produces a clear verdict, evidence, safety tips, and a share card."
 visibility: "public"
+related_skills: [tencent-musician-skills, didi-ride-skill, vipshop-product-search, wechat-article-search, 12306-train-assistant]
 ---
 
 # 🐧 小P — 鹅厂辟谣助手

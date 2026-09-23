@@ -5,6 +5,7 @@ category: development-code
 description_zh: "查询天气预报，无需 API 密钥"
 description_en: "Weather forecasts, no API key needed"
 version: 1.0.0
+related_skills: [airbnb, flights, edgeone, openai-whisper, tencent-weather]
 ---
 
 # Weather

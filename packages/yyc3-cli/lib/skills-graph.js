@@ -22,7 +22,11 @@ const EXPLICIT_FIELDS = ['related_skills', 'related-skills', 'depends_on', 'depe
 
 function toArray(v) {
   if (Array.isArray(v)) return v.map(String);
-  if (typeof v === 'string') return v.split(',').map((s) => s.trim()).filter(Boolean);
+  if (typeof v === 'string') {
+    // inline 数组（`[a, b]`）剥离外层方括号（parseFrontmatter 为纯文本解析，不展开 YAML 流式序列）
+    const s = v.trim().replace(/^\[|\]$/g, '');
+    return s.split(',').map((x) => x.trim().replace(/^["'\[]|["'\]]$/g, '').trim()).filter(Boolean);
+  }
   return [];
 }
 
@@ -43,18 +47,47 @@ function familyKeys(name) {
   return keys;
 }
 
+/** 语义停用词（英文功能词 + 平台通用词，中文字符按整体切分） */
+const STOPWORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'of', 'for', 'to', 'in', 'on', 'with', 'your', 'you',
+  'this', 'that', 'is', 'are', 'it', 'as', 'by', 'from', 'at', 'be', 'can', 'use',
+  'using', 'how', 'skill', 'claude', 'code', 'tool', 'tools', 'into', 'when', 'create',
+  'manage', 'help', 'based', 'get', 'data', 'search',
+]);
+
+/** description/category → 词元集合（长度 ≥2，去停用词；中文按连续段切词） */
+function textTokens(...texts) {
+  const out = new Set();
+  for (const t of texts) {
+    for (const w of String(t || '').toLowerCase().split(/[^a-z0-9\u4e00-\u9fff]+/)) {
+      // 连续中文段按 2-gram 拆分增强匹配（中文无空格分界）
+      if (/^[\u4e00-\u9fff]+$/.test(w)) {
+        if (w.length === 1) continue;
+        for (let i = 0; i + 2 <= w.length; i++) out.add(w.slice(i, i + 2));
+        if (w.length <= 3) out.add(w);
+      } else if (w.length >= 2 && !STOPWORDS.has(w)) {
+        out.add(w);
+      }
+    }
+  }
+  return out;
+}
+
 /**
  * related_skills 候选生成（显式边补全）
  *
- * 两条信号线：
+ * 三条信号线（前者优先，弱信号仅作兜底）：
  * 1. 提及信号（implicit 边推导置信度）：
  *   双向提及（A 提及 B 且 B 提及 A）  +3 —— 最强信号
  *   同领域（顶层目录相同）            +1
  *   每条单向提及                      +1
  * 2. 家族信号（孤立节点兜底）：
  *   同名称家族（共享首两段或末段，家族 >= 2 成员） +4
+ *   双重家族命中                      +1
  *   同领域                            +1
- *   家族信号仅在节点无任何提及边时启用（不干扰高置信度提名）
+ * 3. 语义信号（家族配对后仍无候选的孤立节点兜底）：
+ *   description+category 词重叠数 = 置信度（≥4 才入候选，过滤低重叠噪声）
+ *   同类（category 相同且非大类）    +1
  *
  * 过滤：confidence < MIN_CONFIDENCE 剔除；每技能取 TOP N（去重、排除已有声明）
  *
@@ -85,6 +118,20 @@ function suggestRelated(g, { topN = 5, minConfidence = 4 } = {}) {
   }
   for (const [k, arr] of families) if (arr.length < 2) families.delete(k);
 
+  // 语义索引（惰性构建：仅当有孤立节点需要语义兜底时才分词全库）
+  let semanticIndex = null; // name → {tokens, category}
+  const buildSemanticIndex = () => {
+    if (semanticIndex) return semanticIndex;
+    semanticIndex = new Map();
+    for (const [n, node] of Object.entries(g.nodes)) {
+      semanticIndex.set(n, {
+        tokens: textTokens(node.description, node.category),
+        category: node.category,
+      });
+    }
+    return semanticIndex;
+  };
+
   const out = [];
   for (const [name, node] of Object.entries(g.nodes)) {
     const cands = [];
@@ -114,6 +161,26 @@ function suggestRelated(g, { topN = 5, minConfidence = 4 } = {}) {
         if (famHits >= 2) reasons.push('双重家族命中');
         if (g.nodes[dst].domain === node.domain) { conf += 1; reasons.push('同领域'); }
         cands.push({ name: dst, confidence: conf, reasons });
+      }
+      // 语义信号：家族配对后仍无候选 → description+category 词重叠兜底
+      if (!cands.length) {
+        const idx = buildSemanticIndex();
+        const mine = idx.get(name);
+        if (mine && mine.tokens.size >= 3) {
+          for (const [dst, info] of idx) {
+            if (dst === name || (declared.get(name) || new Set()).has(dst)) continue;
+            let inter = 0;
+            for (const t of mine.tokens) if (info.tokens.has(t)) inter++;
+            if (inter < 4) continue; // 低重叠是噪声（同类模板词）
+            const reasons = ['语义重叠 ' + inter];
+            let conf = inter;
+            // 同类加分仅对细分类目（大类 649 个 development-code 无区分度）
+            if (info.category && info.category === mine.category && info.category !== 'development-code') {
+              conf += 1; reasons.push('同类目');
+            }
+            cands.push({ name: dst, confidence: conf, reasons });
+          }
+        }
       }
     }
     cands.sort((a, b) => b.confidence - a.confidence);
@@ -240,6 +307,8 @@ async function buildGraph(options = {}) {
         inDeg: degree.in.get(k) || 0,
         outDeg: degree.out.get(k) || 0,
         related: EXPLICIT_FIELDS.flatMap((f) => toArray(v.fm[f])),
+        description: v.fm.description || '',
+        category: v.fm.category || '',
       }])
     ),
     edges,

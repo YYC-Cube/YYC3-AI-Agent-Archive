@@ -17,6 +17,7 @@ metadata:
     - network:https://cloud.tencent.com
     security:
       data_handling: OAuth2 临时码仅保存在本地 ~/.andonq/auth.json（权限 0600），仅在调用 AndonQ 网关时通过 HTTPS 的 X-TANDON-CODE 请求头传输；不写入任何日志，不持久化其他用户数据
+related_skills: [cloudq, tencent-meeting-skill, tapd-openapi, tencent-news, tencent-docs]
 ---
 
 # ☁️ AndonQ — 腾讯云智能客服"领域虾"

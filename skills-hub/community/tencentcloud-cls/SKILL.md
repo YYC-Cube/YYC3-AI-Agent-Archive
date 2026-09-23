@@ -17,6 +17,7 @@ metadata:
     install:
     - package-manager: pip
       command: pip3 install tencentcloud-sdk-python-cls
+related_skills: [cos-vectors, meituan-coupon-workbuddy, migraq, tencentos-expert, 12306-train-assistant]
 ---
 
 # 腾讯云 CLS 助手

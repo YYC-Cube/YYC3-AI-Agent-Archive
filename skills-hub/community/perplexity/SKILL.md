@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 homepage: https://docs.perplexity.ai
 metadata: {"clawdbot":{"emoji":"🔮","requires":{"bins":["node"],"env":["PERPLEXITY_API_KEY"]},"primaryEnv":"PERPLEXITY_API_KEY"}}
+related_skills: [ai-model-wechat, ai-model-nodejs, cloudbase-agent, tavily, ai-seo]
 ---
 
 # Perplexity Search

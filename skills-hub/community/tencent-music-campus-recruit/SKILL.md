@@ -32,6 +32,7 @@ display_name_en: "TME Campus Recruit"
 description_zh: "腾讯音乐优先的招聘流程引导、岗位推荐、简历优化与面试辅导助手"
 description_en: "Tencent Music campus recruiting assistant for job search, resume optimization and interview prep"
 visibility: "public"
+related_skills: [tencent-campus-recruit]
 ---
 
 # 腾讯校园招聘助手

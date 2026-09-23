@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/openai-whisper",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/openai-whisper/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/openai-whisper/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cuopt-numerical-optimization-formulation",
+      "airbnb",
+      "edgeone",
+      "flights",
+      "weather"
+    ]
   }
 }

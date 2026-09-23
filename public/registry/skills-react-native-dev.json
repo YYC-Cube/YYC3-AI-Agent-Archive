@@ -12,6 +12,9 @@
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/react-native-dev/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/claude-code-skills/skills/react-native-dev/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "flutter-dev"
+    ]
   }
 }

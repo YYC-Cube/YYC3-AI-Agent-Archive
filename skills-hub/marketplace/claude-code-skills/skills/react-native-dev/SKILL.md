@@ -18,6 +18,7 @@ metadata:
     - Expo documentation (docs.expo.dev)
     - React Native documentation (reactnative.dev)
     - EAS (Expo Application Services) documentation
+related_skills: [flutter-dev]
 ---
 
 # React Native & Expo Development Guide

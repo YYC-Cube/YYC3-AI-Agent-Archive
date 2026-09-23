@@ -10,6 +10,7 @@ description_zh: notion中文描述
 description_en: notion english description
 version: 1.0.12
 
+related_skills: [lark-unified, notion-automation]
 ---
 
 # notion

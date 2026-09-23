@@ -8,6 +8,7 @@ version: 1.0.5
 display_name: "WeStock Data"
 display_name_en: "WeStock Data"
 visibility: "public"
+related_skills: [a-stock-data, lingxi-financialsearch-skill, qcc-company, futuapi, stock-analyzer]
 ---
 
 # WeStock Data

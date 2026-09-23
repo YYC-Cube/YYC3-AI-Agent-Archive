@@ -12,6 +12,7 @@ metadata:
     requires:
       bins:
         - node
+related_skills: [globepilot-ai-agent-2, tencent-weather, 12306-train-assistant, aviationstack-flight-tracker]
 ---
 
 # 12306 Train Query

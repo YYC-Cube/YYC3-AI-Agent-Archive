@@ -5,6 +5,7 @@ category: development-code
 description_zh: "查询和核实企业工商登记信息，支持股权、财务、高管等全维度企业背调"
 description_en: "Query & verify corporate registration via Qichacha for due diligence"
 version: 1.0.0
+related_skills: [didi-ride-skill, libtv-skill, vipshop-product-detail, vipshop-promotion-search, vipshop-product-search]
 ---
 
 # 企查查（工商信息）Connector Skill

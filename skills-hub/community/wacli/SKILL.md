@@ -5,6 +5,7 @@ category: development-code
 description_zh: "发送 WhatsApp 消息和同步历史"
 description_en: "Send WhatsApp messages & sync history"
 version: 1.0.0
+related_skills: [cuopt-numerical-optimization-api-cli, physicsnemo-discover, agentmail, apple-notes, cnb-skill]
 ---
 
 # wacli

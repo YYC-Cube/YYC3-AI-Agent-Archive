@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/the-entrepreneurship-handbook",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/the-entrepreneurship-handbook/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/the-entrepreneurship-handbook/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "marketing-plan",
+      "cloudbase",
+      "ai-seo",
+      "nemo-mbridge-perf-moe-optimization-workflow",
+      "nemoclaw-user-agent-skills"
+    ]
   }
 }

@@ -6,6 +6,7 @@ description_zh: 微盛AI·企微管家提供的技能，帮助用户查询和管
 description_en: Built for WeCom customer operations, helping teams review customer and group activity, prepare campaign assets, and move follow-up, messaging, and opportunity workflows forward.
 version: 1.0.3
 homepage: https://gitlab.wshmi.com/basellm/wecom-weisheng-scrm
+related_skills: [wecom-unified, dingtalk-unified, didi-ride-skill, tapd-openapi, tencentos-expert]
 ---
 
 # 微盛企微管家SCRM

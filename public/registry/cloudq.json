@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/cloudq",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/cloudq/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/cloudq/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "andonq",
+      "migraq",
+      "tencentos-expert",
+      "tencent-meeting-skill",
+      "tencent-ssv-techforgood"
+    ]
   }
 }

@@ -6,6 +6,7 @@ version: 1.0.2
 description_en: Apply Anthropic brand colors and typography to design artifacts
 description_zh: 应用 Anthropic 品牌配色和排版到设计产物
 license: Complete terms in LICENSE.txt
+related_skills: [theme-factory, canvas-design, docx, ios-hig-design-guide, awesome-design-md]
 ---
 
 # Anthropic Brand Styling

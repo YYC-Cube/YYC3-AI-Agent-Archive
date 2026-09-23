@@ -20,6 +20,7 @@ metadata:
           ],
       },
   }
+related_skills: [vipshop-product-search, vipshop-promotion-search, shopping-price-drop-coupon-scout, vip-skill, price-history]
 ---
 
 # 买手技能

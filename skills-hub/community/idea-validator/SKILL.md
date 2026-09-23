@@ -9,6 +9,7 @@ version: 1.0.1
 metadata:
   version: 1.0.0
   tags: business, hexa, validation, startup, idea, problem-solution-fit
+related_skills: [marketing-plan]
 ---
 
 # Idea Validator - Startup Idea Assessment Framework

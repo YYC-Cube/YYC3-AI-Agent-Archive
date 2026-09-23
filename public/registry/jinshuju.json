@@ -12,6 +12,13 @@
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "MIT",
-    "io.github.yyc-cube/source": "skills-hub/community/jinshuju/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/jinshuju/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "seo-audit",
+      "signup-flow-cro",
+      "signup",
+      "copy-editing",
+      "form-cro"
+    ]
   }
 }

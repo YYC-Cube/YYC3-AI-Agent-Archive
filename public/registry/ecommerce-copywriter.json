@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/ecommerce-copywriter",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/ecommerce-copywriter/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/ecommerce-copywriter/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "maishou",
+      "vip-skill",
+      "vipshop-product-search",
+      "vipshop-promotion-search",
+      "haina-shopping-assistant"
+    ]
   }
 }

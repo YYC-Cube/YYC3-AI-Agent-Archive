@@ -5,6 +5,7 @@ category: development-code
 description_zh: "管理 Apple 提醒事项（添加、编辑、完成）"
 description_en: "Manage Apple Reminders (add, edit, complete)"
 version: 1.0.0
+related_skills: [apple-notes, things-mac, himalaya, hsb-app, vss-manage-video-io-storage]
 ---
 
 # Apple Reminders CLI (remindctl)

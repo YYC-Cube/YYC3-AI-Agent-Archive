@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/apple-reminders",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/apple-reminders/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/apple-reminders/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "apple-notes",
+      "things-mac",
+      "himalaya",
+      "hsb-app",
+      "vss-manage-video-io-storage"
+    ]
   }
 }

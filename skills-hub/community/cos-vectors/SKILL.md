@@ -13,6 +13,7 @@ metadata:
       - COS_VECTORS_SECRET_ID
       - COS_VECTORS_SECRET_KEY
     primaryEnv: COS_VECTORS_SECRET_ID
+related_skills: [tencent-meeting-skill, tencentcloud-cos, tencent-docs, lexiang-knowledge-base, tencentcloud-cls]
 ---
 
 # 腾讯云 COS 向量桶全功能管理技能

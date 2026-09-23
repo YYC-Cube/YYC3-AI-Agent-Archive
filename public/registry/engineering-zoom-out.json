@@ -11,6 +11,9 @@
   "website": "https://ai-agent.yyc3.vip/skill/zoom-out",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "setup-matt-pocock-skills"
+    ]
   }
 }

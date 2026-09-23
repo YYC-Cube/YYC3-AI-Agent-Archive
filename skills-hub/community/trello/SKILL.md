@@ -5,6 +5,7 @@ category: development-code
 description_zh: "管理 Trello 看板、列表和卡片"
 description_en: "Manage Trello boards, lists, and cards"
 version: 1.0.0
+related_skills: [trello-automation]
 ---
 
 # Trello Skill

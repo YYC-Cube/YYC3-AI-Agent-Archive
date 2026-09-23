@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/andonq",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/andonq/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/andonq/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cloudq",
+      "tencent-meeting-skill",
+      "tapd-openapi",
+      "tencent-news",
+      "tencent-docs"
+    ]
   }
 }

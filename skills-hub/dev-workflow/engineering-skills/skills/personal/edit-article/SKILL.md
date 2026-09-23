@@ -3,6 +3,7 @@ name: edit-article
 description: Edit and improve articles by restructuring sections, improving clarity, and tightening prose. Use when user wants to edit, revise, or improve an article draft.
 category: development-code
 version: 1.0.0
+related_skills: [copy-editing, writing-shape, infographic-maker, jinshuju, analytics-tracking]
 ---
 
 1. First, divide the article into sections based on its headings. Think about the main points you want to make during those sections.

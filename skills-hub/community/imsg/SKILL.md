@@ -5,6 +5,7 @@ category: development-code
 description_zh: "iMessage/短信收发与历史查看"
 description_en: "Send and browse iMessage/SMS history"
 version: 1.0.0
+related_skills: [wacli]
 ---
 
 # imsg

@@ -105,7 +105,8 @@ describe('exportMcp 导出落盘', () => {
       expect(registry.servers).toHaveLength(exported);
       expect(registry.$schema).toBe(SCHEMA_URL);
       const files = await fs2.readdir(outDir);
-      expect(files.length).toBe(exported + 1); // + registry.json
+      // + registry.json + index.html（Pages 浏览页，非导出产物）
+      expect(files.length).toBe(exported + 2);
     },
     60_000
   );

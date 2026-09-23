@@ -4,6 +4,7 @@ description: CloudBase Web Authentication Quick Guide for frontend integration a
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [auth-tool-cloudbase]
 ---
 
 ## Activation Contract

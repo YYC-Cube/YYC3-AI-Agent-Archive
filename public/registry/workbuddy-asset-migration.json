@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/workbuddy-asset-migration",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/workbuddy-asset-migration/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/workbuddy-asset-migration/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "openclaw-assets-to-workbuddy",
+      "skyline-config",
+      "libtv-skill",
+      "tencent-meeting-skill",
+      "vipshop-product-search"
+    ]
   }
 }

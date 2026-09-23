@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/git-guardrails-claude-code",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/git-guardrails-claude-code/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/misc/git-guardrails-claude-code/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "setup-pre-commit",
+      "churn-prevention",
+      "marketing-plan",
+      "product-marketing",
+      "cupynumeric-migration-readiness"
+    ]
   }
 }

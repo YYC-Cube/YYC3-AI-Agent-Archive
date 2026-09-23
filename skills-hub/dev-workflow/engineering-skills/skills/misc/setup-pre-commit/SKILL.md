@@ -3,6 +3,7 @@ name: setup-pre-commit
 description: Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.
 category: development-code
 version: 1.0.0
+related_skills: [git-guardrails-claude-code, cloudflare-worker-builder, analytics, aviationstack-flight-tracker, analytics-tracking]
 ---
 
 # Setup Pre-Commit Hooks

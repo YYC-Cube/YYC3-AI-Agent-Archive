@@ -9,6 +9,7 @@ allowed-tools: Bash,Read,Glob,Grep
 display_name: "tapd-openapi"
 display_name_en: "tapd-openapi"
 visibility: "public"
+related_skills: [lexiang-knowledge-base, kdocs, tencent-meeting-skill, tencent-docs, tencent-news]
 ---
 
 # TAPD OpenAPI

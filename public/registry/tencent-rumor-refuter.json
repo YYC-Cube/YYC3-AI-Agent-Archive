@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/tencent-rumor-refuter",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tencent-rumor-refuter/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tencent-rumor-refuter/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "tencent-musician-skills",
+      "didi-ride-skill",
+      "vipshop-product-search",
+      "wechat-article-search",
+      "12306-train-assistant"
+    ]
   }
 }

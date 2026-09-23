@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/wechat-viral-topic",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/wechat-viral-topic/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/wechat-viral-topic/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "wechat-article-search",
+      "tencent-news",
+      "aihot",
+      "libtv-skill",
+      "promo-creator-skills"
+    ]
   }
 }

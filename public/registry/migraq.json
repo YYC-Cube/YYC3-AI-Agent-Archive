@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/migraq",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/migraq/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/migraq/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "cloudq",
+      "tencent-campus-recruit",
+      "tencent-music-campus-recruit",
+      "tencentcloud-cls",
+      "haina-shopping-assistant"
+    ]
   }
 }

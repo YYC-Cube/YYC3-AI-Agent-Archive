@@ -5,6 +5,7 @@ category: development-code
 author: zacjiang
 version: 1.0.0
 tags: markdown, pdf, chinese, japanese, korean, CJK, convert, report, document
+related_skills: [markitdown-skill, nemo-retriever, quotation-generator, clawbrowser, docx]
 ---
 
 # Markdown to PDF (CJK Support)

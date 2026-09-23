@@ -11,6 +11,10 @@
   "website": "https://ai-agent.yyc3.vip/skill/clawring",
   "_meta": {
     "io.github.yyc-cube/category": "communication",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/clawring/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/clawring/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "nemoclaw-user-configure-inference",
+      "skill-scanner"
+    ]
   }
 }

@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/weather-open-meteo",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/weather-open-meteo/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/weather-open-meteo/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "aihot",
+      "tencentmap-map-assistant",
+      "qcc-company",
+      "vipshop-promotion-search",
+      "didi-ride-skill"
+    ]
   }
 }

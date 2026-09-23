@@ -3,6 +3,7 @@ name: promo-brief
 description: 产品宣传片创意简报。输入产品说明或 GitHub 链接，自动抓取产品信息，提炼核心卖点，推荐视觉风格和叙事结构。当用户提到"宣传片""promo""产品视频""做个视频介绍""项目宣传"时触发。
 category: development-code
 version: 1.0.0
+related_skills: [promo-workflow, promo-creator-skills, libtv-skill, promo-music-maker, promo-storyboard]
 ---
 
 # Promo Brief — 产品分析 & 创意简报

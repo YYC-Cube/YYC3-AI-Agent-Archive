@@ -11,6 +11,9 @@
   "website": "https://ai-agent.yyc3.vip/skill/update-screenshots",
   "_meta": {
     "io.github.yyc-cube/category": "ai-ml",
-    "io.github.yyc-cube/source": "skills-hub/glm/update-screenshots/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/glm/update-screenshots/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "review"
+    ]
   }
 }

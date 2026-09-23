@@ -11,6 +11,9 @@
   "website": "https://ai-agent.yyc3.vip/skill/delivery-queue",
   "_meta": {
     "io.github.yyc-cube/category": "b2b",
-    "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/delivery-queue/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/b2b/b2b-sdr-template/skills/delivery-queue/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "sdr-humanizer"
+    ]
   }
 }

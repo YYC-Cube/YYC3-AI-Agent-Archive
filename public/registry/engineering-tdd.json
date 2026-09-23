@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/tdd",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/tdd/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/engineering/tdd/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "diagnose",
+      "programmatic-seo",
+      "migrate-to-shoehorn",
+      "ab-testing",
+      "analytics"
+    ]
   }
 }

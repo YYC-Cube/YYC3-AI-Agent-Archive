@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/edit-article",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "copy-editing",
+      "writing-shape",
+      "infographic-maker",
+      "jinshuju",
+      "analytics-tracking"
+    ]
   }
 }

@@ -3,6 +3,7 @@ name: clawring
 description: "Phone calling skill for OpenClaw: agent makes real outbound phone calls to users for alerts, briefings, reminders, and urgent notifications. Managed service, no Twilio setup needed. 100+ countries, 70+ voices."
 category: communication
 version: 1.0.0
+related_skills: [nemoclaw-user-configure-inference, skill-scanner]
 ---
 
 # clawr.ing — Phone Calling Skill

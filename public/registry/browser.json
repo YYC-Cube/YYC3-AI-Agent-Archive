@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/browser",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/browser/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/browser/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "ai-model-wechat",
+      "agent-browser-core",
+      "browser-use",
+      "ai-model-nodejs",
+      "ai-model-web"
+    ]
   }
 }

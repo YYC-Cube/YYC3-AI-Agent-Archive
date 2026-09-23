@@ -12,6 +12,13 @@
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
     "io.github.yyc-cube/license": "Complete terms in LICENSE.txt",
-    "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/brand-guidelines/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/marketplace/anthropics-skills/skills/brand-guidelines/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "theme-factory",
+      "canvas-design",
+      "docx",
+      "ios-hig-design-guide",
+      "awesome-design-md"
+    ]
   }
 }

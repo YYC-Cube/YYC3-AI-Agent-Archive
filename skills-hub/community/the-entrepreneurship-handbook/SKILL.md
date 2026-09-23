@@ -6,6 +6,7 @@ description_zh: "服务创业者和管理者，解答创业/商业/管理问题�
 description_en: "Business Q&A for founders and managers, with reflective follow-up questions"
 version: 1.0.0
 allowed-tools: Read,Grep
+related_skills: [marketing-plan, cloudbase, ai-seo, nemo-mbridge-perf-moe-optimization-workflow, nemoclaw-user-agent-skills]
 ---
 
 # 创业可以学 - 问答技能

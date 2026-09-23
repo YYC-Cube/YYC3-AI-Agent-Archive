@@ -5,6 +5,7 @@ category: development-code
 description_zh: "管理 GitHub Issues、PR 和 CI"
 description_en: "Manage GitHub issues, PRs, and CI runs"
 version: 1.0.0
+related_skills: [cnb-skill, setup-matt-pocock-skills, mcore-create-issue, github-trending-cn, multi-search-engine]
 ---
 
 # GitHub Skill

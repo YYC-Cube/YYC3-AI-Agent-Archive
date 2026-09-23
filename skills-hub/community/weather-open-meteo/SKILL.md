@@ -16,6 +16,7 @@ display_name_en: "Weather (Open-Meteo)"
 description_zh: "基于 Open-Meteo 公共 API 查询全球任意地点的当前天气与未来 7 天预报，无需 API Key；支持城市名或经纬度查询，Open-Meteo 请求失败时自动降级到 wttr.in。"
 description_en: "Query current weather and 7-day forecast for any location worldwide via the free Open-Meteo API (no API key). Supports city name or coordinates, with automatic fallback to wttr.in."
 visibility: "public"
+related_skills: [aihot, tencentmap-map-assistant, qcc-company, vipshop-promotion-search, didi-ride-skill]
 ---
 
 # Weather Open‑Meteo Skill

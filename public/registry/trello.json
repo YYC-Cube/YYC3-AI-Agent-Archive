@@ -11,6 +11,9 @@
   "website": "https://ai-agent.yyc3.vip/skill/trello",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/trello/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/trello/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "trello-automation"
+    ]
   }
 }

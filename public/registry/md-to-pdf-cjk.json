@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/md-to-pdf-cjk",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/md-to-pdf-cjk/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/md-to-pdf-cjk/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "markitdown-skill",
+      "nemo-retriever",
+      "quotation-generator",
+      "clawbrowser",
+      "docx"
+    ]
   }
 }

@@ -10,6 +10,7 @@ tags: [news, tencent, headlines, briefings, news rankings, real-time updates]
 display_name: "腾讯新闻"
 display_name_en: "Tencent News"
 visibility: "public"
+related_skills: [wechat-article-search, aihot, qcc-company, tapd-openapi, andonq]
 ---
 
 # 腾讯新闻内容订阅

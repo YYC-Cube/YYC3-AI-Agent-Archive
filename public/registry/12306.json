@@ -11,6 +11,12 @@
   "website": "https://ai-agent.yyc3.vip/skill/12306",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/12306/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/12306/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "globepilot-ai-agent-2",
+      "tencent-weather",
+      "12306-train-assistant",
+      "aviationstack-flight-tracker"
+    ]
   }
 }

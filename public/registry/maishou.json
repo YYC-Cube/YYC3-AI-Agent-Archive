@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/maishou",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/taobao/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/taobao/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "vipshop-product-search",
+      "vipshop-promotion-search",
+      "shopping-price-drop-coupon-scout",
+      "vip-skill",
+      "price-history"
+    ]
   }
 }

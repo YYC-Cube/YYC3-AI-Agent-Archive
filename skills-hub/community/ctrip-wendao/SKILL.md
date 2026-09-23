@@ -34,6 +34,7 @@ metadata:
     - ((fly to|fly from|flying to|flight to|flight from|flights to|flights from)\s+\w+)|((hotel|hotels|stay|stays)\s+(in|near|around)\s+\w+)
 category: 生活服务
 author: 携程问道（携程旅行网旗下智能旅行助手）
+related_skills: [12306-train-assistant, didi-ride-skill, meituan-coupon-workbuddy, qcc-company, tencent-esign-contract]
 ---
 
 # 携程问道（workbuddy合作版）技能 (wendao-partner-workbuddy-skill)

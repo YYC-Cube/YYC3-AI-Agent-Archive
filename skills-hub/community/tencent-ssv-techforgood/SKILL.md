@@ -19,6 +19,7 @@ permissions:
   file_write: true
   api_key_required: false
 disable: false
+related_skills: [charity-writing-assistant, tencent-music-campus-recruit, andonq, tencent-campus-recruit, tencent-esign-contract]
 ---
 
 # 公益虾🦞 — 腾讯技术公益智能助手

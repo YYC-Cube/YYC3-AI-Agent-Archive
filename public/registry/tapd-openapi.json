@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/tapd-openapi",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/tapd-openapi/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/tapd-openapi/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "lexiang-knowledge-base",
+      "kdocs",
+      "tencent-meeting-skill",
+      "tencent-docs",
+      "tencent-news"
+    ]
   }
 }

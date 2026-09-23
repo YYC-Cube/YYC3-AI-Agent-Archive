@@ -11,6 +11,7 @@ display_name_en: "Price Drop & Coupon Scout"
 description_zh: "为用户指定的商品提供只读的价格监控与优惠券汇总：设置目标价与提醒频率，输出价格监控清单、可用优惠券/促销码和降价提醒文案。全程不登录账号、不加购物车、不下单、不处理支付。"
 description_en: "Read-only price monitoring and coupon roundup for the products you specify: set a target price and alert cadence, get a watch list, available coupons/promo codes and ready-to-use price-drop alerts. Never logs in, adds to cart, checks out or handles payment."
 visibility: "public"
+related_skills: [price-history, maishou, haina-shopping-assistant, meituan-coupon-workbuddy, vipshop-product-detail]
 ---
 
 # 价格优惠监控助手

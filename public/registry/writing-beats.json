@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/writing-beats",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "writing-shape",
+      "copy-editing",
+      "writing-fragments",
+      "llm-wiki",
+      "paywall-upgrade-cro"
+    ]
   }
 }

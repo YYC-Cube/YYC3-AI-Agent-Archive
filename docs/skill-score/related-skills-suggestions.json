@@ -1,6042 +1,2493 @@
 {
-  "generatedAt": "2026-09-23T19:16:24.326Z",
+  "generatedAt": "2026-09-23T19:38:47.698Z",
   "applied": true,
   "suggestions": [
     {
-      "name": "nemo-mbridge-mlm-bridge-training",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-mlm-bridge-training",
+      "name": "wecom-weisheng-scrm",
+      "file": "skills-hub/community/wecom-weisheng-scrm",
       "candidates": [
         {
-          "name": "nemo-mbridge-perf-moe-vlm-training",
-          "confidence": 6,
+          "name": "wecom-unified",
+          "confidence": 22,
           "reasons": [
-            "名称家族",
-            "双重家族命中",
-            "同领域"
+            "语义重叠 22"
           ]
         },
         {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
+          "name": "dingtalk-unified",
+          "confidence": 12,
           "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cpu-offloading",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cuda-graphs",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-expert-parallel-overlap",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-expert-parallel-overlap",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-perf-moe-comm-overlap",
-          "confidence": 6,
-          "reasons": [
-            "名称家族",
-            "双重家族命中",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-tp-dp-comm-overlap",
-          "confidence": 6,
-          "reasons": [
-            "名称家族",
-            "双重家族命中",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-mlm-bridge-training",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-moe-comm-overlap",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-comm-overlap",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-perf-expert-parallel-overlap",
-          "confidence": 6,
-          "reasons": [
-            "名称家族",
-            "双重家族命中",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-tp-dp-comm-overlap",
-          "confidence": 6,
-          "reasons": [
-            "名称家族",
-            "双重家族命中",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-mlm-bridge-training",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "aiq-deploy",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/aiq-deploy",
-      "candidates": [
-        {
-          "name": "aiq-research",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "aiq-research",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/aiq-research",
-      "candidates": [
-        {
-          "name": "aiq-deploy",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "dynamo-interconnect-check",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-interconnect-check",
-      "candidates": [
-        {
-          "name": "dynamo-recipe-runner",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "dynamo-troubleshoot",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "dynamo-router-starter",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-router-starter",
-      "candidates": [
-        {
-          "name": "dynamo-recipe-runner",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemoclaw-user-get-started",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-get-started",
-      "candidates": [
-        {
-          "name": "nemoclaw-user-manage-sandboxes",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/physical-ai-infrastructure-setup-and-resilient-scaling",
-      "candidates": [
-        {
-          "name": "physical-ai-defect-image-generation",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "physical-ai-video-data-augmentation",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cuopt-numerical-optimization-api-c",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-api-c",
-      "candidates": [
-        {
-          "name": "cuopt-numerical-optimization-api-cli",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-formulation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cuopt-numerical-optimization-api-cli",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-api-cli",
-      "candidates": [
-        {
-          "name": "cuopt-numerical-optimization-api-c",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-formulation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "stagehand-browser-cli",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "mmx-cli",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cuopt-numerical-optimization-api-python",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-numerical-optimization-api-python",
-      "candidates": [
-        {
-          "name": "cuopt-numerical-optimization-api-c",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-api-cli",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-formulation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-routing-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-server-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cuopt-routing-api-python",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-routing-api-python",
-      "candidates": [
-        {
-          "name": "cuopt-routing-formulation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-server-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tilegym-cutile-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cuopt-routing-formulation",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-routing-formulation",
-      "candidates": [
-        {
-          "name": "cuopt-routing-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-formulation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cuopt-server-api-python",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/cuopt-server-api-python",
-      "candidates": [
-        {
-          "name": "cuopt-server-common",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-numerical-optimization-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cuopt-routing-api-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tilegym-cutile-python",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "digital-health-clinical-asr-build",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-build",
-      "candidates": [
-        {
-          "name": "digital-health-clinical-asr-eval",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "digital-health-clinical-asr-setup",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "digital-health-clinical-asr-eval",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-eval",
-      "candidates": [
-        {
-          "name": "digital-health-clinical-asr-build",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "digital-health-clinical-asr-finetune",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "digital-health-clinical-asr-finetune",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-finetune",
-      "candidates": [
-        {
-          "name": "digital-health-clinical-asr-build",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "digital-health-clinical-asr-eval",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "digital-health-clinical-asr-setup",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/digital-health-clinical-asr-setup",
-      "candidates": [
-        {
-          "name": "digital-health-clinical-asr-build",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "dynamo-recipe-runner",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-recipe-runner",
-      "candidates": [
-        {
-          "name": "dynamo-interconnect-check",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "dynamo-router-starter",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "dynamo-troubleshoot",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/dynamo-troubleshoot",
-      "candidates": [
-        {
-          "name": "dynamo-interconnect-check",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "holoscan-install-debian",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-debian",
-      "candidates": [
-        {
-          "name": "holoscan-install-wheel",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "holoscan-install-wheel",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/holoscan-install-wheel",
-      "candidates": [
-        {
-          "name": "holoscan-install-debian",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "hsb-flash",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/hsb-flash",
-      "candidates": [
-        {
-          "name": "hsb-setup",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "hsb-setup",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/hsb-setup",
-      "candidates": [
-        {
-          "name": "hsb-flash",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-activation-recompute",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-activation-recompute",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-perf-memory-tuning",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-cpu-offloading",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-cpu-offloading",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-mlm-bridge-training",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cuda-graphs",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-expert-parallel-overlap",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-memory-tuning",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-memory-tuning",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-moe-dispatcher-selection",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-dispatcher-selection",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-mlm-bridge-training",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cpu-offloading",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cuda-graphs",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-moe-hardware-configs",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-moe-hardware-configs",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-mlm-bridge-training",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cpu-offloading",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cuda-graphs",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-mbridge-perf-sequence-packing",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-mbridge-perf-sequence-packing",
-      "candidates": [
-        {
-          "name": "nemo-mbridge-mlm-bridge-training",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-multi-node-slurm",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-activation-recompute",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cpu-offloading",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemo-mbridge-perf-cuda-graphs",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-rl-auto-research",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-auto-research",
-      "candidates": [
-        {
-          "name": "nemo-rl-brev-etiquette",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemo-rl-brev-etiquette",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemo-rl-brev-etiquette",
-      "candidates": [
-        {
-          "name": "nemo-rl-auto-research",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemoclaw-user-agent-skills",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-agent-skills",
-      "candidates": [
-        {
-          "name": "nemoclaw-user-get-started",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-configure-inference",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-configure-security",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-deploy-remote",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-manage-policy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemoclaw-user-configure-security",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-configure-security",
-      "candidates": [
-        {
-          "name": "nemoclaw-user-get-started",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-agent-skills",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-configure-inference",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-deploy-remote",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemoclaw-user-manage-policy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nemoclaw-user-manage-sandboxes",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nemoclaw-user-manage-sandboxes",
-      "candidates": [
-        {
-          "name": "nemoclaw-user-get-started",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nv-generate-mr",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nv-generate-mr",
-      "candidates": [
-        {
-          "name": "nv-generate-mr-brain",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "nv-generate-mr-brain",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/nv-generate-mr-brain",
-      "candidates": [
-        {
-          "name": "nv-generate-mr",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "physical-ai-defect-image-generation",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/physical-ai-defect-image-generation",
-      "candidates": [
-        {
-          "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "physical-ai-video-data-augmentation",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/physical-ai-video-data-augmentation",
-      "candidates": [
-        {
-          "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "rag-blueprint",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/rag-blueprint",
-      "candidates": [
-        {
-          "name": "rag-eval",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "rag-eval",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/rag-eval",
-      "candidates": [
-        {
-          "name": "rag-blueprint",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "rag-perf",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "rag-perf",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/rag-perf",
-      "candidates": [
-        {
-          "name": "rag-eval",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tao-run-automl",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl",
-      "candidates": [
-        {
-          "name": "tao-train-single-step",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tao-run-automl-deft-pipeline",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-automl-deft-pipeline",
-      "candidates": [
-        {
-          "name": "tao-run-deft-aoi",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tao-run-deft-aoi",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-run-deft-aoi",
-      "candidates": [
-        {
-          "name": "tao-run-automl-deft-pipeline",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tao-train-single-step",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/tao-train-single-step",
-      "candidates": [
-        {
-          "name": "tao-run-automl",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-ask-video",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-ask-video",
-      "candidates": [
-        {
-          "name": "vss-generate-video-report",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-manage-video-io-storage",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-generate-video-report",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-generate-video-report",
-      "candidates": [
-        {
-          "name": "vss-ask-video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-summarize-video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-manage-alerts",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-manage-alerts",
-      "candidates": [
-        {
-          "name": "vss-generate-video-report",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-manage-video-io-storage",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-manage-video-io-storage",
-      "candidates": [
-        {
-          "name": "vss-ask-video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-summarize-video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-query-analytics",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-query-analytics",
-      "candidates": [
-        {
-          "name": "vss-generate-video-report",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-search-archive",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-search-archive",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-search-archive",
-      "candidates": [
-        {
-          "name": "vss-manage-video-io-storage",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-query-analytics",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vss-summarize-video",
-      "file": "skills-hub/ai-ml/nvidia-skills/skills/vss-summarize-video",
-      "candidates": [
-        {
-          "name": "vss-generate-video-report",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-manage-video-io-storage",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "airchina-travel-assistant",
-      "file": "skills-hub/community/airchina-travel-assistant",
-      "candidates": [
-        {
-          "name": "12306-train-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-finance-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-writing-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "gsap-animation-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "haina-shopping-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "arxiv-reader",
-      "file": "skills-hub/community/arxiv-reader",
-      "candidates": [
-        {
-          "name": "english-intensive-reader",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "paper-quick-reader",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "charity-finance-assistant",
-      "file": "skills-hub/community/charity-finance-assistant",
-      "candidates": [
-        {
-          "name": "12306-train-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airchina-travel-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-writing-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "gsap-animation-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "haina-shopping-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "charity-writing-assistant",
-      "file": "skills-hub/community/charity-writing-assistant",
-      "candidates": [
-        {
-          "name": "12306-train-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airchina-travel-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-finance-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "gsap-animation-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "haina-shopping-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cloudbase",
-      "file": "skills-hub/community/cloudbase",
-      "candidates": [
-        {
-          "name": "ai-model-nodejs",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cloudbase-platform",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cloudrun-development",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "miniprogram-development",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-development",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ai-model-nodejs",
-      "file": "skills-hub/community/cloudbase/references/ai-model-nodejs",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ai-model-wechat",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ai-model-web",
-      "file": "skills-hub/community/cloudbase/references/ai-model-web",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ai-model-wechat",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ai-model-wechat",
-      "file": "skills-hub/community/cloudbase/references/ai-model-wechat",
-      "candidates": [
-        {
-          "name": "ai-model-nodejs",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ai-model-web",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "auth-tool-cloudbase",
-      "file": "skills-hub/community/cloudbase/references/auth-tool",
-      "candidates": [
-        {
-          "name": "auth-nodejs-cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "auth-web-cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "http-api-cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "relational-database-mcp-cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "relational-database-web-cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "auth-wechat-miniprogram",
-      "file": "skills-hub/community/cloudbase/references/auth-wechat",
-      "candidates": [
-        {
-          "name": "cloudbase-document-database-in-wechat-miniprogram",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tdesign-miniprogram",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "wechat-miniprogram",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cloud-functions",
-      "file": "skills-hub/community/cloudbase/references/cloud-functions",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cloud-storage-web",
-      "file": "skills-hub/community/cloudbase/references/cloud-storage-web",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cloudbase-platform",
-      "file": "skills-hub/community/cloudbase/references/cloudbase-platform",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cloudrun-development",
-      "file": "skills-hub/community/cloudbase/references/cloudrun-development",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "miniprogram-development",
-      "file": "skills-hub/community/cloudbase/references/miniprogram-development",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-development",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ui-design",
-      "file": "skills-hub/community/cloudbase/references/ui-design",
-      "candidates": [
-        {
-          "name": "miniprogram-development",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-development",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "web-development",
-      "file": "skills-hub/community/cloudbase/references/web-development",
-      "candidates": [
-        {
-          "name": "cloudbase",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ui-design",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cnb-skill",
-      "file": "skills-hub/community/cnb-skill",
-      "candidates": [
-        {
-          "name": "cangjie-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "crash-expert-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 12"
           ]
         },
         {
           "name": "didi-ride-skill",
-          "confidence": 5,
+          "confidence": 11,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "tapd-openapi",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "tencentos-expert",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
           ]
         }
       ]
     },
     {
-      "name": "crash-expert-skill",
-      "file": "skills-hub/community/crash-expert-skill",
-      "candidates": [
-        {
-          "name": "cangjie-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cnb-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "didi-ride-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "research",
-      "file": "skills-hub/community/deep-research/research",
-      "candidates": [
-        {
-          "name": "research-add-fields",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "research-deep",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "research-add-fields",
-      "file": "skills-hub/community/deep-research/research-add-fields",
-      "candidates": [
-        {
-          "name": "research",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "research-add-items",
-      "file": "skills-hub/community/deep-research/research-add-items",
-      "candidates": [
-        {
-          "name": "research",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "research-deep",
-      "file": "skills-hub/community/deep-research/research-deep",
-      "candidates": [
-        {
-          "name": "research",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "earnings-tracker",
-      "file": "skills-hub/community/earnings-tracker",
-      "candidates": [
-        {
-          "name": "aviationstack-flight-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "flight-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "goal-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "habit-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "plan-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "flutter-dev",
-      "file": "skills-hub/marketplace/claude-code-skills/skills/flutter-dev",
-      "candidates": [
-        {
-          "name": "android-native-dev",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "frontend-dev",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "fullstack-dev",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ios-application-dev",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "react-native-dev",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "futuapi",
-      "file": "skills-hub/community/futuapi",
-      "candidates": [
-        {
-          "name": "install-futu-opend",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "habit-tracker",
-      "file": "skills-hub/community/habit-tracker",
-      "candidates": [
-        {
-          "name": "aviationstack-flight-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "earnings-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "flight-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "goal-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "plan-tracker",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "haina-shopping-assistant",
-      "file": "skills-hub/community/haina-shopping-assistant",
-      "candidates": [
-        {
-          "name": "12306-train-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airchina-travel-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-finance-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-writing-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "gsap-animation-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "html-deploy",
-      "file": "skills-hub/community/html-deploy",
-      "candidates": [
-        {
-          "name": "edgeone-pages-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "github-pages-auto-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "netlify-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vercel-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "install-futu-opend",
-      "file": "skills-hub/community/install-futu-opend",
-      "candidates": [
-        {
-          "name": "futuapi",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "khazix-writer",
-      "file": "skills-hub/community/khazix-writer",
-      "candidates": [
-        {
-          "name": "novel-writer",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "content-research-writer",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "legal-logic-analysis",
-      "file": "skills-hub/community/legal-logic-analysis",
-      "candidates": [
-        {
-          "name": "stock-analysis",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "us-stock-analysis",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "yt-competitive-analysis",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vision-analysis",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "developer-growth-analysis",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "lingxi-financialsearch-skill",
-      "file": "skills-hub/community/lingxi-financialsearch-skill",
-      "candidates": [
-        {
-          "name": "cangjie-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cnb-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "crash-expert-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ab-test-setup",
-      "file": "skills-hub/community/marketing-skills/references/ab-test-setup",
-      "candidates": [
-        {
-          "name": "analytics-tracking",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "page-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "analytics-tracking",
-      "file": "skills-hub/community/marketing-skills/references/analytics-tracking",
-      "candidates": [
-        {
-          "name": "ab-test-setup",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "copy-editing",
-      "file": "skills-hub/marketing/marketing-skills/skills/copy-editing",
-      "candidates": [
-        {
-          "name": "copywriting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "copywriting",
-      "file": "skills-hub/marketing/marketing-skills/skills/copywriting",
-      "candidates": [
-        {
-          "name": "copy-editing",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "pricing",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "email-sequence",
-      "file": "skills-hub/community/marketing-skills/references/email-sequence",
-      "candidates": [
-        {
-          "name": "onboarding-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "popup-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "form-cro",
-      "file": "skills-hub/community/marketing-skills/references/form-cro",
-      "candidates": [
-        {
-          "name": "page-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "signup-flow-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "marketing-ideas",
-      "file": "skills-hub/marketing/marketing-skills/skills/marketing-ideas",
-      "candidates": [
-        {
-          "name": "launch",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "marketing-plan",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "marketing-psychology",
-      "file": "skills-hub/marketing/marketing-skills/skills/marketing-psychology",
-      "candidates": [
-        {
-          "name": "pricing",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "social",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "onboarding-cro",
-      "file": "skills-hub/community/marketing-skills/references/onboarding-cro",
-      "candidates": [
-        {
-          "name": "email-sequence",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "signup-flow-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "page-cro",
-      "file": "skills-hub/community/marketing-skills/references/page-cro",
-      "candidates": [
-        {
-          "name": "ab-test-setup",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "signup-flow-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "paywall-upgrade-cro",
-      "file": "skills-hub/community/marketing-skills/references/paywall-upgrade-cro",
-      "candidates": [
-        {
-          "name": "onboarding-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "popup-cro",
-      "file": "skills-hub/community/marketing-skills/references/popup-cro",
-      "candidates": [
-        {
-          "name": "email-sequence",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "page-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "programmatic-seo",
-      "file": "skills-hub/marketing/marketing-skills/skills/programmatic-seo",
-      "candidates": [
-        {
-          "name": "seo-audit",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "site-architecture",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "seo-audit",
-      "file": "skills-hub/marketing/marketing-skills/skills/seo-audit",
-      "candidates": [
-        {
-          "name": "programmatic-seo",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "image",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "schema",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "site-architecture",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "signup-flow-cro",
-      "file": "skills-hub/community/marketing-skills/references/signup-flow-cro",
-      "candidates": [
-        {
-          "name": "form-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "page-cro",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mcdonald-assistant",
-      "file": "skills-hub/community/mcdonald-assistant",
-      "candidates": [
-        {
-          "name": "12306-train-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airchina-travel-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-finance-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "charity-writing-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "gsap-animation-assistant",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "meituan-coupon-workbuddy",
-      "file": "skills-hub/community/meituan-coupon-workbuddy",
+      "name": "workbuddy-asset-migration",
+      "file": "skills-hub/community/workbuddy-asset-migration",
       "candidates": [
         {
           "name": "openclaw-assets-to-workbuddy",
-          "confidence": 5,
+          "confidence": 20,
           "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "meituan-huisheng-coupon",
-      "file": "skills-hub/community/meituan-huisheng-coupon",
-      "candidates": [
-        {
-          "name": "wechatpay-product-coupon",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "neodata-financial-search",
-      "file": "skills-hub/community/neodata-financial-search",
-      "candidates": [
-        {
-          "name": "cn-ecommerce-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 20"
           ]
         },
-        {
-          "name": "sino-drug-instructions-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tencent-yuanbao-standard-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vipshop-product-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vipshop-promotion-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "netlify-deploy",
-      "file": "skills-hub/community/netlify-deploy",
-      "candidates": [
-        {
-          "name": "edgeone-pages-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "github-pages-auto-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "html-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vercel-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "openai-whisper-api",
-      "file": "skills-hub/community/openai-whisper-api",
-      "candidates": [
-        {
-          "name": "shopify-admin-api",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "skyline-scroll-api",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-setup-video-analytics-api",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "claude-api",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "prompt-engineering-expert",
-      "file": "skills-hub/community/prompt-engineering-expert",
-      "candidates": [
-        {
-          "name": "tencentos-expert",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "shopify-admin-api",
-      "file": "skills-hub/community/shopify-admin-api",
-      "candidates": [
-        {
-          "name": "openai-whisper-api",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "skyline-scroll-api",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vss-setup-video-analytics-api",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "claude-api",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "sino-drug-instructions-search",
-      "file": "skills-hub/community/sino-drug-instructions-search",
-      "candidates": [
-        {
-          "name": "cn-ecommerce-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "neodata-financial-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tencent-yuanbao-standard-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vipshop-product-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vipshop-promotion-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "skills-security-check",
-      "file": "skills-hub/community/skills-security-check",
-      "candidates": [
-        {
-          "name": "responsiveness-check",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "dynamo-interconnect-check",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "skyline-components",
-      "file": "skills-hub/community/skyline/references/components",
-      "candidates": [
-        {
-          "name": "skyline-route",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "skyline-wxss",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "skyline-config",
-      "file": "skills-hub/community/skyline/references/config",
-      "candidates": [
-        {
-          "name": "skyline-overview",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "skyline-wxss",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "skyline-overview",
-      "file": "skills-hub/community/skyline/references/overview",
-      "candidates": [
         {
           "name": "skyline-config",
-          "confidence": 5,
+          "confidence": 9,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 9"
           ]
         },
         {
-          "name": "skyline-wxss",
-          "confidence": 5,
+          "name": "libtv-skill",
+          "confidence": 8,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "tencent-meeting-skill",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "vipshop-product-search",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
           ]
         }
       ]
     },
     {
-      "name": "skyline-route",
-      "file": "skills-hub/community/skyline/references/route",
+      "name": "promo-brief",
+      "file": "skills-hub/community/promo-creator-skills/promo-brief",
       "candidates": [
         {
-          "name": "skyline-components",
-          "confidence": 5,
+          "name": "promo-workflow",
+          "confidence": 19,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 19"
           ]
         },
         {
-          "name": "skyline-worklet",
-          "confidence": 5,
+          "name": "promo-creator-skills",
+          "confidence": 15,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 15"
+          ]
+        },
+        {
+          "name": "libtv-skill",
+          "confidence": 14,
+          "reasons": [
+            "语义重叠 14"
+          ]
+        },
+        {
+          "name": "promo-music-maker",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "promo-storyboard",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
           ]
         }
       ]
     },
     {
-      "name": "skyline-scroll-api",
-      "file": "skills-hub/community/skyline/references/scroll-api",
+      "name": "andonq",
+      "file": "skills-hub/community/andonq",
       "candidates": [
         {
-          "name": "skyline-components",
-          "confidence": 5,
+          "name": "cloudq",
+          "confidence": 17,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 17"
+          ]
+        },
+        {
+          "name": "tencent-meeting-skill",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "tapd-openapi",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "tencent-news",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "tencent-docs",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
           ]
         }
       ]
     },
     {
-      "name": "skyline-worklet",
-      "file": "skills-hub/community/skyline/references/worklet",
+      "name": "cloudq",
+      "file": "skills-hub/community/cloudq",
       "candidates": [
         {
-          "name": "skyline-components",
-          "confidence": 5,
+          "name": "andonq",
+          "confidence": 17,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 17"
           ]
         },
         {
-          "name": "skyline-wxss",
-          "confidence": 5,
+          "name": "migraq",
+          "confidence": 9,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencentos-expert",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "tencent-meeting-skill",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencent-ssv-techforgood",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
           ]
         }
       ]
     },
     {
-      "name": "skyline-wxss",
-      "file": "skills-hub/community/skyline/references/wxss",
+      "name": "tapd-openapi",
+      "file": "skills-hub/community/tapd-openapi",
       "candidates": [
         {
-          "name": "skyline-components",
-          "confidence": 5,
+          "name": "lexiang-knowledge-base",
+          "confidence": 17,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 17"
           ]
         },
         {
-          "name": "skyline-worklet",
-          "confidence": 5,
+          "name": "kdocs",
+          "confidence": 13,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 13"
+          ]
+        },
+        {
+          "name": "tencent-meeting-skill",
+          "confidence": 13,
+          "reasons": [
+            "语义重叠 13"
+          ]
+        },
+        {
+          "name": "tencent-docs",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "tencent-news",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
           ]
         }
       ]
     },
     {
-      "name": "task-alignment",
-      "file": "skills-hub/community/task-alignment",
-      "candidates": [
-        {
-          "name": "task-implement",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "task-implement",
-      "file": "skills-hub/community/task-implement",
-      "candidates": [
-        {
-          "name": "task-alignment",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencent-campus-recruit",
-      "file": "skills-hub/community/tencent-campus-recruit",
-      "candidates": [
-        {
-          "name": "tencent-music-campus-recruit",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencent-meeting-skill",
-      "file": "skills-hub/community/tencent-meeting-skill",
-      "candidates": [
-        {
-          "name": "cangjie-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cnb-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "crash-expert-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencent-yuanbao-gaokao-regional-passing-scores",
-      "file": "skills-hub/community/tencent-yuanbao-gaokao-regional-passing-scores",
-      "candidates": [
-        {
-          "name": "tencent-yuanbao-gaokao-score-to-rank-lookup",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tencent-yuanbao-standard-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencent-yuanbao-gaokao-score-to-rank-lookup",
-      "file": "skills-hub/community/tencent-yuanbao-gaokao-score-to-rank-lookup",
-      "candidates": [
-        {
-          "name": "tencent-yuanbao-gaokao-regional-passing-scores",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tencent-yuanbao-standard-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencent-yuanbao-standard-search",
-      "file": "skills-hub/community/tencent-yuanbao-standard-search",
-      "candidates": [
-        {
-          "name": "tencent-yuanbao-gaokao-regional-passing-scores",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tencent-yuanbao-gaokao-score-to-rank-lookup",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cn-ecommerce-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "neodata-financial-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "sino-drug-instructions-search",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencentmap-lbs-skill",
-      "file": "skills-hub/community/tencentmap-lbs-skill",
-      "candidates": [
-        {
-          "name": "cangjie-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cnb-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "crash-expert-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "tencentos-expert",
-      "file": "skills-hub/community/tencentos-expert",
-      "candidates": [
-        {
-          "name": "prompt-engineering-expert",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "us-stock-analysis",
-      "file": "skills-hub/community/us-stock-analysis",
-      "candidates": [
-        {
-          "name": "legal-logic-analysis",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "stock-analysis",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "yt-competitive-analysis",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "vision-analysis",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "developer-growth-analysis",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vercel-deploy",
-      "file": "skills-hub/community/vercel-deploy",
-      "candidates": [
-        {
-          "name": "edgeone-pages-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "github-pages-auto-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "html-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "netlify-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-deploy",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vipshop-product-detail",
-      "file": "skills-hub/community/vip-skill/vipshop-product-detail",
+      "name": "maishou",
+      "file": "skills-hub/community/taobao",
       "candidates": [
         {
           "name": "vipshop-product-search",
-          "confidence": 5,
+          "confidence": 16,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 16"
+          ]
+        },
+        {
+          "name": "vipshop-promotion-search",
+          "confidence": 14,
+          "reasons": [
+            "语义重叠 14"
+          ]
+        },
+        {
+          "name": "shopping-price-drop-coupon-scout",
+          "confidence": 13,
+          "reasons": [
+            "语义重叠 13"
+          ]
+        },
+        {
+          "name": "vip-skill",
+          "confidence": 13,
+          "reasons": [
+            "语义重叠 13"
+          ]
+        },
+        {
+          "name": "price-history",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
           ]
         }
       ]
     },
     {
-      "name": "vipshop-product-search",
-      "file": "skills-hub/community/vip-skill/vipshop-product-search",
+      "name": "qcc-company",
+      "file": "skills-hub/community/qcc-company",
       "candidates": [
+        {
+          "name": "didi-ride-skill",
+          "confidence": 15,
+          "reasons": [
+            "语义重叠 15"
+          ]
+        },
+        {
+          "name": "libtv-skill",
+          "confidence": 14,
+          "reasons": [
+            "语义重叠 14"
+          ]
+        },
         {
           "name": "vipshop-product-detail",
-          "confidence": 5,
+          "confidence": 14,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 14"
+          ]
+        },
+        {
+          "name": "vipshop-promotion-search",
+          "confidence": 14,
+          "reasons": [
+            "语义重叠 14"
+          ]
+        },
+        {
+          "name": "vipshop-product-search",
+          "confidence": 13,
+          "reasons": [
+            "语义重叠 13"
           ]
         }
       ]
     },
     {
-      "name": "web-deploy",
-      "file": "skills-hub/community/web-deploy",
+      "name": "price-history",
+      "file": "skills-hub/community/price-history",
       "candidates": [
         {
-          "name": "edgeone-pages-deploy",
-          "confidence": 5,
+          "name": "shopping-price-drop-coupon-scout",
+          "confidence": 14,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 14"
           ]
         },
         {
-          "name": "github-pages-auto-deploy",
-          "confidence": 5,
+          "name": "vipshop-product-search",
+          "confidence": 13,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 13"
           ]
         },
         {
-          "name": "html-deploy",
-          "confidence": 5,
+          "name": "vipshop-promotion-search",
+          "confidence": 13,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 13"
           ]
         },
         {
-          "name": "netlify-deploy",
-          "confidence": 5,
+          "name": "tencent-campus-recruit",
+          "confidence": 12,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 12"
           ]
         },
         {
-          "name": "vercel-deploy",
-          "confidence": 5,
+          "name": "tencent-music-campus-recruit",
+          "confidence": 12,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 12"
           ]
         }
       ]
     },
     {
-      "name": "wechat-article-pro",
-      "file": "skills-hub/community/wechat-article-pro",
+      "name": "shopping-price-drop-coupon-scout",
+      "file": "skills-hub/community/shopping-price-drop-coupon-scout",
+      "candidates": [
+        {
+          "name": "price-history",
+          "confidence": 14,
+          "reasons": [
+            "语义重叠 14"
+          ]
+        },
+        {
+          "name": "maishou",
+          "confidence": 13,
+          "reasons": [
+            "语义重叠 13"
+          ]
+        },
+        {
+          "name": "haina-shopping-assistant",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "meituan-coupon-workbuddy",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "vipshop-product-detail",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aihot",
+      "file": "skills-hub/community/aihot",
+      "candidates": [
+        {
+          "name": "tencent-esign-contract",
+          "confidence": 13,
+          "reasons": [
+            "语义重叠 13"
+          ]
+        },
+        {
+          "name": "wechat-article-search",
+          "confidence": 12,
+          "reasons": [
+            "语义重叠 12"
+          ]
+        },
+        {
+          "name": "tencent-news",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "qcc-company",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "tencentos-expert",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tencent-news",
+      "file": "skills-hub/community/tencent-news",
       "candidates": [
         {
           "name": "wechat-article-search",
-          "confidence": 5,
+          "confidence": 13,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 13"
           ]
         },
         {
-          "name": "nano-banana-pro",
-          "confidence": 5,
+          "name": "aihot",
+          "confidence": 11,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "qcc-company",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "tapd-openapi",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "andonq",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
           ]
         }
       ]
     },
     {
-      "name": "wechat-article-search",
-      "file": "skills-hub/community/wechat-article-search",
+      "name": "westockdata",
+      "file": "skills-hub/community/westockdata",
       "candidates": [
         {
-          "name": "wechat-article-pro",
-          "confidence": 5,
+          "name": "a-stock-data",
+          "confidence": 13,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 13"
           ]
         },
         {
-          "name": "cn-ecommerce-search",
-          "confidence": 5,
+          "name": "lingxi-financialsearch-skill",
+          "confidence": 13,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 13"
           ]
         },
         {
-          "name": "neodata-financial-search",
-          "confidence": 5,
+          "name": "qcc-company",
+          "confidence": 10,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 10"
           ]
         },
         {
-          "name": "sino-drug-instructions-search",
-          "confidence": 5,
+          "name": "futuapi",
+          "confidence": 9,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 9"
           ]
         },
         {
-          "name": "tencent-yuanbao-standard-search",
-          "confidence": 5,
+          "name": "stock-analyzer",
+          "confidence": 8,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 8"
           ]
         }
       ]
     },
     {
-      "name": "wechat-miniprogram",
-      "file": "skills-hub/community/wechat-miniprogram",
+      "name": "minimax-xlsx",
+      "file": "skills-hub/marketplace/claude-code-skills/skills/minimax-xlsx",
       "candidates": [
         {
-          "name": "auth-wechat-miniprogram",
-          "confidence": 5,
+          "name": "xlsx",
+          "confidence": 13,
           "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cloudbase-document-database-in-wechat-miniprogram",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tdesign-miniprogram",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "wecom-unified",
-      "file": "skills-hub/community/wecom-unified",
-      "candidates": [
-        {
-          "name": "dingtalk-unified",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "lark-unified",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "yourself-skill",
-      "file": "skills-hub/community/yourself-skill",
-      "candidates": [
-        {
-          "name": "cangjie-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cnb-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "crash-expert-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "setup-matt-pocock-skills",
-      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/setup-matt-pocock-skills",
-      "candidates": [
-        {
-          "name": "to-issues",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "triage",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "to-issues",
-      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/to-issues",
-      "candidates": [
-        {
-          "name": "setup-matt-pocock-skills",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "to-prd",
-      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/to-prd",
-      "candidates": [
-        {
-          "name": "setup-matt-pocock-skills",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "triage",
-      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/triage",
-      "candidates": [
-        {
-          "name": "setup-matt-pocock-skills",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ab-testing",
-      "file": "skills-hub/marketing/marketing-skills/skills/ab-testing",
-      "candidates": [
-        {
-          "name": "copywriting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "signup",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ad-creative",
-      "file": "skills-hub/marketing/marketing-skills/skills/ad-creative",
-      "candidates": [
-        {
-          "name": "image",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ai-seo",
-      "file": "skills-hub/marketing/marketing-skills/skills/ai-seo",
-      "candidates": [
-        {
-          "name": "seo-audit",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "schema",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "analytics",
-      "file": "skills-hub/marketing/marketing-skills/skills/analytics",
-      "candidates": [
-        {
-          "name": "seo-audit",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "signup",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "churn-prevention",
-      "file": "skills-hub/marketing/marketing-skills/skills/churn-prevention",
-      "candidates": [
-        {
-          "name": "emails",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "pricing",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "co-marketing",
-      "file": "skills-hub/marketing/marketing-skills/skills/co-marketing",
-      "candidates": [
-        {
-          "name": "launch",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cold-email",
-      "file": "skills-hub/marketing/marketing-skills/skills/cold-email",
-      "candidates": [
-        {
-          "name": "prospecting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "revops",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "competitor-profiling",
-      "file": "skills-hub/marketing/marketing-skills/skills/competitor-profiling",
-      "candidates": [
-        {
-          "name": "prospecting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "competitors",
-      "file": "skills-hub/marketing/marketing-skills/skills/competitors",
-      "candidates": [
-        {
-          "name": "programmatic-seo",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "sales-enablement",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "content-strategy",
-      "file": "skills-hub/marketing/marketing-skills/skills/content-strategy",
-      "candidates": [
-        {
-          "name": "ai-seo",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "site-architecture",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "customer-research",
-      "file": "skills-hub/marketing/marketing-skills/skills/customer-research",
-      "candidates": [
-        {
-          "name": "marketing-plan",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "prospecting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "emails",
-      "file": "skills-hub/marketing/marketing-skills/skills/emails",
-      "candidates": [
-        {
-          "name": "copywriting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "popups",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "revops",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "free-tools",
-      "file": "skills-hub/marketing/marketing-skills/skills/free-tools",
-      "candidates": [
-        {
-          "name": "lead-magnets",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "image",
-      "file": "skills-hub/marketing/marketing-skills/skills/image",
-      "candidates": [
-        {
-          "name": "seo-audit",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "launch",
-      "file": "skills-hub/marketing/marketing-skills/skills/launch",
-      "candidates": [
-        {
-          "name": "marketing-ideas",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "social",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "lead-magnets",
-      "file": "skills-hub/marketing/marketing-skills/skills/lead-magnets",
-      "candidates": [
-        {
-          "name": "emails",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "popups",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "marketing-plan",
-      "file": "skills-hub/marketing/marketing-skills/skills/marketing-plan",
-      "candidates": [
-        {
-          "name": "marketing-ideas",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 13"
           ]
         },
         {
           "name": "customer-research",
-          "confidence": 5,
+          "confidence": 7,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "docx",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "nemo-retriever",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "ai-shifu-course-creator",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
           ]
         }
       ]
     },
     {
-      "name": "onboarding",
-      "file": "skills-hub/marketing/marketing-skills/skills/onboarding",
+      "name": "wechat-viral-topic",
+      "file": "skills-hub/community/wechat-viral-topic",
       "candidates": [
         {
-          "name": "emails",
+          "name": "wechat-article-search",
+          "confidence": 12,
+          "reasons": [
+            "语义重叠 12"
+          ]
+        },
+        {
+          "name": "tencent-news",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "aihot",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "libtv-skill",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "promo-creator-skills",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "promo-storyboard",
+      "file": "skills-hub/community/promo-creator-skills/promo-storyboard",
+      "candidates": [
+        {
+          "name": "promo-editor",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "libtv-skill",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "promo-brief",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "promo-creator-skills",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "promo-music-maker",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tencent-ssv-techforgood",
+      "file": "skills-hub/community/tencent-ssv-techforgood",
+      "candidates": [
+        {
+          "name": "charity-writing-assistant",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "tencent-music-campus-recruit",
+          "confidence": 11,
+          "reasons": [
+            "语义重叠 11"
+          ]
+        },
+        {
+          "name": "andonq",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencent-campus-recruit",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencent-esign-contract",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ecommerce-copywriter",
+      "file": "skills-hub/community/ecommerce-copywriter",
+      "candidates": [
+        {
+          "name": "maishou",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "vip-skill",
+          "confidence": 10,
+          "reasons": [
+            "语义重叠 10"
+          ]
+        },
+        {
+          "name": "vipshop-product-search",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "vipshop-promotion-search",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "haina-shopping-assistant",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "apple-reminders",
+      "file": "skills-hub/community/apple-reminders",
+      "candidates": [
+        {
+          "name": "apple-notes",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "things-mac",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "himalaya",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "hsb-app",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "vss-manage-video-io-storage",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cos-vectors",
+      "file": "skills-hub/community/cos-vectors",
+      "candidates": [
+        {
+          "name": "tencent-meeting-skill",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencentcloud-cos",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencent-docs",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "lexiang-knowledge-base",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencentcloud-cls",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ctrip-wendao",
+      "file": "skills-hub/community/ctrip-wendao",
+      "candidates": [
+        {
+          "name": "12306-train-assistant",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "didi-ride-skill",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "meituan-coupon-workbuddy",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "qcc-company",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencent-esign-contract",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "migraq",
+      "file": "skills-hub/community/migraq",
+      "candidates": [
+        {
+          "name": "cloudq",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "tencent-campus-recruit",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencent-music-campus-recruit",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencentcloud-cls",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "haina-shopping-assistant",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tencent-rumor-refuter",
+      "file": "skills-hub/community/tencent-rumor-refuter",
+      "candidates": [
+        {
+          "name": "tencent-musician-skills",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "didi-ride-skill",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "vipshop-product-search",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "wechat-article-search",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "12306-train-assistant",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "design-an-interface",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/design-an-interface",
+      "candidates": [
+        {
+          "name": "prototype",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "programmatic-seo",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "grill-me",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "ab-test-setup",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "referral-program",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "prototype",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/prototype",
+      "candidates": [
+        {
+          "name": "design-an-interface",
+          "confidence": 9,
+          "reasons": [
+            "语义重叠 9"
+          ]
+        },
+        {
+          "name": "awesome-design-md",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "seo-audit",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "aviationstack-flight-tracker",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "ab-testing",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "jinshuju",
+      "file": "skills-hub/community/jinshuju",
+      "candidates": [
+        {
+          "name": "seo-audit",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "signup-flow-cro",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
           ]
         },
         {
           "name": "signup",
-          "confidence": 5,
+          "confidence": 7,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "copy-editing",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "form-cro",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
           ]
         }
       ]
     },
     {
-      "name": "paywalls",
-      "file": "skills-hub/marketing/marketing-skills/skills/paywalls",
+      "name": "ubiquitous-language",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/deprecated/ubiquitous-language",
       "candidates": [
+        {
+          "name": "grill-with-docs",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "qa",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "improve-codebase-architecture",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "awesome-design-md",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "llm-wiki",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "writing-beats",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-beats",
+      "candidates": [
+        {
+          "name": "writing-shape",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "copy-editing",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "writing-fragments",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "llm-wiki",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "paywall-upgrade-cro",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "writing-fragments",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-fragments",
+      "candidates": [
+        {
+          "name": "writing-shape",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "marketing-plan",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "ai-shifu-course-creator",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "writing-beats",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "content-strategy",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "writing-shape",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/in-progress/writing-shape",
+      "candidates": [
+        {
+          "name": "writing-beats",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "writing-fragments",
+          "confidence": 8,
+          "reasons": [
+            "语义重叠 8"
+          ]
+        },
+        {
+          "name": "content-repurposer",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "task-alignment",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "grill-me",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "browser",
+      "file": "skills-hub/community/browser",
+      "candidates": [
+        {
+          "name": "ai-model-wechat",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "agent-browser-core",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "browser-use",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "ai-model-nodejs",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "ai-model-web",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fbs-bookwriter",
+      "file": "skills-hub/community/fbs-bookwriter",
+      "candidates": [
+        {
+          "name": "novel-writing",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencent-docs",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencentcloud-ocr",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "tencentos-expert",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "aihot",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grill-me",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/productivity/grill-me",
+      "candidates": [
+        {
+          "name": "ab-test-setup",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "grill-with-docs",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "ab-testing",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "site-architecture",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "analytics-tracking",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setup-pre-commit",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/misc/setup-pre-commit",
+      "candidates": [
+        {
+          "name": "git-guardrails-claude-code",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "cloudflare-worker-builder",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "analytics",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "aviationstack-flight-tracker",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "analytics-tracking",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "summarize",
+      "file": "skills-hub/community/summarize",
+      "candidates": [
+        {
+          "name": "markitdown-skill",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "nemo-retriever",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "notebooklm-studio",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "workrally",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tencentcloud-cls",
+      "file": "skills-hub/community/tencentcloud-cls",
+      "candidates": [
+        {
+          "name": "cos-vectors",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "meituan-coupon-workbuddy",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "migraq",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "tencentos-expert",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "12306-train-assistant",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "the-entrepreneurship-handbook",
+      "file": "skills-hub/community/the-entrepreneurship-handbook",
+      "candidates": [
+        {
+          "name": "marketing-plan",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
+        {
+          "name": "cloudbase",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "ai-seo",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "nemo-mbridge-perf-moe-optimization-workflow",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "nemoclaw-user-agent-skills",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "git-guardrails-claude-code",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/misc/git-guardrails-claude-code",
+      "candidates": [
+        {
+          "name": "setup-pre-commit",
+          "confidence": 7,
+          "reasons": [
+            "语义重叠 7"
+          ]
+        },
         {
           "name": "churn-prevention",
-          "confidence": 5,
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6"
           ]
         },
         {
-          "name": "onboarding",
+          "name": "marketing-plan",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "product-marketing",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "cupynumeric-migration-readiness",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
           ]
         }
       ]
     },
     {
-      "name": "popups",
-      "file": "skills-hub/marketing/marketing-skills/skills/popups",
+      "name": "brand-guidelines",
+      "file": "skills-hub/marketplace/brand-guidelines",
       "candidates": [
         {
-          "name": "emails",
-          "confidence": 5,
+          "name": "theme-factory",
+          "confidence": 7,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6",
+            "同类目"
           ]
         },
         {
-          "name": "lead-magnets",
+          "name": "canvas-design",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 4",
+            "同类目"
+          ]
+        },
+        {
+          "name": "docx",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 4",
+            "同类目"
+          ]
+        },
+        {
+          "name": "ios-hig-design-guide",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "awesome-design-md",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
           ]
         }
       ]
     },
     {
-      "name": "pricing",
-      "file": "skills-hub/marketing/marketing-skills/skills/pricing",
+      "name": "delivery-queue",
+      "file": "skills-hub/b2b/b2b-sdr-template/skills/delivery-queue",
       "candidates": [
         {
-          "name": "copywriting",
-          "confidence": 5,
+          "name": "sdr-humanizer",
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5",
+            "同类目"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agent-mbti",
+      "file": "skills-hub/community/agent-mbti",
+      "candidates": [
+        {
+          "name": "cloudbase-agent",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
           ]
         },
         {
-          "name": "competitors",
+          "name": "macos-design",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "hsb-app",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "ai-shifu-course-creator",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "boss-skills",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "notes",
+      "file": "skills-hub/community/ima-skills/notes",
+      "candidates": [
+        {
+          "name": "docx",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 5",
+            "同类目"
+          ]
+        },
+        {
+          "name": "ad-creative",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
           ]
         },
         {
           "name": "product-marketing",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
           ]
         },
         {
-          "name": "revops",
+          "name": "pptx",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 4",
+            "同类目"
           ]
         },
         {
-          "name": "sales-enablement",
+          "name": "obsidian-markdown",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 4",
+            "同类目"
           ]
         }
       ]
     },
     {
-      "name": "product-marketing",
-      "file": "skills-hub/marketing/marketing-skills/skills/product-marketing",
+      "name": "perplexity",
+      "file": "skills-hub/community/perplexity",
       "candidates": [
         {
-          "name": "competitors",
-          "confidence": 5,
+          "name": "ai-model-wechat",
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6"
           ]
         },
         {
-          "name": "pricing",
+          "name": "ai-model-nodejs",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "cloudbase-agent",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "tavily",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "ai-seo",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
           ]
         }
       ]
     },
     {
-      "name": "prospecting",
-      "file": "skills-hub/marketing/marketing-skills/skills/prospecting",
+      "name": "qqmusic",
+      "file": "skills-hub/community/qqmusic",
       "candidates": [
         {
-          "name": "cold-email",
-          "confidence": 5,
+          "name": "admapix",
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6"
           ]
         },
         {
-          "name": "sales-enablement",
-          "confidence": 5,
+          "name": "globepilot-ai-agent-2",
+          "confidence": 4,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "tencent-campus-recruit",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "tencent-music-campus-recruit",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
           ]
         }
       ]
     },
     {
-      "name": "referrals",
-      "file": "skills-hub/marketing/marketing-skills/skills/referrals",
+      "name": "tdd",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/tdd",
       "candidates": [
         {
-          "name": "marketing-psychology",
-          "confidence": 5,
+          "name": "diagnose",
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "revops",
-      "file": "skills-hub/marketing/marketing-skills/skills/revops",
-      "candidates": [
-        {
-          "name": "analytics",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6"
           ]
         },
-        {
-          "name": "prospecting",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "sales-enablement",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "sales-enablement",
-      "file": "skills-hub/marketing/marketing-skills/skills/sales-enablement",
-      "candidates": [
-        {
-          "name": "competitors",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "revops",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "schema",
-      "file": "skills-hub/marketing/marketing-skills/skills/schema",
-      "candidates": [
         {
           "name": "programmatic-seo",
-          "confidence": 5,
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6"
           ]
         },
         {
-          "name": "site-architecture",
-          "confidence": 5,
+          "name": "migrate-to-shoehorn",
+          "confidence": 6,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 6"
           ]
-        }
-      ]
-    },
-    {
-      "name": "signup",
-      "file": "skills-hub/marketing/marketing-skills/skills/signup",
-      "candidates": [
+        },
         {
           "name": "ab-testing",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "analytics",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "weather-open-meteo",
+      "file": "skills-hub/community/weather-open-meteo",
+      "candidates": [
+        {
+          "name": "aihot",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "tencentmap-map-assistant",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "qcc-company",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "vipshop-promotion-search",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "didi-ride-skill",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "migrate-to-shoehorn",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/misc/migrate-to-shoehorn",
+      "candidates": [
+        {
+          "name": "tdd",
+          "confidence": 6,
+          "reasons": [
+            "语义重叠 6"
+          ]
+        },
+        {
+          "name": "awesome-design-md",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "darwin-skill",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "grill-me",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "ab-test-setup",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "12306",
+      "file": "skills-hub/community/12306",
+      "candidates": [
+        {
+          "name": "globepilot-ai-agent-2",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "tencent-weather",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "12306-train-assistant",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "aviationstack-flight-tracker",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcore-linting-and-formatting",
+      "file": "skills-hub/ai-ml/nvidia-skills/skills/mcore-linting-and-formatting",
+      "candidates": [
+        {
+          "name": "mcore-run-on-slurm",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "mcore-testing",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "nemo-mbridge-mlm-bridge-training",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auth-web-cloudbase",
+      "file": "skills-hub/community/cloudbase/references/auth-web",
+      "candidates": [
+        {
+          "name": "auth-tool-cloudbase",
           "confidence": 5,
           "reasons": [
             "双向提及",
             "同领域"
           ]
-        },
-        {
-          "name": "onboarding",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
         }
       ]
     },
     {
-      "name": "site-architecture",
-      "file": "skills-hub/marketing/marketing-skills/skills/site-architecture",
+      "name": "github",
+      "file": "skills-hub/community/github",
       "candidates": [
         {
-          "name": "programmatic-seo",
+          "name": "cnb-skill",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
           ]
         },
         {
-          "name": "schema",
+          "name": "setup-matt-pocock-skills",
           "confidence": 5,
           "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "social",
-      "file": "skills-hub/marketing/marketing-skills/skills/social",
-      "candidates": [
-        {
-          "name": "marketing-psychology",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
+            "语义重叠 5"
           ]
         },
         {
-          "name": "video",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "video",
-      "file": "skills-hub/marketing/marketing-skills/skills/video",
-      "candidates": [
-        {
-          "name": "ad-creative",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        },
-        {
-          "name": "social",
-          "confidence": 5,
-          "reasons": [
-            "双向提及",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "activecampaign-automation",
-      "file": "skills-hub/marketplace/activecampaign-automation",
-      "candidates": [
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "basecamp-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "canvas-design",
-      "file": "skills-hub/marketplace/canvas-design",
-      "candidates": [
-        {
-          "name": "frontend-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "kpi-dashboard-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "macos-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ui-design",
+          "name": "mcore-create-issue",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "slack-gif-creator",
-      "file": "skills-hub/marketplace/slack-gif-creator",
-      "candidates": [
-        {
-          "name": "skill-creator",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 4"
           ]
         },
         {
-          "name": "ai-shifu-course-creator",
+          "name": "github-trending-cn",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "web-artifacts-builder",
-      "file": "skills-hub/marketplace/anthropics-skills/skills/web-artifacts-builder",
-      "candidates": [
-        {
-          "name": "mcp-builder",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 4"
           ]
         },
         {
-          "name": "artifacts-builder",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cloudflare-worker-builder",
+          "name": "multi-search-engine",
           "confidence": 4,
           "reasons": [
-            "名称家族"
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "md-to-pdf-cjk",
+      "file": "skills-hub/community/md-to-pdf-cjk",
+      "candidates": [
+        {
+          "name": "markitdown-skill",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
           ]
         },
         {
-          "name": "knowledge-framework-builder",
+          "name": "nemo-retriever",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "template-skill",
-      "file": "skills-hub/marketplace/anthropics-skills/template",
-      "candidates": [
-        {
-          "name": "color-font-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "design-style-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-editing-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-orchestra-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "slide-making-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "artifacts-builder",
-      "file": "skills-hub/marketplace/artifacts-builder",
-      "candidates": [
-        {
-          "name": "mcp-builder",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "web-artifacts-builder",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "cloudflare-worker-builder",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "knowledge-framework-builder",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "basecamp-automation",
-      "file": "skills-hub/marketplace/basecamp-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "calendly-automation",
-      "file": "skills-hub/marketplace/calendly-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "circleci-automation",
-      "file": "skills-hub/marketplace/circleci-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "color-font-skill",
-      "file": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/color-font-skill",
-      "candidates": [
-        {
-          "name": "template-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "design-style-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-editing-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-orchestra-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "slide-making-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "design-style-skill",
-      "file": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/design-style-skill",
-      "candidates": [
-        {
-          "name": "template-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "color-font-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-editing-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-orchestra-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "slide-making-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "slide-making-skill",
-      "file": "skills-hub/marketplace/claude-code-skills/plugins/pptx-plugin/skills/slide-making-skill",
-      "candidates": [
-        {
-          "name": "template-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "color-font-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "design-style-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-editing-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ppt-orchestra-skill",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "pptx-generator",
-      "file": "skills-hub/marketplace/claude-code-skills/skills/pptx-generator",
-      "candidates": [
-        {
-          "name": "changelog-generator",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "tailored-resume-generator",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "nemotron-policy-generator",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "skill-card-generator",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
+            "语义重叠 4"
           ]
         },
         {
           "name": "quotation-generator",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "coda-automation",
-      "file": "skills-hub/marketplace/coda-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 4"
           ]
         },
         {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "confluence-automation",
-      "file": "skills-hub/marketplace/confluence-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "discord-automation",
-      "file": "skills-hub/marketplace/discord-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "docusign-automation",
-      "file": "skills-hub/marketplace/docusign-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "freshservice-automation",
-      "file": "skills-hub/marketplace/freshservice-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "google-analytics-automation",
-      "file": "skills-hub/marketplace/google-analytics-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "googlesheets-automation",
-      "file": "skills-hub/marketplace/googlesheets-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "hubspot-automation",
-      "file": "skills-hub/marketplace/hubspot-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "jira-automation",
-      "file": "skills-hub/marketplace/jira-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "klaviyo-automation",
-      "file": "skills-hub/marketplace/klaviyo-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "kpi-dashboard-design",
-      "file": "skills-hub/marketplace/kpi-dashboard-design",
-      "candidates": [
-        {
-          "name": "canvas-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "frontend-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "macos-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ui-design",
+          "name": "clawbrowser",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "macos-design",
-      "file": "skills-hub/marketplace/macos-design",
-      "candidates": [
-        {
-          "name": "canvas-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 4"
           ]
         },
         {
-          "name": "frontend-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "kpi-dashboard-design",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "ui-design",
+          "name": "docx",
           "confidence": 4,
           "reasons": [
-            "名称家族"
+            "语义重叠 4"
           ]
         }
       ]
     },
     {
-      "name": "one-drive-automation",
-      "file": "skills-hub/marketplace/one-drive-automation",
+      "name": "react-native-dev",
+      "file": "skills-hub/marketplace/claude-code-skills/skills/react-native-dev",
       "candidates": [
         {
-          "name": "activecampaign-automation",
+          "name": "flutter-dev",
           "confidence": 5,
           "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
+            "双向提及",
             "同领域"
           ]
         }
       ]
     },
     {
-      "name": "reddit-automation",
-      "file": "skills-hub/marketplace/reddit-automation",
+      "name": "tencent-music-campus-recruit",
+      "file": "skills-hub/community/tencent-music-campus-recruit",
       "candidates": [
         {
-          "name": "activecampaign-automation",
+          "name": "tencent-campus-recruit",
           "confidence": 5,
           "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
+            "双向提及",
             "同领域"
           ]
         }
       ]
     },
     {
-      "name": "render-automation",
-      "file": "skills-hub/marketplace/render-automation",
+      "name": "trello",
+      "file": "skills-hub/community/trello",
       "candidates": [
         {
-          "name": "activecampaign-automation",
+          "name": "trello-automation",
           "confidence": 5,
           "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 5"
           ]
         }
       ]
     },
     {
-      "name": "salesforce-automation",
-      "file": "skills-hub/marketplace/salesforce-automation",
+      "name": "weather",
+      "file": "skills-hub/community/weather",
       "candidates": [
         {
-          "name": "activecampaign-automation",
+          "name": "airbnb",
           "confidence": 5,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 5"
           ]
         },
         {
-          "name": "airtable-automation",
+          "name": "flights",
           "confidence": 5,
           "reasons": [
-            "名称家族",
-            "同领域"
+            "语义重叠 5"
           ]
         },
         {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "shopify-automation",
-      "file": "skills-hub/marketplace/shopify-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "slack-automation",
-      "file": "skills-hub/marketplace/slack-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "square-automation",
-      "file": "skills-hub/marketplace/square-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "vercel-automation",
-      "file": "skills-hub/marketplace/vercel-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "zoho-crm-automation",
-      "file": "skills-hub/marketplace/zoho-crm-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "zoom-automation",
-      "file": "skills-hub/marketplace/zoom-automation",
-      "candidates": [
-        {
-          "name": "activecampaign-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "airtable-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "amplitude-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "asana-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        },
-        {
-          "name": "bamboohr-automation",
-          "confidence": 5,
-          "reasons": [
-            "名称家族",
-            "同领域"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cloudbase-agent",
-      "file": "skills-hub/community/cloudbase/references/cloudbase-agent",
-      "candidates": [
-        {
-          "name": "b2b-sdr-agent",
+          "name": "edgeone",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "stock-analyzer",
-      "file": "skills-hub/community/stock-analyzer",
-      "candidates": [
-        {
-          "name": "meeting-insights-analyzer",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "web-performance-audit",
-      "file": "skills-hub/community/web-performance-audit",
-      "candidates": [
-        {
-          "name": "seo-audit",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "grill-with-docs",
-      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/grill-with-docs",
-      "candidates": [
-        {
-          "name": "nemo-rl-docs",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
+            "语义重叠 4"
           ]
         },
         {
-          "name": "tencent-docs",
+          "name": "openai-whisper",
           "confidence": 4,
           "reasons": [
-            "名称家族"
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "tencent-weather",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
           ]
         }
       ]
     },
     {
-      "name": "write-a-skill",
-      "file": "skills-hub/dev-workflow/engineering-skills/skills/productivity/write-a-skill",
+      "name": "xurl",
+      "file": "skills-hub/community/xurl",
       "candidates": [
         {
-          "name": "cangjie-skill",
+          "name": "competitor-profiling",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "graphify",
           "confidence": 4,
           "reasons": [
-            "名称家族"
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "content-repurposer",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "ecomseer",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "x-longform-post",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "zoom-out",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out",
+      "candidates": [
+        {
+          "name": "setup-matt-pocock-skills",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "edit-article",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/personal/edit-article",
+      "candidates": [
+        {
+          "name": "copy-editing",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "writing-shape",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 5"
+          ]
+        },
+        {
+          "name": "infographic-maker",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "jinshuju",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "analytics-tracking",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "internal-comms",
+      "file": "skills-hub/marketplace/internal-comms",
+      "candidates": [
+        {
+          "name": "domain-name-brainstormer",
+          "confidence": 5,
+          "reasons": [
+            "语义重叠 4",
+            "同类目"
+          ]
+        },
+        {
+          "name": "copywriting",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "ad-creative",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "product-marketing",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "site-architecture",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fintech-engineer",
+      "file": "skills-hub/community/fintech-engineer",
+      "candidates": [
+        {
+          "name": "lark-unified",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "stealth-browser",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "churn-prevention",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "mcp-builder",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "minimax-xlsx",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handoff",
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/productivity/handoff",
+      "candidates": [
+        {
+          "name": "agent-team-orchestration",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "task-alignment",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "idea-validator",
+      "file": "skills-hub/community/idea-validator",
+      "candidates": [
+        {
+          "name": "marketing-plan",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imsg",
+      "file": "skills-hub/community/imsg",
+      "candidates": [
+        {
+          "name": "wacli",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "notion",
+      "file": "skills-hub/community/notion",
+      "candidates": [
+        {
+          "name": "lark-unified",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "notion-automation",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "openai-whisper",
+      "file": "skills-hub/community/openai-whisper",
+      "candidates": [
+        {
+          "name": "cuopt-numerical-optimization-formulation",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "airbnb",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "edgeone",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "flights",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "weather",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wacli",
+      "file": "skills-hub/community/wacli",
+      "candidates": [
+        {
+          "name": "cuopt-numerical-optimization-api-cli",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "physicsnemo-discover",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "agentmail",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "apple-notes",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
           ]
         },
         {
           "name": "cnb-skill",
           "confidence": 4,
           "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "colleague-skill",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "crash-expert-skill",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
-          ]
-        },
-        {
-          "name": "darwin-skill",
-          "confidence": 4,
-          "reasons": [
-            "名称家族"
+            "语义重叠 4"
           ]
         }
       ]
     },
     {
-      "name": "x-twitter-scraper",
-      "file": "skills-hub/marketplace/x-twitter-scraper",
+      "name": "update-screenshots",
+      "file": "skills-hub/glm/update-screenshots",
       "candidates": [
         {
-          "name": "web-scraper",
+          "name": "review",
           "confidence": 4,
           "reasons": [
-            "名称家族"
+            "语义重叠 4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clawring",
+      "file": "skills-hub/marketplace/clawring",
+      "candidates": [
+        {
+          "name": "nemoclaw-user-configure-inference",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
+          ]
+        },
+        {
+          "name": "skill-scanner",
+          "confidence": 4,
+          "reasons": [
+            "语义重叠 4"
           ]
         }
       ]

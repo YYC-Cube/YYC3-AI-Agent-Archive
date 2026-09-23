@@ -7,6 +7,7 @@ license: Apache-2.0
 when_to_use: Running linting or autoformat; fixing style violations before a PR; 'pre-commit fails', 'ruff error', 'isort', 'mypy', 'style violation', 'how do I format', 'autoformat.sh'.
 metadata:
   author: Philip Petrakian <ppetrakian@nvidia.com>
+related_skills: [mcore-run-on-slurm, mcore-testing, nemo-mbridge-mlm-bridge-training]
 ---
 
 # Linting and Formatting

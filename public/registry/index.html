@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YYC³ Skill Registry — 831 技能资产目录</title>
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d; --text: #e6edf3;
+    --muted: #8b949e; --accent: #58a6ff; --accent2: #3fb950; --tag-bg: #21262d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 60px; }
+  header h1 { font-size: 22px; margin-bottom: 4px; }
+  header h1 .ns { color: var(--accent); font-family: ui-monospace, monospace; font-size: 15px; }
+  header p { color: var(--muted); font-size: 13px; }
+  .stats { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+  .stat { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; }
+  .stat b { color: var(--accent); font-size: 16px; margin-right: 4px; }
+  .controls { display: flex; gap: 10px; margin: 14px 0 18px; flex-wrap: wrap; }
+  #q { flex: 1; min-width: 240px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 9px 14px; color: var(--text); font-size: 14px; outline: none; }
+  #q:focus { border-color: var(--accent); }
+  select { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; color: var(--text); font-size: 13px; max-width: 220px; }
+  #grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; transition: border-color .15s; }
+  .card:hover { border-color: var(--accent); }
+  .card h3 { font-size: 14px; font-family: ui-monospace, monospace; word-break: break-all; }
+  .card h3 .slug { color: var(--muted); font-size: 11px; display: block; margin-top: 2px; }
+  .card p { color: var(--muted); font-size: 12px; margin: 8px 0; min-height: 34px; }
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .tag { background: var(--tag-bg); border: 1px solid var(--border); border-radius: 99px; padding: 1px 9px; font-size: 11px; color: var(--muted); }
+  .tag.cat { color: var(--accent2); border-color: rgba(63,185,80,.4); }
+  .tag a { color: var(--accent); text-decoration: none; }
+  .tag a:hover { text-decoration: underline; }
+  .links { margin-top: 10px; font-size: 12px; display: flex; gap: 12px; }
+  .links a { color: var(--accent); text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+  #empty { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; }
+  #more { display: block; margin: 22px auto 0; background: var(--panel); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 9px 26px; font-size: 14px; cursor: pointer; }
+  #more:hover { border-color: var(--accent); }
+  #load { text-align: center; color: var(--muted); padding: 60px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; text-align: center; }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>YYC³ Skill Registry <span class="ns">io.github.yyc-cube</span></h1>
+    <p>MCP Registry 兼容目录 · 显式关联反哺 · GitHub Pages 静态分发</p>
+  </header>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <input id="q" type="search" placeholder="搜索技能名称 / 描述 / 分类…" autofocus>
+    <select id="cat"></select>
+    <select id="sort">
+      <option value="name">名称排序</option>
+      <option value="related">关联数排序</option>
+    </select>
+  </div>
+  <div id="load">加载 registry.json …</div>
+  <div id="grid" hidden></div>
+  <div id="empty" hidden>没有匹配的技能</div>
+  <button id="more" hidden>加载更多</button>
+  <footer>由 <a href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive" target="_blank" rel="noopener">YYC3-AI-Agent-Archive</a> 自动导出 · <code>yyc3 skills export-mcp</code> · schema 2025-12-11</footer>
+</div>
+<script>
+(function () {
+  const NS = 'io.github.yyc-cube';
+  const PAGE = 48;
+  let servers = [], cats = {}, shown = 0, filtered = [];
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  fetch('registry.json').then((r) => r.json()).then((d) => {
+    servers = d.servers || [];
+    // slug → server 索引（related 跳转）
+    const bySlug = {};
+    for (const s of servers) bySlug[s.name.split('/')[1]] = s;
+    for (const s of servers) {
+      const cat = (s._meta && s._meta[NS + '/category']) || 'uncategorized';
+      cats[cat] = (cats[cat] || 0) + 1;
+      s._cat = cat;
+      s._related = (s._meta && s._meta[NS + '/related']) || [];
+      s._desc = s.description || '';
+    }
+    const relCount = servers.filter((s) => s._related.length).length;
+    $('stats').innerHTML =
+      '<div class="stat"><b>' + servers.length + '</b>技能</div>' +
+      '<div class="stat"><b>' + Object.keys(cats).length + '</b>分类</div>' +
+      '<div class="stat"><b>' + relCount + '</b>显式关联</div>' +
+      '<div class="stat"><b>' + new Date().toISOString().slice(0, 10) + '</b>数据快照</div>';
+    const catSel = $('cat');
+    const sorted = Object.entries(cats).sort((a, b) => b[1] - a[1]);
+    catSel.innerHTML = '<option value="">全部分类</option>' +
+      sorted.map(([c, n]) => '<option value="' + esc(c) + '">' + esc(c) + ' (' + n + ')</option>').join('');
+    $('load').hidden = true;
+    apply();
+    window.__bySlug = bySlug;
+  }).catch(() => { $('load').textContent = 'registry.json 加载失败 — 请直接访问 registry.json'; });
+
+  function apply() {
+    const q = $('q').value.trim().toLowerCase();
+    const cat = $('cat').value;
+    const sort = $('sort').value;
+    filtered = servers.filter((s) => {
+      if (cat && s._cat !== cat) return false;
+      if (!q) return true;
+      return (s.name + ' ' + s.title + ' ' + s._desc + ' ' + s._cat).toLowerCase().includes(q);
+    });
+    if (sort === 'related') filtered.sort((a, b) => b._related.length - a._related.length);
+    else filtered.sort((a, b) => a.name.localeCompare(b.name));
+    shown = 0;
+    $('grid').innerHTML = '';
+    $('empty').hidden = true;
+    render();
+  }
+
+  function render() {
+    const grid = $('grid');
+    const slice = filtered.slice(shown, shown + PAGE);
+    for (const s of slice) {
+      const slug = s.name.split('/')[1];
+      const rel = s._related.slice(0, 4).map((r) =>
+        '<a href="#" data-slug="' + esc(r) + '" onclick="return jump(\'' + esc(r) + '\')">' + esc(r) + '</a>'
+      ).join(' · ');
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.innerHTML =
+        '<h3>' + esc(s.title) + '<span class="slug">' + esc(s.name) + ' · v' + esc(s.version) + '</span></h3>' +
+        '<p>' + esc(s._desc) + '</p>' +
+        '<div class="meta"><span class="tag cat">' + esc(s._cat) + '</span>' +
+        (s._related.length ? '<span class="tag">related ' + s._related.length + ' → ' + rel + '</span>' : '') +
+        '</div>' +
+        '<div class="links"><a href="' + esc((s.repository && s.repository.url) || '#') + '" target="_blank" rel="noopener">源码</a>' +
+        '<a href="' + slug + '.json" target="_blank" rel="noopener">server.json</a></div>';
+      grid.appendChild(el);
+    }
+    shown += slice.length;
+    grid.hidden = filtered.length === 0;
+    $('empty').hidden = filtered.length > 0;
+    $('more').hidden = shown >= filtered.length;
+    $('more').textContent = '加载更多（' + shown + '/' + filtered.length + '）';
+  }
+
+  window.jump = function (slug) {
+    const target = window.__bySlug && window.__bySlug[slug];
+    if (!target) return false;
+    $('q').value = slug;
+    apply();
+    window.scrollTo({ top: 0 });
+    return false;
+  };
+
+  $('q').addEventListener('input', apply);
+  $('cat').addEventListener('change', apply);
+  $('sort').addEventListener('change', apply);
+  $('more').addEventListener('click', render);
+})();
+</script>
+</body>
+</html>

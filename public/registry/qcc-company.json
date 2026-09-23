@@ -11,6 +11,13 @@
   "website": "https://ai-agent.yyc3.vip/skill/qcc-company",
   "_meta": {
     "io.github.yyc-cube/category": "development-code",
-    "io.github.yyc-cube/source": "skills-hub/community/qcc-company/SKILL.md"
+    "io.github.yyc-cube/source": "skills-hub/community/qcc-company/SKILL.md",
+    "io.github.yyc-cube/related": [
+      "didi-ride-skill",
+      "libtv-skill",
+      "vipshop-product-detail",
+      "vipshop-promotion-search",
+      "vipshop-product-search"
+    ]
   }
 }

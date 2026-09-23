@@ -10,6 +10,7 @@ metadata: {"openclaw": {"emoji": "☁️", "requires": {"bins": ["python3"]}, "p
 display_name: "CloudQ"
 display_name_en: "CloudQ"
 visibility: "public"
+related_skills: [andonq, migraq, tencentos-expert, tencent-meeting-skill, tencent-ssv-techforgood]
 ---
 
 # 🦞 CloudQ — 全球首款 ITOM "领域虾"
