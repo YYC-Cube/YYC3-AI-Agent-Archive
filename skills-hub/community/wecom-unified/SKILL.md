@@ -9,6 +9,7 @@ display_name: "企业微信套件"
 display_name_en: "Wecom Unified"
 version: 1.0.1
 visibility: "public"
+related_skills: [dingtalk-unified, lark-unified]
 ---
 
 # 企业微信套件 (WeCom Unified)

@@ -5,7 +5,7 @@ category: development-code
 description_zh: 帮你从 0 创建，或继续完善网页、小程序和简单工具，支持发布上线、内容保存、用户登录和数据同步。
 description_en: Create or enhance web apps, mini programs, and lightweight tools with publishing, content saving, user login, and data sync powered by Tencent CloudBase.
 version: 2.15.4
-related_skills: [ai-model-nodejs, ai-model-web, cloud-functions, cloud-storage-web, cloudbase-platform]
+related_skills: [ai-model-nodejs, ai-model-web, cloud-functions, cloud-storage-web, cloudbase-platform, cloudrun-development, miniprogram-development, web-development]
 ---
 
 

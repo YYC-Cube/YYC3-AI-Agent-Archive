@@ -5,7 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.0
-related_skills: [copywriting, churn-prevention, lead-magnets, onboarding, popups]
+related_skills: [copywriting, churn-prevention, lead-magnets, onboarding, popups, revops]
 ---
 
 # Email Sequence Design

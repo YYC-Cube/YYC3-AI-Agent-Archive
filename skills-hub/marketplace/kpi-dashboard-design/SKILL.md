@@ -3,6 +3,7 @@ name: kpi-dashboard-design
 description: Design effective KPI dashboards with metrics selection, visualization best practices, and real-time monitoring patterns. Use when building business dashboards, selecting metrics, or designing data visualization layouts.
 category: development-code
 version: 1.0.0
+related_skills: [canvas-design, frontend-design, macos-design, ui-design]
 ---
 
 # KPI Dashboard Design

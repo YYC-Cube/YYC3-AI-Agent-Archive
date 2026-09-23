@@ -8,6 +8,7 @@ description_zh: 公益票据与财务整理助手。适用于基金会、社会�
 description_en: Charity finance and receipt management assistant for nonprofits. Covers donation receipt issuance, daily bookkeeping, audit preparation, expense reimbursement, tax-deduction consulting,
   data reconciliation, and automated local batch processing of PDF/image receipts via OCR.
 version: 1.3.0
+related_skills: [12306-train-assistant, airchina-travel-assistant, charity-writing-assistant, gsap-animation-assistant, haina-shopping-assistant]
 ---
 
 # 公益票据与财务整理助手

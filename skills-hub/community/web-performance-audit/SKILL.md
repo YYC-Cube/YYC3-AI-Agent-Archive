@@ -6,6 +6,7 @@ description_zh: "部署后网站性能审计，检查核心指标与加载瓶颈
 description_en: "Audit deployed site performance, Core Web Vitals and loading bottlenecks"
 version: "1.0.0"
 homepage: "https://github.com/cloudflare/skills/tree/main/skills/web-perf"
+related_skills: [seo-audit]
 ---
 
 # Web Performance Audit

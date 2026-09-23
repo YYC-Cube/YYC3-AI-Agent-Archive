@@ -12,6 +12,7 @@ metadata:
     - milp
     - qp
     - c-api
+related_skills: [cuopt-numerical-optimization-api-cli, cuopt-numerical-optimization-api-python, cuopt-numerical-optimization-formulation]
 ---
 
 

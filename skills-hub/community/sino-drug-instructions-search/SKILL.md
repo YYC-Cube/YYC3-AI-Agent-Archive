@@ -14,6 +14,7 @@ official: true
 display_name: "sino-drug-instructions-search"
 display_name_en: "sino-drug-instructions-search"
 visibility: "public"
+related_skills: [cn-ecommerce-search, neodata-financial-search, tencent-yuanbao-standard-search, vipshop-product-search, vipshop-promotion-search]
 ---
 
 # drug-instructions-search

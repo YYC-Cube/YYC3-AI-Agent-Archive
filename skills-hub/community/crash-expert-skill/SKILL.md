@@ -6,6 +6,7 @@ description_zh: "Linux 内核 vmcore 分析专家，诊断 panic/死锁/OOM 根�
 description_en: "Linux kernel vmcore expert for panic, deadlock, and OOM diagnosis"
 version: 1.0.0
 allowed-tools: Read,Bash,Grep
+related_skills: [cangjie-skill, cnb-skill, colleague-skill, darwin-skill, didi-ride-skill]
 ---
 
 # Crash Expert — Linux 内核 vmcore 分析专家

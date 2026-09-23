@@ -7,6 +7,7 @@ description_en: Scan a third-party skill for security risks before enabling it
 version: 1.0.2
 allowed-tools: Read, Grep, Glob, Bash
 security-context: audit
+related_skills: [responsiveness-check, dynamo-interconnect-check]
 ---
 
 ## 功能描述

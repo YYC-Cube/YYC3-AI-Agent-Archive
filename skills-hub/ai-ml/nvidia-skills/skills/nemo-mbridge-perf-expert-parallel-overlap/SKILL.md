@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Enabling EP overlap to hide dispatch/combine latency, or tracing a throughput regression to an EP overlap config change; 'overlap_moe_expert_parallel_comm', 'delay_wgrad_compute', 'flex dispatcher', 'DeepEP overlap', 'HybridEP overlap'.
+related_skills: [nemo-mbridge-perf-moe-comm-overlap, nemo-mbridge-perf-tp-dp-comm-overlap, nemo-mbridge-mlm-bridge-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute]
 ---
 
 # MoE Expert-Parallel Overlap Skill

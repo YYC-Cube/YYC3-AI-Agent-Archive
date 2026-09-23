@@ -5,6 +5,7 @@ category: development-code
 description_zh: "AI 驱动的 A 股/美股财报追踪与智能分析推送"
 description_en: "AI-powered earnings tracker for A-share and US stock financial reports"
 version: 1.1.0
+related_skills: [aviationstack-flight-tracker, flight-tracker, goal-tracker, habit-tracker, plan-tracker]
 ---
 
 # Earnings Tracker - AI 驱动的财报追踪器

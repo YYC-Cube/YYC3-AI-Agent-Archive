@@ -7,6 +7,7 @@ version: 1.0.0
   Use when users ask for overall style direction or component styling consistency.
   Includes Sharp/Soft/Rounded/Pill recipes, component mappings, typography/spacing rules, and mixing guidance.
   Triggers: 风格, style, radius, spacing, 圆角, 间距, PPT风格, 视觉风格, design style, component style.
+related_skills: [template-skill, color-font-skill, ppt-editing-skill, ppt-orchestra-skill, slide-making-skill]
 ---
 
 # Style Recipes - PPT视觉风格系统

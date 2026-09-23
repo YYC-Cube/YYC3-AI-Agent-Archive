@@ -5,6 +5,7 @@ category: development-code
 description_zh: "通过打卡、连续记录和可视化培养良好习惯"
 description_en: "Build habits with streaks, reminders, and progress visualization"
 version: 1.0.0
+related_skills: [aviationstack-flight-tracker, earnings-tracker, flight-tracker, goal-tracker, plan-tracker]
 ---
 
 # Habit Tracker

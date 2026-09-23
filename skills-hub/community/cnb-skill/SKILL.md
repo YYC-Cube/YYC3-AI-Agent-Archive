@@ -7,6 +7,7 @@ description_en: "CNB platform operations (repos, issues, PRs, pipelines, artifac
 version: 1.0.0
 homepage: https://cnb.cool
 allowed-tools: Read,Bash
+related_skills: [cangjie-skill, colleague-skill, crash-expert-skill, darwin-skill, didi-ride-skill]
 ---
 
 # cnb-skill

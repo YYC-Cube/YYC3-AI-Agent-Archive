@@ -16,6 +16,7 @@ metadata:
         - LLM_TEMPERATURE
         - LLM_MAX_TOKENS
     primaryEnv: LLM_API_KEY
+related_skills: [english-intensive-reader, paper-quick-reader]
 ---
 
 ## 快速开始

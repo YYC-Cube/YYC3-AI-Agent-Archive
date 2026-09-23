@@ -13,6 +13,7 @@ metadata:
     emoji: "\U0001F4DD"
 emoji: "\U0001F4DD"
 visibility: "public"
+related_skills: [12306-train-assistant, airchina-travel-assistant, charity-finance-assistant, gsap-animation-assistant, haina-shopping-assistant]
 ---
 
 # 公益文书助手 📝

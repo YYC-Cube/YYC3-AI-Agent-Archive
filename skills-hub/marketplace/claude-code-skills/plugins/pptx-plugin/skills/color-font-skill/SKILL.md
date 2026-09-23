@@ -3,6 +3,7 @@ name: color-font-skill
 description: "Choose presentation-ready color palettes and font pairings for PPT/design tasks. Use when users ask for visual theme choices, brand-safe palettes, or font recommendations. Triggers include: 配色, 色板, 字体, color palette, font, PPT配色, 字体搭配."
 category: development-code
 version: 1.0.0
+related_skills: [template-skill, design-style-skill, ppt-editing-skill, ppt-orchestra-skill, slide-making-skill]
 ---
 
 # Color Scheme - PPT 配色方案指南

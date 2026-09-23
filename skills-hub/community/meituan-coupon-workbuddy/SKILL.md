@@ -10,6 +10,7 @@ homepage: "https://www.meituan.com"
 display_name: "meituan-coupon-workbuddy"
 display_name_en: "meituan-coupon-workbuddy"
 visibility: "public"
+related_skills: [openclaw-assets-to-workbuddy]
 ---
 
 ## ⛔ Critical Rules（最高优先级，通读后再执行任何操作）

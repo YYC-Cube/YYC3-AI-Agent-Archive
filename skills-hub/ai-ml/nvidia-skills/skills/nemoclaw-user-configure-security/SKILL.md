@@ -4,6 +4,7 @@ description: "Presents a risk framework for every configurable security control 
 category: development-code
 version: 1.0.0
 license: "Apache-2.0"
+related_skills: [nemoclaw-user-get-started, nemoclaw-user-agent-skills, nemoclaw-user-configure-inference, nemoclaw-user-deploy-remote, nemoclaw-user-manage-policy]
 ---
 
 <!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->

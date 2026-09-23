@@ -4,6 +4,7 @@ description: First-step CloudBase auth provider setup skill for login and regist
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [auth-nodejs-cloudbase, auth-web-cloudbase, http-api-cloudbase, relational-database-mcp-cloudbase, relational-database-web-cloudbase]
 ---
 
 ## Activation Contract

@@ -5,7 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.0
-related_skills: [programmatic-seo, ai-seo, analytics, competitors, image]
+related_skills: [programmatic-seo, ai-seo, analytics, competitors, image, schema, site-architecture]
 ---
 
 # SEO Audit

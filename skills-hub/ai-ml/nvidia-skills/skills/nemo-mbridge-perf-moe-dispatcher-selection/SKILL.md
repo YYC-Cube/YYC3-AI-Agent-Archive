@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Choosing a MoE token dispatcher, or tracing a MoE regression or crash to a dispatcher config change; 'which dispatcher', 'alltoall vs DeepEP', 'HybridEP', 'MoE dispatcher', 'flex backend', 'EP dispatcher selection'.
+related_skills: [nemo-mbridge-mlm-bridge-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute, nemo-mbridge-perf-cpu-offloading, nemo-mbridge-perf-cuda-graphs]
 ---
 
 # MoE Dispatcher Selection Guide

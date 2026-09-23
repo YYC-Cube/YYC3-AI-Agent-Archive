@@ -12,6 +12,7 @@ metadata:
     - vrp
     - tsp
     - python
+related_skills: [cuopt-routing-formulation, cuopt-numerical-optimization-api-python, cuopt-server-api-python, tilegym-cutile-python]
 ---
 
 

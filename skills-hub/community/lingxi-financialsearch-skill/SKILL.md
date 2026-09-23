@@ -10,6 +10,7 @@ version: "1.11.0"
 homepage: https://www.gtht.com/
 allowed-tools: ["node"]
 disable: false
+related_skills: [cangjie-skill, cnb-skill, colleague-skill, crash-expert-skill, darwin-skill]
 ---
 
 **Agent 只需读取此文件，无需读取其他源码文件。**

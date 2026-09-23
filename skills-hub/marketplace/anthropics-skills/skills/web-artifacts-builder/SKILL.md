@@ -4,6 +4,7 @@ description: Suite of tools for creating elaborate, multi-component claude.ai HT
 category: development-code
 version: 1.0.0
 license: Complete terms in LICENSE.txt
+related_skills: [mcp-builder, artifacts-builder, cloudflare-worker-builder, knowledge-framework-builder]
 ---
 
 # Web Artifacts Builder

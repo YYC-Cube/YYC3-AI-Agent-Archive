@@ -10,6 +10,7 @@ metadata:
   sources:
     - https://gitbrent.github.io/PptxGenJS/
     - https://github.com/microsoft/markitdown
+related_skills: [changelog-generator, tailored-resume-generator, nemotron-policy-generator, skill-card-generator, quotation-generator]
 ---
 
 # PPTX Generator & Editor

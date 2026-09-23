@@ -7,6 +7,7 @@ description_en: "WeChat Mini Program framework (templates, components, APIs, clo
 version: 1.0.0
 homepage: https://developers.weixin.qq.com/miniprogram/dev/framework/
 allowed-tools: Read,Write,Bash
+related_skills: [auth-wechat-miniprogram, cloudbase-document-database-in-wechat-miniprogram, tdesign-miniprogram]
 ---
 
 # WeChat Mini Program Skill

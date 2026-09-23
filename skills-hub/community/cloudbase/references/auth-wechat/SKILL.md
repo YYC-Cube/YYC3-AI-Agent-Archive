@@ -4,6 +4,7 @@ description: Complete guide for WeChat Mini Program authentication with CloudBas
 category: development-code
 version: 1.0.0
 alwaysApply: false
+related_skills: [cloudbase-document-database-in-wechat-miniprogram, tdesign-miniprogram, wechat-miniprogram]
 ---
 
 ## When to use this skill

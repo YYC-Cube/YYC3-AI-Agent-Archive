@@ -12,6 +12,7 @@ description_zh: "自然语言查询股票、基金、宏观、外汇、大宗商
 description_en: "Natural language financial search for stocks, funds, macro, FX and commodities"
 version: 1.0.1
 allowed-tools: Read,Bash
+related_skills: [cn-ecommerce-search, sino-drug-instructions-search, tencent-yuanbao-standard-search, vipshop-product-search, vipshop-promotion-search]
 ---
 
 # NeoData Financial Search — 自然语言通用金融数据搜索服务

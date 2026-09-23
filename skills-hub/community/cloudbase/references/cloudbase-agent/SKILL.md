@@ -6,6 +6,7 @@ version: 1.0.0
 alwaysApply: true
 allowed-tools: 
 disable: false
+related_skills: [b2b-sdr-agent]
 ---
 
 # CloudBase Agent SDK — Language Router

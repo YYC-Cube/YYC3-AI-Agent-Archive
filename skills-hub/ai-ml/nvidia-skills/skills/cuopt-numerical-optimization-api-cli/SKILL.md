@@ -12,6 +12,7 @@ metadata:
     - milp
     - qp
     - cli
+related_skills: [cuopt-numerical-optimization-api-c, cuopt-numerical-optimization-api-python, cuopt-numerical-optimization-formulation, stagehand-browser-cli, mmx-cli]
 ---
 
 

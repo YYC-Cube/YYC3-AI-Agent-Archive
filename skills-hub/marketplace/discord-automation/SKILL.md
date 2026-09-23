@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 category: communication
 version: 1.0.0
+related_skills: [activecampaign-automation, airtable-automation, amplitude-automation, asana-automation, bamboohr-automation]
 ---
 
 # Discord Automation via Rube MCP

@@ -7,6 +7,7 @@ description_en: "Deploy and manage Vercel projects, environments, status and log
 version: 1.0.0
 homepage: https://api.skillhub.cn/nightfullstar/vercel-deploy
 allowed-tools: Bash,Read
+related_skills: [edgeone-pages-deploy, github-pages-auto-deploy, html-deploy, netlify-deploy, web-deploy]
 ---
 # Vercel Deployment & Management
 

@@ -5,6 +5,7 @@ category: development-code
 description_zh: "TencentOS 服务器运维诊断助手，排查磁盘/网络/CPU/内存/安全问题"
 description_en: "TencentOS Server ops assistant for disk, network, CPU, memory & security diagnostics"
 version: 2.0.1
+related_skills: [prompt-engineering-expert]
 ---
 
 # TencentOS Server 全栈运维诊断

@@ -6,6 +6,7 @@ version: 1.0.4
 description_en: Create beautiful visual art in PNG and PDF using design philosophy
 description_zh: 基于设计哲学创作精美视觉艺术（PNG/PDF）
 license: Complete terms in LICENSE.txt
+related_skills: [frontend-design, kpi-dashboard-design, macos-design, ui-design]
 ---
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.

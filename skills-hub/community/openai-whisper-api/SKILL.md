@@ -5,6 +5,7 @@ category: development-code
 description_zh: "通过 OpenAI API 转录音频"
 description_en: "Transcribe audio via OpenAI Whisper API"
 version: 1.0.0
+related_skills: [shopify-admin-api, skyline-scroll-api, vss-setup-video-analytics-api, claude-api]
 ---
 
 # OpenAI Whisper API (curl)

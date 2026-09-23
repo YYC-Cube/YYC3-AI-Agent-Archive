@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 category: business-productivity
 version: 1.0.0
+related_skills: [activecampaign-automation, airtable-automation, amplitude-automation, asana-automation, bamboohr-automation]
 ---
 
 # DocuSign Automation via Rube MCP

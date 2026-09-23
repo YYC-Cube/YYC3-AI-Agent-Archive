@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 category: email
 version: 1.0.0
+related_skills: [airtable-automation, amplitude-automation, asana-automation, bamboohr-automation, basecamp-automation]
 ---
 
 # ActiveCampaign Automation via Rube MCP

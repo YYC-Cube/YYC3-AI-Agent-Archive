@@ -12,6 +12,7 @@ metadata:
     - tsp
     - formulation
     - concepts
+related_skills: [cuopt-routing-api-python, cuopt-numerical-optimization-formulation]
 ---
 
 

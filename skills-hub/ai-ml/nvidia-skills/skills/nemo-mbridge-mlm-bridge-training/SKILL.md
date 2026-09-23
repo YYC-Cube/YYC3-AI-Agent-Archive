@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Running training, comparing MLM vs Bridge loss curves, translating MLM CLI args to Bridge config, or investigating why loss curves diverged after a commit; 'how do I run training', 'MLM vs Bridge', 'correlation test'.
+related_skills: [nemo-mbridge-perf-moe-vlm-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute, nemo-mbridge-perf-cpu-offloading, nemo-mbridge-perf-cuda-graphs]
 ---
 
 # MLM vs Bridge Training

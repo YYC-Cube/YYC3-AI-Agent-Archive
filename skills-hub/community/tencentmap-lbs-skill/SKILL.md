@@ -17,6 +17,7 @@ metadata:
     install:
       - package-manager: npm
         command: "npm install -g @tencent-map/lbs-skills"
+related_skills: [cangjie-skill, cnb-skill, colleague-skill, crash-expert-skill, darwin-skill]
 ---
 
 # 腾讯地图位置服务 Skill

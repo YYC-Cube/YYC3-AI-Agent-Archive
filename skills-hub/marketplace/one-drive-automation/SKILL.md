@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 category: storage-docs
 version: 1.0.0
+related_skills: [activecampaign-automation, airtable-automation, amplitude-automation, asana-automation, bamboohr-automation]
 ---
 
 # OneDrive Automation via Rube MCP

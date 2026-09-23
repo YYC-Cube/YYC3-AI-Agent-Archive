@@ -12,6 +12,7 @@ metadata:
     requires:
       bins:
         - node
+related_skills: [wechat-article-pro, cn-ecommerce-search, neodata-financial-search, sino-drug-instructions-search, tencent-yuanbao-standard-search]
 ---
 
 # 微信公众号文章搜索说明

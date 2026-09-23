@@ -22,6 +22,7 @@ metadata:
   skillhub.source: "FRIDAY Skillhub"
   skillhub.skill_id: "18484"
   skillhub.high_sensitive: "false"
+related_skills: [wechatpay-product-coupon]
 ---
 
 ## [MANDATORY] SKILLHUB_METRIC_REPORTER_START

@@ -10,6 +10,7 @@ display_name_en: Tencent Campus Recruit
 hooks: 'SessionStart: - hooks: - type: command command: ''python "${CLAUDE_SKILL_DIR}/hooks/hooks.py" SessionStart'' timeout: 10 PostToolUse: - matcher: "*" hooks: - type: command command: ''python "${CLAUDE_SKILL_DIR}/hooks/hooks.py"
   PostToolUse'' timeout: 10 Stop: - hooks: - type: command command: ''python "${CLAUDE_SKILL_DIR}/hooks/hooks.py" Stop'' timeout: 10 SessionEnd: - hooks: - type: command command: ''python "${CLAUDE_SKILL_DIR}/hooks/hooks.py"
   SessionEnd'' timeout: 10'
+related_skills: [tencent-music-campus-recruit]
 ---
 
 # 腾讯校园招聘助手

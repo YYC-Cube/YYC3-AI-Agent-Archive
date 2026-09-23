@@ -18,6 +18,7 @@ metadata:
     tencentTokenMode: custom
     tokenUrl: https://mcp.meeting.tencent.com/mcp/wemeet-open/v1
     emoji: 📅
+related_skills: [cangjie-skill, cnb-skill, colleague-skill, crash-expert-skill, darwin-skill]
 ---
 
 # 腾讯会议 MCP 服务

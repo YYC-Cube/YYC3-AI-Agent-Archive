@@ -20,6 +20,7 @@ metadata:
       - linux
       - darwin
       - win32
+related_skills: [edgeone-pages-deploy, github-pages-auto-deploy, html-deploy, vercel-deploy, web-deploy]
 ---
 ## Setup
 

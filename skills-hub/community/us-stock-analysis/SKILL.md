@@ -8,6 +8,7 @@ description_zh: 美股综合分析（基本面、技术面、估值、对比报�
 description_en: 'US stock analysis: fundamentals, technicals, valuation & comparison reports'
 version: 0.1.2
 allowed-tools: Read,Bash,WebSearch,WebFetch
+related_skills: [legal-logic-analysis, stock-analysis, yt-competitive-analysis, vision-analysis, developer-growth-analysis]
 ---
 
 # US Stock Analysis

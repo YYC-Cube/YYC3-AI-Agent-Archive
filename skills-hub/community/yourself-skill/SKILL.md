@@ -7,6 +7,7 @@ description_en: "Distill yourself into an AI Skill — digital twin with persona
 version: "1.0.0"
 homepage: https://github.com/notdog1998/yourself-skill
 allowed-tools: Read, Write, Edit, Bash
+related_skills: [cangjie-skill, cnb-skill, colleague-skill, crash-expert-skill, darwin-skill]
 ---
 
 > **Language / 语言**: This skill supports both English and Chinese. Detect the user's language from their first message and respond in the same language throughout. Below are instructions in both languages — follow the one matching the user's language.

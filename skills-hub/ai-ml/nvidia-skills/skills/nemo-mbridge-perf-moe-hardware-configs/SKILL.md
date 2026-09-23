@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Hardware-specific MoE playbooks or throughput estimates; 'MoE on H100', 'GB200 config', 'expected throughput', 'MoE hardware playbook', 'parallelism for B200'.
+related_skills: [nemo-mbridge-mlm-bridge-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute, nemo-mbridge-perf-cpu-offloading, nemo-mbridge-perf-cuda-graphs]
 ---
 
 # MoE Hardware Configuration Reference

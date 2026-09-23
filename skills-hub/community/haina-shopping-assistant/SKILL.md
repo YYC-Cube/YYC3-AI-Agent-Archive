@@ -13,6 +13,7 @@ python_dependencies:
   - requests
 visibility: "public"
 icon: "https://codebuddy-platform-1258344699.cos.accelerate.myqcloud.com/public/803d2199-f921-4b57-83b7-95ffefb69248/avatar/skill/au_5cabbb37-c8c.png"
+related_skills: [12306-train-assistant, airchina-travel-assistant, charity-finance-assistant, charity-writing-assistant, gsap-animation-assistant]
 ---
 
 # haina-shopping-assistant

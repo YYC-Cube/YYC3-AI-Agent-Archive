@@ -3,6 +3,7 @@ name: x-twitter-scraper
 category: social-media
 version: 1.0.0
 description: "X (Twitter) data extraction and monitoring via Xquik: tweet search, user lookup, follower extraction, giveaway draws, trending topics, account monitoring with webhooks, reply/retweet/quote extraction, community and Space data, follow checks. 22 MCP tools + REST API."
+related_skills: [web-scraper]
 ---
 
 # Xquik - X (Twitter) Data Platform

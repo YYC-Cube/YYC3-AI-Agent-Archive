@@ -15,6 +15,7 @@ metadata:
       - python3
       env:
       - TENCENTCLOUD_WSA_APIKEY
+related_skills: [tencent-yuanbao-gaokao-regional-passing-scores, tencent-yuanbao-gaokao-score-to-rank-lookup, cn-ecommerce-search, neodata-financial-search, sino-drug-instructions-search]
 ---
 
 # 元宝搜索标准版skill

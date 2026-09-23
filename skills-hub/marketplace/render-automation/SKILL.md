@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 category: devops
 version: 1.0.0
+related_skills: [activecampaign-automation, airtable-automation, amplitude-automation, asana-automation, bamboohr-automation]
 ---
 
 # Render Automation via Rube MCP

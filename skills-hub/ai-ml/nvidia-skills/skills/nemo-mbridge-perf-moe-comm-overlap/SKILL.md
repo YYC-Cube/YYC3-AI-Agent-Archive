@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Tuning MoE communication overlap, or tracing a MoE throughput regression to a comm-overlap config change; 'overlap_moe_expert_parallel_comm', 'MoE dispatch overlap', 'flex dispatcher', 'DeepEP overlap', 'expert wgrad scheduling'.
+related_skills: [nemo-mbridge-perf-expert-parallel-overlap, nemo-mbridge-perf-tp-dp-comm-overlap, nemo-mbridge-mlm-bridge-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute]
 ---
 
 # MoE Communication Overlap

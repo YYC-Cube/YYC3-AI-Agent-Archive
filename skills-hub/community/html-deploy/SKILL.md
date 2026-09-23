@@ -7,6 +7,7 @@ description_en: "Publish self-contained HTML pages to htmlcode.fun for live link
 version: 1.3.1
 homepage: https://www.htmlcode.fun/s/htmlcode-fun-guide
 allowed-tools: Bash,Read,Write
+related_skills: [edgeone-pages-deploy, github-pages-auto-deploy, netlify-deploy, vercel-deploy, web-deploy]
 ---
 # HTML Instant Deploy
 

@@ -4,6 +4,7 @@ description: "Describes the agent skills shipped with NemoClaw and how to access
 category: development-code
 version: 1.0.0
 license: "Apache-2.0"
+related_skills: [nemoclaw-user-get-started, nemoclaw-user-configure-inference, nemoclaw-user-configure-security, nemoclaw-user-deploy-remote, nemoclaw-user-manage-policy]
 ---
 # NemoClaw Agent Skills for Your AI Coding Assistant
 

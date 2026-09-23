@@ -5,7 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.0
-related_skills: [copywriting, marketing-psychology, ab-testing, churn-prevention, competitors]
+related_skills: [copywriting, marketing-psychology, ab-testing, churn-prevention, competitors, product-marketing, revops, sales-enablement]
 ---
 
 # Pricing Strategy

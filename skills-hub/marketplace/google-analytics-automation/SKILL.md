@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 category: analytics
 version: 1.0.0
+related_skills: [activecampaign-automation, airtable-automation, amplitude-automation, asana-automation, bamboohr-automation]
 ---
 
 # Google Analytics Automation via Rube MCP

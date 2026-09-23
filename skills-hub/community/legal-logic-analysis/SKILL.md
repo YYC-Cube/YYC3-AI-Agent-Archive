@@ -3,6 +3,7 @@ name: legal-logic-analysis
 description: "Think through any legal situation like a lawyer. Issue spotting, jurisdiction, risk assessment, actionable conclusions."
 category: development-code
 version: 1.0.0
+related_skills: [stock-analysis, us-stock-analysis, yt-competitive-analysis, vision-analysis, developer-growth-analysis]
 ---
 
 ## Pattern

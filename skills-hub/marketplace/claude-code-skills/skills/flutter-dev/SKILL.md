@@ -14,6 +14,7 @@ metadata:
     - Flutter Documentation
     - Riverpod Documentation
     - Bloc Library Documentation
+related_skills: [android-native-dev, frontend-dev, fullstack-dev, ios-application-dev, react-native-dev]
 ---
 
 # Flutter Development Guide

@@ -9,6 +9,7 @@ description_en: "McDonalds China Ordering Assistant for menu browsing, coupon ma
 version: 1.0.0
 author: xinocwang
 visibility: "public"
+related_skills: [12306-train-assistant, airchina-travel-assistant, charity-finance-assistant, charity-writing-assistant, gsap-animation-assistant]
 ---
 
 # mcdonald-assistant

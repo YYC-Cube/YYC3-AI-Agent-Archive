@@ -7,6 +7,7 @@ description_en: "Build, preview and deploy web projects across common hosting ta
 version: 1.0.0
 homepage: https://api.skillhub.cn/cmanfre7/web-deploy
 allowed-tools: Bash,Read
+related_skills: [edgeone-pages-deploy, github-pages-auto-deploy, html-deploy, netlify-deploy, vercel-deploy]
 ---
 # web-deploy
 

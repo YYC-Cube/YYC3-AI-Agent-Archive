@@ -3,6 +3,7 @@ name: write-a-skill
 description: Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill.
 category: development-code
 version: 1.0.0
+related_skills: [cangjie-skill, cnb-skill, colleague-skill, crash-expert-skill, darwin-skill]
 ---
 
 # Writing Skills

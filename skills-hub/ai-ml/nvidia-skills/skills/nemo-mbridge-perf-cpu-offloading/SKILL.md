@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Enabling CPU offload to reduce GPU memory, or investigating a commit that changed CPU offloading config and caused OOM or a crash; 'cpu_offloading', 'optimizer_cpu_offload', 'optimizer_offload_fraction', 'HybridDeviceOptimizer', 'move optimizer to CPU'.
+related_skills: [nemo-mbridge-mlm-bridge-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute, nemo-mbridge-perf-cuda-graphs, nemo-mbridge-perf-expert-parallel-overlap]
 ---
 
 # CPU Offloading

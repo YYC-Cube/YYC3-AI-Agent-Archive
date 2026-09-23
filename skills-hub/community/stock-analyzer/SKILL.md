@@ -3,6 +3,7 @@ name: stock-analyzer
 description: 全球股票综合分析工具。支持A股、港股、美股等东方财富覆盖的所有市场。根据用户输入的股票名称或代码，从东方财富网获取股票信息，进行基本面、新闻面、资金面三维分析，给出投资建议、买入价位和卖出价位。触发关键词：分析股票、股票推荐、股票买卖点、股票研究、A股分析、港股分析、美股分析、中概股、恒生指数、纳斯达克、标普500、道琼斯、腾讯、阿里巴巴、苹果AAPL、特斯拉TSLA、英伟达NVDA、美光MU等。
 category: development-code
 version: 1.0.0
+related_skills: [meeting-insights-analyzer]
 ---
 # Stock Analyzer - 全球股票综合分析工具
 

@@ -12,6 +12,7 @@ metadata:
     - rest-api
     - python
     - deployment
+related_skills: [cuopt-server-common, cuopt-numerical-optimization-api-python, cuopt-routing-api-python, tilegym-cutile-python]
 ---
 
 

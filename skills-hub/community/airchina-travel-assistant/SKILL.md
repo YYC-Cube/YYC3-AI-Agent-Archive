@@ -9,6 +9,7 @@ description_zh: "帮用户领取中国国航（Air China / 国航 / 国际航空
 description_en: "帮用户领取中国国航（Air China / 国航 / 国际航空）的优惠券。当用户说\"我想领国航的券\"、\"帮我领张国航机票券\"、\"国航有活动券吗\"、\"给我发国航优惠券\"、\"airchina 券\"、\"国航活动\"、\"帮我领张国航券\"、\"国航现在有活动吗\"、\"我想领张机票优惠券\"、\"国航的券怎么领\"、\"给我发国航券\"、\"airchina coupon\"、\"我要国航的活动券\"等任何表达\"想要国航券\"语义的话时，触发本技能。"
 visibility: "public"
 icon: "https://codebuddy-platform-1258344699.cos.accelerate.myqcloud.com/public/45edac6b-2078-4678-89f3-6f9800cf5e5f/avatar/skill/au_e5b49432-676.svg"
+related_skills: [12306-train-assistant, charity-finance-assistant, charity-writing-assistant, gsap-animation-assistant, haina-shopping-assistant]
 ---
 
 # 中国国航 · 领券助手

@@ -32,12 +32,30 @@ function escapeRe(s) {
 }
 
 /**
+ * 名称家族键：优先共享首两段（如 nemo-mbridge-*），否则共享末段（如 *-automation）
+ * 仅当家族规模 >= 2 才构成配对信号（单词名/孤立家族不配对）
+ */
+function familyKeys(name) {
+  const parts = name.split('-');
+  const keys = [];
+  if (parts.length >= 3) keys.push('p:' + parts.slice(0, 2).join('-'));
+  if (parts.length >= 2) keys.push('s:' + parts[parts.length - 1]);
+  return keys;
+}
+
+/**
  * related_skills 候选生成（显式边补全）
  *
- * 从 implicit 边推导置信度：
+ * 两条信号线：
+ * 1. 提及信号（implicit 边推导置信度）：
  *   双向提及（A 提及 B 且 B 提及 A）  +3 —— 最强信号
  *   同领域（顶层目录相同）            +1
  *   每条单向提及                      +1
+ * 2. 家族信号（孤立节点兜底）：
+ *   同名称家族（共享首两段或末段，家族 >= 2 成员） +4
+ *   同领域                            +1
+ *   家族信号仅在节点无任何提及边时启用（不干扰高置信度提名）
+ *
  * 过滤：confidence < MIN_CONFIDENCE 剔除；每技能取 TOP N（去重、排除已有声明）
  *
  * @param {object} g buildGraph 结果
@@ -57,6 +75,16 @@ function suggestRelated(g, { topN = 5, minConfidence = 4 } = {}) {
     mentions.get(e.src).set(e.dst, (mentions.get(e.src).get(e.dst) || 0) + e.weight);
   }
 
+  // 名称家族索引（familyKey → 成员列表，仅保留 >= 2 成员的家族）
+  const families = new Map();
+  for (const n of nodeNames) {
+    for (const k of familyKeys(n)) {
+      if (!families.has(k)) families.set(k, []);
+      families.get(k).push(n);
+    }
+  }
+  for (const [k, arr] of families) if (arr.length < 2) families.delete(k);
+
   const out = [];
   for (const [name, node] of Object.entries(g.nodes)) {
     const cands = [];
@@ -70,6 +98,23 @@ function suggestRelated(g, { topN = 5, minConfidence = 4 } = {}) {
       if (g.nodes[dst].domain === node.domain) { conf += 1; reasons.push('同领域'); }
       if (cnt >= 2) reasons.push('高频提及 ' + cnt);
       cands.push({ name: dst, confidence: conf, reasons: reasons.length ? reasons : ['单向提及'] });
+    }
+    // 家族信号：仅当无提及边时（孤立节点兜底，避免家族噪声稀释强信号）
+    if (outs.size === 0) {
+      const famSet = new Map(); // dst → 信号累计
+      for (const k of familyKeys(name)) {
+        for (const m of families.get(k) || []) {
+          if (m === name || !nodeNames.has(m) || (declared.get(name) || new Set()).has(m)) continue;
+          famSet.set(m, (famSet.get(m) || 0) + 1);
+        }
+      }
+      for (const [dst, famHits] of famSet) {
+        let conf = 4 + (famHits - 1); // 首段+末段双重命中加分
+        const reasons = ['名称家族'];
+        if (famHits >= 2) reasons.push('双重家族命中');
+        if (g.nodes[dst].domain === node.domain) { conf += 1; reasons.push('同领域'); }
+        cands.push({ name: dst, confidence: conf, reasons });
+      }
     }
     cands.sort((a, b) => b.confidence - a.confidence);
     const picked = cands.filter((c) => c.confidence >= minConfidence).slice(0, topN);

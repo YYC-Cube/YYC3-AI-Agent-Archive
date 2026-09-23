@@ -3,6 +3,7 @@ name: slide-making-skill
 description: "Implement single-slide PowerPoint pages with PptxGenJS. Use when writing or fixing slide JS files: dimensions, positioning, text/image/chart APIs, styling rules, and export expectations for native .pptx output."
 category: development-code
 version: 1.0.0
+related_skills: [template-skill, color-font-skill, design-style-skill, ppt-editing-skill, ppt-orchestra-skill]
 ---
 
 # PptxGenJS Slide Making Skill

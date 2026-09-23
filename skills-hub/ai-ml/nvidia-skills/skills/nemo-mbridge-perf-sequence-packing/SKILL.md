@@ -5,6 +5,7 @@ category: development-code
 version: 1.0.0
 license: Apache-2.0
 when_to_use: Enabling sequence packing or long-context SFT, or investigating a commit that broke sequence packing or changed packing behavior; 'packed sequences', 'sequence packing', 'PackedSequenceSpecs', 'pack_sequences_in_batch', 'CP with packing'.
+related_skills: [nemo-mbridge-mlm-bridge-training, nemo-mbridge-multi-node-slurm, nemo-mbridge-perf-activation-recompute, nemo-mbridge-perf-cpu-offloading, nemo-mbridge-perf-cuda-graphs]
 ---
 
 # Sequence Packing Skill

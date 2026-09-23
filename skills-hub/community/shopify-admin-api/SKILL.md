@@ -6,6 +6,7 @@ slug: shopify-admin-api
 display_name: Shopify Admin API
 version: 1.0.0
 tags: [latest]
+related_skills: [openai-whisper-api, skyline-scroll-api, vss-setup-video-analytics-api, claude-api]
 ---
 
 # Shopify Admin API

@@ -5,7 +5,7 @@ category: development-code
 version: 1.0.0
 metadata:
   version: 2.0.0
-related_skills: [analytics, cold-email, emails, pricing, prospecting]
+related_skills: [analytics, cold-email, emails, pricing, prospecting, sales-enablement]
 ---
 
 # RevOps

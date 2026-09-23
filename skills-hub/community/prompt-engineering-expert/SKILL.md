@@ -3,6 +3,7 @@ name: prompt-engineering-expert
 description: Advanced expert in prompt engineering, custom instructions design, and prompt optimization for AI agents
 category: development-code
 version: 1.0.0
+related_skills: [tencentos-expert]
 ---
 
 # Prompt Engineering Expert Skill

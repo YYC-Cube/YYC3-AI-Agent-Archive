@@ -8,6 +8,7 @@ display_name_en: "Yuanbao Gaokao Regional Passing Scores"
 description_zh: "高考地区分数线信息检索助手。当用户询问各省份历年高考录取分数线、录取批次或对应排名时使用，支持按地区、年份、选科和批次组合查询，并自动适配各省新老高考政策差异。"
 description_en: "An information retrieval assistant for regional Gaokao admission score lines. Use it when a user asks about a province's historical admission cut-off scores, admission batches, or corresponding rankings. Supports queries by region, year, subject choice and batch, and automatically adapts to each province's old and new Gaokao reform policies."
 visibility: "public"
+related_skills: [tencent-yuanbao-gaokao-score-to-rank-lookup, tencent-yuanbao-standard-search]
 ---
 
 ## 核心原则
