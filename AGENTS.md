@@ -45,6 +45,7 @@ pnpm run build            # 全部包 tsup 构建（Turbo 缓存加速）
 pnpm run test             # 全部包 vitest 运行（929 测试）
 pnpm run skills:validate  # yyc3 skills validate（扫描 skills-hub）
 pnpm run skills:stats     # 技能统计
+pnpm run doctor           # 四检聚合质量门禁（validate/dedup/score/registry，CI 同款，exit 1 阻断）
 pnpm yyc3 skills naming lint -v   # AYNC 命名合规检查
 
 # Docker
