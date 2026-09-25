@@ -1,6 +1,7 @@
 /**
  * Observability 测试套件
  */
+/// <reference types="node" />
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { HealthRegistry } from '../src/health.js';
 import { Logger } from '../src/logger.js';
@@ -455,7 +456,7 @@ describe('Tracer', () => {
     const span = t.startSpan('op');
     t.endSpan(span.id, 'error');
     // 等待 microtask 完成（exporter 是 Promise.resolve 包装）
-    await new Promise((r) => setImmediate(r));
+    await new Promise((r) => setTimeout(r, 0));
     expect(exported).toHaveLength(1);
     expect(exported[0].name).toBe('op');
     expect(exported[0].status).toBe('error');

@@ -4,6 +4,18 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [Unreleased]
 
+## [2.7.0] - 2026-09-26
+
+### 版本主题：Security-Hardened + Registry Ecosystem（安全纵深 + 资产生态）
+
+v2.6.0（关联维度图谱）之后的收口版本：以 S0/S1 安全与质量整改为主线，叠加语义配对与 registry 生态元数据增强。全量 1135 测试中英双跑全绿，doctor 六检 PASS。
+
+### Registry 生态 + 语义配对（v2.7.0 特性）
+
+- **语义配对兜底减半孤立节点**（149 → 74 → 1.1%）：family-pairing fallback 与二次迭代，关联维度图谱孤立率持续下降
+- **Registry 生态元数据**：技能资产新增 `repository`/`website` + related backfeed 声明
+- **Registry 浏览器页面**：新增可视化浏览入口
+
 ### S0/S1 安全与质量整改（2026-09-25 ~ 2026-09-26）
 
 详见 `docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md`（第十一～十四章）。
