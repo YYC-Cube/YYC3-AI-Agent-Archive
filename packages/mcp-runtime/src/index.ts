@@ -60,3 +60,16 @@ export type { CowAgentBridgeConfig } from './cowagent-bridge.js';
 // 统一运行时
 export { UnifiedMCPRuntime } from './runtime.js';
 export type { RuntimeConfig, RuntimeEventMap } from './runtime.js';
+
+// 独立 HTTP 服务（P1-2：默认回环绑定 + fail-closed 认证 + 限流/安全头）
+export { createMcpServerApp } from './server-app.js';
+export type { McpServerOptions } from './server-app.js';
+export {
+  apiKeysFromEnv,
+  resolveClientIp,
+  trustedProxyHopsFromEnv,
+  mcpApiKeyAuth,
+  mcpSecurityHeaders,
+  mcpBodySizeLimit,
+  mcpRateLimiter,
+} from './server-security.js';

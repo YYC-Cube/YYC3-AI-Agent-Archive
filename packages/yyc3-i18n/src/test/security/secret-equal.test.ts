@@ -58,19 +58,24 @@ describe("Safe Secret Comparison (Timing Attack Protection)", () => {
     });
 
     it("should have consistent timing (basic check)", () => {
-      const startMatch = Date.now();
-      for (let i = 0; i < 1000; i++) {
-        safeEqualSecret("match-secret", "match-secret");
-      }
-      const elapsedMatch = Date.now() - startMatch;
+      // 使用 hrtime 纳秒精度并加大迭代次数，避免高负载 CI 下 Date.now 毫秒
+      // 分辨率导致一侧测得 0ms、ratio 变 Infinity 的偶发失败（实现本身恒定时间）。
+      const ITERATIONS = 10_000;
+      const measure = (a: string, b: string) => {
+        const start = process.hrtime.bigint();
+        for (let i = 0; i < ITERATIONS; i++) {
+          safeEqualSecret(a, b);
+        }
+        return Number(process.hrtime.bigint() - start);
+      };
 
-      const startMismatch = Date.now();
-      for (let i = 0; i < 1000; i++) {
-        safeEqualSecret("match-secret", "wrong-secret");
-      }
-      const elapsedMismatch = Date.now() - startMismatch;
+      const elapsedMatch = measure("match-secret", "match-secret");
+      const elapsedMismatch = measure("match-secret", "wrong-secret");
 
-      const ratio = Math.max(elapsedMatch, elapsedMismatch) / Math.min(elapsedMatch, elapsedMismatch);
+      // 分母设 1ns 地板，纯理论兜底（10k 次实际耗时必 > 0）
+      const ratio =
+        Math.max(elapsedMatch, elapsedMismatch) /
+        Math.max(1, Math.min(elapsedMatch, elapsedMismatch));
       expect(ratio).toBeLessThan(10);
     });
   });

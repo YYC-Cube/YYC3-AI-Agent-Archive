@@ -11,6 +11,9 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 - **S0-1 执行隔离链修复**：skill-registry ↔ skill-sandbox 依赖链接线；entry 路径穿越收敛、子进程环境变量白名单、命令黑名单接入执行路径、超时钳制、输出 1MB 上限；compose 容器加固（no-new-privileges/cap_drop ALL/read_only/资源限额/回环绑定）；新增 40 个对抗测试
 - **S0-2 能力宣称对齐**：README 新增实现状态矩阵（四级成熟度，逐包/逐能力附代码证据），数字与安全表述全面纠偏
 - **S1 i18n locale 漂移修复**：Node ≥21 不再采信 undici navigator 的宿主 LANG；`formatRelativeTimestamp` 修正 timezone/locale 参数错位；CI 显式钉 LANG；中文裸环境门禁转绿
+- **S1 Gateway 边界（P1-1/P2-2）**：限流改受信代理跳数解析（`YYC3_TRUSTED_PROXY_HOPS`，默认 0 直连不信 XFF），伪造 XFF 不再能绕限流；execute/mcp-call/列表查询接 Zod 4，非法 JSON/null body→400，timeout 钳制 [1s, max]；gateway 1.2.0
+- **S1 MCP Runtime 收敛（P1-2，@yyc3/mcp-runtime 1.3.0）**：独立服务默认绑 127.0.0.1（MCP_HOST 可覆盖）；新增契约对齐 gateway 的安全层——`/api` 全部 fail-closed API Key 认证（无 key 503）、内存限流+XFF 跳数、安全头、1MB body、非法 JSON 400；app 工厂化便于测试；compose 透传认证/跳数配置
+- 修复 i18n secret-equal 计时断言高负载 flake（hrtime 纳秒计时，生产代码未动）
 - **BREAKING（@yyc3/i18n-core 2.4.3 → 3.0.0）**：
   - `registerTranslation()` 由整表替换改为**深合并**——修复 MCP `add_translation_key` 增量注册单键抹掉整语言包的产品缺陷；新增 `replaceTranslation()` 保留旧整表替换语义
   - 新增 `i18n.ready: Promise<void>` 初始语言包就绪承诺（浏览器自动检测场景消除构造期翻译竞态）；懒加载到达时与飞行中注册的键合并而非互相覆盖

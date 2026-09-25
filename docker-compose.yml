@@ -62,7 +62,7 @@ services:
       retries: 3
       start_period: 10s
 
-  # ---- MCP Runtime (MCP 运行时，无独立认证：不直接暴露局域网) ----
+  # ---- MCP Runtime (MCP 运行时，/api 需 API Key；端口仅发布宿主回环) ----
   mcp-runtime:
     build:
       context: .
@@ -72,12 +72,19 @@ services:
     user: "1001:1001"
     <<: *yyc3-hardening
     ports:
-      # 仅绑回环：宿主外不可达；容器间经 yyc3-network 互访
+      # 仅绑回环：宿主外不可达；容器间经 yyc3-network 互访（需 API Key）
       - "127.0.0.1:${MCP_PORT:-3031}:3031"
     environment:
       - NODE_ENV=production
       - PORT=3031
+      # 应用默认绑 127.0.0.1；容器网络命名空间内须显式监听 0.0.0.0
+      # 才能经 docker 端口映射与 yyc3-network 互访（对外暴露由上面回环绑定收口）
+      - MCP_HOST=0.0.0.0
       - LOG_LEVEL=${LOG_LEVEL:-info}
+      # fail-closed：未设置时 /api 返回 503（/health 不受影响）
+      - YYC3_API_KEYS=${YYC3_API_KEYS:-}
+      # 置于受信反向代理之后时设置代理层数（默认 0，不信任 XFF）
+      - YYC3_TRUSTED_PROXY_HOPS=${YYC3_TRUSTED_PROXY_HOPS:-0}
     networks:
       - yyc3-network
     restart: unless-stopped

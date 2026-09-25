@@ -3,12 +3,20 @@
  *
  * 用途：容器化部署（Dockerfile stage: mcp-runtime）
  * 以 Hono + @hono/node-server 暴露 MCP tools/list 与 tools/call HTTP 接口
+ *
+ * 安全默认（P1-2）：
+ * - 默认绑定 127.0.0.1（回环），仅经 MCP_HOST/HOST 显式覆盖才对外监听；
+ *   容器内由 compose 显式设 MCP_HOST=0.0.0.0（网络命名空间隔离 + 端口仅发布回环）
+ * - 除 /health 外全部端点要求 API Key（YYC3_API_KEYS），未配置即 fail-closed 503
  */
-import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import { UnifiedMCPRuntime } from './runtime.js';
+import { createMcpServerApp } from './server-app.js';
+import { apiKeysFromEnv, trustedProxyHopsFromEnv } from './server-security.js';
 
 const port = Number(process.env.PORT ?? 3031);
+// 默认回环：裸机直接运行不对局域网暴露；compose/K8s 需显式 MCP_HOST=0.0.0.0
+const hostname = process.env.MCP_HOST ?? process.env.HOST ?? '127.0.0.1';
 
 const runtime = new UnifiedMCPRuntime({
   enableSkillBridge: false, // 独立部署时不桥接 Skill Registry（由 Gateway 侧组装）
@@ -16,45 +24,13 @@ const runtime = new UnifiedMCPRuntime({
 });
 await runtime.initialize();
 
-const app = new Hono();
-
-app.onError((err, c) => {
-  const message = err instanceof Error ? err.message : 'Internal Server Error';
-  return c.json({ ok: false, error: { code: 'INTERNAL_ERROR', message } }, 500);
+const app = createMcpServerApp(runtime, {
+  apiKeys: apiKeysFromEnv(process.env.YYC3_API_KEYS),
+  trustedProxyHops: trustedProxyHopsFromEnv(process.env.YYC3_TRUSTED_PROXY_HOPS),
 });
 
-// 健康检查（Docker HEALTHCHECK 探测路径）
-app.get('/health', (c) => {
-  const tools = runtime.listAllTools();
-  return c.json({
-    ok: true,
-    data: { status: 'ok', uptime: process.uptime(), tools: tools.length },
-  });
-});
-
-// MCP tools/list
-app.get('/api/v1/tools', (c) => {
-  return c.json({ ok: true, data: runtime.listAllSourcedTools() });
-});
-
-// MCP tools/call
-app.post('/api/v1/tools/call', async (c) => {
-  const body = (await c.req.json<{ name: string; args?: Record<string, unknown> }>()) as {
-    name: string;
-    args?: Record<string, unknown>;
-  };
-  if (!body?.name) {
-    return c.json(
-      { ok: false, error: { code: 'BAD_REQUEST', message: 'name is required' } },
-      400
-    );
-  }
-  const result = await runtime.callTool(body.name, body.args ?? {});
-  return c.json({ ok: !result.isError, data: result });
-});
-
-serve({ fetch: app.fetch, port, hostname: '0.0.0.0' });
-console.warn(`[MCPRuntime] 启动于 http://0.0.0.0:${port}`);
+serve({ fetch: app.fetch, port, hostname });
+console.warn(`[MCPRuntime] 启动于 http://${hostname}:${port}（/api 需 API Key 认证）`);
 
 process.on('SIGTERM', () => process.exit(0));
 process.on('SIGINT', () => process.exit(0));
