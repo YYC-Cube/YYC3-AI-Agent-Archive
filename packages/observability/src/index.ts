@@ -4,7 +4,7 @@
  */
 export { Logger } from './logger.js';
 export { MetricsRegistry } from './metrics.js';
-export { Tracer } from './tracer.js';
+export { Tracer, createOtlpExporterFromEnv } from './tracer.js';
 export { HealthRegistry } from './health.js';
 export type {
   LogLevel,
@@ -17,6 +17,7 @@ export type {
   Span,
   SpanEvent,
   TracerConfig,
+  SpanExporter,
   HealthStatus,
   HealthCheckResult,
   HealthChecker,

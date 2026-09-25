@@ -16,6 +16,7 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 - 修复 i18n secret-equal 计时断言高负载 flake（hrtime 纳秒计时，生产代码未动）
 - **S1 资产加载校验（P1-3，@yyc3/skill-registry 1.2.0）**：`SkillLoader.load()` 注册前默认接 `validateUnifiedSkill`，非法 domain/非 SemVer version/自引用 fallback 等非法资产拒绝注册、进 `quarantine` 并发 `skill:quarantined` 事件，与 doctor 共用同一校验函数（单一事实源）；`validate:false` 保留宽容模式
 - **S1 OpenAPI 漂移修正（gateway）**：`openapi.yaml` 1.0.0 → 1.2.0 与实现一致——删除"不强制认证"错误表述，补 `securitySchemes.apiKey`、401/403/429/413 响应与错误码枚举；补文档化 `/api/v1/registry{,/servers,/servers/{slug}}` 三端点；Skill 模式补 required/枚举对齐 Zod 边界
+- **S1 可观测性修正（P1-6，@yyc3/observability 1.1.0）**：histogram 改累计桶（le=X 含所有 ≤X 观测值）、导出补 `_sum`/`_count`、labels 参与分区并在 Prometheus 输出渲染为 `name{k="v"}`；新增 `.with()` 绑定子实例；tracer ID 改用 `crypto.randomBytes`（traceId 32hex/spanId 16hex 对齐 W3C/OTLP）、父 span 缺失时保留 parentId 并支持上游 traceId 继承；新增 OTLP HTTP exporter（`OTEL_EXPORTER_OTLP_ENDPOINT` 控制，未配置自动禁用）
 - **BREAKING（@yyc3/i18n-core 2.4.3 → 3.0.0）**：
   - `registerTranslation()` 由整表替换改为**深合并**——修复 MCP `add_translation_key` 增量注册单键抹掉整语言包的产品缺陷；新增 `replaceTranslation()` 保留旧整表替换语义
   - 新增 `i18n.ready: Promise<void>` 初始语言包就绪承诺（浏览器自动检测场景消除构造期翻译竞态）；懒加载到达时与飞行中注册的键合并而非互相覆盖

@@ -205,18 +205,19 @@ describe('MetricsRegistry', () => {
       expect(h.get()).toBe(3);
     });
 
-    it('应正确分桶', () => {
+    it('应正确分桶（累计语义，le=X 包含所有 ≤ X 的观测值）', () => {
       const h = registry.histogram('duration', 'Duration', [10, 50, 100]);
-      h.observe(5);   // 5 <= 10 → bucket 10
-      h.observe(25);  // 25 <= 50 → bucket 50
-      h.observe(75);  // 75 <= 100 → bucket 100
-      h.observe(200); // 200 > 100 → total only
+      h.observe(5);   // ≤ 10
+      h.observe(25);  // ≤ 50
+      h.observe(75);  // ≤ 100
+      h.observe(200); // > 100 → 仅 +Inf
 
       const snap = registry.snapshot().find(s => s.name === 'duration');
       expect(snap).toBeDefined();
+      // 累计桶：le=10 含 1 个，le=50 含 2 个，le=100 含 3 个
       expect(snap!.buckets!['10']).toBe(1);
-      expect(snap!.buckets!['50']).toBe(1);
-      expect(snap!.buckets!['100']).toBe(1);
+      expect(snap!.buckets!['50']).toBe(2);
+      expect(snap!.buckets!['100']).toBe(3);
       expect(snap!.count).toBe(4);
       expect(snap!.sum).toBe(305);
     });
@@ -263,15 +264,19 @@ describe('MetricsRegistry', () => {
     expect(h.sum).toBe(0);
   });
 
-  it('toPrometheus 导出 histogram 桶与 Inf', () => {
+  it('toPrometheus 导出 histogram 累计桶、Inf、_sum、_count', () => {
     const h = registry.histogram('ph', 'prom hist', [10, 100]);
-    h.observe(5);   // 命中 le=10
-    h.observe(50);  // 命中 le=100
-    h.observe(500); // 超出所有桶，仅计入 +Inf
+    h.observe(5);   // ≤ 10
+    h.observe(50);  // ≤ 100
+    h.observe(500); // > 100 → 仅 +Inf
     const output = registry.toPrometheus();
+    // 累计：le=10=1, le=100=2（含 5 和 50）
     expect(output).toContain('ph_bucket{le="10"} 1');
-    expect(output).toContain('ph_bucket{le="100"} 1');
+    expect(output).toContain('ph_bucket{le="100"} 2');
     expect(output).toContain('ph_bucket{le="+Inf"} 3');
+    // 导出必须含 _sum 与 _count（Prometheus histogram 必备）
+    expect(output).toContain('ph_sum 555');
+    expect(output).toContain('ph_count 3');
   });
 
   it('gauge/counter 的 inc 与 dec 在 registry 快照中一致', () => {
@@ -283,6 +288,43 @@ describe('MetricsRegistry', () => {
     const snap = registry.snapshot();
     expect(snap.find(s => s.name === 'cc')!.value).toBe(4);
     expect(snap.find(s => s.name === 'gg')!.value).toBe(5);
+  });
+
+  // P1-6：labels 参与分区与 Prometheus 渲染
+  it('labeled counter 在 Prometheus 输出中渲染为 name{k="v"}', () => {
+    const c = registry.counter('req_total', 'requests', { env: 'prod' });
+    c.inc(3);
+    const output = registry.toPrometheus();
+    expect(output).toContain('req_total{env="prod"} 3');
+  });
+
+  it('.with() 创建分区子实例，各自独立计数', () => {
+    const c = registry.counter('by_region', 'by region', { region: 'default' });
+    c.inc(1);                 // region=default
+    c.with({ region: 'cn' }).inc(5);
+    c.with({ region: 'us' }).inc(2);
+    const output = registry.toPrometheus();
+    expect(output).toContain('by_region{region="default"} 1');
+    expect(output).toContain('by_region{region="cn"} 5');
+    expect(output).toContain('by_region{region="us"} 2');
+  });
+
+  it('labeled histogram 各分区独立分桶并渲染 le+labels', () => {
+    const h = registry.histogram('lat', 'latency', [10, 100], { route: 'api' });
+    h.observe(5);
+    h.with({ route: 'web' }).observe(50);
+    const output = registry.toPrometheus();
+    // api 分区：le=10=1, le=100=1
+    expect(output).toContain('lat_bucket{le="10",route="api"} 1');
+    expect(output).toContain('lat_bucket{le="100",route="api"} 1');
+    // web 分区：le=10=0, le=100=1
+    expect(output).toContain('lat_bucket{le="10",route="web"} 0');
+    expect(output).toContain('lat_bucket{le="100",route="web"} 1');
+    // 各分区独立 _sum/_count
+    expect(output).toContain('lat_sum{route="api"} 5');
+    expect(output).toContain('lat_count{route="api"} 1');
+    expect(output).toContain('lat_sum{route="web"} 50');
+    expect(output).toContain('lat_count{route="web"} 1');
   });
 });
 
@@ -386,6 +428,50 @@ describe('Tracer', () => {
   it('父 span 不存在时生成新 traceId', () => {
     const span = tracer.startSpan('orphan', 'ghost-parent');
     expect(span.traceId).toBeTruthy();
+  });
+
+  // P1-6：traceId/spanId 使用 crypto.randomBytes，长度对齐 W3C/OTLP
+  it('traceId 为 32 hex 字符（16 字节），spanId 为 16 hex 字符（8 字节）', () => {
+    const span = tracer.startSpan('crypto-id');
+    expect(span.traceId).toMatch(/^[0-9a-f]{32}$/);
+    expect(span.id).toMatch(/^[0-9a-f]{16}$/);
+  });
+
+  // P1-6：父 span 缺失（跨服务传播）时保留 parentId，并支持 traceId 参数继承
+  it('父 span 缺失时保留 parentId 字段并可继承上游 traceId', () => {
+    const upstreamTrace = 'a'.repeat(32);
+    const span = tracer.startSpan('cross-service', 'upstream-span-id', undefined, upstreamTrace);
+    expect(span.parentId).toBe('upstream-span-id');
+    expect(span.traceId).toBe(upstreamTrace);
+  });
+
+  // P1-6：exporter 在 endSpan 时被调用，未配置端点则禁用
+  it('endSpan 触发自定义 exporter', async () => {
+    const exported: import('../src/types.js').Span[] = [];
+    const t = new Tracer({
+      sampleRate: 1.0,
+      exporter: { export: (s) => { exported.push(s); } },
+    });
+    const span = t.startSpan('op');
+    t.endSpan(span.id, 'error');
+    // 等待 microtask 完成（exporter 是 Promise.resolve 包装）
+    await new Promise((r) => setImmediate(r));
+    expect(exported).toHaveLength(1);
+    expect(exported[0].name).toBe('op');
+    expect(exported[0].status).toBe('error');
+  });
+
+  it('未配置 OTEL_EXPORTER_OTLP_ENDPOINT 时不创建 exporter', () => {
+    // 进程内可能有环境变量残留，显式置空后构造
+    const prev = process.env.OTEL_EXPORTER_OTLP_ENDPOINT;
+    delete process.env.OTEL_EXPORTER_OTLP_ENDPOINT;
+    try {
+      const t = new Tracer({ sampleRate: 1.0 });
+      const span = t.startSpan('no-export');
+      expect(() => t.endSpan(span.id)).not.toThrow();
+    } finally {
+      if (prev) process.env.OTEL_EXPORTER_OTLP_ENDPOINT = prev;
+    }
   });
 });
 

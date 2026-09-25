@@ -87,6 +87,16 @@ export interface TracerConfig {
   sampleRate: number;
   /** 是否启用 */
   enabled: boolean;
+  /** 自定义 Span 导出器（未指定时按 OTEL_EXPORTER_OTLP_ENDPOINT 自动创建，未配置则禁用） */
+  exporter?: SpanExporter | null;
+  /** 是否输出 exporter 调试日志（默认 false） */
+  debug?: boolean;
+}
+
+/** Span 导出器接口（如 OTLP HTTP、Jaeger、控制台等） */
+export interface SpanExporter {
+  /** 导出单个已结束的 Span；实现应异步且不抛错到调用栈 */
+  export(span: Span): Promise<void> | void;
 }
 
 /** 健康状态 */
