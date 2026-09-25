@@ -24,7 +24,7 @@ _万象归元于云枢 · 深栈智启新纪元_
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7%2B-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Node](https://img.shields.io/badge/Node-%3E%3D20-339933?style=flat-square&logo=node.js&logoColor=white)
 ![pnpm](https://img.shields.io/badge/pnpm-9%2B-F69220?style=flat-square&logo=pnpm&logoColor=white)
-![Zod](https://img.shields.io/badge/Zod-3.23%2B-3068B7?style=flat-square&logo=zod&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-4.x-3068B7?style=flat-square&logo=zod&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Rust](https://img.shields.io/badge/Rust-1.80%2B-000000?style=flat-square&logo=rust&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=flat-square&logo=go&logoColor=white)
@@ -33,7 +33,7 @@ _万象归元于云枢 · 深栈智启新纪元_
 ### 📊 项目规模
 
 ![Monorepo](https://img.shields.io/badge/Monorepo-13%20Core%20Packages-AA55FF?style=flat-square&logo=monorepo&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-1102%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-1107%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
 ![AI Family](https://img.shields.io/badge/AI%20Family-8%20%E6%99%BA%E8%83%BD%E4%BD%93-C9A96E?style=flat-square&logo=robot&logoColor=white)
 ![Skills](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E6%80%BB%E8%AE%A1-831-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
 ![Community Skills](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA%E6%8A%80%E8%83%BD-358-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
@@ -59,10 +59,10 @@ _万象归元于云枢 · 深栈智启新纪元_
 ## 📋 目录
 
 - [YYC³ AI Agent Archive](#yyc-ai-agent-archive)
-  - [_言启象限 · 语枢未来_](#言启象限--语枢未来)
-  - [🏗️ 技术栈](#️-技术栈)
-  - [📊 项目规模](#-项目规模)
-  - [⚡ 五高架构](#-五高架构)
+    - [_言启象限 · 语枢未来_](#言启象限--语枢未来)
+    - [🏗️ 技术栈](#️-技术栈)
+    - [📊 项目规模](#-项目规模)
+    - [⚡ 五高架构](#-五高架构)
   - [📋 目录](#-目录)
   - [🚀 项目概述](#-项目概述)
     - [🎯 核心理念](#-核心理念)
@@ -207,7 +207,7 @@ YYC³ AI Agent Archive
 | 包名 | 版本 | 职责 | 状态 |
 | ---- | :--: | ---- | :--: |
 | [`@yyc3/skill-registry`](packages/skill-registry/) | 1.1.1 | Skill 注册/发现/熔断降级；脚本执行（entry 收敛 + env 白名单，S0 已加固） | ✅ 生产可用 |
-| [`@yyc3/skill-gateway`](packages/skill-gateway/) | 1.1.0 | Hono REST API（13 端点）、fail-closed 认证、Token Bucket 限流、安全头 | ✅ 生产可用 |
+| [`@yyc3/skill-gateway`](packages/skill-gateway/) | 1.2.0 | Hono REST API（13 端点）、fail-closed 认证、Token Bucket 限流（XFF 受信跳数）、Zod 边界校验、安全头 | ✅ 生产可用 |
 | [`@yyc3/skill-sandbox`](packages/skill-sandbox/) | 1.0.1 | 进程内净化（黑名单/路径收敛/env 白名单/超时钳制）— **纵深防御层，非 OS 强边界** | 🟡 纵深防御 |
 | [`@yyc3/mcp-runtime`](packages/mcp-runtime/) | 1.2.0 | MCP 工具统一路由 + Skill/CowAgent 桥接（CowAgent 13 工具业务执行为 stub） | 🟡 部分原型 |
 | [`@yyc3/conductor`](packages/conductor/) | 1.0.1 | DAG 拓扑/环检测/重试退避/超时取消真实；skill 任务执行体靠外部注入 | 🟡 部分原型 |
@@ -279,15 +279,15 @@ yyc3-cli（独立，纯 JS）   @yyc3/i18n-core（独立）
 
 ### 能力级状态明细（含已知缺口）
 
-| # | 能力 | 状态 | 缺口 / 跟踪项 |
-| - | ---- | :--: | ---- |
-| 1 | Gateway 限流客户端 IP 解析 | 🟡 | 直接信任 `x-forwarded-for`，无受信代理跳数（S1，可伪造绕限流） |
-| 2 | Gateway 入参校验 | 🟡 | 边界手检未接 Zod，null body/非法 JSON 落 500（S1/S2） |
-| 3 | OpenAPI 文档 | 🟡 | 认证描述与实现相反、缺 registry 端点与 401/429/413（S1） |
-| 4 | 加载期 validator 接线 | 🟡 | loader 注册未强制走 validateUnifiedSkill（S1） |
-| 5 | 运行时持久化 | 🔴 | 会话/插件/指标/日志全为内存 Map，重启即失（S2 引入 Store 抽象） |
-| 6 | mcp-hub/{client,server} 双轨包 | 🟡 | 未纳入 workspace/CI，依赖陈旧，与 mcp-runtime 职能重叠（S2 裁决） |
-| 7 | 版本纪律 | 🟡 | HEAD 已含 v2.7.0 提交但 package.json/CHANGELOG/tag 未收口（S1） |
+| #   | 能力　　　　　　　　　　　　　 | 状态 | 缺口 / 跟踪项　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　|
+| -----| --------------------------------| :----:| ------------------------------------------------------------------------------------------|
+| 1   | ~~Gateway 限流客户端 IP 解析~~ | ✅　　| S1 已修：`trustedProxyHops` 受信跳数 + `resolveClientIp` 倒数取值，伪造 XFF 不影响限流键 |
+| 2   | ~~Gateway 入参校验~~　　　　　 | ✅　　| S1 已修：Zod schema 统一校验，非法 JSON/null body 返回 400，timeout 下界钳制　　　　　　 |
+| 3   | OpenAPI 文档　　　　　　　　　 | 🟡　　| 认证描述与实现相反、缺 registry 端点与 401/429/413（S1）　　　　　　　　　　　　　　　　 |
+| 4   | 加载期 validator 接线　　　　　| 🟡　　| loader 注册未强制走 validateUnifiedSkill（S1）　　　　　　　　　　　　　　　　　　　　　 |
+| 5   | 运行时持久化　　　　　　　　　 | 🔴　 | 会话/插件/指标/日志全为内存 Map，重启即失（S2 引入 Store 抽象）　　　　　　　　　　　　　|
+| 6   | mcp-hub/{client,server} 双轨包 | 🟡　　| 未纳入 workspace/CI，依赖陈旧，与 mcp-runtime 职能重叠（S2 裁决）　　　　　　　　　　　　|
+| 7   | 版本纪律　　　　　　　　　　　 | 🟡　　| HEAD 已含 v2.7.0 提交但 package.json/CHANGELOG/tag 未收口（S1）　　　　　　　　　　　　　|
 
 > 📎 逐项代码证据（文件:行号）、量化评分（75.6/C+）与整改路线见
 > [《项目现状审核报告》（2026-09-25）](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)。
@@ -452,9 +452,9 @@ pnpm i18n:sync         # 3. 同步到各包
 | **核心语言** | TypeScript 5.7+ | 主要开发语言 |
 | **包管理** | pnpm 9+ / Workspaces | Monorepo 管理 |
 | **构建工具** | tsup 8+ / Turbo | TypeScript 构建 + 任务编排 |
-| **类型校验** | Zod 3.23+ | 运行时类型安全 |
+| **类型校验** | Zod 4.x | 运行时类型安全（Gateway HTTP 边界 + registry） |
 | **命令行** | Commander 11+ / Chalk / Figlet | CLI 交互 |
-| **测试** | Vitest 4 + Jest（CLI） | 1102 测试用例（中/英 locale 双跑） |
+| **测试** | Vitest 4 + Jest（CLI） | 1107 测试用例（中/英 locale 双跑） |
 | **E2E** | Playwright | 端到端测试 |
 | **运行时** | Python 3.10+ | 技能脚本 |
 | **系统编程** | Rust 1.80+ / Cargo | 浏览器代理 |
@@ -501,9 +501,10 @@ docker-compose up -d
 **已落地（代码核对）：**
 
 - **认证 fail-closed**：未配置 `YYC3_API_KEYS` 时受保护端点直接 503；`timingSafeEqual` 常量时间比较（防时长侧信道）
-- **速率限制**：Token Bucket 100 req/min/键；可插拔 Redis（Lua 原子扣减），故障降级内存模式
+- **速率限制**：Token Bucket 100 req/min/键；可插拔 Redis（Lua 原子扣减），故障降级内存模式；受信代理跳数 `YYC3_TRUSTED_PROXY_HOPS` 解析真实客户端 IP（默认 0 直连，XFF 防伪）
 - **安全响应头**：`X-Content-Type-Options: nosniff` / `X-Frame-Options: DENY` / `X-XSS-Protection: 0` / Referrer-Policy / Permissions-Policy，移除 `X-Powered-By`
 - **请求体限制**：1MB 上限
+- **入参校验（S1）**：execute / mcp-call / 列表查询统一 Zod schema，非法 JSON、null body、`timeout≤0` 返回 400；timeout 钳制 1s–maxTimeout
 - **执行安全（S0-1）**：entry 路径收敛（防目录穿越）、环境变量白名单（宿主密钥不透传）、命令黑名单接入执行路径、超时钳制、输出 1MB 上限
 - **容器级 OS 隔离**：非 root(1001) + `no-new-privileges` + `cap_drop: ALL` + 只读根文件系统 + mem 512MB / pids 256 限额
 - **供应链**：Actions pin SHA、dependency-review 高危阻断、gitleaks 周扫、Dependabot
@@ -511,9 +512,9 @@ docker-compose up -d
 
 **已知缺口（按计划修复，见[状态矩阵](#-实现状态矩阵)）：**
 
-- ⚠️ 限流键直接信任 `x-forwarded-for`（S1：受信代理跳数）
 - ⚠️ 响应头尚缺 CSP / HSTS（S1）；chunked 请求的 body 计数限制待补（S2）
 - ⚠️ 进程内正则黑名单是**纵深防御层而非强安全边界**；不可信技能必须运行在容器隔离配置下
+- ⚠️ 部署在反向代理之后时必须显式设置 `YYC3_TRUSTED_PROXY_HOPS=<代理层数>`，否则限流键为连接对端
 
 详见 [`SECURITY.md`](SECURITY.md) 与 [深审报告 §4.1](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)
 

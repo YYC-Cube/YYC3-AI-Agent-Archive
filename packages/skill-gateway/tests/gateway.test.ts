@@ -218,6 +218,37 @@ describe('SkillGateway', () => {
       });
       expect(res.status).toBe(401);
     });
+
+    it('timeout 低于下界时被钳制到 1000ms', async () => {
+      const res = await gateway.app.request('/api/v1/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
+        body: JSON.stringify({ skillId: 'GW-001', params: {}, timeout: 1 }),
+      });
+      expect(res.status).toBe(200);
+    });
+
+    it('非法 JSON 返回 400 而非 500', async () => {
+      const res = await gateway.app.request('/api/v1/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
+        body: '{invalid json',
+      });
+      expect(res.status).toBe(400);
+      const body = await res.json();
+      expect(body.error.code).toBe('BAD_REQUEST');
+    });
+
+    it('body 为 null 返回 400', async () => {
+      const res = await gateway.app.request('/api/v1/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...AUTH_HEADERS },
+        body: 'null',
+      });
+      expect(res.status).toBe(400);
+      const body = await res.json();
+      expect(body.error.code).toBe('BAD_REQUEST');
+    });
   });
 
   describe('POST /api/v1/execute/mcp/list', () => {
@@ -388,6 +419,47 @@ describe('SkillGateway', () => {
         body: largeBody,
       });
       expect(res.status).toBe(413);
+    });
+
+    it('XFF 伪造不应影响直连场景的限流键（默认 hops=0）', async () => {
+      // 默认 trustedProxyHops=0 时不信任 XFF，所有请求共享同一限流键
+      const limitGateway = new SkillGateway(
+        { registry, loader: new SkillLoader(registry, { rootDir: './skills' }), executor: new SkillExecutor(registry) },
+        { apiKeys: ['test-key'], trustedProxyHops: 0 },
+      );
+      // 连发 101 次，每次伪造不同 XFF
+      for (let i = 0; i < 101; i++) {
+        await limitGateway.app.request('/api/v1/health', {
+          headers: { 'X-Forwarded-For': `10.0.0.${i}` },
+        });
+      }
+      const res = await limitGateway.app.request('/api/v1/health', {
+        headers: { 'X-Forwarded-For': '10.0.0.999' },
+      });
+      expect(res.status).toBe(429);
+    });
+
+    it('XFF 倒数第 hops 跳作为真实客户端 IP', async () => {
+      const proxyGateway = new SkillGateway(
+        { registry, loader: new SkillLoader(registry, { rootDir: './skills' }), executor: new SkillExecutor(registry) },
+        { apiKeys: ['test-key'], trustedProxyHops: 2 },
+      );
+      // 101 次同一真实 IP（链倒数第二跳）→ 耗尽；伪造前缀不改变限流键
+      for (let i = 0; i < 101; i++) {
+        await proxyGateway.app.request('/api/v1/health', {
+          headers: { 'X-Forwarded-For': `1.2.3.${i}, 10.0.0.1, 192.168.1.100` },
+        });
+      }
+      const blocked = await proxyGateway.app.request('/api/v1/health', {
+        headers: { 'X-Forwarded-For': '9.9.9.9, 10.0.0.1, 192.168.1.100' },
+      });
+      expect(blocked.status).toBe(429);
+
+      // 另一真实 IP 不受影响
+      const ok = await proxyGateway.app.request('/api/v1/health', {
+        headers: { 'X-Forwarded-For': '5.5.5.5, 10.0.0.2, 192.168.1.100' },
+      });
+      expect(ok.status).toBe(200);
     });
   });
 });

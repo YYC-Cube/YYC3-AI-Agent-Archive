@@ -30,11 +30,11 @@
 
 ## 新增核心包 (Phase 3-5)
 
-> 测试数为 2026-09-26 实测（全量 1102，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
+> 测试数为 2026-09-26 实测（全量 1107，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
 
 | 包 | 阶段 | 功能 | 测试 | 成熟度 |
 | ---- | ------ | ------ | :---: | :---: |
-| `@yyc3/skill-gateway` | Phase 3 | Skill Gateway API (REST/Hono，13 端点) | 56 | ✅ |
+| `@yyc3/skill-gateway` | Phase 3 | Skill Gateway API (REST/Hono，13 端点；XFF 受信跳数 + Zod 边界) | 61 | ✅ |
 | `@yyc3/conductor` | Phase 3 | 协同编排引擎（DAG/重试/超时真实，执行体靠注入） | 14 | 🟡 |
 | `@yyc3/plugin-marketplace` | Phase 3 | Plugin Marketplace 运行时（仅内存，无落盘安装） | 29 | 🔴 |
 | `@yyc3/skill-sandbox` | Phase 3 | 沙箱净化层（Node/Python/Shell；S0-1 已接线，非 OS 强边界） | 76 | 🟡 |
@@ -62,7 +62,7 @@
 | ------ | :--: |
 | TypeScript 包 | 13 |
 | 测试文件 | 56（49 TS + 7 CLI/JS） |
-| 测试用例 | **1102 全绿**（中/英 locale 双跑，2026-09-26 S1 闭环后逐包实测） |
+| 测试用例 | **1107 全绿**（中/英 locale 双跑，2026-09-26 S1 Gateway 加固后逐包实测） |
 | doctor 门禁 | 六检 PASS（validate/dedup/score/registry/graph/example） |
 | 技能资产 | 831（0 errors / 0 warnings，26 类别） |
 | Build 通过率 | 11/11 |

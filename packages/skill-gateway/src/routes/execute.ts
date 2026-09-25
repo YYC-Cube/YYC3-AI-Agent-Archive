@@ -7,10 +7,21 @@
  */
 import { Hono } from 'hono';
 import '../context.js';
+import { skillExecuteSchema, mcpCallSchema } from '../schemas.js';
 import type { ApiResponse, SkillExecuteRequest, SkillExecuteResult } from '../types.js';
 import type { SkillExecutionContext } from '@yyc3/skill-registry';
 
 export const executeRoutes = new Hono();
+
+/** 安全解析 JSON body：非法 JSON / null 返回 null，调用方转 400 */
+async function safeJson(c: { req: { json: () => Promise<unknown> } }): Promise<unknown | null> {
+  try {
+    const raw = await c.req.json();
+    return raw ?? null;
+  } catch {
+    return null;
+  }
+}
 
 // POST /api/v1/execute — 执行 Skill
 executeRoutes.post('/', async (c) => {
@@ -18,15 +29,23 @@ executeRoutes.post('/', async (c) => {
   const executor = c.get('executor');
   const config = c.get('gatewayConfig');
 
-  const body = await c.req.json<SkillExecuteRequest>();
-  if (!body.skillId || !body.params) {
+  const rawBody = await safeJson(c);
+  const parsed = skillExecuteSchema.safeParse(rawBody);
+  if (!parsed.success) {
+    const first = parsed.error.issues[0];
     const resp: ApiResponse = {
       ok: false,
-      error: { code: 'BAD_REQUEST', message: 'skillId and params are required' },
+      error: {
+        code: 'BAD_REQUEST',
+        message: first ? `${first.path.join('.')}: ${first.message}` : 'invalid request body',
+        details: parsed.error.issues.map((i) => ({ path: i.path.join('.'), message: i.message })),
+      },
     };
     c.status(400);
     return c.json(resp);
   }
+
+  const body = parsed.data as SkillExecuteRequest;
 
   const skill = registry.get(body.skillId);
   if (!skill) {
@@ -38,7 +57,8 @@ executeRoutes.post('/', async (c) => {
     return c.json(resp);
   }
 
-  const timeout = Math.min(body.timeout ?? config.defaultTimeout, config.maxTimeout);
+  // timeout：下限 1s，上限 maxTimeout；NaN/0/负数已被 Zod 拒绝，此处仅钳制越界正数
+  const timeout = Math.min(Math.max(body.timeout ?? config.defaultTimeout, 1_000), config.maxTimeout);
   const start = Date.now();
 
   try {
@@ -106,15 +126,23 @@ executeRoutes.post('/mcp/call', async (c) => {
     return c.json(resp);
   }
 
-  const body = await c.req.json<{ name: string; args: Record<string, unknown> }>();
-  if (!body.name || !body.args) {
+  const rawBody = await safeJson(c);
+  const parsed = mcpCallSchema.safeParse(rawBody);
+  if (!parsed.success) {
+    const first = parsed.error.issues[0];
     const resp: ApiResponse = {
       ok: false,
-      error: { code: 'BAD_REQUEST', message: 'name and args are required' },
+      error: {
+        code: 'BAD_REQUEST',
+        message: first ? `${first.path.join('.')}: ${first.message}` : 'invalid request body',
+        details: parsed.error.issues.map((i) => ({ path: i.path.join('.'), message: i.message })),
+      },
     };
     c.status(400);
     return c.json(resp);
   }
+
+  const body = parsed.data as { name: string; args: Record<string, unknown> };
 
   try {
     const result = await mcpRuntime.callTool(body.name, body.args);

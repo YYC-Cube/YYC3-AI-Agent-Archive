@@ -10,6 +10,7 @@
 import type { SkillSearchOptions } from '@yyc3/skill-registry';
 import { Hono } from 'hono';
 import '../context.js';
+import { skillQuerySchema } from '../schemas.js';
 import type { ApiResponse, SkillQueryParams } from '../types.js';
 
 export const skillsRoutes = new Hono();
@@ -17,7 +18,10 @@ export const skillsRoutes = new Hono();
 // GET /api/v1/skills — 列表/搜索
 skillsRoutes.get('/', (c) => {
   const registry = c.get('registry');
-  const query = c.req.query() as unknown as SkillQueryParams;
+  const rawQuery = c.req.query();
+  const parsed = skillQuerySchema.safeParse(rawQuery);
+  // query 参数永不 400：非法值由 schema catch 回退默认值
+  const query: SkillQueryParams = parsed.success ? parsed.data : {};
 
   const options: SkillSearchOptions = {};
   if (query.q) options.query = query.q;
@@ -28,8 +32,8 @@ skillsRoutes.get('/', (c) => {
 
   let skills = registry.search(options);
 
-  const page = Math.max(1, Number(query.page) || 1);
-  const pageSize = Math.min(100, Math.max(1, Number(query.pageSize) || 20));
+  const page = query.page ?? 1;
+  const pageSize = query.pageSize ?? 20;
   const total = skills.length;
   const start = (page - 1) * pageSize;
   skills = skills.slice(start, start + pageSize);

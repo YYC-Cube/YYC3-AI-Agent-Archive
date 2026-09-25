@@ -16,7 +16,7 @@ import './context.js';
 import { apiKeyAuth, apiKeysFromEnv } from './middleware/auth.js';
 import { errorHandler } from './middleware/error-handler.js';
 import { logger } from './middleware/logger.js';
-import { bodySizeLimit, rateLimiter, securityHeaders } from './middleware/security.js';
+import { bodySizeLimit, rateLimiter, securityHeaders, trustedProxyHopsFromEnv } from './middleware/security.js';
 import { executeRoutes } from './routes/execute.js';
 import { healthRoutes } from './routes/health.js';
 import { registryRoutes } from './routes/registry.js';
@@ -40,6 +40,7 @@ const DEFAULT_CONFIG: Required<GatewayConfig> = {
   corsOrigins: ['*'],
   apiKeys: [],
   authMode: 'write',
+  trustedProxyHops: 0,
 };
 
 export class SkillGateway {
@@ -54,6 +55,10 @@ export class SkillGateway {
     if (!config.apiKeys) {
       this.config.apiKeys = apiKeysFromEnv(process.env.YYC3_API_KEYS);
     }
+    // trustedProxyHops 未显式提供时回退环境变量
+    if (config.trustedProxyHops === undefined) {
+      this.config.trustedProxyHops = trustedProxyHopsFromEnv(process.env.YYC3_TRUSTED_PROXY_HOPS);
+    }
     this.deps = deps;
     this.app = this.createApp();
   }
@@ -64,7 +69,11 @@ export class SkillGateway {
     app.use('*', cors({ origin: this.config.corsOrigins }));
     app.use('*', securityHeaders());
     app.use('*', bodySizeLimit(1024 * 1024)); // 1MB
-    const limiter = rateLimiter({ windowMs: 60_000, maxRequests: 100 });
+    const limiter = rateLimiter({
+      windowMs: 60_000,
+      maxRequests: 100,
+      trustedProxyHops: this.config.trustedProxyHops,
+    });
     app.use('*', limiter);
     app.use('*', logger());
     app.use(

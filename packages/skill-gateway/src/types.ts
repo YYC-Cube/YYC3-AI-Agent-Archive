@@ -52,6 +52,12 @@ export interface GatewayConfig {
   apiKeys?: string[];
   /** 认证保护模式：'write'（默认，保护非 GET）/ 'all'（保护 /api/v1 全部） */
   authMode?: 'write' | 'all';
+  /**
+   * 受信代理跳数：>0 时限流从 XFF 链倒数第 N 跳取真实客户端 IP；
+   * 0（默认）不信任 XFF。环境变量 `YYC3_TRUSTED_PROXY_HOPS` 可覆盖。
+   * 部署在反向代理（Nginx/CDN）之后时必须设置为实际代理层数。
+   */
+  trustedProxyHops?: number;
 }
 
 /** 健康检查响应 */

@@ -33,7 +33,8 @@ export {
   RedisStore,
 } from './middleware/rate-limit-store.js';
 export type { Bucket, RateLimitStore } from './middleware/rate-limit-store.js';
-export { rateLimiter } from './middleware/security.js';
+export { rateLimiter, resolveClientIp, trustedProxyHopsFromEnv } from './middleware/security.js';
+export { skillExecuteSchema, mcpCallSchema, skillQuerySchema } from './schemas.js';
 export type {
   ApiResponse,
   SkillQueryParams,
