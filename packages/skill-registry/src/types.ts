@@ -6,6 +6,9 @@
  * 实现"标准化、规范化、可视化、智能化"五标体系。
  */
 
+import type { ValidationIssue } from './validator.js';
+export type { ValidationIssue } from './validator.js';
+
 // ==================== Skill 基础类型 ====================
 // 采用 const 数组派生联合类型，作为 Zod 校验的单一数据源
 
@@ -187,6 +190,8 @@ export interface SkillEventMap {
   'skill:circuit-open': { id: string; reason: string };
   'skill:circuit-close': { id: string };
   'skill:duplicate': { id: string; kept: UnifiedSkill; variant: UnifiedSkill };
+  /** 加载校验失败进入隔离区的技能（P1-3，doctor 与运行时共用同一校验函数） */
+  'skill:quarantined': { id: string; source: string; issues: ValidationIssue[] };
 }
 
 // ==================== 搜索 ====================

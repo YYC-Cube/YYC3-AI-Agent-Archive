@@ -5,13 +5,29 @@ info:
     企业级 AI Agent 技能网关 REST API。
 
     ## 核心能力
-    - **技能管理**: 注册/发现/搜索/统计 600+ 技能资产
+    - **技能管理**: 注册/发现/搜索/统计 831+ 技能资产
     - **技能执行**: 沙箱隔离的多运行时执行（Node/Python/Shell/Native）
     - **MCP 协同**: 统一 MCP 工具调用接口（tools/list / tools/call）
     - **健康监控**: 健康检查、就绪检查、版本信息
 
     ## 认证
-    当前版本为内部服务间调用，不强制认证。生产环境请通过 API Gateway 添加认证层。
+    服务为 **fail-closed** 认证：未配置 `YYC3_API_KEYS` 时，所有受保护端点返回
+    503 `AUTH_SERVICE_DISABLED`。支持 `Authorization: Bearer <key>` 与 `X-API-Key: <key>`
+    两种凭据携带方式；比较使用时延恒定函数，抗时序侧信道。
+
+    保护范围：
+    - 所有非 GET 请求（含 `POST /skills/reload`）；
+    - `/api/v1/execute/**`（含 GET 执行/调用类端点）；
+    - `authMode: "all"` 配置下整个 `/api/v1` 前缀（含 GET 发现类端点）。
+
+    发现类 GET 端点（`GET /skills`、`GET /skills/{id}`、`GET /health*`、`GET /registry*`）
+    在默认 `authMode: "write"` 下保持公开，便于生态检索。
+
+    ## 限流与请求体
+    每客户端 IP 默认 100 次/分（内存 Token Bucket，可按 `REDIS_URL` 切换 Redis 后端）。
+    真实客户端 IP 经 `YYC3_TRUSTED_PROXY_HOPS` 受信代理跳数从 `X-Forwarded-For`
+    倒数取值解析，直连（hops=0）不采信 XFF，伪造 XFF 无法绕过限流。
+    请求体统一 1MB 上限，超出返回 413 `PAYLOAD_TOO_LARGE`。
 
     ## 分页
     列表接口支持 `page` 和 `pageSize` 参数，默认 `page=1, pageSize=20`，最大 `pageSize=100`。
@@ -21,7 +37,7 @@ info:
     ```json
     { "ok": false, "error": { "code": "ERROR_CODE", "message": "..." } }
     ```
-  version: "1.0.0"
+  version: "1.2.0"
   contact:
     name: YanYuCloudCube Team
     email: admin@0379.email
@@ -41,6 +57,8 @@ tags:
     description: 技能 CRUD & 搜索
   - name: Execute
     description: 技能执行 & MCP 工具调用
+  - name: Registry
+    description: MCP 生态 Server 聚合（registry.json 导出）
 
 paths:
   # ==================== Health ====================
@@ -108,27 +126,47 @@ paths:
           in: query
           schema:
             type: string
-          description: 搜索关键词（名称/描述）
+          description: 搜索关键词（名称/描述/标签）
         - name: domain
           in: query
           schema:
             type: string
-          description: 按领域过滤（如 ai-ml, devops, security）
+            enum:
+              - glm-ocr
+              - glm-vision
+              - glm-gen
+              - glm-doc
+              - glm-finance
+              - hot
+              - marketing
+              - engineering
+              - devflow
+              - social
+              - marketplace
+              - b2b
+              - ui-ux
+              - ai-ml
+              - agent-role
+              - custom
+          description: 按领域过滤
         - name: type
           in: query
           schema:
             type: string
-          description: 按类型过滤（如 agent, tool, workflow）
+            enum: [script, prompt, hybrid]
+          description: 按类型过滤
         - name: runtime
           in: query
           schema:
             type: string
-          description: 按运行时过滤（如 node, python, shell, native）
+            enum: [python, node, shell, native]
+          description: 按运行时过滤
         - name: status
           in: query
           schema:
             type: string
-          description: 按状态过滤（如 active, deprecated, experimental）
+            enum: [active, deprecated, experimental, disabled]
+          description: 按状态过滤
         - name: page
           in: query
           schema:
@@ -185,8 +223,11 @@ paths:
       tags:
         - Skills
       summary: 重新加载技能
-      description: 从文件系统重新扫描并加载所有技能资产
+      description: 从文件系统重新扫描并加载所有技能资产（需认证；加载前经
+        `validateUnifiedSkill` 校验，非法资产进入隔离区并触发 `skill:quarantined` 事件）
       operationId: reloadSkills
+      security:
+        - apiKey: []
       responses:
         "200":
           description: 重新加载成功
@@ -194,6 +235,30 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ReloadResponse"
+        "401":
+          description: 缺少认证凭据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: API Key 无效
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: 触发限流
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "503":
+          description: 未配置 YYC3_API_KEYS（fail-closed）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/skills/{id}:
     get:
@@ -229,8 +294,10 @@ paths:
       tags:
         - Execute
       summary: 执行技能
-      description: 在沙箱环境中执行指定技能，支持超时控制
+      description: 在沙箱环境中执行指定技能，支持超时控制（需认证）
       operationId: executeSkill
+      security:
+        - apiKey: []
       requestBody:
         required: true
         content:
@@ -245,7 +312,19 @@ paths:
               schema:
                 $ref: "#/components/schemas/SkillExecuteResponse"
         "400":
-          description: 参数错误
+          description: 参数错误（skillId/params 缺失或 timeout 越界）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: 缺少认证凭据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: API Key 无效
           content:
             application/json:
               schema:
@@ -256,20 +335,40 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+        "413":
+          description: 请求体超过 1MB
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: 触发限流
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: 执行失败
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/SkillExecuteErrorResponse"
+        "503":
+          description: 未配置 YYC3_API_KEYS（fail-closed）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/execute/mcp/list:
     post:
       tags:
         - Execute
       summary: 列出 MCP 工具
-      description: 返回所有已注册的 MCP 工具列表
+      description: 返回所有已注册的 MCP 工具列表（需认证）
       operationId: listMCPTools
+      security:
+        - apiKey: []
       responses:
         "200":
           description: 工具列表
@@ -277,8 +376,26 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MCPToolsResponse"
+        "401":
+          description: 缺少认证凭据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: API Key 无效
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: 触发限流
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "503":
-          description: MCP Runtime 未配置
+          description: 未配置 YYC3_API_KEYS（fail-closed）或 MCP Runtime 未配置
           content:
             application/json:
               schema:
@@ -289,8 +406,10 @@ paths:
       tags:
         - Execute
       summary: 调用 MCP 工具
-      description: 调用指定 MCP 工具并返回结果
+      description: 调用指定 MCP 工具并返回结果（需认证）
       operationId: callMCPTool
+      security:
+        - apiKey: []
       requestBody:
         required: true
         content:
@@ -303,6 +422,7 @@ paths:
               properties:
                 name:
                   type: string
+                  minLength: 1
                   description: MCP 工具名称
                 args:
                   type: object
@@ -316,7 +436,31 @@ paths:
               schema:
                 $ref: "#/components/schemas/MCPCallResponse"
         "400":
-          description: 参数错误
+          description: 参数错误（name/args 缺失或非法）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: 缺少认证凭据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: API Key 无效
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "413":
+          description: 请求体超过 1MB
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: 触发限流
           content:
             application/json:
               schema:
@@ -328,13 +472,106 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
         "503":
-          description: MCP Runtime 未配置
+          description: 未配置 YYC3_API_KEYS（fail-closed）或 MCP Runtime 未配置
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Registry（MCP 生态聚合） ====================
+  /api/v1/registry:
+    get:
+      tags:
+        - Registry
+      summary: 透传 registry.json
+      description: |
+        原样输出 `yyc3-cli skills export-mcp` 导出的 registry.json（单一事实源），
+        供 MCP 生态客户端直接消费。文件不存在时返回 404 `REGISTRY_NOT_EXPORTED`。
+      operationId: getRegistryRaw
+      responses:
+        "200":
+          description: registry.json 原文
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegistryFile"
+        "404":
+          description: registry.json 未导出
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/registry/servers:
+    get:
+      tags:
+        - Registry
+      summary: 聚合 server 列表
+      description: 返回 MCP 生态聚合的 server 列表（ApiResponse 包装），支持关键词过滤
+      operationId: listRegistryServers
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: 关键词过滤（name/title/description）
+      responses:
+        "200":
+          description: server 列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegistryServersResponse"
+        "404":
+          description: registry.json 未导出
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/registry/servers/{slug}:
+    get:
+      tags:
+        - Registry
+      summary: 按 slug 查询单个 server
+      description: |
+        按 slug（或完整 name）查询单个 MCP server。slug 自动拼接命名空间
+        `io.github.yyc-cube/<slug>`。
+      operationId: getRegistryServer
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+          description: server slug 或完整 name
+      responses:
+        "200":
+          description: server 详情
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegistryServerResponse"
+        "404":
+          description: server 不存在或 registry.json 未导出
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
 
 components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: |
+        API Key 认证。支持两种携带方式（任选其一）：
+        - `X-API-Key: <key>`
+        - `Authorization: Bearer <key>`
+
+        通过环境变量 `YYC3_API_KEYS`（逗号分隔）注入；未配置时受保护端点 fail-closed 返回 503。
+
   schemas:
     # ---- 通用 ----
     OKResponse:
@@ -365,7 +602,15 @@ components:
           properties:
             code:
               type: string
-              description: 错误码，如 NOT_FOUND, BAD_REQUEST, EXECUTION_ERROR
+              description: |
+                错误码枚举：
+                `UNAUTHORIZED`（401 缺凭据）/ `FORBIDDEN`（403 key 无效）/
+                `RATE_LIMIT_EXCEEDED`（429 限流）/ `PAYLOAD_TOO_LARGE`（413 超 1MB）/
+                `BAD_REQUEST`（400 参数错误）/ `NOT_FOUND`（404 资源不存在）/
+                `EXECUTION_ERROR`（500 执行失败）/ `MCP_ERROR`（500 MCP 调用失败）/
+                `NOT_AVAILABLE`（503 MCP Runtime 未配置）/
+                `REGISTRY_NOT_EXPORTED`（404 registry.json 未导出）/
+                `AUTH_SERVICE_DISABLED`（503 未配置密钥，fail-closed）
             message:
               type: string
               description: 人类可读的错误描述
@@ -518,32 +763,68 @@ components:
     Skill:
       type: object
       description: 技能资产定义
+      required:
+        - id
+        - name
+        - description
+        - domain
+        - type
+        - runtime
+        - entry
       properties:
         id:
           type: string
-          description: 唯一标识符 (AYNC-[type]-[category]-[name])
+          description: 唯一标识符（AYNC-[type]-[category]-[name]）
         name:
           type: string
         description:
           type: string
-        category:
-          type: string
         domain:
           type: string
+          enum:
+            - glm-ocr
+            - glm-vision
+            - glm-gen
+            - glm-doc
+            - glm-finance
+            - hot
+            - marketing
+            - engineering
+            - devflow
+            - social
+            - marketplace
+            - b2b
+            - ui-ux
+            - ai-ml
+            - agent-role
+            - custom
         type:
           type: string
+          enum: [script, prompt, hybrid]
         runtime:
           type: string
+          enum: [python, node, shell, native]
+        entry:
+          type: string
+          description: 执行入口（脚本路径或函数名）
+        source:
+          type: string
+          description: 来源路径（相对 skills 根目录）
         status:
           type: string
+          enum: [active, deprecated, experimental, disabled]
         version:
           type: string
+          description: SemVer 版本号
         author:
           type: string
         tags:
           type: array
           items:
             type: string
+        fallback:
+          type: string
+          description: 降级 Skill ID
 
     # ---- Execute ----
     SkillExecuteRequest:
@@ -554,6 +835,7 @@ components:
       properties:
         skillId:
           type: string
+          minLength: 1
           description: 技能 ID
         params:
           type: object
@@ -561,7 +843,8 @@ components:
           additionalProperties: true
         timeout:
           type: integer
-          description: 超时时间(ms)，默认 30000，最大 120000
+          minimum: 1000
+          description: 超时时间(ms)，默认 30000，最大 120000；小于 1000 按 1000 钳制
 
     SkillExecuteResponse:
       allOf:
@@ -622,3 +905,56 @@ components:
             data:
               type: object
               description: MCP 工具调用结果
+
+    # ---- Registry ----
+    McpServerEntry:
+      type: object
+      description: MCP Registry server.json 条目
+      properties:
+        $schema:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+
+    RegistryFile:
+      type: object
+      description: export-mcp 导出的 registry.json 原文
+      properties:
+        $schema:
+          type: string
+        servers:
+          type: array
+          items:
+            $ref: "#/components/schemas/McpServerEntry"
+
+    RegistryServersResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/McpServerEntry"
+            meta:
+              type: object
+              properties:
+                total:
+                  type: integer
+                timestamp:
+                  type: string
+                  format: date-time
+
+    RegistryServerResponse:
+      allOf:
+        - $ref: "#/components/schemas/OKResponse"
+        - type: object
+          properties:
+            data:
+              $ref: "#/components/schemas/McpServerEntry"

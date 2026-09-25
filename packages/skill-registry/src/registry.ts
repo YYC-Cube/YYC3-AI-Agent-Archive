@@ -319,6 +319,14 @@ export class SkillRegistry {
       }
     });
   }
+
+  /**
+   * 发射注册中心事件（供 SkillLoader 等协作组件转发内部事件，
+   * 如 skill:quarantined——加载校验失败的隔离通知）。
+   */
+  emitEvent<K extends keyof SkillEventMap>(event: K, payload: SkillEventMap[K]): void {
+    this.emit(event, payload);
+  }
 }
 
 /** 全局注册中心实例 */

@@ -14,6 +14,8 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 - **S1 Gateway 边界（P1-1/P2-2）**：限流改受信代理跳数解析（`YYC3_TRUSTED_PROXY_HOPS`，默认 0 直连不信 XFF），伪造 XFF 不再能绕限流；execute/mcp-call/列表查询接 Zod 4，非法 JSON/null body→400，timeout 钳制 [1s, max]；gateway 1.2.0
 - **S1 MCP Runtime 收敛（P1-2，@yyc3/mcp-runtime 1.3.0）**：独立服务默认绑 127.0.0.1（MCP_HOST 可覆盖）；新增契约对齐 gateway 的安全层——`/api` 全部 fail-closed API Key 认证（无 key 503）、内存限流+XFF 跳数、安全头、1MB body、非法 JSON 400；app 工厂化便于测试；compose 透传认证/跳数配置
 - 修复 i18n secret-equal 计时断言高负载 flake（hrtime 纳秒计时，生产代码未动）
+- **S1 资产加载校验（P1-3，@yyc3/skill-registry 1.2.0）**：`SkillLoader.load()` 注册前默认接 `validateUnifiedSkill`，非法 domain/非 SemVer version/自引用 fallback 等非法资产拒绝注册、进 `quarantine` 并发 `skill:quarantined` 事件，与 doctor 共用同一校验函数（单一事实源）；`validate:false` 保留宽容模式
+- **S1 OpenAPI 漂移修正（gateway）**：`openapi.yaml` 1.0.0 → 1.2.0 与实现一致——删除"不强制认证"错误表述，补 `securitySchemes.apiKey`、401/403/429/413 响应与错误码枚举；补文档化 `/api/v1/registry{,/servers,/servers/{slug}}` 三端点；Skill 模式补 required/枚举对齐 Zod 边界
 - **BREAKING（@yyc3/i18n-core 2.4.3 → 3.0.0）**：
   - `registerTranslation()` 由整表替换改为**深合并**——修复 MCP `add_translation_key` 增量注册单键抹掉整语言包的产品缺陷；新增 `replaceTranslation()` 保留旧整表替换语义
   - 新增 `i18n.ready: Promise<void>` 初始语言包就绪承诺（浏览器自动检测场景消除构造期翻译竞态）；懒加载到达时与飞行中注册的键合并而非互相覆盖

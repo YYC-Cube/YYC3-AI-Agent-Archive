@@ -1,12 +1,12 @@
 /**
  * SkillLoader 文件系统加载器测试 — 使用临时目录构建真实 SKILL.md 结构
  */
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'fs';
-import { join } from 'path';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'fs';
 import { tmpdir } from 'os';
-import { SkillRegistry } from '../src/registry.js';
+import { join } from 'path';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { SkillLoader } from '../src/loader.js';
+import { SkillRegistry } from '../src/registry.js';
 
 let root: string;
 
@@ -121,5 +121,94 @@ describe('SkillLoader', () => {
     new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 }).load();
 
     expect(registry.get('src-skill')!.source).toBe('src-skill');
+  });
+
+  // P1-3：loader 注册前接 validateUnifiedSkill，非法资产进隔离区
+  describe('validate 接线（P1-3）', () => {
+    it('默认拒绝非法 domain 并记入 quarantine', () => {
+      writeSkill('bad-domain-skill', 'name: bad-domain-skill\ndomain: not-a-real-domain');
+      const registry = new SkillRegistry();
+      const loader = new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 });
+
+      loader.load();
+
+      expect(registry.has('bad-domain-skill')).toBe(false);
+      const q = loader.quarantine.filter(e => e.id === 'bad-domain-skill');
+      expect(q).toHaveLength(1);
+      expect(q[0].source).toBe('bad-domain-skill');
+      expect(q[0].issues.some(i => i.path === 'domain')).toBe(true);
+    });
+
+    it('默认拒绝非法 version（非 SemVer）', () => {
+      writeSkill('bad-version-skill', 'name: bad-version-skill\nversion: latest');
+      const registry = new SkillRegistry();
+      const loader = new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 });
+
+      loader.load();
+
+      expect(registry.has('bad-version-skill')).toBe(false);
+      expect(loader.quarantine.some(e => e.id === 'bad-version-skill' &&
+        e.issues.some(i => i.path === 'version'))).toBe(true);
+    });
+
+    it('fallback 自引用被拦截', () => {
+      writeSkill('self-fallback', 'name: self-fallback\nfallback: self-fallback');
+      const registry = new SkillRegistry();
+      const loader = new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 });
+
+      loader.load();
+
+      expect(registry.has('self-fallback')).toBe(false);
+      expect(loader.quarantine.some(e => e.id === 'self-fallback' &&
+        e.issues.some(i => i.path === 'fallback'))).toBe(true);
+    });
+
+    it('validate:false 宽容模式仅记录不阻止注册', () => {
+      writeSkill('lenient-skill', 'name: lenient-skill\ndomain: bogus-domain');
+      const registry = new SkillRegistry();
+      const loader = new SkillLoader(registry, {
+        rootDir: root,
+        recursive: true,
+        maxDepth: 3,
+        validate: false,
+      });
+
+      loader.load();
+
+      expect(registry.has('lenient-skill')).toBe(true);
+      expect(loader.quarantine).toHaveLength(0);
+    });
+
+    it('合法资产正常注册且 quarantine 为空', () => {
+      // 独立临时目录，避免共享 root 中其他用例写入的坏资产污染隔离计数
+      const dir = mkdtempSync(join(tmpdir(), 'yyc3-loader-clean-'));
+      try {
+        mkdirSync(join(dir, 'valid-skill'), { recursive: true });
+        writeFileSync(
+          join(dir, 'valid-skill', 'SKILL.md'),
+          '---\nname: valid-skill\ndescription: 合法技能\ncategory: development-code\nversion: 1.2.3\n---\n'
+        );
+        const registry = new SkillRegistry();
+        const loader = new SkillLoader(registry, { rootDir: dir, recursive: true, maxDepth: 3 });
+
+        loader.load();
+
+        expect(registry.has('valid-skill')).toBe(true);
+        expect(loader.quarantine).toHaveLength(0);
+      } finally {
+        rmSync(dir, { recursive: true, force: true });
+      }
+    });
+
+    it('发出 skill:quarantined 事件，含错误明细', () => {
+      writeSkill('quarantine-event', 'name: quarantine-event\ndomain: nope');
+      const registry = new SkillRegistry();
+      const events: Array<{ id: string; source: string; issues: Array<{ path: string }> }> = [];
+      registry.on('skill:quarantined', (e) => events.push(e));
+
+      new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 }).load();
+
+      expect(events.some(e => e.id === 'quarantine-event' && e.source === 'quarantine-event')).toBe(true);
+    });
   });
 });

@@ -30,7 +30,7 @@
 
 ## 新增核心包 (Phase 3-5)
 
-> 测试数为 2026-09-26 实测（全量 1122，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
+> 测试数为 2026-09-26 实测（全量 1128，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
 
 | 包 | 阶段 | 功能 | 测试 | 成熟度 |
 | ---- | ------ | ------ | :---: | :---: |
@@ -42,6 +42,7 @@
 | `@yyc3/orchestrator` | Phase 4 | 智能编排调度器（中文规则真实，LLM 分解未实现） | 39 | 🔴 |
 | `@yyc3/observability` | Phase 4 | 可观测性监控（logger/health 可用，metrics/tracer 待补） | 54 | 🟡 |
 | `@yyc3/agent-registry` | Phase 4 | Agent 角色注册表（数据资产，非 TS 包） | — | 📊 |
+| `@yyc3/skill-registry` | Phase 5 | Skill 注册中心（loader 默认接 validator，与 doctor 同口径；P1-3） | 81 | ✅ |
 
 ## Phase 5: 生产就绪（资产平台面）
 
@@ -62,7 +63,7 @@
 | ------ | :--: |
 | TypeScript 包 | 13 |
 | 测试文件 | 57（50 TS + 7 CLI/JS） |
-| 测试用例 | **1122 全绿**（中/英 locale 双跑，2026-09-26 S1 MCP Runtime 收敛后逐包实测） |
+| 测试用例 | **1128 全绿**（中/英 locale 双跑，2026-09-26 S1 loader 接线 validator 后逐包实测） |
 | doctor 门禁 | 六检 PASS（validate/dedup/score/registry/graph/example） |
 | 技能资产 | 831（0 errors / 0 warnings，26 类别） |
 | Build 通过率 | 11/11 |

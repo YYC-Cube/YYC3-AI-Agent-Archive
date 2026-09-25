@@ -10,15 +10,15 @@
  */
 
 import { z } from 'zod';
-import type { Frontmatter, FrontmatterValue } from './frontmatter.js';
+import type { Frontmatter } from './frontmatter.js';
 import { toString, toStringArray } from './frontmatter.js';
+import type { UnifiedSkill } from './types.js';
 import {
   SKILL_DOMAINS,
-  SKILL_TYPES,
   SKILL_RUNTIMES,
   SKILL_STATUSES,
+  SKILL_TYPES,
 } from './types.js';
-import type { UnifiedSkill } from './types.js';
 
 // ==================== Zod Schema ====================
 

@@ -6,16 +6,18 @@
  * 支持 Markdown SKILL.md frontmatter 和 JSON 清单。
  */
 
-import { readdirSync, readFileSync, statSync, existsSync } from 'fs';
-import { join, basename, dirname } from 'path';
-import type { UnifiedSkill, SkillDomain, SkillType, SkillRuntime } from './types.js';
-import type { SkillRegistry } from './registry.js';
+import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
+import { basename, join } from 'path';
+import type { Frontmatter } from './frontmatter.js';
 import {
   parseFrontmatter,
   toString,
   toStringArray,
 } from './frontmatter.js';
-import type { Frontmatter } from './frontmatter.js';
+import type { SkillRegistry } from './registry.js';
+import type { SkillDomain, SkillRuntime, SkillType, UnifiedSkill } from './types.js';
+import type { ValidationIssue } from './validator.js';
+import { validateUnifiedSkill } from './validator.js';
 
 // 向后兼容导出：frontmatter 解析已迁移至独立模块
 export { parseFrontmatter } from './frontmatter.js';
@@ -126,8 +128,8 @@ function findEntry(skillDir: string, runtime: SkillRuntime): string {
       const scripts = readdirSync(scriptsDir);
       const ext =
         runtime === 'python' ? '.py' :
-        runtime === 'node' ? '.js' :
-        runtime === 'shell' ? '.sh' : '';
+          runtime === 'node' ? '.js' :
+            runtime === 'shell' ? '.sh' : '';
 
       const main = scripts.find(
         s => s.endsWith(ext) && (s.includes('main') || s.includes('cli') || s.includes('run'))
@@ -154,27 +156,43 @@ export interface LoaderOptions {
   recursive?: boolean;
   /** 最大扫描深度 */
   maxDepth?: number;
+  /**
+   * 是否在注册前运行 validateUnifiedSkill（P1-3）。
+   * - true（默认）：校验不通过的技能拒绝注册，记入 quarantine 并发
+   *   skill:quarantined 事件，与 doctor 共用同一校验函数（单一事实源）。
+   * - false：宽容模式，仅记 quarantine 不阻止注册（向后兼容旧行为）。
+   */
+  validate?: boolean;
 }
 
 export class SkillLoader {
+  /** 隔离区：校验失败的技能 id（含来源路径）与问题列表 */
+  readonly quarantine: Array<{ id: string; source: string; issues: ValidationIssue[] }> = [];
+
   constructor(
     private registry: SkillRegistry,
     private options: LoaderOptions
-  ) {}
+  ) { }
 
   /**
    * 扫描并加载所有 Skill
    */
   load(): UnifiedSkill[] {
     const loaded: UnifiedSkill[] = [];
-    const { rootDir, domainMap, recursive = true, maxDepth = 2 } = this.options;
+    const {
+      rootDir,
+      domainMap,
+      recursive = true,
+      maxDepth = 2,
+      validate = true,
+    } = this.options;
 
     if (!existsSync(rootDir)) {
       console.warn(`[SkillLoader] Root directory not found: ${rootDir}`);
       return loaded;
     }
 
-    this.scanDir(rootDir, loaded, domainMap, recursive, maxDepth, 0);
+    this.scanDir(rootDir, loaded, domainMap, recursive, maxDepth, 0, validate);
     this.registry.bulkRegister(loaded);
     return loaded;
   }
@@ -185,7 +203,8 @@ export class SkillLoader {
     domainMap: Record<string, SkillDomain> | undefined,
     recursive: boolean,
     maxDepth: number,
-    currentDepth: number
+    currentDepth: number,
+    validate: boolean
   ): void {
     if (currentDepth > maxDepth) return;
 
@@ -198,7 +217,7 @@ export class SkillLoader {
 
     // 如果目录中有 SKILL.md，则将其作为一个 Skill 加载
     if (entries.includes('SKILL.md')) {
-      const skill = this.loadSkillFromDir(dir, domainMap);
+      const skill = this.loadSkillFromDir(dir, domainMap, validate);
       if (skill) {
         loaded.push(skill);
         return; // 不继续递归子目录
@@ -221,17 +240,17 @@ export class SkillLoader {
         continue;
       }
 
-      this.scanDir(fullPath, loaded, domainMap, recursive, maxDepth, currentDepth + 1);
+      this.scanDir(fullPath, loaded, domainMap, recursive, maxDepth, currentDepth + 1, validate);
     }
   }
 
   private loadSkillFromDir(
     skillDir: string,
-    domainMap: Record<string, SkillDomain> | undefined
+    domainMap: Record<string, SkillDomain> | undefined,
+    validate: boolean
   ): UnifiedSkill | null {
     const skillMdPath = join(skillDir, 'SKILL.md');
     const dirName = basename(skillDir);
-    const parentName = basename(dirname(skillDir));
 
     let content = '';
     try {
@@ -283,6 +302,20 @@ export class SkillLoader {
       version: manifest.version || '1.0.0',
       status: (manifest.status as UnifiedSkill['status']) || 'active',
     };
+
+    // P1-3：注册前校验，非法资产进隔离区，与 doctor 共用同一校验函数
+    if (validate) {
+      const result = validateUnifiedSkill(skill);
+      if (!result.valid) {
+        this.quarantine.push({ id: skill.id, source: skill.source ?? skillDir, issues: result.errors });
+        this.registry.emitEvent('skill:quarantined', {
+          id: skill.id,
+          source: skill.source ?? skillDir,
+          issues: result.errors,
+        });
+        return null;
+      }
+    }
 
     return skill;
   }
