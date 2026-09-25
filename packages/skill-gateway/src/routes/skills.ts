@@ -77,10 +77,10 @@ skillsRoutes.get('/:id', (c) => {
   return c.json(body);
 });
 
-// POST /api/v1/skills/reload — 重新加载
+// POST /api/v1/skills/reload — 重新加载（sync 语义：磁盘为唯一事实源，P2）
 skillsRoutes.post('/reload', (c) => {
   const loader = c.get('loader');
-  loader.load();
+  loader.reload();
   const registry = c.get('registry');
   const stats = registry.getStats();
   const body: ApiResponse = {

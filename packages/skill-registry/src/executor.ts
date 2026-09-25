@@ -17,6 +17,7 @@ import {
   normalizeTimeout,
 } from '@yyc3/skill-sandbox';
 import { spawn } from 'child_process';
+import { randomBytes } from 'node:crypto';
 import type { SkillRegistry } from './registry.js';
 import type {
   SkillExecutionContext,
@@ -168,7 +169,8 @@ export class SkillExecutor {
     context?: Partial<SkillExecutionContext>
   ): Promise<SkillExecutionResult> {
     const ctx: SkillExecutionContext = {
-      callId: context?.callId || `call-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      // callId 用 crypto 随机（Math.random 非密码学且同毫秒存在碰撞面，P2）
+      callId: context?.callId || `call-${randomBytes(8).toString('hex')}`,
       allowFallback: context?.allowFallback ?? true,
       maxFallbackDepth: context?.maxFallbackDepth ?? 3,
       timeout: context?.timeout ?? 30_000,

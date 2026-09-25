@@ -6,11 +6,17 @@
  * 提供单一入口的 tools/list 和 tools/call 接口。
  */
 
+import type { SkillExecutor, SkillRegistry } from '@yyc3/skill-registry';
 import { EventEmitter } from 'eventemitter3';
-import type { MCPTool, MCPToolCall, MCPToolResult, SourcedTool } from './types.js';
+import { randomBytes } from 'node:crypto';
 import { SkillMCPBridge } from './bridge.js';
 import { CowAgentMCPBridge } from './cowagent-bridge.js';
-import type { SkillRegistry, SkillExecutor } from '@yyc3/skill-registry';
+import type { MCPTool, MCPToolCall, MCPToolResult, SourcedTool } from './types.js';
+
+/** 生成调用 ID：crypto 随机（同毫秒并发不碰撞，P2） */
+function generateCallId(): string {
+  return `call-${randomBytes(8).toString('hex')}`;
+}
 
 // ==================== 运行时事件 ====================
 
@@ -129,14 +135,14 @@ export class UnifiedMCPRuntime extends EventEmitter<RuntimeEventMap> {
     const sourced = this.toolIndex.get(name);
     if (!sourced) {
       return {
-        id: `call-${Date.now()}`,
+        id: generateCallId(),
         content: [{ type: 'text', text: `Tool not found: ${name}` }],
         isError: true,
       };
     }
 
     const call: MCPToolCall = {
-      id: `call-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      id: generateCallId(),
       name,
       arguments: args,
     };

@@ -92,6 +92,22 @@ describe('Logger', () => {
     expect(logger.getEntries()).toHaveLength(0);
   });
 
+  // P2：内存环上限，防长驻进程无界增长
+  it('maxEntries 超限后丢弃最旧条目', () => {
+    const bounded = new Logger({ enableConsole: false, maxEntries: 3 });
+    for (let i = 0; i < 6; i++) bounded.info(`msg-${i}`);
+    const entries = bounded.getEntries();
+    expect(entries).toHaveLength(3);
+    expect(entries[0].message).toBe('msg-3'); // 最旧被丢弃
+    expect(entries[2].message).toBe('msg-5');
+  });
+
+  it('maxEntries=0 不保留内存历史（仅 console/transports）', () => {
+    const noHistory = new Logger({ enableConsole: false, maxEntries: 0 });
+    noHistory.info('transient');
+    expect(noHistory.getEntries()).toHaveLength(0);
+  });
+
   it('child 应创建子日志器', () => {
     const child = logger.child('api', { version: 'v1' });
     child.info('request');
@@ -252,6 +268,32 @@ describe('MetricsRegistry', () => {
     registry.counter('c', 'counter');
     registry.clear();
     expect(registry.snapshot()).toHaveLength(0);
+  });
+
+  // P2：序列上限，防高基数标签无界增长
+  it('maxSeries 超限后新分区被丢弃且既有分区不受影响', () => {
+    const capped = new MetricsRegistry({ maxSeries: 3 });
+    const c = capped.counter('capped', 'capped counter');
+    c.inc(); // 序列 1（空标签）
+    const a = c.with({ user: 'a' });
+    const b = c.with({ user: 'b' });
+    const d = c.with({ user: 'd' });
+    a.inc(); // 序列 2
+    b.inc(); // 序列 3
+    d.inc(); // 第 4 个新序列：应被丢弃
+    expect(c.get()).toBe(1);
+    expect(a.get()).toBe(1);
+    expect(b.get()).toBe(1);
+    expect(d.get()).toBe(0); // 被丢弃
+  });
+
+  it('histogram 分区同样受 maxSeries 约束', () => {
+    const capped = new MetricsRegistry({ maxSeries: 1 });
+    const h = capped.histogram('hh', 'capped hist', [10]);
+    h.observe(1);
+    h.with({ route: 'x' }).observe(2); // 第 2 个序列被丢弃
+    expect(h.get()).toBe(1);
+    expect(h.with({ route: 'x' }).get()).toBe(0);
   });
 
   it('snapshot 包含 histogram 的 count/sum 与 counter 的 labels', () => {

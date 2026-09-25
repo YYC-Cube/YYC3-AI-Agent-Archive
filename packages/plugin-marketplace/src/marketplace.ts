@@ -11,14 +11,13 @@
 import { EventEmitter } from 'eventemitter3';
 import { satisfies, valid } from 'semver';
 import type {
-  PluginManifest,
   InstalledPlugin,
-  PluginStatus,
-  PluginSearchOptions,
-  PluginInstallOptions,
-  PluginUpdateOptions,
   MarketplaceConfig,
   MarketplaceEvents,
+  PluginInstallOptions,
+  PluginManifest,
+  PluginSearchOptions,
+  PluginUpdateOptions
 } from './types.js';
 
 const DEFAULT_CONFIG: MarketplaceConfig = {
@@ -30,10 +29,63 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
   readonly config: MarketplaceConfig;
   /** 注册表: id → InstalledPlugin */
   private plugins = new Map<string, InstalledPlugin>();
+  /** 写穿持久化在飞写入集合（flushPending 等待用） */
+  private pendingWrites = new Set<Promise<unknown>>();
 
   constructor(config: Partial<MarketplaceConfig> = {}) {
     super();
     this.config = { ...DEFAULT_CONFIG, ...config };
+  }
+
+  /** 写穿持久化：fire-and-forget，失败仅告警；成功/失败都从 pending 移除 */
+  private persist(pluginId: string, plugin: InstalledPlugin): void {
+    const store = this.config.store;
+    if (!store) return;
+    const write = store
+      .put(`plugin:${pluginId}`, JSON.stringify(plugin))
+      .catch((err: unknown) => {
+        console.warn(`[Marketplace] persist '${pluginId}' failed:`, err instanceof Error ? err.message : err);
+      })
+      .finally(() => {
+        this.pendingWrites.delete(write);
+      });
+    this.pendingWrites.add(write);
+  }
+
+  private unpersist(pluginId: string): void {
+    this.config.store?.delete(`plugin:${pluginId}`).catch(() => { });
+  }
+
+  /**
+   * 从持久化存储恢复插件注册表（启动时调用一次）。
+   * 已在内存中的同名插件不覆盖；返回恢复数量。
+   */
+  async restore(): Promise<number> {
+    const store = this.config.store;
+    if (!store) return 0;
+    const keys = await store.keys('plugin:');
+    let restored = 0;
+    for (const key of keys) {
+      const id = key.slice('plugin:'.length);
+      if (this.plugins.has(id)) continue;
+      try {
+        const raw = await store.get(key);
+        if (!raw) continue;
+        const plugin = JSON.parse(raw) as InstalledPlugin;
+        this.plugins.set(id, plugin);
+        restored += 1;
+      } catch (err) {
+        console.warn(`[Marketplace] restore '${key}' failed:`, err instanceof Error ? err.message : err);
+      }
+    }
+    return restored;
+  }
+
+  /** 等待全部在飞持久化写入完成（优雅停机/测试确定性断言用） */
+  async flushPending(): Promise<void> {
+    while (this.pendingWrites.size > 0) {
+      await Promise.all(Array.from(this.pendingWrites));
+    }
   }
 
   /** 注册插件清单到市场 */
@@ -52,6 +104,7 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
     };
 
     this.plugins.set(manifest.id, plugin);
+    this.persist(manifest.id, plugin);
     this.emit('plugin:installed', plugin);
 
     if (this.config.autoActivate) {
@@ -97,6 +150,7 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
     };
 
     this.plugins.set(manifest.id, plugin);
+    this.persist(manifest.id, plugin);
 
     if (existing) {
       this.emit('plugin:updated', plugin, existing.manifest.version);
@@ -148,6 +202,7 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
     };
 
     this.plugins.set(pluginId, plugin);
+    this.persist(pluginId, plugin);
     this.emit('plugin:updated', plugin, oldVersion);
     return plugin;
   }
@@ -166,6 +221,7 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
     }
 
     this.plugins.delete(pluginId);
+    this.unpersist(pluginId);
     this.emit('plugin:removed', pluginId);
     this.emit('plugin:deactivated', pluginId);
     return true;
@@ -187,6 +243,7 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
     }
 
     plugin.status = 'active';
+    this.persist(pluginId, plugin);
     this.emit('plugin:activated', pluginId);
     return true;
   }
@@ -208,6 +265,7 @@ export class PluginMarketplace extends EventEmitter<MarketplaceEvents> {
     }
 
     plugin.status = 'inactive';
+    this.persist(pluginId, plugin);
     this.emit('plugin:deactivated', pluginId);
     return true;
   }

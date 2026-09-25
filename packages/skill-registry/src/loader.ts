@@ -163,6 +163,12 @@ export interface LoaderOptions {
    * - false：宽容模式，仅记 quarantine 不阻止注册（向后兼容旧行为）。
    */
   validate?: boolean;
+  /**
+   * 载入前是否清空注册表（P2：reload 只增不删导致磁盘已删除技能残留可执行）。
+   * - false（默认）：追加注册（首次启动语义）。
+   * - true：先 registry.clear() 再注册（重载语义，磁盘为唯一事实源）。
+   */
+  sync?: boolean;
 }
 
 export class SkillLoader {
@@ -185,6 +191,7 @@ export class SkillLoader {
       recursive = true,
       maxDepth = 2,
       validate = true,
+      sync = false,
     } = this.options;
 
     if (!existsSync(rootDir)) {
@@ -192,9 +199,22 @@ export class SkillLoader {
       return loaded;
     }
 
+    if (sync) {
+      // 重载语义：磁盘为唯一事实源，清掉已删除的技能（P2）
+      this.registry.clear();
+    }
+
     this.scanDir(rootDir, loaded, domainMap, recursive, maxDepth, 0, validate);
     this.registry.bulkRegister(loaded);
     return loaded;
+  }
+
+  /**
+   * 重载：sync 语义的便捷入口（清空后按磁盘重建）
+   */
+  reload(): UnifiedSkill[] {
+    this.options = { ...this.options, sync: true };
+    return this.load();
   }
 
   private scanDir(

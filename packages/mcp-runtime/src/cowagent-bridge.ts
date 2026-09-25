@@ -256,18 +256,39 @@ export class CowAgentMCPBridge {
         }
       );
 
-      // 参数经 stdin 传递并以 json.loads 解析，杜绝源码级注入
+      // 输出上限：单流最多累积 1MB，防内存 DoS（P2，与 skill-registry executor 同口径）
+      const MAX_OUTPUT_BYTES = 1024 * 1024;
+      let stdout = '';
+      let stderr = '';
+      let truncated = false;
+
+      const append = (current: string, chunk: Buffer): string => {
+        if (current.length >= MAX_OUTPUT_BYTES) {
+          truncated = true;
+          return current;
+        }
+        const next = current + chunk.toString();
+        if (next.length > MAX_OUTPUT_BYTES) {
+          truncated = true;
+          return next.slice(0, MAX_OUTPUT_BYTES);
+        }
+        return next;
+      };
+
+      // 参数经 stdin 传递并以 json.loads 解析，杜绝源码级注入；
+      // EPIPE：子进程先退出（如 python 未安装/语法错）时写入 stdin 触发 EPIPE，
+      // 必须监听否则作为进程级异常抛出导致 Node 崩溃（P2）
+      proc.stdin.on('error', () => {
+        // 由 'close' 事件统一收敛结果；此处仅吞掉 EPIPE
+      });
       proc.stdin.write(JSON.stringify(call.arguments ?? {}));
       proc.stdin.end();
 
-      let stdout = '';
-      let stderr = '';
-
       proc.stdout.on('data', (data: Buffer) => {
-        stdout += data.toString();
+        stdout = append(stdout, data);
       });
       proc.stderr.on('data', (data: Buffer) => {
-        stderr += data.toString();
+        stderr = append(stderr, data);
       });
 
       proc.on('error', err => {
@@ -279,15 +300,16 @@ export class CowAgentMCPBridge {
       });
 
       proc.on('close', code => {
+        const tail = truncated ? '\n[output truncated at 1MB]' : '';
         if (code === 0) {
           resolve({
             id: call.id,
-            content: [{ type: 'text', text: stdout.trim() }],
+            content: [{ type: 'text', text: stdout.trim() + tail }],
           });
         } else {
           resolve({
             id: call.id,
-            content: [{ type: 'text', text: stderr.trim() || `Process exited with code ${code}` }],
+            content: [{ type: 'text', text: (stderr.trim() || `Process exited with code ${code}`) + tail }],
             isError: true,
           });
         }

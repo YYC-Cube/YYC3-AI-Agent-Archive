@@ -116,6 +116,19 @@ export class SkillRegistry {
   }
 
   /**
+   * 清空全部注册状态（技能/索引/变体）— reload 前重建用（P2：reload 只增不删导致
+   * 磁盘已删除技能仍残留可执行）。逐个发 skill:unregistered 事件保持可观测。
+   */
+  clear(): void {
+    for (const id of Array.from(this.skills.keys())) {
+      this.unregister(id);
+    }
+    this.variants.clear();
+    this.domainIndex.clear();
+    this.tagIndex.clear();
+  }
+
+  /**
    * 获取 Skill
    */
   get(id: string): UnifiedSkill | undefined {

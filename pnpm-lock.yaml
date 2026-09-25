@@ -210,6 +210,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^4.1.11
         version: 4.1.11(vitest@4.1.11)
+      '@yyc3/store':
+        specifier: workspace:*
+        version: link:../store
       tsup:
         specifier: 8.4.0
         version: 8.4.0(@swc/core@1.16.1)(postcss@8.5.28)(typescript@5.9.3)(yaml@2.9.0)

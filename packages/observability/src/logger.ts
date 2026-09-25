@@ -22,9 +22,12 @@ const DEFAULT_CONFIG: LoggerConfig = {
 export class Logger {
   readonly config: LoggerConfig;
   private entries: LogEntry[] = [];
+  /** 内存环上限（0 = 不保留内存历史） */
+  private readonly maxEntries: number;
 
   constructor(config: Partial<LoggerConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
+    this.maxEntries = this.config.maxEntries ?? 1000;
   }
 
   debug(message: string, context?: Record<string, unknown>): void {
@@ -92,6 +95,13 @@ export class Logger {
     };
 
     this.entries.push(entry);
+
+    // 内存环上限：超出丢弃最旧（P2，无界增长防御）
+    if (this.maxEntries > 0 && this.entries.length > this.maxEntries) {
+      this.entries.splice(0, this.entries.length - this.maxEntries);
+    } else if (this.maxEntries === 0) {
+      this.entries = [];
+    }
 
     // 控制台输出
     if (this.config.enableConsole) {

@@ -204,7 +204,8 @@ describe('scoreAll 全量', () => {
         expect(['A', 'B', 'C', 'D', 'E']).toContain(r.grade);
       }
     },
-    90_000
+    // jest 超时须宽于 elapsed<180s 断言（190s），否则慢速环境先被 jest 掐死断言失效
+    190_000
   );
 });
 
@@ -244,5 +245,6 @@ describe('renderMarkdown 报告', () => {
     expect(parsed.summary.total).toBe(summary.total);
     expect(parsed.results).toHaveLength(summary.total);
     await fs.rm(tmp, { recursive: true, force: true });
-  }, 90_000);
+    // 全量评分含 git 活动扫描，慢速环境（调试器/CI）需与 T14 同宽
+  }, 190_000);
 });

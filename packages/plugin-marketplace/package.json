@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/plugin-marketplace",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "YYC³ Plugin Marketplace 运行时 — 插件注册、发现、安装、生命周期管理",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "@types/node": "^26.4.0",
     "@types/semver": "^7.0.0",
     "@vitest/coverage-v8": "^4.1.11",
+    "@yyc3/store": "workspace:*",
     "tsup": "^8.4.0",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.58.0",

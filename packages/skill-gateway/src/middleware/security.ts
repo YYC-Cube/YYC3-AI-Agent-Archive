@@ -81,6 +81,8 @@ export function rateLimiter(config: RateLimitConfig = {
   // 存储异步初始化：首个请求前若未就绪则临时用内存桶，就绪后切换
   let store: RateLimitStore = new MemoryStore(windowMs);
   let backendName: 'redis' | 'memory' = 'memory';
+  // 存储连续失败计数（fail-open 告警用，恢复后清零）
+  let storeFailures = 0;
   const ownedStore = config.store ? undefined : createRateLimitStore(windowMs);
   ownedStore
     ?.then(({ store: s, backend }) => {
@@ -108,9 +110,17 @@ export function rateLimiter(config: RateLimitConfig = {
     let bucket: { tokens: number; lastRefill: number };
     try {
       bucket = await store.consume(key, { windowMs, maxRequests });
+      storeFailures = 0;
     } catch {
       // Redis 运行时故障：fail-open 记录并放行（高可用优先）
       bucket = { tokens: maxRequests - 1, lastRefill: Date.now() };
+      // 连续失败告警：不再静默（P2）— 首次与每第 5 次连续失败告警一次，避免日志洪水
+      storeFailures += 1;
+      if (storeFailures === 1 || storeFailures % 5 === 0) {
+        console.warn(
+          `[RateLimit] store consume failed (${storeFailures} consecutive) — fail-open on backend '${backendName}'`
+        );
+      }
     }
 
     if (bucket.tokens < 0) {

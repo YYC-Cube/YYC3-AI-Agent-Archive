@@ -33,7 +33,7 @@ _万象归元于云枢 · 深栈智启新纪元_
 ### 📊 项目规模
 
 ![Monorepo](https://img.shields.io/badge/Monorepo-14%20Core%20Packages-AA55FF?style=flat-square&logo=monorepo&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-1184%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-1197%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
 ![AI Family](https://img.shields.io/badge/AI%20Family-8%20%E6%99%BA%E8%83%BD%E4%BD%93-C9A96E?style=flat-square&logo=robot&logoColor=white)
 ![Skills](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E6%80%BB%E8%AE%A1-831-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
 ![Community Skills](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA%E6%8A%80%E8%83%BD-358-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
@@ -206,16 +206,16 @@ YYC³ AI Agent Archive
 
 | 包名　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 版本　 | 职责　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 状态　　　　　　　　　　　　　　　　　　　　　 |
 | ------------------------------------------------------------ | :-----: | --------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------: |
-| [`@yyc3/skill-registry`](packages/skill-registry/)　　　　 | 1.2.0 | Skill 注册/发现/熔断降级；loader 默认接 validator（非法资产进隔离区，与 doctor 同口径）；脚本执行（entry 收敛 + env 白名单）　　　　　 | ✅ 生产可用　　　　　　　　　　　　　　　　　　 |
-| [`@yyc3/skill-gateway`](packages/skill-gateway/)　　　　　 | 1.3.0 | Hono REST API（13 端点）、fail-closed 认证、Token Bucket 限流（XFF 受信跳数）、Zod 边界校验、安全头（CSP/HSTS）、chunked 流式计数　 | ✅ 生产可用　　　　　　　　　　　　　　　　　　 |
+| [`@yyc3/skill-registry`](packages/skill-registry/)　　　　 | 1.3.0 | Skill 注册/发现/熔断降级；loader 默认接 validator + reload sync 语义（磁盘为唯一事实源）；callId crypto 化　　　　　　　　　　　　 | ✅ 生产可用　　　　　　　　　　　　　　　　　　 |
+| [`@yyc3/skill-gateway`](packages/skill-gateway/)　　　　　 | 1.4.0 | Hono REST API（13 端点）、fail-closed 认证、Token Bucket 限流（XFF 跳数+fail-open 告警）、Zod 边界、CSP/HSTS、chunked 流式计数、reload diff 清空 | ✅ 生产可用　　　　　　　　　　　　　　　　　　 |
 | [`@yyc3/skill-sandbox`](packages/skill-sandbox/)　　　　　 | 1.0.1 | 进程内净化（黑名单/路径收敛/env 白名单/超时钳制）— **纵深防御层，非 OS 强边界**　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 🟡 纵深防御　　　　　　　　　　　　　　　　　　 |
-| [`@yyc3/mcp-runtime`](packages/mcp-runtime/)　　　　　　　 | 1.4.0 | MCP 工具统一路由 + Skill/CowAgent 桥接（CowAgent 13 工具业务执行为 stub）；独立服务默认回环 + fail-closed 认证 + CSP/HSTS + chunked 计数 | 🟡 部分原型　　　　　　　　　　　　　　　　　　 |
+| [`@yyc3/mcp-runtime`](packages/mcp-runtime/)　　　　　　　 | 1.5.0 | MCP 工具统一路由 + Skill/CowAgent 桥接（CowAgent 13 工具业务执行为 stub）；独立服务默认回环 + fail-closed 认证 + CSP/HSTS + chunked 计数；cowagent EPIPE 防护 + 输出上限 + callId crypto | 🟡 部分原型　　　　　　　　　　　　　　　　　　 |
 | [`@yyc3/conductor`](packages/conductor/)　　　　　　　　　 | 1.0.1 | DAG 拓扑/环检测/重试退避/超时取消真实；skill 任务执行体靠外部注入　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 🟡 部分原型　　　　　　　　　　　　　　　　　　 |
 | [`@yyc3/agent-runtime`](packages/agent-runtime/)　　　　　 | 1.2.0 | Agent 生命周期/家庭档案；3032 同构收敛（fail-closed 认证/限流/安全头）+ 可选 Store 持久化（重启可恢复）；**对话回复靠注入、工具调用只发事件** | 🟡 部分原型　　　　　　　　　　　　　　　　　　 |
 | [`@yyc3/agent-registry`](packages/agent-registry/)　　　　 | 1.0.0 | Agent 角色数据资产 — 20 角色 registry.json + JSON Schema　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 📊 数据资产　　　　　　　　　　　　　　　　　　 |
 | [`@yyc3/orchestrator`](packages/orchestrator/)　　　　　　 | 1.0.1 | 中文规则分解真实；**LLM 分解抛未实现异常、无 handler 时返回占位结果**　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 🔴 内存原型　　　　　　　　　　　　　　　　　　 |
-| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/) | 1.0.1 | semver/依赖保护真实；**仅内存注册表，无落盘/git/URL 安装**　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 🔴 内存原型　　　　　　　　　　　　　　　　　　 |
-| [`@yyc3/observability`](packages/observability/)　　　　　 | 1.1.0 | 结构化日志/健康检查；**histogram 累计桶 + `_sum`/`_count` 导出 + labels 分区渲染**；tracer crypto ID + OTLP HTTP exporter（env 关闭） | 🟡 部分原型（无持久化/聚合后端，tracer 仅内存） |
+| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/) | 1.1.0 | semver/依赖保护真实；**可选 Store 持久化（注册表写穿+重启恢复）**；无 git/URL 安装 | 🟡 部分原型　　　　　　　　　　　　　　　　　　 |
+| [`@yyc3/observability`](packages/observability/)　　　　　 | 1.2.0 | 结构化日志（maxEntries 环形上限）/健康检查；**histogram 累计桶 + `_sum`/`_count` + labels 分区（maxSeries 上限）**；tracer crypto ID + OTLP exporter | 🟡 部分原型（无聚合后端，tracer 仅内存） |
 | [`@yyc3/store`](packages/store/)　　　　　　　　　　　　　 | 1.0.0 | 持久化抽象层：Store 接口 + Memory/FileStore（JSON 原子写+防抖）/RedisStore（lazy ioredis）三适配器；agent-runtime 会话已接线 | ✅ 生产可用　　　　　　　　　　　　　　　　　　 |
 | [`@yyc3/i18n-core`](packages/yyc3-i18n/)　　　　　　　　　 | 3.0.0 | 生产级 i18n 框架（631 用例，中英 1597 键双向对齐，双 locale 门禁全绿；注册深合并 + `ready` 就绪承诺）　　　　　　　　　　　　　　　　 | ✅ 生产可用　　　　　　　　　　　　　　　　　　 |
 | [`yyc3-cli`](packages/yyc3-cli/)　　　　　　　　　　　　　 | 2.0.0 | 资产命令 + doctor 六检门禁（纯 JS，62 用例）；`deploy` 为模拟实现　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | ✅ 资产侧可用　　　　　　　　　　　　　　　　　 |
@@ -457,7 +457,7 @@ pnpm i18n:sync         # 3. 同步到各包
 | **构建工具** | tsup 8+ / Turbo | TypeScript 构建 + 任务编排 |
 | **类型校验** | Zod 4.x | 运行时类型安全（Gateway HTTP 边界 + registry） |
 | **命令行** | Commander 11+ / Chalk / Figlet | CLI 交互 |
-| **测试** | Vitest 4 + Jest（CLI） | 1184 测试用例（中/英 locale 双跑） |
+| **测试** | Vitest 4 + Jest（CLI） | 1197 测试用例（中/英 locale 双跑） |
 | **E2E** | Playwright | 端到端测试 |
 | **运行时** | Python 3.10+ | 技能脚本 |
 | **系统编程** | Rust 1.80+ / Cargo | 浏览器代理 |

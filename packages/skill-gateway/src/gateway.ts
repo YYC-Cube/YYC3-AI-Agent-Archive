@@ -59,6 +59,14 @@ export class SkillGateway {
     if (config.trustedProxyHops === undefined) {
       this.config.trustedProxyHops = trustedProxyHopsFromEnv(process.env.YYC3_TRUSTED_PROXY_HOPS);
     }
+    // corsOrigins 未显式提供时回退环境变量（P2 收敛：逗号分隔显式白名单；
+    // 未配置保持 '*' 兼容存量部署 — API Key 头部认证下 '*' 不携带凭据，风险受控）
+    if (!config.corsOrigins) {
+      const raw = process.env.YYC3_CORS_ORIGINS;
+      this.config.corsOrigins = raw
+        ? raw.split(',').map((s) => s.trim()).filter(Boolean)
+        : ['*'];
+    }
     this.deps = deps;
     this.app = this.createApp();
   }

@@ -40,6 +40,63 @@ describe('YYC3 CLI - Core Tests', () => {
   });
 });
 
+describe('YYC3 CLI - P2 修复（端口段 / config set）', () => {
+  const cliPath = path.join(__dirname, '../bin/yyc3-cli.js');
+
+  // 团队端口规范「3030 起」：3030-3039 必须在允许区
+  test('validatePort 放行团队端口段 3030-3039', () => {
+    const { validator } = require('../lib/index');
+    expect(validator.validatePort('3030')).toBe(3030);
+    expect(validator.validatePort('3031')).toBe(3031);
+    expect(validator.validatePort('3032')).toBe(3032);
+    expect(validator.validatePort('3039')).toBe(3039);
+  });
+
+  test('validatePort 仍拦截 3000-3029 / 3100-3199', () => {
+    const { validator } = require('../lib/index');
+    expect(() => validator.validatePort('3000')).toThrow('限用范围');
+    expect(() => validator.validatePort('3029')).toThrow('限用范围');
+    expect(() => validator.validatePort('3100')).toThrow('限用范围');
+    expect(() => validator.validatePort('3199')).toThrow('限用范围');
+  });
+
+  test('config --set key=value 生效（原死分支修复）', () => {
+    // 在临时 HOME 下运行，避免污染真实 ~/.yyc3 配置
+    const os = require('os');
+    const tmpHome = fs.mkdtempSync(path.join(os.tmpdir(), 'yyc3-cli-home-'));
+    const output = execSync(`node ${cliPath} config --set test.p2fix=hello-p2`, {
+      encoding: 'utf-8',
+      env: { ...process.env, HOME: tmpHome, USERPROFILE: tmpHome },
+    });
+    expect(output).toContain('hello-p2');
+    const getOut = execSync(`node ${cliPath} config --get test.p2fix`, {
+      encoding: 'utf-8',
+      env: { ...process.env, HOME: tmpHome, USERPROFILE: tmpHome },
+    });
+    expect(getOut).toContain('hello-p2');
+    fs.rmSync(tmpHome, { recursive: true, force: true });
+  }, 30_000);
+
+  test('config --set 缺少 = 报用法错误', () => {
+    const os = require('os');
+    const tmpHome = fs.mkdtempSync(path.join(os.tmpdir(), 'yyc3-cli-home-'));
+    let failed = false;
+    try {
+      execSync(`node ${cliPath} config --set nokey`, {
+        encoding: 'utf-8',
+        env: { ...process.env, HOME: tmpHome, USERPROFILE: tmpHome },
+        stdio: 'pipe',
+      });
+    } catch (err) {
+      failed = true;
+      // 输出为「用法: yyc3 config --set <key>=<value>」
+      expect(String(err.stderr || err.stdout)).toContain('--set <key>=<value>');
+    }
+    expect(failed).toBe(true);
+    fs.rmSync(tmpHome, { recursive: true, force: true });
+  });
+});
+
 describe('YYC3 CLI - Package Configuration', () => {
   test('package.json is valid', () => {
     const packageJson = require('../package.json');

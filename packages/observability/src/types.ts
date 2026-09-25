@@ -30,6 +30,11 @@ export interface LoggerConfig {
   formatter: 'json' | 'text';
   /** 自定义传输器 */
   transports?: ((entry: LogEntry) => void)[];
+  /**
+   * 内存日志环上限（P2）：超出后丢弃最旧条目，防止长驻进程无界增长。
+   * 0 = 不保留内存历史（仅 console/transports）。默认 1000。
+   */
+  maxEntries?: number;
 }
 
 /** 指标类型 */

@@ -21,7 +21,7 @@ const execPromise = util.promisify(exec);
 // 配置管理器
 const configManager = {
   configPath: path.join(os.homedir(), '.yyc3', 'config.json'),
-  
+
   async ensureConfigDir() {
     const configDir = path.dirname(this.configPath);
     try {
@@ -30,7 +30,7 @@ const configManager = {
       await fs.mkdir(configDir, { recursive: true });
     }
   },
-  
+
   async loadConfig() {
     try {
       await this.ensureConfigDir();
@@ -40,12 +40,12 @@ const configManager = {
       return this.getDefaultConfig();
     }
   },
-  
+
   async saveConfig(config) {
     await this.ensureConfigDir();
     await fs.writeFile(this.configPath, JSON.stringify(config, null, 2), 'utf8');
   },
-  
+
   getDefaultConfig() {
     return {
       version: '2.0.0',
@@ -66,13 +66,13 @@ const configManager = {
 const logger = {
   levels: { error: 0, warn: 1, info: 2, debug: 3 },
   currentLevel: 'info',
-  
+
   setLevel(level) {
     if (this.levels[level] !== undefined) {
       this.currentLevel = level;
     }
   },
-  
+
   log(level, message, ...args) {
     if (this.levels[level] <= this.levels[this.currentLevel]) {
       const timestamp = new Date().toISOString();
@@ -82,11 +82,11 @@ const logger = {
         info: '🔵',
         debug: '⚪'
       }[level] || '⚪';
-      
+
       console.log(`${prefix} [${timestamp}] ${message}`, ...args);
     }
   },
-  
+
   error(message, ...args) { this.log('error', message, ...args); },
   warn(message, ...args) { this.log('warn', message, ...args); },
   info(message, ...args) { this.log('info', message, ...args); },
@@ -99,34 +99,36 @@ const validator = {
     if (!name || name.trim() === '') {
       throw new Error('项目名称不能为空');
     }
-    
+
     if (!/^[a-z][a-z0-9-]*$/.test(name)) {
       throw new Error('项目名称只能包含小写字母、数字和连字符，且必须以字母开头');
     }
-    
+
     if (name.length > 50) {
       throw new Error('项目名称长度不能超过50个字符');
     }
-    
+
     return name.trim();
   },
-  
+
   validatePort(port) {
     const portNum = parseInt(port, 10);
-    
+
     if (isNaN(portNum)) {
       throw new Error('端口必须是有效的数字');
     }
-    
+
     if (portNum < 1024 || portNum > 65535) {
       throw new Error('端口必须在1024-65535范围内');
     }
-    
-    // YYC³ 端口限制检查
-    if (portNum >= 3000 && portNum <= 3199) {
-      throw new Error(`端口 ${portNum} 在限用范围(3000-3199)内，请使用3200-3500范围`);
+
+    // YYC³ 端口限制检查：3000-3199 为社区开发常用段默认限用，
+    // 但团队约定服务端口「3030 起」（gateway 3030 / mcp 3031 / agent 3032），
+    // 故 3030-3039 显式放行（P2 修正：与团队端口规范对齐）
+    if (portNum >= 3000 && portNum <= 3199 && !(portNum >= 3030 && portNum <= 3039)) {
+      throw new Error(`端口 ${portNum} 在限用范围(3000-3199)内，请使用 3030-3039 或 3200-3500 范围`);
     }
-    
+
     return portNum;
   }
 };
@@ -140,15 +142,15 @@ const validator = {
 async function initProject(projectName, options = {}) {
   try {
     logger.info('开始初始化 YYC³ 项目...');
-    
+
     // 验证输入
     const validatedName = validator.validateProjectName(projectName);
     const validatedPort = options.port ? validator.validatePort(options.port) : 3200;
-    
+
     logger.debug(`项目名称: ${validatedName}`);
     logger.debug(`项目端口: ${validatedPort}`);
     logger.debug(`项目模板: ${options.template}`);
-    
+
     // 检查目录是否存在
     const projectPath = path.join(process.cwd(), validatedName);
     try {
@@ -157,7 +159,7 @@ async function initProject(projectName, options = {}) {
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
     }
-    
+
     // 创建项目目录结构
     logger.info('创建项目目录结构...');
     await fs.mkdir(projectPath, { recursive: true });
@@ -165,7 +167,7 @@ async function initProject(projectName, options = {}) {
     await fs.mkdir(path.join(projectPath, 'tests'), { recursive: true });
     await fs.mkdir(path.join(projectPath, 'docs'), { recursive: true });
     await fs.mkdir(path.join(projectPath, 'config'), { recursive: true });
-    
+
     // 生成项目配置文件
     const packageJson = {
       name: validatedName,
@@ -183,20 +185,23 @@ async function initProject(projectName, options = {}) {
       keywords: ['yyc3', validatedName],
       author: 'YYC³ Team',
       license: 'MIT',
-      dependencies: {},
+      dependencies: {
+        // 模板 src/index.js 使用 express（P2 修复：此前未声明导致 init 后项目无法启动）
+        'express': '^4.21.0'
+      },
       devDependencies: {
         'jest': '^29.0.0',
         'eslint': '^8.0.0',
         'prettier': '^3.0.0'
       }
     };
-    
+
     await fs.writeFile(
       path.join(projectPath, 'package.json'),
       JSON.stringify(packageJson, null, 2),
       'utf8'
     );
-    
+
     // 生成 README.md
     const readmeContent = `# ${validatedName}
 
@@ -241,13 +246,13 @@ MIT 许可证
 **言启象限 | 语枢未来**<br>
 **万象归元于云枢 | 深栈智启新纪元**
 </div>`;
-    
+
     await fs.writeFile(
       path.join(projectPath, 'README.md'),
       readmeContent,
       'utf8'
     );
-    
+
     // 生成主应用文件
     const mainAppContent = `/**
  * @file index.js
@@ -317,13 +322,13 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;`;
-    
+
     await fs.writeFile(
       path.join(projectPath, 'src', 'index.js'),
       mainAppContent,
       'utf8'
     );
-    
+
     // 生成 .env 示例文件
     const envExample = `# YYC³ 项目环境变量配置
 PORT=${validatedPort}
@@ -344,13 +349,13 @@ LOG_LEVEL=info
 # 外部服务配置
 # REDIS_URL=redis://localhost:6379
 # MONGO_URI=mongodb://localhost:27017/${validatedName}`;
-    
+
     await fs.writeFile(
       path.join(projectPath, '.env.example'),
       envExample,
       'utf8'
     );
-    
+
     // 生成 .gitignore
     const gitignoreContent = `# 依赖
 node_modules/
@@ -381,16 +386,16 @@ Thumbs.db
 # 测试覆盖率
 coverage/
 .nyc_output/`;
-    
+
     await fs.writeFile(
       path.join(projectPath, '.gitignore'),
       gitignoreContent,
       'utf8'
     );
-    
+
     logger.info(`项目 "${validatedName}" 初始化完成`);
     return { success: true, projectPath, port: validatedPort };
-    
+
   } catch (error) {
     logger.error(`项目初始化失败: ${error.message}`);
     throw error;
@@ -406,19 +411,19 @@ coverage/
 async function deployProject(environment = 'dev', options = {}) {
   try {
     logger.info(`开始部署到 ${environment} 环境...`);
-    
+
     const config = await configManager.loadConfig();
     const envConfig = config.deploymentEnvironments[environment];
-    
+
     if (!envConfig) {
       throw new Error(`环境 "${environment}" 未配置`);
     }
-    
+
     // 验证端口合规性
     validator.validatePort(envConfig.port);
-    
+
     logger.debug(`部署配置:`, envConfig);
-    
+
     // 检查当前目录是否为 YYC³ 项目
     try {
       const packageJson = JSON.parse(await fs.readFile('package.json', 'utf8'));
@@ -434,20 +439,20 @@ async function deployProject(environment = 'dev', options = {}) {
       }
       throw error;
     }
-    
+
     logger.info(`部署到 ${environment} 环境准备就绪`);
     logger.info(`目标主机: ${envConfig.host}`);
     logger.info(`目标端口: ${envConfig.port}`);
-    
+
     // 模拟部署过程
     if (!options.dryRun) {
       logger.info('开始部署过程...');
       // 实际部署代码将在这里实现
       await new Promise(resolve => setTimeout(resolve, 1000)); // 模拟部署时间
     }
-    
+
     return { success: true, environment, config: envConfig };
-    
+
   } catch (error) {
     logger.error(`部署失败: ${error.message}`);
     throw error;
@@ -462,26 +467,26 @@ async function deployProject(environment = 'dev', options = {}) {
 async function buildProject(options = {}) {
   try {
     logger.info(`开始构建 YYC³ 应用 (模式: ${options.mode || 'production'})...`);
-    
+
     // 检查构建依赖
     try {
       await fs.access('package.json');
     } catch {
       throw new Error('package.json 文件不存在');
     }
-    
+
     // 读取项目配置
     const packageJson = JSON.parse(await fs.readFile('package.json', 'utf8'));
-    
+
     // 检查是否有构建脚本
     if (!packageJson.scripts || !packageJson.scripts.build) {
       logger.warn('package.json 中没有定义构建脚本');
       logger.info('使用默认构建流程...');
-      
+
       // 创建默认构建输出目录
       const outputDir = options.output || 'dist';
       await fs.mkdir(outputDir, { recursive: true });
-      
+
       // 复制必要文件
       const filesToCopy = ['package.json', 'README.md'];
       for (const file of filesToCopy) {
@@ -491,34 +496,34 @@ async function buildProject(options = {}) {
           logger.warn(`无法复制文件 ${file}: ${error.message}`);
         }
       }
-      
+
       // 复制 src 目录
       try {
         await fs.cp('src', path.join(outputDir, 'src'), { recursive: true });
       } catch (error) {
         logger.warn(`无法复制 src 目录: ${error.message}`);
       }
-      
+
       logger.info(`构建完成，输出目录: ${outputDir}`);
     } else {
       // 执行项目定义的构建脚本
       logger.info(`执行构建脚本: ${packageJson.scripts.build}`);
-      
+
       const { stdout, stderr } = await execPromise('npm run build', {
         env: { ...process.env, NODE_ENV: options.mode || 'production' }
       });
-      
+
       if (stdout) logger.debug('构建输出:', stdout);
       if (stderr) logger.warn('构建警告:', stderr);
     }
-    
+
     if (options.analyze) {
       logger.info('生成包分析报告...');
       // 这里可以添加包分析逻辑
     }
-    
+
     return { success: true, mode: options.mode || 'production' };
-    
+
   } catch (error) {
     logger.error(`构建失败: ${error.message}`);
     throw error;
@@ -533,21 +538,21 @@ async function buildProject(options = {}) {
 async function runTests(options = {}) {
   try {
     logger.info('开始运行测试...');
-    
+
     // 检查测试配置
     try {
       await fs.access('package.json');
     } catch {
       throw new Error('package.json 文件不存在');
     }
-    
+
     const packageJson = JSON.parse(await fs.readFile('package.json', 'utf8'));
-    
+
     // 确定测试命令
     let testCommand = 'npm test';
     if (packageJson.scripts && packageJson.scripts.test) {
       testCommand = packageJson.scripts.test;
-      
+
       // 添加参数
       if (options.watch) {
         testCommand += ' --watch';
@@ -559,20 +564,20 @@ async function runTests(options = {}) {
         testCommand += ' --updateSnapshot';
       }
     }
-    
+
     logger.info(`执行测试命令: ${testCommand}`);
-    
+
     const { stdout, stderr } = await execPromise(testCommand, {
       stdio: 'inherit'
     });
-    
+
     if (options.coverage) {
       logger.info('测试覆盖率报告已生成');
       // 这里可以添加覆盖率报告处理逻辑
     }
-    
+
     return { success: true };
-    
+
   } catch (error) {
     logger.error(`测试运行失败: ${error.message}`);
     throw error;
@@ -587,7 +592,7 @@ async function runTests(options = {}) {
 async function configureSettings(options = {}) {
   try {
     const config = await configManager.loadConfig();
-    
+
     if (options.get) {
       // 获取配置值
       const keys = options.get.split('.');
@@ -600,46 +605,65 @@ async function configureSettings(options = {}) {
       }
       console.log(`${options.get} = ${JSON.stringify(value, null, 2)}`);
       return { success: true, key: options.get, value };
-      
-    } else if (options.set && options.value) {
-      // 设置配置值
-      const keys = options.set.split('.');
+
+    } else if (options.set !== undefined) {
+      // 设置配置值（P2 修复：原先读不存在的 options.value 死分支 —
+      // Commander 单 option 不支持双占位符，改由 bin 层收 key=value 并解析为 [key, value]）
+      const setRaw = Array.isArray(options.set) ? options.set[0] : options.set;
+      if (typeof setRaw !== 'string' || !setRaw.includes('=')) {
+        throw new Error('用法: yyc3 config --set <key>=<value>');
+      }
+      const eq = setRaw.indexOf('=');
+      const keyPath = setRaw.slice(0, eq).trim();
+      const rawValue = setRaw.slice(eq + 1);
+      if (!keyPath) {
+        throw new Error('用法: yyc3 config --set <key>=<value>');
+      }
+      // 数字/布尔/JSON 自动转型，其余保持字符串
+      let value;
+      try {
+        value = JSON.parse(rawValue);
+      } catch {
+        value = rawValue;
+      }
+
+      const keys = keyPath.split('.');
       let configRef = config;
-      
+
       // 遍历到最后一个键的父级
       for (let i = 0; i < keys.length - 1; i++) {
-        if (configRef[keys[i]] === undefined) {
+        if (configRef[keys[i]] === undefined || typeof configRef[keys[i]] !== 'object') {
           configRef[keys[i]] = {};
         }
         configRef = configRef[keys[i]];
       }
-      
+
       // 设置值
       const lastKey = keys[keys.length - 1];
-      configRef[lastKey] = options.value;
-      
+      configRef[lastKey] = value;
+
       await configManager.saveConfig(config);
-      logger.info(`配置已更新: ${options.set} = ${options.value}`);
-      return { success: true };
-      
+      logger.info(`配置已更新: ${keyPath} = ${JSON.stringify(value)}`);
+      return { success: true, key: keyPath, value };
+
     } else if (options.list) {
       // 列出所有配置
       console.log(JSON.stringify(config, null, 2));
       return { success: true };
-      
+
     } else if (options.reset) {
       // 重置为默认配置
       const defaultConfig = configManager.getDefaultConfig();
       await configManager.saveConfig(defaultConfig);
       logger.info('配置已重置为默认值');
       return { success: true };
-      
+
     } else {
       logger.info('显示当前配置:');
       console.log(JSON.stringify(config, null, 2));
       return { success: true };
     }
-    
+
   } catch (error) {
     logger.error(`配置操作失败: ${error.message}`);
     throw error;

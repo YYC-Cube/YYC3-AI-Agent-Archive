@@ -40,10 +40,36 @@ interface MetricValue {
   histPartitions?: Map<string, HistogramPartition>;
   /** 桶上界（升序），仅 histogram */
   bucketBounds?: number[];
+  /** 单指标最大分区（序列）数：防高基数标签无界增长（P2） */
+  maxSeries?: number;
+  /** 序列超限告警是否已发（每指标一次，避免日志洪水） */
+  seriesWarned?: boolean;
+}
+
+/** 写入分区：新序列超限时丢弃并告警一次（既有序列不受影响） */
+function putSeries<T>(m: MetricValue, map: Map<string, T>, key: string, make: () => T): T | undefined {
+  const existing = map.get(key);
+  if (existing !== undefined) return existing;
+  if (map.size >= (m.maxSeries ?? Number.POSITIVE_INFINITY)) {
+    if (!m.seriesWarned) {
+      m.seriesWarned = true;
+      console.warn(`[Metrics] '${m.def.name}' 达到序列上限 ${m.maxSeries}，新分区被丢弃（高基数标签？）`);
+    }
+    return undefined;
+  }
+  const created = make();
+  map.set(key, created);
+  return created;
 }
 
 export class MetricsRegistry {
   private metrics = new Map<string, MetricValue>();
+  /** 单指标最大分区（序列）数，默认 10_000（P2 无界增长防御） */
+  private readonly maxSeries: number;
+
+  constructor(options: { maxSeries?: number } = {}) {
+    this.maxSeries = options.maxSeries ?? 10_000;
+  }
 
   /** 注册 Counter */
   counter(name: string, help: string, labels?: Labels): Counter {
@@ -51,7 +77,7 @@ export class MetricsRegistry {
     if (this.metrics.has(name)) {
       throw new Error(`Metric "${name}" already registered`);
     }
-    this.metrics.set(name, { def, partitions: new Map() });
+    this.metrics.set(name, { def, partitions: new Map(), maxSeries: this.maxSeries });
     return new Counter(name, this.metrics, labels);
   }
 
@@ -61,7 +87,7 @@ export class MetricsRegistry {
     if (this.metrics.has(name)) {
       throw new Error(`Metric "${name}" already registered`);
     }
-    this.metrics.set(name, { def, partitions: new Map() });
+    this.metrics.set(name, { def, partitions: new Map(), maxSeries: this.maxSeries });
     return new Gauge(name, this.metrics, labels);
   }
 
@@ -77,6 +103,7 @@ export class MetricsRegistry {
       partitions: new Map(),
       histPartitions: new Map(),
       bucketBounds: bounds,
+      maxSeries: this.maxSeries,
     });
     return new Histogram(name, this.metrics, labels);
   }
@@ -190,7 +217,8 @@ class Counter extends LabeledMetric {
     const m = this.store.get(this.name);
     if (!m) return;
     const k = this.key();
-    m.partitions.set(k, (m.partitions.get(k) ?? 0) + by);
+    const cur = putSeries(m, m.partitions, k, () => 0);
+    if (cur !== undefined) m.partitions.set(k, cur + by);
   }
 
   get(): number {
@@ -201,21 +229,25 @@ class Counter extends LabeledMetric {
 class Gauge extends LabeledMetric {
   set(value: number): void {
     const m = this.store.get(this.name);
-    if (m) m.partitions.set(this.key(), value);
+    if (!m) return;
+    const cur = putSeries(m, m.partitions, this.key(), () => 0);
+    if (cur !== undefined) m.partitions.set(this.key(), value);
   }
 
   inc(by = 1): void {
     const m = this.store.get(this.name);
     if (!m) return;
     const k = this.key();
-    m.partitions.set(k, (m.partitions.get(k) ?? 0) + by);
+    const cur = putSeries(m, m.partitions, k, () => 0);
+    if (cur !== undefined) m.partitions.set(k, cur + by);
   }
 
   dec(by = 1): void {
     const m = this.store.get(this.name);
     if (!m) return;
     const k = this.key();
-    m.partitions.set(k, (m.partitions.get(k) ?? 0) - by);
+    const cur = putSeries(m, m.partitions, k, () => 0);
+    if (cur !== undefined) m.partitions.set(k, cur - by);
   }
 
   get(): number {
@@ -228,11 +260,12 @@ class Histogram extends LabeledMetric {
     const m = this.store.get(this.name);
     if (!m || !m.histPartitions || !m.bucketBounds) return;
     const k = this.key();
-    let hp = m.histPartitions.get(k);
-    if (!hp) {
-      hp = { buckets: new Map(m.bucketBounds.map(b => [b, 0])), count: 0, sum: 0 };
-      m.histPartitions.set(k, hp);
-    }
+    const hp = putSeries(m, m.histPartitions, k, () => ({
+      buckets: new Map(m.bucketBounds!.map(b => [b, 0])),
+      count: 0,
+      sum: 0,
+    }));
+    if (!hp) return;
     hp.count++;
     hp.sum += value;
     // 累计桶：每个 ≤ value 的上界都 +1

@@ -211,4 +211,56 @@ describe('SkillLoader', () => {
       expect(events.some(e => e.id === 'quarantine-event' && e.source === 'quarantine-event')).toBe(true);
     });
   });
+
+  // P2：reload sync 语义 — 磁盘为唯一事实源，已删除技能从注册表清除
+  describe('reload（sync 语义）', () => {
+    it('reload 清除磁盘上已删除的技能', () => {
+      writeSkill('reload-keep', 'name: reload-keep\nversion: 1.0.0');
+      writeSkill('reload-drop', 'name: reload-drop\nversion: 1.0.0');
+      const registry = new SkillRegistry();
+      const loader = new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 });
+      loader.load();
+      expect(registry.get('reload-keep')).toBeDefined();
+      expect(registry.get('reload-drop')).toBeDefined();
+
+      // 磁盘删除 + 手工注册幽灵技能（双重漂移场景）
+      rmSync(join(root, 'reload-drop'), { recursive: true, force: true });
+      registry.register({
+        id: 'ghost-skill',
+        name: 'ghost-skill',
+        description: 'x',
+        domain: 'marketplace',
+        type: 'hybrid',
+        runtime: 'native',
+        entry: '',
+        inputs: [],
+        outputs: [{ type: 'markdown' }],
+      });
+
+      loader.reload();
+
+      expect(registry.get('reload-drop')).toBeUndefined(); // 磁盘已删 → 清除
+      expect(registry.get('ghost-skill')).toBeUndefined(); // 非磁盘来源 → 清除
+      expect(registry.get('reload-keep')).toBeDefined(); // 磁盘仍在 → 保留
+    });
+
+    it('默认 load 保持追加语义（不破坏既有行为）', () => {
+      writeSkill('append-skill', 'name: append-skill\nversion: 1.0.0');
+      const registry = new SkillRegistry();
+      registry.register({
+        id: 'manual-skill',
+        name: 'manual-skill',
+        description: 'x',
+        domain: 'marketplace',
+        type: 'hybrid',
+        runtime: 'native',
+        entry: '',
+        inputs: [],
+        outputs: [{ type: 'markdown' }],
+      });
+      new SkillLoader(registry, { rootDir: root, recursive: true, maxDepth: 3 }).load();
+      expect(registry.get('manual-skill')).toBeDefined(); // load 不清除手工注册
+      expect(registry.get('append-skill')).toBeDefined();
+    });
+  });
 });

@@ -7,7 +7,7 @@
 
 - **定位**：企业级 AI Agent 资产归档平台（pnpm Monorepo），汇聚 Skill / Agent / Plugin / MCP / Tool 五类资产
 - **技术栈**：TypeScript 5.7+（核心包）、Rust（yyc3-engine / agent-browser）、Node ≥ 20、pnpm ≥ 9
-- **版本**: v2.7.0 | **核心包**: 14 | **测试**: 1184 | **Build**: 12/12
+- **版本**: v2.7.0 | **核心包**: 14 | **测试**: 1197 | **Build**: 12/12
 - **语言约定**：文档与注释以中文为主，代码标识符用英文 kebab-case
 
 ## 目录职责（修改前先确认归属）

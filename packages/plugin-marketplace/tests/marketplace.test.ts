@@ -259,4 +259,66 @@ describe('PluginMarketplace', () => {
       expect(events).toContain('updated:yyc3/evt:1.0.0→2.0.0');
     });
   });
+
+  // P2：可选 Store 持久化 — 注册表写穿 + restore 重启恢复
+  describe('store 持久化', () => {
+    it('install/activate 状态写穿，新实例 restore 恢复', async () => {
+      const { FileStore } = await import('@yyc3/store');
+      const { mkdtemp, rm } = await import('node:fs/promises');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+
+      const dir = await mkdtemp(join(tmpdir(), 'yyc3-pm-store-'));
+      const file = join(dir, 'plugins.json');
+
+      const s1 = new FileStore(file, { debounceMs: 0 });
+      const m1 = new PluginMarketplace({ rootDir: './p', autoActivate: false, store: s1 });
+      m1.install(makePlugin({ id: 'yyc3/persisted' }));
+      m1.activate('yyc3/persisted');
+      await m1.flushPending();
+      await s1.close();
+
+      // 模拟重启
+      const s2 = new FileStore(file, { debounceMs: 0 });
+      const m2 = new PluginMarketplace({ rootDir: './p', store: s2 });
+      const restored = await m2.restore();
+      expect(restored).toBe(1);
+      const p = m2.get('yyc3/persisted');
+      expect(p).toBeDefined();
+      expect(p!.status).toBe('active'); // activate 状态也已落盘
+      expect(p!.manifest.version).toBe('1.0.0');
+      await s2.close();
+      await rm(dir, { recursive: true, force: true });
+    });
+
+    it('remove 同步删除持久化键，restore 后不再出现', async () => {
+      const { FileStore } = await import('@yyc3/store');
+      const { mkdtemp, rm } = await import('node:fs/promises');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+
+      const dir = await mkdtemp(join(tmpdir(), 'yyc3-pm-store-'));
+      const file = join(dir, 'plugins.json');
+
+      const s = new FileStore(file, { debounceMs: 0 });
+      const m = new PluginMarketplace({ rootDir: './p', store: s });
+      m.install(makePlugin({ id: 'yyc3/temp' }));
+      await m.flushPending();
+      m.remove('yyc3/temp');
+      await new Promise((r) => setTimeout(r, 20));
+      await s.close();
+
+      const s2 = new FileStore(file, { debounceMs: 0 });
+      const m2 = new PluginMarketplace({ rootDir: './p', store: s2 });
+      expect(await m2.restore()).toBe(0);
+      expect(m2.get('yyc3/temp')).toBeUndefined();
+      await s2.close();
+      await rm(dir, { recursive: true, force: true });
+    });
+
+    it('未配置 store 时 restore 返回 0（零开销禁用）', async () => {
+      const m = new PluginMarketplace({ rootDir: './p' });
+      expect(await m.restore()).toBe(0);
+    });
+  });
 });

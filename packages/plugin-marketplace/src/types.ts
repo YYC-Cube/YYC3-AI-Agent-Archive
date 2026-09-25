@@ -102,4 +102,9 @@ export interface MarketplaceConfig {
   registryUrl?: string;
   /** 是否自动激活 */
   autoActivate: boolean;
+  /**
+   * 可选持久化存储（P2）：提供后插件注册表写穿落盘，
+   * restore() 可在重启后恢复（插件 manifest 均为 JSON 可序列化）。
+   */
+  store?: import('@yyc3/store').Store;
 }

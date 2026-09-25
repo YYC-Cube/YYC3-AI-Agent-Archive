@@ -123,7 +123,7 @@ program
   .command('config')
   .description('配置 YYC³ 设置')
   .option('-g, --get <key>', '获取配置值')
-  .option('-s, --set <key> <value>', '设置配置值')
+  .option('-s, --set <key=value>', '设置配置值（如 -s server.port=3030）')
   .option('-l, --list', '列出所有配置', false)
   .option('-r, --reset', '重置为默认配置', false)
   .action(async (options) => {
@@ -131,7 +131,7 @@ program
       await configureSettings(options);
       if (options.list) console.log('\n✅ 配置列表已显示');
       else if (options.get) console.log('\n✅ 配置值获取成功');
-      else if (options.set) console.log('\n✅ 配置设置成功');
+      else if (options.set !== undefined) console.log('\n✅ 配置设置成功');
       else if (options.reset) console.log('\n✅ 配置重置完成');
     } catch (error) {
       console.error(`\n🔴 配置操作失败: ${error.message}`);

@@ -4,6 +4,18 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [Unreleased]
 
+### P2 池二批：治理收尾（2026-09-26）
+
+- **P2 callId crypto 化（skill-registry 1.3.0 + mcp-runtime 1.5.0）**：执行/工具调用 ID 由 `Date.now()`/`Math.random` 改 `crypto.randomBytes(8)`——同毫秒并发不碰撞、非密码学随机面消除
+- **P2 cowagent 桥接加固（mcp-runtime）**：`stdin.write` 增 EPIPE 监听（子进程先退出时不再作为进程级异常崩溃 Node）；stdout/stderr 单流 1MB 上限 + 截断标记（与 skill-registry executor 同口径）
+- **P2 reload sync 语义（skill-registry 1.3.0 + gateway 1.4.0）**：`SkillRegistry.clear()`（逐个发 `skill:unregistered`）+ `LoaderOptions.sync` / `SkillLoader.reload()`；`POST /skills/reload` 改用 reload——磁盘为唯一事实源，已删除技能与幽灵注册一并清除（此前只增不删、残留可执行）
+- **P2 限流 fail-open 告警 + CORS env 化（gateway 1.4.0）**：存储 consume 连续失败首次与每第 5 次告警（恢复清零，不再静默）；`YYC3_CORS_ORIGINS` 逗号分隔白名单（未配置保持 `*` 兼容）
+- **P2 观测无界增长封顶（observability 1.2.0）**：`Logger.maxEntries`（默认 1000 环形裁剪，0=不留内存）；`MetricsRegistry({ maxSeries })`（默认 10_000，新分区超限丢弃+一次性告警，既有分区不受影响）
+- **P2 plugin-marketplace 接 Store（1.0.1 → 1.1.0）**：`store?` 配置——install/update/activate/deactivate/remove 写穿 + `restore()` 重启恢复 + `flushPending()`；"插件注册表重启即失"闭环
+- **P2 CLI 杂项修复（yyc3-cli）**：端口段 3030-3039 放行（对齐团队「3030 起」规范，3000-3029/3100-3199 仍限用）；`config --set` 死分支修复（Commander 双占位符不合法 → `--set <key>=<value>` + 数字/布尔/JSON 自动转型）；删除 0 字节 `lib/i18n.js`；init 模板 package.json 补 `express` 依赖声明
+- **P2 `.env.example` 重写 v2.0.0**：删除虚构基础设施（Postgres/DB_*、API_PORT=8000、REDIS_HOST 三件套）；仅保留仓库内真实消费项（YYC3_API_KEYS/TRUSTED_PROXY_HOPS/CORS_ORIGINS、REDIS_URL、STORE_*、AGENT_STORE_FILE、OTEL_*、MCP_HOST），附消费方速查表
+- **测试超时修正（yyc3-cli）**：T14/T16 全量评分 jest timeout 90s → 190s（对齐其自身 elapsed<180s 断言——超时窄于断言导致慢速环境先被掐死）
+
 ### S1 收尾后 P2 池首批（2026-09-26）
 
 - **P2 chunked body 实际字节计数（gateway 1.3.0 + mcp-runtime 1.4.0）**：请求体限制原只校验 `Content-Length`，chunked 传输直接绕过；现包装请求体为计数流（累计超 1MB 即取消上游并报错），经 `safeJson` re-throw + onError 映射为 413 `PAYLOAD_TOO_LARGE`（三服务同一契约）

@@ -1,8 +1,12 @@
+/// <reference types="node" />
 /**
  * Skill Gateway — 端到端测试
  */
 import type { UnifiedSkill } from '@yyc3/skill-registry';
 import { SkillExecutor, SkillLoader, SkillRegistry } from '@yyc3/skill-registry';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { SkillGateway } from '../src/gateway.js';
 
@@ -138,14 +142,41 @@ describe('SkillGateway', () => {
   });
 
   describe('POST /api/v1/skills/reload', () => {
-    it('重新加载技能', async () => {
-      const res = await gateway.app.request('/api/v1/skills/reload', {
+    it('reload 以磁盘为唯一事实源：已删除技能被清除（P2 sync 语义）', async () => {
+      // 临时技能目录：两个磁盘技能 + 一个手工注册的"幽灵"（磁盘上不存在）
+      const dir = join(tmpdir(), `yyc3-reload-${Date.now()}`);
+      mkdirSync(join(dir, 'skill-a'), { recursive: true });
+      mkdirSync(join(dir, 'skill-b'), { recursive: true });
+      writeFileSync(join(dir, 'skill-a', 'SKILL.md'),
+        '---\nname: reload-a\nid: GW-RELOAD-A\ndomain: marketplace\nversion: 1.0.0\n---\n\nbody');
+      writeFileSync(join(dir, 'skill-b', 'SKILL.md'),
+        '---\nname: reload-b\nid: GW-RELOAD-B\ndomain: marketplace\nversion: 1.0.0\n---\n\nbody');
+
+      const reg = new SkillRegistry();
+      const loader = new SkillLoader(reg, { rootDir: dir });
+      const gw = new SkillGateway(
+        { registry: reg, loader, executor: new SkillExecutor(reg) },
+        { apiKeys: ['test-key'] },
+      );
+      await gw.initialize();
+      reg.register(makeSkill({ id: 'GW-STALE' }));
+      expect(reg.get('GW-STALE')).toBeDefined();
+
+      const res = await gw.app.request('/api/v1/skills/reload', {
         method: 'POST',
         headers: AUTH_HEADERS,
       });
       expect(res.status).toBe(200);
       const body = await res.json();
       expect(body.data.reloaded).toBe(2);
+
+      // 幽灵技能被清除（此前缺陷：只增不删，已删除技能仍可执行）
+      expect(reg.get('GW-STALE')).toBeUndefined();
+      // 磁盘技能仍在
+      expect(reg.get('GW-RELOAD-A')).toBeDefined();
+      expect(reg.get('GW-RELOAD-B')).toBeDefined();
+
+      rmSync(dir, { recursive: true, force: true });
     });
   });
 
