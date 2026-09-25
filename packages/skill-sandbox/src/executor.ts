@@ -4,7 +4,8 @@
  * 基于 child_process 实现安全隔离执行
  * 支持 Node / Python / Shell 运行时
  */
-import { execFile, spawn } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
+import { normalizeTimeout } from './security.js';
 import type { SandboxRequest, SandboxResult, SandboxRuntime } from './types.js';
 
 /** 运行时命令映射 */
@@ -15,6 +16,11 @@ const RUNTIME_COMMANDS: Record<SandboxRuntime, string> = {
   native: '',
 };
 
+/** 底层执行器硬超时上限（毫秒），防止调用方漏配 maxTimeout */
+const HARD_MAX_TIMEOUT = 300_000;
+/** 默认超时（毫秒） */
+const DEFAULT_TIMEOUT = 30_000;
+
 export class Executor {
   /** 执行沙箱请求 */
   static async execute(request: SandboxRequest, signal?: AbortSignal): Promise<SandboxResult> {
@@ -22,12 +28,16 @@ export class Executor {
 
     try {
       const { command, args } = this.buildCommand(request);
-      const timeout = request.timeout ?? 30_000;
+      // 非法超时值（0/负数/NaN）回退默认值，防止 spawn timeout:0 退化为「无超时」
+      const timeout = normalizeTimeout(request.timeout, DEFAULT_TIMEOUT, HARD_MAX_TIMEOUT);
       const maxOutput = request.maxOutput ?? 1024 * 1024; // 1MB
 
       return new Promise<SandboxResult>((resolve) => {
         const child = spawn(command, args, {
-          env: { ...process.env, ...request.env },
+          // 安全约定：SkillSandbox 传入的 env 是白名单裁剪后的最小集合，
+          // 此处不得再合并 process.env；仅当底层 Executor 被直接调用且未给 env
+          // 时才回退继承当前环境（保持向后兼容）。
+          env: request.env ?? process.env,
           cwd: request.cwd ?? process.cwd(),
           timeout,
           stdio: ['pipe', 'pipe', 'pipe'],
@@ -157,11 +167,11 @@ export class Executor {
     }
   }
 
-  /** 检查运行时是否可用 */
+  /** 检查运行时是否可用（同步等待 which 退出码，缺失时返回 false） */
   static isRuntimeAvailable(runtime: SandboxRuntime): boolean {
     if (runtime === 'native') return true;
     try {
-      execFile('which', [RUNTIME_COMMANDS[runtime]], {});
+      execFileSync('which', [RUNTIME_COMMANDS[runtime]], { stdio: 'ignore' });
       return true;
     } catch {
       return false;

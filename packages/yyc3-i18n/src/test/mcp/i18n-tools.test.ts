@@ -109,6 +109,12 @@ describe("I18n MCP Tools", () => {
     const searchResult = await searchHandler({ query: "newFeature" });
     const text = extractText(searchResult);
     expect(text).toContain("newFeature");
+
+    // 回归（P1-5）：增量注册单键不得抹掉整包语言，既有键必须存活
+    const translateHandler = getHandler("translate_key")!;
+    const existing = await translateHandler({ key: "app.title" });
+    expect(extractText(existing)).toContain("My App");
+    expect(engine.t("common.save")).toBe("Save");
   });
 
   it("should translate key", async () => {

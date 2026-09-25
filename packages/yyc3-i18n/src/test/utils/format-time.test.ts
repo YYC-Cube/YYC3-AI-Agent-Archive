@@ -14,7 +14,7 @@
  *
  * brief @yyc3/i18n-core format-time.ts 单元测试
  */
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { formatRelativeTimestamp, formatTimeAgo } from "../../lib/utils/format-time.js";
 
 describe("Time Formatting Utilities", () => {
@@ -129,6 +129,26 @@ describe("Time Formatting Utilities", () => {
       const oldTimestamp = Date.now() - 10 * 86400000;
       const result = formatRelativeTimestamp(oldTimestamp, { dateFallback: true });
       expect(result).match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/);
+    });
+
+    it("should produce host-locale-independent English output by default (regression: zh LANG)", () => {
+      // 修复前：timezone 被误传给 toLocaleDateString 的 locales 参数位，非法值触发
+      // RangeError 后降级为无参调用，在中文宿主下输出 "1月5日" 而非英文月份。
+      const oldTimestamp = Date.now() - 10 * 86400000;
+      const result = formatRelativeTimestamp(oldTimestamp, {
+        dateFallback: true,
+        timezone: "Not/AZone",
+      });
+      expect(result).toMatch(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/);
+    });
+
+    it("should honor explicit locale option for date fallback", () => {
+      const oldTimestamp = Date.now() - 10 * 86400000; // 2026-01-05 under fake clock
+      const result = formatRelativeTimestamp(oldTimestamp, {
+        dateFallback: true,
+        locale: "zh-CN",
+      });
+      expect(result).toBe("1月5日");
     });
 
     it("should not use date fallback for timestamps within 7 days", () => {

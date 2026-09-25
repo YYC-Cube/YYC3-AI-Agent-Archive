@@ -2,10 +2,31 @@
 # YYC³ AI Agent Archive — 全栈部署编排
 # 服务：Skill Gateway / MCP Runtime / Agent Runtime
 # 端口：3030-3039
+#
+# 安全基线（S0 整改，所有服务统一继承 yyc3-hardening）：
+# - 非 root 运行（Dockerfile USER 1001）+ no-new-privileges
+# - cap_drop ALL（放弃全部 Linux capabilities）
+# - 只读根文件系统，仅 /tmp 为 noexec/nodev/nosuid tmpfs
+# - 内存 512MB / 进程数 256 限额，防 fork 炸弹与内存 DoS
+# - MCP/Agent 无独立认证，宿主端口仅绑 127.0.0.1（经 Gateway 或反代访问）
+# 注意：进程内沙箱（@yyc3/skill-sandbox）为纵深防御的一道，
+# 上述 OS 级隔离才是不可信技能执行的强安全边界。
 # ============================================================
 
+# 统一安全加固片段（YAML 锚点，各服务 <<: *yyc3-hardening 继承）
+x-yyc3-hardening: &yyc3-hardening
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+  read_only: true
+  tmpfs:
+    - /tmp:size=64m,mode=1777,nosuid,nodev,noexec
+  mem_limit: 512m
+  pids_limit: 256
+
 services:
-  # ---- Skill Gateway API (技能网关) ----
+  # ---- Skill Gateway API (技能网关，唯一对外边缘服务) ----
   skill-gateway:
     build:
       context: .
@@ -13,8 +34,9 @@ services:
       target: skill-gateway
     image: ${IMAGE_PREFIX:-yyc3}/skill-gateway:${TAG:-local}
     user: "1001:1001"
+    <<: *yyc3-hardening
     ports:
-      - "${GATEWAY_PORT:-3030}:3030"
+      - "${GATEWAY_BIND:-0.0.0.0}:${GATEWAY_PORT:-3030}:3030"
     environment:
       - NODE_ENV=production
       - PORT=3030
@@ -40,7 +62,7 @@ services:
       retries: 3
       start_period: 10s
 
-  # ---- MCP Runtime (MCP 运行时) ----
+  # ---- MCP Runtime (MCP 运行时，无独立认证：不直接暴露局域网) ----
   mcp-runtime:
     build:
       context: .
@@ -48,8 +70,10 @@ services:
       target: mcp-runtime
     image: ${IMAGE_PREFIX:-yyc3}/mcp-runtime:${TAG:-local}
     user: "1001:1001"
+    <<: *yyc3-hardening
     ports:
-      - "${MCP_PORT:-3031}:3031"
+      # 仅绑回环：宿主外不可达；容器间经 yyc3-network 互访
+      - "127.0.0.1:${MCP_PORT:-3031}:3031"
     environment:
       - NODE_ENV=production
       - PORT=3031
@@ -64,7 +88,7 @@ services:
       retries: 3
       start_period: 10s
 
-  # ---- Agent Runtime (智能体运行时) ----
+  # ---- Agent Runtime (智能体运行时，无独立认证：不直接暴露局域网) ----
   agent-runtime:
     build:
       context: .
@@ -72,8 +96,10 @@ services:
       target: agent-runtime
     image: ${IMAGE_PREFIX:-yyc3}/agent-runtime:${TAG:-local}
     user: "1001:1001"
+    <<: *yyc3-hardening
     ports:
-      - "${AGENT_PORT:-3032}:3032"
+      # 仅绑回环：宿主外不可达；容器间经 yyc3-network 互访
+      - "127.0.0.1:${AGENT_PORT:-3032}:3032"
     environment:
       - NODE_ENV=production
       - PORT=3032

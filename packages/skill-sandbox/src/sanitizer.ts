@@ -1,9 +1,14 @@
 /**
  * Skill Sandbox — 输入净化器
  *
- * 负责检测和阻止危险代码、命令注入、路径遍历等攻击
+ * 负责检测和阻止危险代码、命令注入、路径遍历等攻击。
+ *
+ * ⚠️ 安全定位：正则黑名单是「尽力而为的内容策略」（纵深防御的一道），
+ * 理论上无法穷举所有等价写法，**不得作为唯一安全边界**。
+ * 真正的强隔离由执行路径控制点（SkillSandbox 统一入口 + 命令黑名单）
+ * 与容器/OS 级隔离（非 root、cap_drop、只读根文件系统、资源限额）共同保证。
  */
-import type { SandboxRuntime, SandboxPolicy } from './types.js';
+import type { SandboxPolicy, SandboxRuntime } from './types.js';
 
 /** 危险模式列表 */
 const DANGEROUS_PATTERNS: Record<SandboxRuntime, RegExp[]> = {
@@ -24,6 +29,12 @@ const DANGEROUS_PATTERNS: Record<SandboxRuntime, RegExp[]> = {
     /socket\./,
     /requests\.(get|post|put|delete|patch)\s*\(/,
     /urllib\./,
+    // 反规避（evasion）：别名导入 subprocess（import subprocess as x; x.run(...)）
+    /\bimport\s+subprocess\s+as\s+\w+/,
+    // 反规避：通过 getattr(__builtins__...) 动态拿 __import__
+    /getattr\s*\(\s*__(builtins|import)__/,
+    // 反规避：字符串拼接隐藏 __import__（'__imp'+'ort__'）
+    /['"]__imp['"]?\s*\+/,
   ],
   node: [
     /require\s*\(\s*['"]child_process['"]\s*\)/,
@@ -38,6 +49,11 @@ const DANGEROUS_PATTERNS: Record<SandboxRuntime, RegExp[]> = {
     /__proto__/,
     /constructor\s*\[/,
     /import\s*\(/,
+    // 反规避：process.binding 直接取底层绑定
+    /process\.binding\s*\(/,
+    // 反规避：对全局对象的动态索引访问（globalThis['eva'+'l'] 等拼接取值），
+    // 技能脚本中几乎无合法用法，一律拦截
+    /\b(globalThis|global|self)\s*\[/,
   ],
   shell: [
     /rm\s+(-rf?\s+)?[~/]/,
@@ -57,6 +73,8 @@ const DANGEROUS_PATTERNS: Record<SandboxRuntime, RegExp[]> = {
     /kill\s+-9/,
     /mkfifo\s+/,
     /nc\s+-[el]/,
+    // 反规避：base64/xxd/openssl 解码后管道给 shell 解释器
+    /\|\s*(base64|xxd|openssl\s+enc)\b[^|]*\|\s*(ba|z|fi|da)?sh\b/,
   ],
   native: [],
 };

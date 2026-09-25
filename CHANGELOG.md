@@ -2,6 +2,19 @@
 
 All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
+## [Unreleased]
+
+### S0/S1 安全与质量整改（2026-09-25 ~ 2026-09-26）
+
+详见 `docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md`（第十一～十四章）。
+
+- **S0-1 执行隔离链修复**：skill-registry ↔ skill-sandbox 依赖链接线；entry 路径穿越收敛、子进程环境变量白名单、命令黑名单接入执行路径、超时钳制、输出 1MB 上限；compose 容器加固（no-new-privileges/cap_drop ALL/read_only/资源限额/回环绑定）；新增 40 个对抗测试
+- **S0-2 能力宣称对齐**：README 新增实现状态矩阵（四级成熟度，逐包/逐能力附代码证据），数字与安全表述全面纠偏
+- **S1 i18n locale 漂移修复**：Node ≥21 不再采信 undici navigator 的宿主 LANG；`formatRelativeTimestamp` 修正 timezone/locale 参数错位；CI 显式钉 LANG；中文裸环境门禁转绿
+- **BREAKING（@yyc3/i18n-core 2.4.3 → 3.0.0）**：
+  - `registerTranslation()` 由整表替换改为**深合并**——修复 MCP `add_translation_key` 增量注册单键抹掉整语言包的产品缺陷；新增 `replaceTranslation()` 保留旧整表替换语义
+  - 新增 `i18n.ready: Promise<void>` 初始语言包就绪承诺（浏览器自动检测场景消除构造期翻译竞态）；懒加载到达时与飞行中注册的键合并而非互相覆盖
+
 ## [2.6.0] - 2026-09-24
 
 ### 版本主题：Association-Dimension Graph（关联维度图谱）

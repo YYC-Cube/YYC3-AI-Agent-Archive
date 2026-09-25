@@ -154,7 +154,7 @@ getLocale(): Locale
 
 ##### `registerTranslation(locale, map)`
 
-注册翻译资源。
+增量注册翻译资源（v3.0 起为**深合并**语义）：与该 locale 已有语言包递归合并，同名叶子键以传入值为准；注册单个 key 不再抹掉整包语言。传入非对象值（字符串等）会整体覆盖同名对象节点。
 
 ```typescript
 registerTranslation(locale: Locale, map: TranslationMap): void
@@ -171,6 +171,27 @@ i18n.registerTranslation('zh-CN', {
     submit: '提交',
   },
 });
+// 再次增量注册只影响 given 的键，app.title / common.submit 等既有键保留
+i18n.registerTranslation('zh-CN', { common: { cancel: '取消' } });
+```
+
+##### `replaceTranslation(locale, map)`
+
+整表替换翻译资源（v3.0 新增）：丢弃该 locale 已注册的全部键，以 `map` 作为新语言包。这是 v3.0 之前 `registerTranslation` 的旧语义，作为逃生门保留。
+
+```typescript
+replaceTranslation(locale: Locale, map: TranslationMap): void
+```
+
+##### `ready`
+
+初始 locale 就绪承诺（v3.0 新增）。浏览器自动检测到非 `en` 时，构造引擎会异步懒加载语言包；首次调用 `t()` 前 `await i18n.ready` 可避免拿到默认英文。Node 环境不自动检测，通常构造即就绪。该承诺永不 reject。
+
+```typescript
+readonly ready: Promise<void>
+
+await i18n.ready;
+i18n.t('common.welcome'); // 语言包已就位
 ```
 
 ##### `createNamespace(prefix)`

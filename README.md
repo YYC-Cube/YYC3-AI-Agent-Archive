@@ -12,8 +12,8 @@ _万象归元于云枢 · 深栈智启新纪元_
 
 ---
 
-[![Status](https://img.shields.io/badge/Status-Phase%204%20%E2%9A%A1%20AI%20Family%20%E6%99%BA%E8%83%BD%E4%BD%93-00FF88?style=for-the-badge&logo=statuspage&logoColor=white)](ARCHITECT.md)
-[![Version](https://img.shields.io/badge/Version-v2.1.0-00d4ff?style=for-the-badge&logo=semver&logoColor=white)](package.json)
+[![Status](https://img.shields.io/badge/Status-%E8%B5%84%E4%BA%A7%E5%B9%B3%E5%8F%B0%20GA%20%C2%B7%20%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8E%9F%E5%9E%8B-FF6600?style=for-the-badge&logo=statuspage&logoColor=white)](#-实现状态矩阵)
+[![Version](https://img.shields.io/badge/Version-v2.6.0-00d4ff?style=for-the-badge&logo=semver&logoColor=white)](package.json)
 [![License](https://img.shields.io/badge/License-MIT-FF6600?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![PRs](https://img.shields.io/badge/PRs-Welcome-AA55FF?style=for-the-badge&logo=github&logoColor=white)](CONTRIBUTING.md)
 
@@ -33,13 +33,14 @@ _万象归元于云枢 · 深栈智启新纪元_
 ### 📊 项目规模
 
 ![Monorepo](https://img.shields.io/badge/Monorepo-13%20Core%20Packages-AA55FF?style=flat-square&logo=monorepo&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-929%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-1102%20Passing-00FF88?style=flat-square&logo=vitest&logoColor=white)
 ![AI Family](https://img.shields.io/badge/AI%20Family-8%20%E6%99%BA%E8%83%BD%E4%BD%93-C9A96E?style=flat-square&logo=robot&logoColor=white)
-![Community Skills](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA%E6%8A%80%E8%83%BD-283-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
-![Marketplace Skills](https://img.shields.io/badge/%E5%B8%82%E5%9C%BA%E5%8C%96%E6%8A%80%E8%83%BD-121-00d4ff?style=flat-square&logo=marketplace&logoColor=white)
-![NVIDIA Skills](https://img.shields.io/badge/NVIDIA%20%E5%AE%98%E6%96%B9-202-76B900?style=flat-square&logo=nvidia&logoColor=white)
+![Skills](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E6%80%BB%E8%AE%A1-831-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
+![Community Skills](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA%E6%8A%80%E8%83%BD-358-C9A96E?style=flat-square&logo=openbadges&logoColor=white)
+![Marketplace Skills](https://img.shields.io/badge/%E5%B8%82%E5%9C%BA%E5%8C%96%E6%8A%80%E8%83%BD-160-00d4ff?style=flat-square&logo=marketplace&logoColor=white)
+![NVIDIA Skills](https://img.shields.io/badge/NVIDIA%20%E5%AE%98%E6%96%B9-212-76B900?style=flat-square&logo=nvidia&logoColor=white)
 ![Plugins](https://img.shields.io/badge/%E6%8F%92%E4%BB%B6-200%2B-FF6600?style=flat-square&logo=puzzle&logoColor=white)
-![Docs](https://img.shields.io/badge/%E6%96%87%E6%A1%A3-70%2B-00FF88?style=flat-square&logo=readthedocs&logoColor=white)
+![Docs](https://img.shields.io/badge/%E6%96%87%E6%A1%A3-85%2B-00FF88?style=flat-square&logo=readthedocs&logoColor=white)
 ![Icons](https://img.shields.io/badge/%E5%9B%BE%E6%A0%87-1000%2B-FF69B4?style=flat-square&logo=lucide&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP%20%E6%9C%8D%E5%8A%A1-4%20%E5%A5%97-8B5CF6?style=flat-square&logo=cloudflare&logoColor=white)
 
@@ -68,7 +69,10 @@ _万象归元于云枢 · 深栈智启新纪元_
   - [🏛️ 核心架构](#️-核心架构)
   - [🤖 AI Family 智能体家族](#-ai-family-智能体家族)
   - [📦 核心包清单](#-核心包清单)
-    - [包依赖关系](#包依赖关系)
+    - [包依赖关系（package.json + import 实证，2026-09-26）](#包依赖关系packagejson--import-实证2026-09-26)
+  - [📊 实现状态矩阵](#-实现状态矩阵)
+    - [平台能力总览](#平台能力总览)
+    - [能力级状态明细（含已知缺口）](#能力级状态明细含已知缺口)
   - [🗂️ Hubs 生态矩阵](#️-hubs-生态矩阵)
     - [🛠️ Skills Hub — 技能中心](#️-skills-hub--技能中心)
     - [🔌 Plugins Hub — 插件中心](#-plugins-hub--插件中心)
@@ -95,7 +99,10 @@ _万象归元于云枢 · 深栈智启新纪元_
 
 ## 🚀 项目概述
 
-**YYC³ AI Agent Archive** 是企业级 AI Agent 资产平台，以 Monorepo 架构聚合了 **13 个核心 TypeScript 包**、**8 位 AI Family 智能体**、**600+ 技能资产**、**200+ 插件** 以及完整的多智能体协同体系。项目以"言启千行代码，语枢万物智能"为核心理念，构建了从智能体定义、技能注册发现、MCP 运行时、协同编排、沙箱执行、可观测性到国际化支持的完整技术栈，已完成 **Phase 5 生产就绪**交付。
+**YYC³ AI Agent Archive** 是企业级 AI Agent 资产平台，以 Monorepo 架构聚合了 **13 个核心 TypeScript 包**、**8 位 AI Family 智能体**、**831 个技能资产**、**200+ 插件** 以及完整的多智能体协同体系。项目以"言启千行代码，语枢万物智能"为核心理念，构建了从智能体定义、技能注册发现、MCP 运行时、协同编排、沙箱执行、可观测性到国际化支持的完整技术栈。
+
+> ⚠️ **成熟度如实说明（2026-09-26 代码核对，详见 [实现状态矩阵](#-实现状态矩阵) 与 [深审报告](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)）**：
+> **资产平台面**（技能注册/评分/图谱/CLI doctor 门禁/供应链/容器化）已达生产水准；**智能运行时面**（LLM 任务分解、Agent 工具执行、插件落盘安装等）目前为接口完备的**内存原型**，不可信技能执行依赖容器级 OS 隔离。接入前请按下表状态评估，勿将 🟡/🔴 能力用于生产链路。
 
 ### 🎯 核心理念
 
@@ -132,11 +139,12 @@ YYC³ AI Agent Archive
 │   ├── ai-family/               # AI Family 8 位家人
 │   └── framework/               # 智能体框架（agent-browser / ai-agent）
 │
-├── 🛠️ **skills-hub/**           # 技能中心
-│   ├── community/               # 社区技能 (283)
-│   ├── marketplace/             # 市场化技能 (121)
-│   ├── ai-ml/nvidia-skills/     # NVIDIA 官方技能 (202)
-│   └── b2b/                     # B2B SDR 技能 (8)
+├── 🛠️ **skills-hub/**           # 技能中心（831，doctor validate 口径）
+│   ├── community/               # 社区技能 (358)
+│   ├── marketplace/             # 市场化技能 (160)
+│   ├── ai-ml/nvidia-skills/     # NVIDIA 官方技能 (212)
+│   ├── b2b/                     # B2B SDR 技能 (9)
+│   ├── dev-workflow/ marketing/ glm/ ui-ux/ …  # 其他领域 100（CLI 校验口径 92）
 │
 ├── 🔌 **plugins-hub/**          # 插件中心
 │   ├── official/                # 官方插件 (80+)
@@ -159,7 +167,7 @@ YYC³ AI Agent Archive
 │   ├── zh-CN.json               # 简体中文
 │   └── en.json                  # English
 │
-├── 📚 **docs/**                 # 完整文档体系 (~70+)
+├── 📚 **docs/**                 # 完整文档体系 (85+，含会话审核存档)
 │   ├── AI Family 家人档案
 │   ├── AI Family 智能协同
 │   ├── AI Family 人机协同 (五高五标五化)
@@ -194,41 +202,96 @@ YYC³ AI Agent Archive
 
 ## 📦 核心包清单
 
-| 包名　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 版本　| 描述　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 | 状态　　　　　　|
-| ----------------------------------------------------------------------| :-----:| --------------------------------------------------------------------------| :---------------:|
-| [`@yyc3/skill-registry`](packages/skill-registry/)　　　　　　　　　 | 2.0.0 | 统一 Skill 注册中心 — 标准化注册、发现、调度、降级熔断　　　　　　　　　 | ✅ **Active**　　|
-| [`@yyc3/skill-gateway`](packages/skill-gateway/)　　　　　　　　　　 | 1.0.0 | Skill Gateway API — REST 接口、安全中间件、速率限制　　　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/skill-sandbox`](packages/skill-sandbox/)　　　　　　　　　　 | 1.0.0 | Skill 沙箱执行环境 — 多运行时安全隔离 (Node/Python/Shell)　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/mcp-runtime`](packages/mcp-runtime/)　　　　　　　　　　　　 | 2.0.0 | 统一 MCP 运行时 — 整合 4 套 MCP 实现 + Skill 桥接　　　　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/conductor`](packages/conductor/)　　　　　　　　　　　　　　 | 1.0.0 | 协同编排引擎 — 多智能体协同、任务编排、工作流执行　　　　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/agent-runtime`](packages/agent-runtime/)　　　　　　　　　　 | 1.0.0 | Agent 智能体运行时 — 生命周期管理、对话上下文、工具调用　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/agent-registry`](packages/agent-registry/)　　　　　　　　　 | 1.0.0 | Agent 角色注册表（数据资产）— 20 角色定义 + JSON Schema 校验　　　　　　 | 📊 **Data**　　 |
-| [`@yyc3/orchestrator`](packages/orchestrator/)　　　　　　　　　　　 | 1.0.0 | 智能编排调度器 — LLM 任务分解、多策略调度、工作流引擎　　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/)　　　　　 | 1.0.0 | Plugin Marketplace 运行时 — 插件注册、激活、依赖管理　　　　　　　　　　 | ✅ **Active**　　|
-| [`@yyc3/observability`](packages/observability/)　　　　　　　　　　 | 1.0.0 | 可观测性监控 — 结构化日志、指标收集、链路追踪、健康检查　　　　　　　　　| ✅ **Active**　　|
-| [`@yyc3/i18n-core`](packages/yyc3-i18n/)　　　　　　　　　　　　　　 | 2.4.3 | 生产级国际化框架 — 高性能、零依赖、插件化 i18n 方案　　　　　　　　　　　| ✅ **Active**　　|
-| [`yyc3-cli`](packages/yyc3-cli/)　　　　　　　　　　　　　　　　　　 | 2.0.0 | 命令行界面 — 技能构建/验证/去重/统计/评分/Doctor 质量门禁　　　　　　　　 | ✅ **Active**　　|
-| [`@yyc3/skills`](_archive/packages-skills-legacy/)　　　　　　　　　 | 1.0.0 | 旧技能系统（184 技能）— **已归档**，由 `@yyc3/skill-registry` 取代　　　 | 🗄️ **Archived** |
-| [`@yyc3/skills-registry`](_archive/packages-skills-registry-legacy/) | 1.0.0 | 旧注册中心（146 渐进式技能）— **已归档**，由 `@yyc3/skill-registry` 取代 | 🗄️ **Archived** |
-| [`@yyc3/icons`](packages/@yyc3/icons/)　　　　　　　　　　　　　　　 | —　　 | Lucide 图标库子集（1000+ 图标）　　　　　　　　　　　　　　　　　　　　　| ✅ **Active**　　|
+> 版本取自各包 `package.json`（2026-09-26 核对）；状态定义见下方[实现状态矩阵](#-实现状态矩阵)。
 
-### 包依赖关系
+| 包名 | 版本 | 职责 | 状态 |
+| ---- | :--: | ---- | :--: |
+| [`@yyc3/skill-registry`](packages/skill-registry/) | 1.1.1 | Skill 注册/发现/熔断降级；脚本执行（entry 收敛 + env 白名单，S0 已加固） | ✅ 生产可用 |
+| [`@yyc3/skill-gateway`](packages/skill-gateway/) | 1.1.0 | Hono REST API（13 端点）、fail-closed 认证、Token Bucket 限流、安全头 | ✅ 生产可用 |
+| [`@yyc3/skill-sandbox`](packages/skill-sandbox/) | 1.0.1 | 进程内净化（黑名单/路径收敛/env 白名单/超时钳制）— **纵深防御层，非 OS 强边界** | 🟡 纵深防御 |
+| [`@yyc3/mcp-runtime`](packages/mcp-runtime/) | 1.2.0 | MCP 工具统一路由 + Skill/CowAgent 桥接（CowAgent 13 工具业务执行为 stub） | 🟡 部分原型 |
+| [`@yyc3/conductor`](packages/conductor/) | 1.0.1 | DAG 拓扑/环检测/重试退避/超时取消真实；skill 任务执行体靠外部注入 | 🟡 部分原型 |
+| [`@yyc3/agent-runtime`](packages/agent-runtime/) | 1.1.0 | Agent 生命周期/家庭档案；**对话回复靠注入、工具调用只发事件，状态纯内存** | 🔴 内存原型 |
+| [`@yyc3/agent-registry`](packages/agent-registry/) | 1.0.0 | Agent 角色数据资产 — 20 角色 registry.json + JSON Schema | 📊 数据资产 |
+| [`@yyc3/orchestrator`](packages/orchestrator/) | 1.0.1 | 中文规则分解真实；**LLM 分解抛未实现异常、无 handler 时返回占位结果** | 🔴 内存原型 |
+| [`@yyc3/plugin-marketplace`](packages/plugin-marketplace/) | 1.0.1 | semver/依赖保护真实；**仅内存注册表，无落盘/git/URL 安装** | 🔴 内存原型 |
+| [`@yyc3/observability`](packages/observability/) | 1.0.1 | 结构化日志/健康检查可用；histogram 累计语义与 exporter、tracer 导出待补 | 🟡 部分原型 |
+| [`@yyc3/i18n-core`](packages/yyc3-i18n/) | 3.0.0 | 生产级 i18n 框架（631 用例，中英 1597 键双向对齐，双 locale 门禁全绿；注册深合并 + `ready` 就绪承诺） | ✅ 生产可用 |
+| [`yyc3-cli`](packages/yyc3-cli/) | 2.0.0 | 资产命令 + doctor 六检门禁（纯 JS，62 用例）；`deploy` 为模拟实现 | ✅ 资产侧可用 |
+| [`@yyc3/icons`](packages/@yyc3/icons/) | — | Lucide 图标库子集（1000+ 图标） | ✅ 数据资产 |
+| `@yyc3/skills` / `@yyc3/skills-registry` | — | 旧技能系统/注册中心，已归档至 [`_archive/`](_archive/)，由 skill-registry 取代 | 🗄️ 已归档 |
+
+### 包依赖关系（package.json + import 实证，2026-09-26）
 
 ```
-skill-gateway ──→ skill-registry ──→ skill-sandbox
-       │                                    │
-       ↓                                    ↓
-conductor ──→ orchestrator ──→ agent-runtime ←── agent-registry
-       │              │
-       ↓              ↓
-plugin-marketplace ──→ observability
-       │
-       ↓
-mcp-runtime ──→ skill-registry
-       │
-       ↓
-yyc3-cli ──→ @yyc3/i18n-core (独立)
+skill-gateway ──► skill-registry ──► skill-sandbox   ← S0-1 后该依赖链首次在代码中成立
+      └──────────► mcp-runtime ────► skill-registry
+
+conductor（独立，无跨包运行时依赖）
+orchestrator ──type-only──► agent-runtime            ← 仅类型引用，非调用链
+plugin-marketplace（独立）  observability（独立）
+
+yyc3-cli（独立，纯 JS）   @yyc3/i18n-core（独立）
 ```
+
+> 注：AGENTS.md 所述 `conductor → orchestrator → agent-runtime` 是**设计目标**而非当前调用关系；当前无循环、无反向依赖。
+
+---
+
+## 📊 实现状态矩阵
+
+**图例（判定基于源码逐行核对，而非 README/命名推断）：**
+
+| 标记 | 含义 | 可用于生产？ |
+| :--: | ---- | :--: |
+| ✅ | **生产可用**：真实实现 + 错误路径 + 测试覆盖，具备运维闭环 | 是 |
+| 🟡 | **部分可用 / 纵深防御**：核心路径真实，但有明确边界或已知缺口 | 限定条件下 |
+| 🔴 | **内存原型 / 规划中**：接口与事件齐备，内部为 Map/桩/固定返回，无持久化 | 否 |
+| 📊 | **数据资产**：静态内容/JSON，无可执行逻辑 | — |
+
+### 平台能力总览
+
+| 能力域 | 状态 | 依据 |
+| ------ | :--: | ---- |
+| 技能注册/发现/同名治理/熔断降级 | ✅ | skill-registry 1750 行，真实子进程 fixture + 熔断恢复测试 |
+| 技能脚本执行安全（entry 收敛 / env 白名单 / 超时 / 输出上限） | ✅ | S0-1 落地，40 个安全用例（[executor-security.test.ts](packages/skill-registry/tests/executor-security.test.ts)） |
+| Gateway 边缘服务（认证/限流/安全头/容器化） | ✅ | fail-closed + timingSafeEqual；compose OS 级加固（S0-1） |
+| 不可信代码强隔离（容器/namespace/seccomp） | 🟡 | compose 已提供 cap_drop/read_only/no-new-privileges/限额；**进程内正则黑名单不是强边界** |
+| 资产质量生产线（validate/dedup/score/graph/doctor） | ✅ | doctor 六检 CI 门禁；831 技能 0 错误；图谱孤立率 1.15% |
+| MCP 工具统一路由（Skill/自定义/外部来源） | ✅ | 工具白名单 + 参数 stdin 传递，注入用例覆盖 |
+| CowAgent 桥接 13 工具业务执行 | 🔴 | 包装脚本仅返回 `{"status":"ok"}`（[cowagent-bridge.ts](packages/mcp-runtime/src/cowagent-bridge.ts)） |
+| DAG 工作流编排（拓扑/重试/超时/取消） | ✅ | conductor 真实实现 |
+| LLM 任务分解 | 🔴 | `throw 'LLM decomposition not yet implemented'`（[decomposer.ts](packages/orchestrator/src/decomposer.ts)） |
+| 中文规则任务分解 | ✅ | 关键词模板匹配真实可用 |
+| 多策略调度（capability/轮询/负载均衡） | 🟡 | load-balance 随机项自抵消，实际退化为能力匹配 |
+| 任务真实分发执行 | 🔴 | 无 handler 时返回 `"Task … completed"` 占位字符串 |
+| Agent 对话与工具调用 | 🔴 | 回复外部注入；`recordToolCall` 只 emit 不执行不持久化 |
+| Agent 角色体系（8 Family + 20 角色） | 📊 | family-registry 8 位 Profile + agent-registry 20 角色 |
+| 插件注册/semver/被依赖保护 | ✅ | marketplace 内存 API 真实 |
+| 插件安装（落盘/git/URL/递归依赖） | 🔴 | 相关字段声明后未使用，3 个状态机状态永不产生 |
+| 结构化日志 / 健康检查 | ✅ / 🟡 | logger/health 可用但仅进程内存 |
+| Metrics（Prometheus 导出） | 🟡 | histogram 非累计桶、缺 `_sum/_count`、labels 不渲染、无 exporter |
+| Tracing（分布式链路） | 🔴 | 无 exporter、`Math.random()` 造 ID、父 span 缺失即断链 |
+| i18n 国际化 | ✅ | 中/英/unset 三环境 631 用例全绿；S1 修复 Node locale 漂移；v3.0 注册深合并 + `i18n.ready` 就绪承诺（P1-4/P1-5 闭环） |
+| CLI 资产命令与质量门禁 | ✅ | validate/dedup/score/registry/graph/example 六检 |
+| CLI `deploy` / `init` 脚手架 | 🔴 / 🟡 | deploy 为 setTimeout 模拟；init 模板引用未声明的 express |
+| 供应链安全（Actions pin SHA / dependency-review / gitleaks） | ✅ | security.yml + release 三镜像冒烟 |
+
+### 能力级状态明细（含已知缺口）
+
+| # | 能力 | 状态 | 缺口 / 跟踪项 |
+| - | ---- | :--: | ---- |
+| 1 | Gateway 限流客户端 IP 解析 | 🟡 | 直接信任 `x-forwarded-for`，无受信代理跳数（S1，可伪造绕限流） |
+| 2 | Gateway 入参校验 | 🟡 | 边界手检未接 Zod，null body/非法 JSON 落 500（S1/S2） |
+| 3 | OpenAPI 文档 | 🟡 | 认证描述与实现相反、缺 registry 端点与 401/429/413（S1） |
+| 4 | 加载期 validator 接线 | 🟡 | loader 注册未强制走 validateUnifiedSkill（S1） |
+| 5 | 运行时持久化 | 🔴 | 会话/插件/指标/日志全为内存 Map，重启即失（S2 引入 Store 抽象） |
+| 6 | mcp-hub/{client,server} 双轨包 | 🟡 | 未纳入 workspace/CI，依赖陈旧，与 mcp-runtime 职能重叠（S2 裁决） |
+| 7 | 版本纪律 | 🟡 | HEAD 已含 v2.7.0 提交但 package.json/CHANGELOG/tag 未收口（S1） |
+
+> 📎 逐项代码证据（文件:行号）、量化评分（75.6/C+）与整改路线见
+> [《项目现状审核报告》（2026-09-25）](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)。
+> 安全边界设计与部署要求见 [SECURITY.md](SECURITY.md) 与 [docker-compose.yml](docker-compose.yml) 头部注释。
 
 ---
 
@@ -238,10 +301,13 @@ yyc3-cli ──→ @yyc3/i18n-core (独立)
 
 | 来源 | 数量 | 路径 | 说明 |
 | ------ | :----: | ------ | ------ |
-| 🌍 社区技能 | **283** | [`skills-hub/community/`](skills-hub/community/) | 开发者贡献的多样化技能 |
-| 🏪 市场化技能 | **121** | [`skills-hub/marketplace/`](skills-hub/marketplace/) | 企业级市场化技能 |
-| 💚 NVIDIA 官方 | **202** | [`skills-hub/ai-ml/nvidia-skills/`](skills-hub/ai-ml/nvidia-skills/) | NVIDIA AI 技能 |
-| 💼 B2B SDR | **8** | [`skills-hub/b2b/`](skills-hub/b2b/) | B2B 销售技能 |
+| 🌍 社区技能 | **358** | [`skills-hub/community/`](skills-hub/community/) | 开发者贡献的多样化技能 |
+| 🏪 市场化技能 | **160** | [`skills-hub/marketplace/`](skills-hub/marketplace/) | 企业级市场化技能 |
+| 💚 NVIDIA 官方 | **212** | [`skills-hub/ai-ml/nvidia-skills/`](skills-hub/ai-ml/nvidia-skills/) | NVIDIA AI 技能 |
+| 💼 B2B SDR | **9** | [`skills-hub/b2b/`](skills-hub/b2b/) | B2B 销售技能 |
+| 🧩 其他领域 | **100** | dev-workflow(30) / marketing(43) / glm(17) / ui-ux(7) / social-search(1) / yyc3(2) | 工程流、营销、GLM 等 |
+
+> 目录实测 SKILL.md 合计 839；`yyc3 skills validate` 校验口径 **831**（8 个文件在扫描根/去重规则之外），0 errors / 0 warnings（2026-09-26）。
 
 ### 🔌 Plugins Hub — 插件中心
 
@@ -313,8 +379,8 @@ pnpm skills:validate    # 验证技能
 pnpm skills:dedup       # 去重技能
 pnpm skills:stats       # 技能统计
 
-# 健康检查（四检聚合质量门禁）
-pnpm doctor             # validate + dedup + score + registry，CI 同款门禁
+# 健康检查（六检聚合质量门禁）
+pnpm doctor             # validate + dedup + score + registry + graph + example，CI 同款门禁（exit 1 阻断）
 ```
 
 ---
@@ -328,7 +394,7 @@ pnpm doctor             # validate + dedup + score + registry，CI 同款门禁
 | `pnpm typecheck` | TypeScript 类型检查 |
 | `pnpm clean` | 清理构建产物 |
 | `pnpm test` | 运行所有测试 |
-| `pnpm doctor` | 质量门禁（validate/dedup/score/registry 四检聚合） |
+| `pnpm doctor` | 质量门禁（validate/dedup/score/registry/graph/example 六检聚合，支持 `--advisory`） |
 | `pnpm skills:validate` | 技能验证 |
 | `pnpm skills:dedup` | 技能去重 |
 | `pnpm skills:stats` | 技能统计 |
@@ -388,7 +454,7 @@ pnpm i18n:sync         # 3. 同步到各包
 | **构建工具** | tsup 8+ / Turbo | TypeScript 构建 + 任务编排 |
 | **类型校验** | Zod 3.23+ | 运行时类型安全 |
 | **命令行** | Commander 11+ / Chalk / Figlet | CLI 交互 |
-| **测试** | Vitest 3+ | 929 测试用例 |
+| **测试** | Vitest 4 + Jest（CLI） | 1102 测试用例（中/英 locale 双跑） |
 | **E2E** | Playwright | 端到端测试 |
 | **运行时** | Python 3.10+ | 技能脚本 |
 | **系统编程** | Rust 1.80+ / Cargo | 浏览器代理 |
@@ -412,7 +478,7 @@ docker-compose up -d
 #  Agent Runtime: http://localhost:3032
 ```
 
-**多阶段构建**: 基于 `node:20-alpine`，通过 [Dockerfile](Dockerfile) 构建 Skill Gateway、MCP Runtime 和 Agent Runtime 三个独立镜像，使用 [docker-compose.yml](docker-compose.yml) 编排服务依赖。
+**多阶段构建**: 基于 `node:22-alpine`，通过 [Dockerfile](Dockerfile) 构建 Skill Gateway、MCP Runtime 和 Agent Runtime 三个独立镜像，使用 [docker-compose.yml](docker-compose.yml) 编排服务依赖（含非 root / cap_drop / 只读根文件系统等加固，MCP/Agent 端口默认仅绑回环）。
 
 ---
 
@@ -432,14 +498,24 @@ docker-compose up -d
 
 ## 🔐 安全加固
 
-- **速率限制**: Token Bucket 算法，100 req/min/IP
-- **安全响应头**: `X-Content-Type-Options`, `X-Frame-Options`, `CSP`, `HSTS`
-- **请求体大小限制**: 1MB 上限
-- **沙箱隔离**: 多运行时安全沙箱，资源配额限制
-- **依赖审计**: 定期 `pnpm audit` + GitHub Security 工作流
-- **密钥管理**: 环境变量注入，无硬编码密钥
+**已落地（代码核对）：**
 
-详见 [`SECURITY.md`](SECURITY.md)
+- **认证 fail-closed**：未配置 `YYC3_API_KEYS` 时受保护端点直接 503；`timingSafeEqual` 常量时间比较（防时长侧信道）
+- **速率限制**：Token Bucket 100 req/min/键；可插拔 Redis（Lua 原子扣减），故障降级内存模式
+- **安全响应头**：`X-Content-Type-Options: nosniff` / `X-Frame-Options: DENY` / `X-XSS-Protection: 0` / Referrer-Policy / Permissions-Policy，移除 `X-Powered-By`
+- **请求体限制**：1MB 上限
+- **执行安全（S0-1）**：entry 路径收敛（防目录穿越）、环境变量白名单（宿主密钥不透传）、命令黑名单接入执行路径、超时钳制、输出 1MB 上限
+- **容器级 OS 隔离**：非 root(1001) + `no-new-privileges` + `cap_drop: ALL` + 只读根文件系统 + mem 512MB / pids 256 限额
+- **供应链**：Actions pin SHA、dependency-review 高危阻断、gitleaks 周扫、Dependabot
+- **密钥管理**：环境变量注入，无硬编码密钥
+
+**已知缺口（按计划修复，见[状态矩阵](#-实现状态矩阵)）：**
+
+- ⚠️ 限流键直接信任 `x-forwarded-for`（S1：受信代理跳数）
+- ⚠️ 响应头尚缺 CSP / HSTS（S1）；chunked 请求的 body 计数限制待补（S2）
+- ⚠️ 进程内正则黑名单是**纵深防御层而非强安全边界**；不可信技能必须运行在容器隔离配置下
+
+详见 [`SECURITY.md`](SECURITY.md) 与 [深审报告 §4.1](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)
 
 ---
 

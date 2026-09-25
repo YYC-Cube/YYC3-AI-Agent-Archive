@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.0.0] - 2026-09-26
+
+### 💥 Breaking Changes
+
+- **`registerTranslation(locale, map)` 改为深合并语义**：此前为整表替换，增量注册单个 key（如 MCP 工具 `add_translation_key`）会抹掉该 locale 的全部已有翻译；现在与现有语言包递归合并，同名叶子键以传入值为准。
+  - 迁移：若确实需要"丢弃旧表、整包替换"，请改用新增的 `replaceTranslation(locale, map)`。
+
+### ✨ Added
+
+- **`replaceTranslation(locale, map)`**：保留 v2.x 整表替换语义的逃生门。
+- **`i18n.ready: Promise<void>`**：初始 locale（浏览器自动检测场景含异步语言包懒加载）就绪承诺，首次 `t()` 前可 `await`；该承诺永不 reject。
+- `setLocale` 懒加载语言包到达时与加载窗口内已注册的键做深合并（显式注册优先），消除飞行中注册被覆盖的竞态。
+
+### 🐛 Fixed（同批 v2.4.x 线，见仓库根 CHANGELOG）
+
+- Node ≥21 环境不再采信内置 undici `navigator.language`（其镜像宿主 LANG，非用户 UI 偏好），默认语言不再随机器区域设置漂移；浏览器自动检测行为不变。
+- `formatRelativeTimestamp` 修正 timezone 被误传入 `toLocaleDateString` locales 参数位的缺陷，新增 `locale` 选项，日期回退输出不再跟随宿主 locale。
+
+### 🧪 Tests
+
+- 中/英/未设置三种 locale 环境单包 **631/631**；新增深合并/逃生门/懒加载竞态/ready 共 7 例及 locale 回归 3 例。
+
+---
+
 ## [2.3.0] - 2026-04-24
 
 ### 🎉 正式发布 (Stable Release — 文档闭环完成)

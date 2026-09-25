@@ -42,6 +42,10 @@ jobs:
         run: pnpm run test
         env:
           NODE_OPTIONS: "--no-deprecation"
+          # 显式钉住 locale：让 toLocaleDateString/Intl 等宿主机相关行为在 CI 中确定。
+          # 代码层已不依赖该假设（i18n 引擎在 Node 不自动跟随 navigator），此为纵深防御。
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
 
       - name: MCP Registry schema 校验（Task G1）
         run: node scripts/validate-mcp-registry.mjs

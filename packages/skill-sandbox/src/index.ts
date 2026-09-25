@@ -30,6 +30,13 @@
 export { SkillSandbox } from './sandbox.js';
 export { Sanitizer } from './sanitizer.js';
 export { Executor } from './executor.js';
+export {
+  PathTraversalError,
+  confineWithinRoot,
+  assertSafeRelativeEntry,
+  buildSafeEnv,
+  normalizeTimeout,
+} from './security.js';
 export type {
   SandboxRequest,
   SandboxResult,

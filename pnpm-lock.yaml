@@ -260,6 +260,9 @@ importers:
 
   packages/skill-registry:
     dependencies:
+      '@yyc3/skill-sandbox':
+        specifier: workspace:*
+        version: link:../skill-sandbox
       zod:
         specifier: ^4.5.4
         version: 4.5.4

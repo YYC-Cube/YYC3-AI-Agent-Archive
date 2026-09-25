@@ -35,6 +35,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "dependencies": {
+    "@yyc3/skill-sandbox": "workspace:*",
     "zod": "^4.5.4"
   },
   "devDependencies": {

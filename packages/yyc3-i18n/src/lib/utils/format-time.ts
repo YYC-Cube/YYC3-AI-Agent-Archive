@@ -49,6 +49,12 @@ export function formatTimeAgo(
 
 export type FormatRelativeTimestampOptions = {
   dateFallback?: boolean;
+  /**
+   * 日期回退格式化使用的 BCP-47 locale（如 "en" / "zh-CN"）。
+   * 显式传入以获得环境无关的稳定输出；缺省回退到框架默认 locale "en"，
+   * 不跟随宿主 LANG（避免同一调用在不同机器区域设置下输出不一致）。
+   */
+  locale?: string;
   timezone?: string;
   fallback?: string;
 };
@@ -87,13 +93,21 @@ export function formatRelativeTimestamp(
   }
 
   const date = new Date(timestampMs);
+  // 注意：toLocaleDateString 第一个参数是 locales（此前误传 timezone，非法 BCP-47
+  // 会抛 RangeError 并静默降级为无参调用，进而跟随宿主 LANG 输出如 "1月5日"）。
+  const dateLocale = options?.locale ?? "en";
   try {
-    return date.toLocaleDateString(options?.timezone ?? undefined, {
+    return date.toLocaleDateString(dateLocale, {
       month: "short",
       day: "numeric",
       timeZone: options?.timezone,
     });
   } catch {
-    return date.toLocaleDateString();
+    // timeZone 非法（RangeError）时丢弃时区重试，保留月份/日选项与 locale，
+    // 不退回到无参调用（无参形式既丢失格式又会跟随宿主 locale）。
+    return date.toLocaleDateString(dateLocale, {
+      month: "short",
+      day: "numeric",
+    });
   }
 }

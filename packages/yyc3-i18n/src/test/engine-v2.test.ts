@@ -107,8 +107,9 @@ describe("I18nEngine v2.0", () => {
     });
 
     it("should fallback to English when key missing in current locale", async () => {
-      // Register zh-CN with only partial translations
-      engine.registerTranslation("zh-CN", {
+      // 深合并语义下 registerTranslation 无法抹掉 beforeEach 注册的 common.health，
+      // 要构造"局部语言包缺键"场景须显式整表替换（旧语义逃生门）。
+      engine.replaceTranslation("zh-CN", {
         common: {} // Empty common section — no "health"
       } as unknown as import("../lib/types.js").TranslationMap);
 
@@ -146,6 +147,20 @@ describe("I18nEngine v2.0", () => {
       await engine.setLocale("zh-CN");
 
       expect(subscriber).toHaveBeenCalledWith("zh-CN");
+    });
+
+    it("should not auto-detect navigator locale in non-browser Node environments", () => {
+      // 回归：Node ≥21 内置 undici navigator，在中文宿主下 navigator.language = "zh-CN"。
+      // 该值镜像机器 LANG 而非用户 UI 偏好，Node/SSR/CLI 进程中不得让默认语言随之漂移。
+      vi.stubGlobal(
+        "navigator",
+        { language: "zh-CN", languages: ["zh-CN"] } as unknown as Navigator,
+      );
+      const nodeEngine = new I18nEngine();
+
+      expect(nodeEngine.getLocale()).toBe("en");
+
+      nodeEngine.destroy();
     });
   });
 
@@ -488,6 +503,110 @@ describe("I18nEngine v2.0", () => {
 
   // ============================================
   // LIFECYCLE TESTS
+  // ============================================
+  // DEEP-MERGE REGISTRATION & READY PROMISE (v3.0)
+  // ============================================
+  describe("Deep-Merge Registration", () => {
+    it("should preserve sibling keys when incrementally registering", () => {
+      const mergeEngine = new I18nEngine({ locale: "en" });
+      mergeEngine.registerTranslation("en", {
+        custom: { a: "A" },
+      } as unknown as import("../lib/types.js").TranslationMap);
+      mergeEngine.registerTranslation("en", {
+        custom: { b: "B" },
+      } as unknown as import("../lib/types.js").TranslationMap);
+
+      // 两次增量注册互补而非互斥；内置 en 语言包同样保留
+      expect(mergeEngine.t("custom.a")).toBe("A");
+      expect(mergeEngine.t("custom.b")).toBe("B");
+      expect(mergeEngine.t("common.cancel")).toBe("Cancel");
+
+      mergeEngine.destroy();
+    });
+
+    it("should deep-merge nested maps and override only the named leaf", () => {
+      const mergeEngine = new I18nEngine({ locale: "en" });
+      const originalOnline = mergeEngine.t("common.online");
+      mergeEngine.registerTranslation("en", {
+        common: { health: "H" },
+      } as unknown as import("../lib/types.js").TranslationMap);
+
+      expect(mergeEngine.t("common.health")).toBe("H");
+      // 同命名空间的兄弟键不被抹掉
+      expect(mergeEngine.t("common.online")).toBe(originalOnline);
+
+      mergeEngine.destroy();
+    });
+
+    it("should let a non-object value override an object node", () => {
+      const mergeEngine = new I18nEngine({ locale: "en" });
+      mergeEngine.registerTranslation("en", {
+        common: "flat",
+      } as unknown as import("../lib/types.js").TranslationMap);
+
+      expect(mergeEngine.t("common.health")).toBe("common.health");
+
+      mergeEngine.destroy();
+    });
+
+    it("replaceTranslation should discard the whole table (legacy escape hatch)", () => {
+      const replaceEngine = new I18nEngine({ locale: "en" });
+      expect(replaceEngine.t("common.cancel")).toBe("Cancel");
+
+      replaceEngine.replaceTranslation("en", {
+        only: { key: "K" },
+      } as unknown as import("../lib/types.js").TranslationMap);
+
+      expect(replaceEngine.t("only.key")).toBe("K");
+      // 内置表已被整体丢弃
+      expect(replaceEngine.t("common.cancel")).toBe("common.cancel");
+
+      replaceEngine.destroy();
+    });
+
+    it("should preserve keys registered while a lazy locale load is in flight", async () => {
+      const raceEngine = new I18nEngine({ locale: "en" });
+      // 触发 zh-CN 懒加载（表尚不存在），在 await 窗口内同步增量注册一个键
+      const switching = raceEngine.setLocale("zh-CN");
+      raceEngine.registerTranslation("zh-CN", {
+        race: { marker: "在飞注册" },
+      } as unknown as import("../lib/types.js").TranslationMap);
+      await switching;
+
+      // 懒加载语言包键与飞行中注册键同时存活
+      expect(raceEngine.t("common.cancel")).toBe("取消");
+      expect(raceEngine.t("race.marker")).toBe("在飞注册");
+
+      raceEngine.destroy();
+    });
+  });
+
+  describe("Ready Promise", () => {
+    it("should expose a ready promise that resolves in Node (default en)", async () => {
+      const readyEngine = new I18nEngine();
+      await expect(readyEngine.ready).resolves.toBeUndefined();
+      expect(readyEngine.getLocale()).toBe("en");
+      readyEngine.destroy();
+    });
+
+    it("should resolve after browser auto-detected locale is lazily loaded", async () => {
+      // 模拟浏览器：window 存在且 navigator 偏好 zh-CN
+      vi.stubGlobal("window", {});
+      vi.stubGlobal("navigator", {
+        language: "zh-CN",
+        languages: ["zh-CN"],
+      } as unknown as Navigator);
+
+      const browserEngine = new I18nEngine();
+      await browserEngine.ready;
+
+      expect(browserEngine.getLocale()).toBe("zh-CN");
+      expect(browserEngine.t("common.cancel")).toBe("取消");
+
+      browserEngine.destroy();
+    });
+  });
+
   // ============================================
   describe("Lifecycle Management", () => {
     it("should clean up resources on destroy", async () => {

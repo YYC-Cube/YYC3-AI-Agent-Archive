@@ -1,13 +1,19 @@
-# AI-Family 统一架构（整合后 v3 — 2026-09-02，Phase 5 生产就绪）
+# AI-Family 统一架构（整合后 v3 — 2026-09-02，数据核对 2026-09-26）
+
+> ⚠️ **成熟度说明**：资产平台面（注册/评分/图谱/doctor 门禁/供应链/容器化）已生产可用；
+> 智能运行时面（LLM 分解、Agent 工具执行、插件落盘安装）为接口完备的内存原型。
+> 逐包/逐能力状态以 [README「实现状态矩阵」](README.md#-实现状态矩阵) 为准，
+> 代码路径级证据见 [深审报告](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)（评分 75.6/C+）。
 
 | Hub | 内容 | 数量 |
-|-----|------|:---:|
+| ----- | ------ | :---: |
 | agents-hub/ai-family/ | AI Family 8位家人（docs/下重复已删除，符号链接保留） | 8 |
 | agents-hub/cowagent/ | CowAgent Python 框架（外部，→ _external/） | ~50+ |
-| skills-hub/community/ | 社区技能 | ~283 |
-| skills-hub/marketplace/ | 市场化技能 | ~121 |
-| skills-hub/ai-ml/nvidia-skills/ | NVIDIA 官方技能 | **202** |
-| skills-hub/b2b/ | B2B SDR 技能（b2b-skills 重复已删除） | 8 |
+| skills-hub/community/ | 社区技能 | **358** |
+| skills-hub/marketplace/ | 市场化技能 | **160** |
+| skills-hub/ai-ml/nvidia-skills/ | NVIDIA 官方技能 | **212** |
+| skills-hub/b2b/ | B2B SDR 技能（b2b-skills 重复已删除） | 9 |
+| skills-hub 其他领域 | dev-workflow/marketing/glm/ui-ux/social-search/yyc3 | 92 |
 | plugins-hub/official/ | 官方插件（18组重复 .mcp.json 已删除） | ~80+ |
 | plugins-hub/official/claude-code-hooks/ | Claude Code Hooks | ~55 |
 | plugins-hub/official/claude-code-mcps/ | Claude Code MCP 配置 | ~54 |
@@ -19,40 +25,49 @@
 | packages/ | TypeScript 核心包（新增 6 个包） | **13** |
 | locales/ | i18n 翻译文件（zh-CN + en） | 2 files |
 | mcp-hub/claude-prompts/ | MCP 提示词服务（整合后） | 1 |
-| docs/ | AI Family 完整文档体系 + 架构文档 | ~70 |
+| docs/ | AI Family 完整文档体系 + 架构文档 + 会话审核存档 | 85+ |
 | system prompt | docs/ 单一权威源（agents-hub 副本已删除） | 1 |
 
 ## 新增核心包 (Phase 3-5)
 
-| 包 | 阶段 | 功能 | 测试 |
-|----|------|------|:---:|
-| `@yyc3/skill-gateway` | Phase 3 | Skill Gateway API (REST/Hono) | 16 |
-| `@yyc3/conductor` | Phase 3 | 协同编排引擎 | 14 |
-| `@yyc3/plugin-marketplace` | Phase 3 | Plugin Marketplace 运行时 | 29 |
-| `@yyc3/skill-sandbox` | Phase 3 | 沙箱执行环境 (Node/Python/Shell) | 28 |
-| `@yyc3/agent-runtime` | Phase 4 | Agent 智能体运行时 | 42 |
-| `@yyc3/orchestrator` | Phase 4 | 智能编排调度器 | 24 |
-| `@yyc3/observability` | Phase 4 | 可观测性监控 | 42 |
-| `@yyc3/agent-registry` | Phase 4 | Agent 角色注册表（数据资产，非 TS 包） | — |
+> 测试数为 2026-09-26 实测（全量 1102，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
 
-## Phase 5: 生产就绪
+| 包 | 阶段 | 功能 | 测试 | 成熟度 |
+| ---- | ------ | ------ | :---: | :---: |
+| `@yyc3/skill-gateway` | Phase 3 | Skill Gateway API (REST/Hono，13 端点) | 56 | ✅ |
+| `@yyc3/conductor` | Phase 3 | 协同编排引擎（DAG/重试/超时真实，执行体靠注入） | 14 | 🟡 |
+| `@yyc3/plugin-marketplace` | Phase 3 | Plugin Marketplace 运行时（仅内存，无落盘安装） | 29 | 🔴 |
+| `@yyc3/skill-sandbox` | Phase 3 | 沙箱净化层（Node/Python/Shell；S0-1 已接线，非 OS 强边界） | 76 | 🟡 |
+| `@yyc3/agent-runtime` | Phase 4 | Agent 智能体运行时（对话注入/工具只发事件/纯内存） | 42 | 🔴 |
+| `@yyc3/orchestrator` | Phase 4 | 智能编排调度器（中文规则真实，LLM 分解未实现） | 39 | 🔴 |
+| `@yyc3/observability` | Phase 4 | 可观测性监控（logger/health 可用，metrics/tracer 待补） | 54 | 🟡 |
+| `@yyc3/agent-registry` | Phase 4 | Agent 角色注册表（数据资产，非 TS 包） | — | 📊 |
+
+## Phase 5: 生产就绪（资产平台面）
+
+> 下表状态为 2026-09-26 代码核对结果；智能运行时面的"生产就绪"宣称已收敛至 README 状态矩阵。
 
 | 能力 | 内容 | 状态 |
-|------|------|:---:|
-| 🐳 **Docker** | 多阶段构建 + docker-compose 三服务编排 | ✅ |
-| 🔄 **CI/CD** | GitHub Actions 矩阵构建 (Node 20/22) + Release | ✅ |
-| 📖 **API 文档** | OpenAPI 3.1 规范 (Skill Gateway) | ✅ |
-| 🔐 **安全加固** | 速率限制 / 安全头 / 沙箱隔离 / 密钥管理 | ✅ |
-| ⚡ **性能优化** | Tree Shaking / Bundle 分析 / 构建缓存 | ✅ |
-| 🛠️ **技能/插件** | AYNC 模板生成器 / 标准化 ID | ✅ |
+| ------ | ------ | :---: |
+| 🐳 **Docker** | 多阶段构建 + compose 三服务；S0-1 加固（非 root/cap_drop ALL/read_only/no-new-privileges/限额/回环绑定） | ✅ |
+| 🔄 **CI/CD** | GitHub Actions 矩阵构建 (Node 22/24) + Release + 三镜像冒烟 | ✅ |
+| 📖 **API 文档** | OpenAPI 3.1 规范存在，但与实现有漂移（认证描述相反/缺端点与 401/429/413） | 🟡 |
+| 🔐 **安全加固** | fail-closed 认证/限流/安全头/执行链控制点/容器隔离已落地；XFF 伪造、CSP/HSTS 缺失为已知缺口 | 🟡 |
+| ⚡ **性能优化** | Tree Shaking / Bundle 分析 / Turbo 构建缓存 | ✅ |
+| 🛠️ **技能/插件** | AYNC 模板生成器 / 标准化 ID / doctor 六检门禁 | ✅ |
 
-## 质量基线 (2026-09-02)
+## 质量基线 (2026-09-26)
 
 | 指标 | 值 |
-|------|:--:|
+| ------ | :--: |
 | TypeScript 包 | 13 |
-| 测试文件 | 46 |
-| 测试用例 | 929 |
+| 测试文件 | 56（49 TS + 7 CLI/JS） |
+| 测试用例 | **1102 全绿**（中/英 locale 双跑，2026-09-26 S1 闭环后逐包实测） |
+| doctor 门禁 | 六检 PASS（validate/dedup/score/registry/graph/example） |
+| 技能资产 | 831（0 errors / 0 warnings，26 类别） |
 | Build 通过率 | 11/11 |
-| Typecheck 通过率 | 9/9 |
-| ESLint 诊断 | 0 |
+| Typecheck 通过率 | 14/14 |
+| ESLint | 0 error |
+| i18n 框架 | @yyc3/i18n-core **3.0.0**（631 用例；深合并注册 + `ready` 承诺） |
+
+> 历史基线（2026-09-02：46 文件 / 929 用例 / 9 包 typecheck）保留于 git 历史。

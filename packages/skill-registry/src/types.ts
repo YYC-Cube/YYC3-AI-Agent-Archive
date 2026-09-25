@@ -139,8 +139,14 @@ export interface SkillExecutionContext {
   userId?: string;
   /** 工作目录 */
   cwd?: string;
-  /** 环境变量覆盖 */
+  /** 环境变量覆盖（仅这些 key 会显式注入技能进程） */
   env?: Record<string, string>;
+  /**
+   * 允许从宿主透传给技能进程的环境变量白名单。
+   * 不传时使用执行器内置最小白名单（PATH/HOME/LANG 等运行必需项），
+   * 宿主上的 API Key/Token 等不会进入技能进程。
+   */
+  allowedEnv?: string[];
   /** 超时时间（毫秒） */
   timeout?: number;
   /** 是否允许降级 */

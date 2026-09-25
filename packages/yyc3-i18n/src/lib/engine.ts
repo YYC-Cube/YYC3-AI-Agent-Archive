@@ -57,6 +57,14 @@ export class I18nEngine {
   // New v2.0 features
   public readonly cache: LRUCache<string>;
   public readonly plugins: PluginManager;
+
+  /**
+   * 初始 locale 就绪承诺：浏览器自动检测到非 en 时内含一次异步语言包懒加载。
+   * 消费者在首次调用 t() 前 `await i18n.ready` 可消除"构造后立即翻译拿到 en"的竞态；
+   * Node 环境不自动检测 navigator，通常构造即就绪。该承诺永不 reject（加载失败内部消化）。
+   */
+  public readonly ready: Promise<void>;
+
   private debugMode = false;
   private errorHandler?: I18nEngineConfig["onError"];
   private missingKeyHandler?: I18nEngineConfig["missingKeyHandler"];
@@ -83,8 +91,8 @@ export class I18nEngine {
     this.missingKeyHandler = config.missingKeyHandler;
     this.debugMode = config.debug ?? false;
 
-    // Load initial locale
-    this.loadInitialLocale();
+    // Load initial locale（浏览器可能触发异步懒加载，通过 ready 承诺对外暴露就绪状态）
+    this.ready = this.loadInitialLocale();
 
     if (this.debugMode) {
       logger.info("🌐 I18n Engine v2.0 Initialized");
@@ -122,19 +130,26 @@ export class I18nEngine {
       return saved;
     }
 
-    const detected = resolveNavigatorLocale();
+    // 自动检测仅在浏览器/DOM 环境采信 navigator：Node ≥21 内置的 undici navigator
+    // 其 language 镜像宿主 LANG/LC_ALL（如中文机器返回 zh-CN），并非用户 UI 偏好，
+    // 在 Node/SSR/CLI/测试进程中采信会让默认语言随机器区域设置漂移（确定性缺陷）。
+    // Node 侧需要跟随系统语言时，请显式 setLocale() 或使用 detectSystemLocale()。
+    const detected =
+      typeof window !== "undefined" ? resolveNavigatorLocale() : null;
 
     return detected ?? DEFAULT_LOCALE;
   }
 
-  private loadInitialLocale(): void {
+  private loadInitialLocale(): Promise<void> {
     const initialLocale = this.resolveInitialLocale();
     if (initialLocale === DEFAULT_LOCALE) {
       this.state.locale = DEFAULT_LOCALE;
-      return;
+      return Promise.resolve();
     }
 
-    void this.setLocale(initialLocale);
+    // setLocale 内部已消化语言包加载错误（不会 reject）；再兜一层，
+    // 确保 ready 永不产生 unhandled rejection，消费者不 await 也安全。
+    return this.setLocale(initialLocale).catch(() => { });
   }
 
   public getLocale(): Locale {
@@ -159,7 +174,12 @@ export class I18nEngine {
           this.handleError(error, { key: "", locale });
           return;
         }
-        this.state.translations[locale] = translation;
+        // 懒加载等待期间可能已有 registerTranslation 增量注册（显式覆盖优先），
+        // 直接赋值会抹掉它们——以语言包为基底做深合并，保住飞行中注册的键。
+        const registeredWhileLoading = this.state.translations[locale];
+        this.state.translations[locale] = registeredWhileLoading
+          ? this.mergeTranslations(translation, registeredWhileLoading)
+          : translation;
       } catch (e) {
         const error = e instanceof Error ? e : new Error(String(e));
         this.handleError(error, { key: "", locale });
@@ -184,13 +204,75 @@ export class I18nEngine {
     }
   }
 
+  /**
+   * 增量注册翻译：与该 locale 已有语言包【深合并】，同名叶子键以传入值为准
+   * （传入非对象值会整体覆盖同名对象节点）。
+   *
+   * 典型用途是增量补丁：注册单个 key（如 MCP `add_translation_key`）不再抹掉整包语言。
+   * 如需"丢弃旧表、整包替换"的旧语义，请使用 {@link replaceTranslation}。
+   */
   public registerTranslation(locale: Locale, map: TranslationMap): void {
+    this.state.translations[locale] = this.mergeTranslations(
+      this.state.translations[locale],
+      map,
+    );
+    this.cache.clear();
+
+    if (this.debugMode) {
+      logger.debug(`📦 Translation merged for locale: ${locale}`);
+    }
+  }
+
+  /**
+   * 整表替换翻译：丢弃该 locale 已注册的全部键，以 `map` 作为新的语言包。
+   * 这是 v3.0 之前 `registerTranslation` 的旧语义，作为逃生门保留。
+   */
+  public replaceTranslation(locale: Locale, map: TranslationMap): void {
     this.state.translations[locale] = map;
     this.cache.clear();
 
     if (this.debugMode) {
-      logger.debug(`📦 Translation registered for locale: ${locale}`);
+      logger.debug(`📦 Translation replaced for locale: ${locale}`);
     }
+  }
+
+  /**
+   * 翻译表深合并：以 base 为基底、overrides 为显式覆盖；
+   * 两侧同为普通对象时递归合并，否则 overrides 的值整体胜出
+   * （字符串/数组/null 等叶子值覆盖对象节点，保证结构纠偏能力）。
+   */
+  private mergeTranslations(
+    base: TranslationMap | undefined,
+    overrides: TranslationMap,
+  ): TranslationMap {
+    return this.deepMergeTranslation(
+      (base ?? {}) as Record<string, unknown>,
+      overrides as Record<string, unknown>,
+    ) as TranslationMap;
+  }
+
+  private isPlainRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === "object" && value !== null && !Array.isArray(value);
+  }
+
+  private deepMergeTranslation(
+    base: Record<string, unknown>,
+    overrides: Record<string, unknown>,
+  ): Record<string, unknown> {
+    const output: Record<string, unknown> = { ...base };
+
+    for (const key of Object.keys(overrides)) {
+      const baseValue = output[key];
+      const overrideValue = overrides[key];
+
+      if (this.isPlainRecord(baseValue) && this.isPlainRecord(overrideValue)) {
+        output[key] = this.deepMergeTranslation(baseValue, overrideValue);
+      } else {
+        output[key] = overrideValue;
+      }
+    }
+
+    return output;
   }
 
   public subscribe(sub: Subscriber): () => void {
