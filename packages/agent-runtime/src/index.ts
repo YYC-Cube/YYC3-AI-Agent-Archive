@@ -5,6 +5,17 @@
  */
 export { AgentRuntime } from './runtime.js';
 export { AI_FAMILY_PROFILES, getProfileById, getProfileByName, getProfilesByTier } from './family-registry.js';
+export { createAgentServerApp, type AgentServerOptions } from './server-app.js';
+export {
+  agentApiKeyAuth,
+  agentBodySizeLimit,
+  agentRateLimiter,
+  agentSecurityHeaders,
+  apiKeysFromEnv,
+  resolveClientIp,
+  trustedProxyHopsFromEnv,
+  type MemoryRateLimitOptions,
+} from './server-security.js';
 export type {
   Agent,
   AgentProfile,

@@ -95,7 +95,7 @@ services:
       retries: 3
       start_period: 10s
 
-  # ---- Agent Runtime (智能体运行时，无独立认证：不直接暴露局域网) ----
+  # ---- Agent Runtime (智能体运行时，/api 需 API Key；端口仅发布宿主回环) ----
   agent-runtime:
     build:
       context: .
@@ -105,7 +105,7 @@ services:
     user: "1001:1001"
     <<: *yyc3-hardening
     ports:
-      # 仅绑回环：宿主外不可达；容器间经 yyc3-network 互访
+      # 仅绑回环：宿主外不可达；容器间经 yyc3-network 互访（需 API Key）
       - "127.0.0.1:${AGENT_PORT:-3032}:3032"
     environment:
       - NODE_ENV=production
@@ -113,6 +113,15 @@ services:
       - GATEWAY_URL=http://skill-gateway:3030
       - MCP_RUNTIME_URL=http://mcp-runtime:3031
       - LOG_LEVEL=${LOG_LEVEL:-info}
+      # 应用默认绑 127.0.0.1；容器网络命名空间内须显式监听 0.0.0.0
+      # 才能经 docker 端口映射与 yyc3-network 互访（对外暴露由上面回环绑定收口）
+      - AGENT_HOST=0.0.0.0
+      # fail-closed：未设置时 /api 返回 503（/health 不受影响）
+      - YYC3_API_KEYS=${YYC3_API_KEYS:-}
+      # 置于受信反向代理之后时设置代理层数（默认 0，不信任 XFF）
+      - YYC3_TRUSTED_PROXY_HOPS=${YYC3_TRUSTED_PROXY_HOPS:-0}
+      # 可选持久化：挂载卷内 JSON 文件，智能体状态重启可恢复
+      - AGENT_STORE_FILE=${AGENT_STORE_FILE:-}
     depends_on:
       skill-gateway:
         condition: service_healthy

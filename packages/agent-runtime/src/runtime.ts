@@ -12,13 +12,13 @@ import { EventEmitter } from 'eventemitter3';
 import type {
   Agent,
   AgentProfile,
-  AgentStatus,
   AgentRuntimeConfig,
   AgentRuntimeEvents,
+  AgentStatus,
+  FamilyMessage,
   Message,
   MessageRole,
   ToolCall,
-  FamilyMessage,
 } from './types.js';
 
 const DEFAULT_CONFIG: AgentRuntimeConfig = {
@@ -30,6 +30,21 @@ const DEFAULT_CONFIG: AgentRuntimeConfig = {
 
 let instanceCounter = 0;
 
+/** Agent 内存 Map 的 JSON 序列化形态 */
+interface SerializedAgent extends Omit<Agent, 'memory'> {
+  memoryEntries: [string, unknown][];
+}
+
+function serializeAgent(agent: Agent): SerializedAgent {
+  const { memory, ...rest } = agent;
+  return { ...rest, memoryEntries: Array.from(memory.entries()) };
+}
+
+function deserializeAgent(raw: SerializedAgent): Agent {
+  const { memoryEntries, ...rest } = raw;
+  return { ...rest, memory: new Map(memoryEntries ?? []) };
+}
+
 export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
   readonly config: AgentRuntimeConfig;
   private agents = new Map<string, Agent>();
@@ -38,6 +53,54 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
   constructor(config: Partial<AgentRuntimeConfig> = {}) {
     super();
     this.config = { ...DEFAULT_CONFIG, ...config };
+  }
+
+  /** 写穿持久化：fire-and-forget，失败仅告警不阻断主流程；写入纳入 pending 集合供 flushPending 等待 */
+  private pendingWrites = new Set<Promise<unknown>>();
+
+  private persist(agent: Agent): void {
+    const store = this.config.store;
+    if (!store) return;
+    const write = store
+      .put(`agent:${agent.id}`, JSON.stringify(serializeAgent(agent)))
+      .catch((err: unknown) => {
+        console.warn(`[AgentRuntime] persist '${agent.id}' failed:`, err instanceof Error ? err.message : err);
+      })
+      .finally(() => {
+        this.pendingWrites.delete(write);
+      });
+    this.pendingWrites.add(write);
+  }
+
+  /** 等待全部在飞持久化写入完成（优雅停机/测试确定性断言用） */
+  async flushPending(): Promise<void> {
+    while (this.pendingWrites.size > 0) {
+      await Promise.all(Array.from(this.pendingWrites));
+    }
+  }
+
+  /**
+   * 从持久化存储恢复智能体（启动时调用一次）。
+   * 已在内存中的同名智能体不会被覆盖；返回恢复数量。
+   */
+  async restore(): Promise<number> {
+    const store = this.config.store;
+    if (!store) return 0;
+    const keys = await store.keys('agent:');
+    let restored = 0;
+    for (const key of keys) {
+      if (this.agents.has(key.slice('agent:'.length))) continue;
+      try {
+        const raw = await store.get(key);
+        if (!raw) continue;
+        const agent = deserializeAgent(JSON.parse(raw) as SerializedAgent);
+        this.agents.set(agent.id, agent);
+        restored += 1;
+      } catch (err) {
+        console.warn(`[AgentRuntime] restore '${key}' failed:`, err instanceof Error ? err.message : err);
+      }
+    }
+    return restored;
   }
 
   /** 创建智能体实例 */
@@ -59,6 +122,7 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
     };
 
     this.agents.set(agentId, agent);
+    this.persist(agent);
     this.emit('agent:created', agent);
 
     if (this.config.autoHeartbeat) {
@@ -73,6 +137,7 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
     this.stopHeartbeat(agentId);
     const deleted = this.agents.delete(agentId);
     if (deleted) {
+      this.config.store?.delete(`agent:${agentId}`).catch(() => { });
       this.emit('agent:destroyed', agentId);
     }
     return deleted;
@@ -101,6 +166,7 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
     const from = agent.status;
     agent.status = status;
     agent.lastActiveAt = new Date().toISOString();
+    this.persist(agent);
     this.emit('agent:status', agentId, from, status);
     return true;
   }
@@ -136,6 +202,7 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
       agent.messages = agent.messages.slice(-this.config.maxMessages);
     }
 
+    this.persist(agent);
     this.emit('message:sent', message);
     this.emit('message:received', message);
 
@@ -167,6 +234,7 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
     agent.messages.push(message);
     agent.lastActiveAt = new Date().toISOString();
 
+    this.persist(agent);
     this.emit('message:sent', message);
     return message;
   }
@@ -219,6 +287,7 @@ export class AgentRuntime extends EventEmitter<AgentRuntimeEvents> {
     const agent = this.agents.get(agentId);
     if (!agent) return false;
     agent.memory.set(key, value);
+    this.persist(agent);
     return true;
   }
 

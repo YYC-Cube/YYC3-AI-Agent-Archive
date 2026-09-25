@@ -388,6 +388,16 @@ describe('SkillGateway', () => {
       expect(res.headers.get('referrer-policy')).toBe('strict-origin-when-cross-origin');
     });
 
+    it('应包含 CSP 与 HSTS 头（P2 补齐）', async () => {
+      const res = await gateway.app.request('/api/v1/health');
+      expect(res.headers.get('content-security-policy')).toBe(
+        "default-src 'none'; frame-ancestors 'none'; base-uri 'none'",
+      );
+      expect(res.headers.get('strict-transport-security')).toBe(
+        'max-age=31536000; includeSubDomains',
+      );
+    });
+
     it('不应暴露服务端标识', async () => {
       const res = await gateway.app.request('/api/v1/health');
       expect(res.headers.get('x-powered-by')).toBeNull();
@@ -419,6 +429,33 @@ describe('SkillGateway', () => {
         body: largeBody,
       });
       expect(res.status).toBe(413);
+    });
+
+    it('chunked（无 Content-Length）超限流式计数返回 413 而非绕过（P2）', async () => {
+      // 独立实例：避免共享 gateway 的限流桶已被前序测试耗尽导致 429 干扰
+      const fresh = new SkillGateway(
+        { registry, loader: new SkillLoader(registry, { rootDir: './skills' }), executor: new SkillExecutor(registry) },
+        { apiKeys: ['test-key'] },
+      );
+      // 构造无 Content-Length 的流式请求体（2MB，分块推送）
+      const chunk = 'x'.repeat(64 * 1024);
+      const stream = new ReadableStream<Uint8Array>({
+        start(controller) {
+          for (let i = 0; i < 32; i++) {
+            controller.enqueue(new TextEncoder().encode(chunk));
+          }
+          controller.close();
+        },
+      });
+      const req = new Request('http://localhost/api/v1/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-API-Key': 'test-key' },
+        body: stream,
+        duplex: 'half',
+      } as RequestInit);
+      const res = await fresh.app.request(req);
+      expect(res.status).toBe(413);
+      expect((await res.json()).error.code).toBe('PAYLOAD_TOO_LARGE');
     });
 
     it('XFF 伪造不应影响直连场景的限流键（默认 hops=0）', async () => {

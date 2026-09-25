@@ -10,15 +10,17 @@ import '../context.js';
 import { skillExecuteSchema, mcpCallSchema } from '../schemas.js';
 import type { ApiResponse, SkillExecuteRequest, SkillExecuteResult } from '../types.js';
 import type { SkillExecutionContext } from '@yyc3/skill-registry';
+import { PayloadTooLargeError } from '../middleware/security.js';
 
 export const executeRoutes = new Hono();
 
-/** 安全解析 JSON body：非法 JSON / null 返回 null，调用方转 400 */
+/** 安全解析 JSON body：非法 JSON / null 返回 null，调用方转 400；计数流超限上抛 413 */
 async function safeJson(c: { req: { json: () => Promise<unknown> } }): Promise<unknown | null> {
   try {
     const raw = await c.req.json();
     return raw ?? null;
-  } catch {
+  } catch (err) {
+    if (err instanceof PayloadTooLargeError) throw err;
     return null;
   }
 }

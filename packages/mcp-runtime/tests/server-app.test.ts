@@ -124,13 +124,40 @@ describe('MCP Runtime 独立服务安全（P1-2）', () => {
       expect(res.status).toBe(413);
       expect((await res.json()).error.code).toBe('PAYLOAD_TOO_LARGE');
     });
+
+    it('chunked（无 Content-Length）超限流式计数返回 413 而非绕过（P2）', async () => {
+      const chunk = 'x'.repeat(64 * 1024);
+      const stream = new ReadableStream<Uint8Array>({
+        start(controller) {
+          for (let i = 0; i < 32; i++) {
+            controller.enqueue(new TextEncoder().encode(chunk));
+          }
+          controller.close();
+        },
+      });
+      const req = new Request('http://localhost/api/v1/tools/call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-API-Key': KEY },
+        body: stream,
+        duplex: 'half',
+      } as RequestInit);
+      const res = await app.request(req);
+      expect(res.status).toBe(413);
+      expect((await res.json()).error.code).toBe('PAYLOAD_TOO_LARGE');
+    });
   });
 
   describe('安全头与限流', () => {
-    it('响应包含安全头且不暴露服务端标识', async () => {
+    it('响应包含安全头（含 CSP/HSTS）且不暴露服务端标识', async () => {
       const res = await app.request('/health');
       expect(res.headers.get('x-content-type-options')).toBe('nosniff');
       expect(res.headers.get('x-frame-options')).toBe('DENY');
+      expect(res.headers.get('content-security-policy')).toBe(
+        "default-src 'none'; frame-ancestors 'none'; base-uri 'none'",
+      );
+      expect(res.headers.get('strict-transport-security')).toBe(
+        'max-age=31536000; includeSubDomains',
+      );
       expect(res.headers.get('x-powered-by')).toBeNull();
     });
 

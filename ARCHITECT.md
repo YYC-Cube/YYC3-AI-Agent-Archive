@@ -30,17 +30,18 @@
 
 ## 新增核心包 (Phase 3-5)
 
-> 测试数为 2026-09-26 实测（全量 1135，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
+> 测试数为 2026-09-26 实测（全量 1184，中/英 locale 双跑）；成熟度图例：✅生产可用 🟡部分可用/纵深防御 🔴内存原型 📊数据资产。
 
 | 包 | 阶段 | 功能 | 测试 | 成熟度 |
 | ---- | ------ | ------ | :---: | :---: |
-| `@yyc3/skill-gateway` | Phase 3 | Skill Gateway API (REST/Hono，13 端点；XFF 受信跳数 + Zod 边界) | 61 | ✅ |
+| `@yyc3/skill-gateway` | Phase 3 | Skill Gateway API (REST/Hono，13 端点；XFF 受信跳数 + Zod 边界 + chunked 流式计数 + CSP/HSTS) | 63 | ✅ |
 | `@yyc3/conductor` | Phase 3 | 协同编排引擎（DAG/重试/超时真实，执行体靠注入） | 14 | 🟡 |
 | `@yyc3/plugin-marketplace` | Phase 3 | Plugin Marketplace 运行时（仅内存，无落盘安装） | 29 | 🔴 |
 | `@yyc3/skill-sandbox` | Phase 3 | 沙箱净化层（Node/Python/Shell；S0-1 已接线，非 OS 强边界） | 76 | 🟡 |
-| `@yyc3/agent-runtime` | Phase 4 | Agent 智能体运行时（对话注入/工具只发事件/纯内存） | 42 | 🔴 |
+| `@yyc3/agent-runtime` | Phase 4 | Agent 智能体运行时（3032 同构收敛：fail-closed 认证/限流/安全头 + 可选 Store 持久化；对话注入/工具只发事件） | 65 | � |
 | `@yyc3/orchestrator` | Phase 4 | 智能编排调度器（中文规则真实，LLM 分解未实现） | 39 | 🔴 |
 | `@yyc3/observability` | Phase 4 | 可观测性监控（histogram 累计桶+_sum/_count+labels 分区；tracer OTLP exporter） | 61 | 🟡 |
+| `@yyc3/store` | Phase 5 | 持久化抽象层（Store 接口 + Memory/File 原子写/Redis lazy 三适配器） | 23 | ✅ |
 | `@yyc3/agent-registry` | Phase 4 | Agent 角色注册表（数据资产，非 TS 包） | — | 📊 |
 | `@yyc3/skill-registry` | Phase 5 | Skill 注册中心（loader 默认接 validator，与 doctor 同口径；P1-3） | 81 | ✅ |
 
@@ -61,9 +62,9 @@
 
 | 指标 | 值 |
 | ------ | :--: |
-| TypeScript 包 | 13 |
-| 测试文件 | 57（50 TS + 7 CLI/JS） |
-| 测试用例 | **1135 全绿**（中/英 locale 双跑，2026-09-26 S1 observability 修正后逐包实测） |
+| TypeScript 包 | 14 |
+| 测试文件 | 58（51 TS + 7 CLI/JS） |
+| 测试用例 | **1184 全绿**（中/英 locale 双跑，2026-09-26 S1+P2 收口后逐包实测） |
 | doctor 门禁 | 六检 PASS（validate/dedup/score/registry/graph/example） |
 | 技能资产 | 831（0 errors / 0 warnings，26 类别） |
 | Build 通过率 | 11/11 |

@@ -7,7 +7,7 @@
 
 - **定位**：企业级 AI Agent 资产归档平台（pnpm Monorepo），汇聚 Skill / Agent / Plugin / MCP / Tool 五类资产
 - **技术栈**：TypeScript 5.7+（核心包）、Rust（yyc3-engine / agent-browser）、Node ≥ 20、pnpm ≥ 9
-- **版本**: v2.2.0 | **核心包**: 13 | **测试**: 929 | **Build**: 11/11
+- **版本**: v2.7.0 | **核心包**: 14 | **测试**: 1184 | **Build**: 12/12
 - **语言约定**：文档与注释以中文为主，代码标识符用英文 kebab-case
 
 ## 目录职责（修改前先确认归属）
@@ -24,6 +24,7 @@
 | `packages/orchestrator` | 智能编排调度器（LLM 分解/多策略调度） | ✅ |
 | `packages/plugin-marketplace` | Plugin Marketplace 运行时（注册/激活/依赖） | ✅ |
 | `packages/observability` | 可观测性监控（日志/指标/链路追踪/健康检查） | ✅ |
+| `packages/store` | 持久化抽象层（Store 接口 + Memory/File/Redis 适配器） | ✅ |
 | `packages/yyc3-cli` | `yyc3` CLI（skills build/validate/dedup/stats/naming） | ✅ |
 | `packages/yyc3-i18n` | i18n 框架（独立成熟包，谨慎改动） | ⚠️ |
 | `packages/@yyc3/icons` | Lucide 图标子集 | ❌ |

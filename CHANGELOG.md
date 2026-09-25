@@ -4,6 +4,15 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [Unreleased]
 
+### S1 收尾后 P2 池首批（2026-09-26）
+
+- **P2 chunked body 实际字节计数（gateway 1.3.0 + mcp-runtime 1.4.0）**：请求体限制原只校验 `Content-Length`，chunked 传输直接绕过；现包装请求体为计数流（累计超 1MB 即取消上游并报错），经 `safeJson` re-throw + onError 映射为 413 `PAYLOAD_TOO_LARGE`（三服务同一契约）
+- **P2 CSP/HSTS 安全头补齐（gateway + mcp-runtime + agent-runtime）**：新增 `Content-Security-Policy: default-src 'none'; frame-ancestors 'none'; base-uri 'none'`（纯 JSON API 零前端资源）与 `Strict-Transport-Security: max-age=31536000; includeSubDomains`（明文传输下 UA 按规范忽略本头，无条件发送安全）
+- **P2 Store 持久化抽象层（新包 @yyc3/store 1.0.0，23 用例）**：`Store` 接口（get/put/delete/keys/clear/close）+ 三适配器——`MemoryStore`（测试/默认）、`FileStore`（单文件 JSON、tmp+rename 原子写、防抖落盘、懒加载单例 promise 防并发乱序、损坏快照视为空库）、`RedisStore`（lazy ioredis + SCAN 游标遍历 + 失败降级）；`createStoreFromEnv()` 按 `REDIS_URL`/`STORE_FILE`/`STORE_MEMORY` 环境选择
+- **P2 agent-runtime 3032 同构收敛（1.1.0 → 1.2.0，42→65 用例）**：复刻第十六章 mcp-runtime 模式——默认绑定 127.0.0.1（`AGENT_HOST` 可覆盖）、fail-closed API Key 认证（`YYC3_API_KEYS`，未配置 /api 503；/health 与 / 公开）、内存 Token Bucket 限流 + XFF 受信跳数、安全头（含 CSP/HSTS）、请求体限制（含 chunked 计数）、App 工厂化（`createAgentServerApp`）便于测试、POST 边界校验（非法 JSON/缺 profileName→400）；新增 `GET /api/v1/agents/:id`
+- **P2 agent 会话持久化接线**：`AgentRuntimeConfig.store?: Store`——创建/状态/消息/内存写穿落盘，`restore()` 启动恢复，`flushPending()` 等待在飞写入（优雅停机）；`AGENT_STORE_FILE` 环境变量启用（compose 透传，挂载卷内 JSON 重启可恢复）；"agent 会话重启即失"闭环
+- compose agent-runtime 补 `AGENT_HOST=0.0.0.0`/`YYC3_API_KEYS`/`YYC3_TRUSTED_PROXY_HOPS`/`AGENT_STORE_FILE`；release.yml 冒烟升级 9/9（新增"无凭据 /api 必须被拒"断言，认证后请求带 key）
+
 ## [2.7.0] - 2026-09-26
 
 ### 版本主题：Security-Hardened + Registry Ecosystem（安全纵深 + 资产生态）

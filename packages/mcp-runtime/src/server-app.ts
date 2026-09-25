@@ -11,6 +11,7 @@ import {
   mcpBodySizeLimit,
   mcpRateLimiter,
   mcpSecurityHeaders,
+  PayloadTooLargeError,
 } from './server-security.js';
 
 export interface McpServerOptions {
@@ -23,11 +24,12 @@ export interface McpServerOptions {
   rateLimitMax?: number;
 }
 
-/** 安全解析 JSON：非法 JSON / null 返回 null（调用方转 400） */
+/** 安全解析 JSON：非法 JSON / null 返回 null（调用方转 400）；计数流超限上抛 413 */
 async function safeJson(c: { req: { json: () => Promise<unknown> } }): Promise<unknown | null> {
   try {
     return (await c.req.json()) ?? null;
-  } catch {
+  } catch (err) {
+    if (err instanceof PayloadTooLargeError) throw err;
     return null;
   }
 }
@@ -39,6 +41,13 @@ export function createMcpServerApp(
   const app = new Hono();
 
   app.onError((err, c) => {
+    // chunked 计数流超限：映射为 413（而非 500）
+    if (err instanceof PayloadTooLargeError) {
+      return c.json(
+        { ok: false, error: { code: 'PAYLOAD_TOO_LARGE', message: err.message } },
+        413,
+      );
+    }
     const message = err instanceof Error ? err.message : 'Internal Server Error';
     return c.json({ ok: false, error: { code: 'INTERNAL_ERROR', message } }, 500);
   });

@@ -1,15 +1,15 @@
 /**
- * MCP Runtime 独立服务 — 安全中间件
+ * Agent Runtime 独立服务 — 安全中间件（P2 同构收敛）
  *
- * 依赖方向约束：skill-gateway → mcp-runtime（不可反向），故不能直接复用
- * gateway 的 middleware 包。本模块与其保持【契约一致】：
+ * 与 skill-gateway / mcp-runtime 保持【契约一致】（依赖方向约束：不可互相导入）：
  * - 同一环境变量 YYC3_API_KEYS / YYC3_TRUSTED_PROXY_HOPS
  * - 同一凭据携带方式（Authorization: Bearer / X-API-Key）
  * - 同一错误码（AUTH_SERVICE_DISABLED 503 / UNAUTHORIZED 401 / FORBIDDEN 403）
  * - 同一 fail-closed 策略与时延恒定比较
+ * - 同一请求体限制（Content-Length 快速拒绝 + chunked 流式计数）
+ * - 同一安全头集合（含 CSP/HSTS）
  *
- * 独立部署的 MCP 服务无"公开发现端点"需求：/health 公开（容器健康探测），
- * 其余 /api 路径（含 GET tools/list）一律要求认证。
+ * /health 与 / 公开（容器健康探测），其余路径一律要求认证。
  */
 import type { MiddlewareHandler } from 'hono';
 import { timingSafeEqual } from 'node:crypto';
@@ -46,10 +46,10 @@ function extractKey(headers: Headers): string | undefined {
 }
 
 /**
- * fail-closed API Key 认证：保护除 /health 外的全部路径。
+ * fail-closed API Key 认证：保护除 /health 与 / 外的全部路径。
  * 未配置任何 key 时返回 503（服务不可用），而非静默放行。
  */
-export function mcpApiKeyAuth(apiKeys: string[]): MiddlewareHandler {
+export function agentApiKeyAuth(apiKeys: string[]): MiddlewareHandler {
   const keys = apiKeys.filter((k) => k.length > 0);
 
   return async (c, next) => {
@@ -64,7 +64,7 @@ export function mcpApiKeyAuth(apiKeys: string[]): MiddlewareHandler {
         ok: false,
         error: {
           code: 'AUTH_SERVICE_DISABLED',
-          message: 'MCP Runtime 未配置 API Key（YYC3_API_KEYS），独立服务端点已禁用',
+          message: 'Agent Runtime 未配置 API Key（YYC3_API_KEYS），独立服务端点已禁用',
         },
       });
     }
@@ -91,10 +91,10 @@ export function mcpApiKeyAuth(apiKeys: string[]): MiddlewareHandler {
 }
 
 // ----------------------------------------------------------------
-// 安全头
+// 安全头（含 CSP/HSTS，与 gateway/mcp 同契约）
 // ----------------------------------------------------------------
 
-export function mcpSecurityHeaders(): MiddlewareHandler {
+export function agentSecurityHeaders(): MiddlewareHandler {
   return async (c, next) => {
     await next();
     c.header('X-Content-Type-Options', 'nosniff');
@@ -102,7 +102,7 @@ export function mcpSecurityHeaders(): MiddlewareHandler {
     c.header('X-XSS-Protection', '0');
     c.header('Referrer-Policy', 'strict-origin-when-cross-origin');
     c.header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-    // CSP：纯 JSON API 不加载任何前端资源（P2 补齐）
+    // CSP：纯 JSON API 不加载任何前端资源
     c.header('Content-Security-Policy', "default-src 'none'; frame-ancestors 'none'; base-uri 'none'");
     // HSTS：TLS 终止代理部署时强制 HTTPS（明文下 UA 按规范忽略本头，无条件发送安全）
     c.header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
@@ -164,7 +164,7 @@ function wrapBodyWithLimit(raw: Request, maxBytes: number): Request {
   } as RequestInit);
 }
 
-export function mcpBodySizeLimit(maxBytes = 1024 * 1024): MiddlewareHandler {
+export function agentBodySizeLimit(maxBytes = 1024 * 1024): MiddlewareHandler {
   return async (c, next) => {
     const contentLength = Number(c.req.header('content-length') || 0);
     if (contentLength > maxBytes) {
@@ -177,7 +177,6 @@ export function mcpBodySizeLimit(maxBytes = 1024 * 1024): MiddlewareHandler {
         },
       });
     }
-    // chunked 无 Content-Length：包装请求体为计数流，超限在消费时中断（P2 补齐）
     if (c.req.raw.body) {
       Object.defineProperty(c.req, 'raw', {
         value: wrapBodyWithLimit(c.req.raw, maxBytes),
@@ -189,7 +188,7 @@ export function mcpBodySizeLimit(maxBytes = 1024 * 1024): MiddlewareHandler {
 }
 
 // ----------------------------------------------------------------
-// 受信代理跳数解析（与 gateway resolveClientIp 同契约）
+// 受信代理跳数解析（与 gateway/mcp resolveClientIp 同契约）
 // ----------------------------------------------------------------
 
 export function resolveClientIp(
@@ -217,7 +216,7 @@ export function trustedProxyHopsFromEnv(raw: string | undefined): number {
 }
 
 // ----------------------------------------------------------------
-// 内存 Token Bucket 限流（独立服务单机部署足够；分布式需求走 gateway 侧 Redis）
+// 内存 Token Bucket 限流（独立服务单机部署足够；分布式需求走 Redis Store）
 // ----------------------------------------------------------------
 
 interface Bucket {
@@ -231,7 +230,7 @@ export interface MemoryRateLimitOptions {
   trustedProxyHops?: number;
 }
 
-export function mcpRateLimiter(options: MemoryRateLimitOptions): MiddlewareHandler {
+export function agentRateLimiter(options: MemoryRateLimitOptions): MiddlewareHandler {
   const { windowMs, maxRequests, trustedProxyHops = 0 } = options;
   const buckets = new Map<string, Bucket>();
 

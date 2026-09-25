@@ -2,6 +2,7 @@
  * Agent Runtime — 类型定义
  * @module @yyc3/agent-runtime
  */
+import type { Store } from '@yyc3/store';
 
 /** 智能体状态 */
 export type AgentStatus = 'idle' | 'thinking' | 'acting' | 'waiting' | 'error' | 'offline';
@@ -106,6 +107,11 @@ export interface AgentRuntimeConfig {
   autoHeartbeat: boolean;
   /** 心跳间隔(毫秒) */
   heartbeatInterval: number;
+  /**
+   * 可选持久化存储（P2）：提供后智能体/会话写穿落盘，
+   * restore() 可在重启后恢复（Agent 内存 Map 以 entries 序列化）。
+   */
+  store?: Store;
 }
 
 /** 运行时事件 */

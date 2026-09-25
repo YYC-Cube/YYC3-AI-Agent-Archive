@@ -98,12 +98,12 @@ export function rateLimiter(config: RateLimitConfig = {
     const key = keyGenerator
       ? keyGenerator(c)
       : resolveClientIp(
-          {
-            'x-forwarded-for': c.req.header('x-forwarded-for'),
-            'x-real-ip': c.req.header('x-real-ip'),
-          },
-          trustedProxyHops,
-        );
+        {
+          'x-forwarded-for': c.req.header('x-forwarded-for'),
+          'x-real-ip': c.req.header('x-real-ip'),
+        },
+        trustedProxyHops,
+      );
 
     let bucket: { tokens: number; lastRefill: number };
     try {
@@ -164,6 +164,10 @@ export function securityHeaders(): MiddlewareHandler {
     c.header('Referrer-Policy', 'strict-origin-when-cross-origin');
     // 权限策略
     c.header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+    // CSP：纯 JSON API 不加载任何前端资源（P2 补齐）
+    c.header('Content-Security-Policy', "default-src 'none'; frame-ancestors 'none'; base-uri 'none'");
+    // HSTS：经 TLS 终止代理部署时强制 HTTPS（RFC 6797 规定明文传输下 UA 忽略本头，无条件发送安全）
+    c.header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
     // 移除服务端标识
     c.res.headers.delete('X-Powered-By');
     c.res.headers.delete('Server');
@@ -171,8 +175,57 @@ export function securityHeaders(): MiddlewareHandler {
 }
 
 // ================================================================
-// 3. 请求体大小限制
+// 3. 请求体大小限制（Content-Length 快速拒绝 + chunked 流式计数）
 // ================================================================
+
+/** 请求体实际字节数超限：由计数流在消费时抛出，经 onError 映射为 413 */
+export class PayloadTooLargeError extends Error {
+  constructor(maxBytes: number) {
+    super(`请求体过大，最大允许 ${(maxBytes / 1024 / 1024).toFixed(1)}MB`);
+    this.name = 'PayloadTooLargeError';
+  }
+}
+
+/**
+ * 将请求体包装为带字节计数的流：累计超过 maxBytes 即取消上游并报错。
+ * 用于 chunked 传输（无 Content-Length）场景，防止只看头部被绕过。
+ */
+function wrapBodyWithLimit(raw: Request, maxBytes: number): Request {
+  const source = raw.body;
+  if (!source) return raw;
+
+  const limited = new ReadableStream<Uint8Array>({
+    start(controller) {
+      const reader = source.getReader();
+      void (async () => {
+        let received = 0;
+        try {
+          for (; ;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            received += value.byteLength;
+            if (received > maxBytes) {
+              await reader.cancel().catch(() => { });
+              controller.error(new PayloadTooLargeError(maxBytes));
+              return;
+            }
+            controller.enqueue(value);
+          }
+          controller.close();
+        } catch (err) {
+          controller.error(err);
+        }
+      })();
+    },
+  });
+
+  return new Request(raw.url, {
+    method: raw.method,
+    headers: raw.headers,
+    body: limited,
+    duplex: 'half',
+  } as RequestInit);
+}
 
 export function bodySizeLimit(maxBytes: number = 1024 * 1024): MiddlewareHandler {
   return async (c, next) => {
@@ -187,6 +240,13 @@ export function bodySizeLimit(maxBytes: number = 1024 * 1024): MiddlewareHandler
       };
       c.status(413);
       return c.json(resp);
+    }
+    // chunked 无 Content-Length：包装请求体为计数流，超限在消费时中断（P2 补齐）
+    if (c.req.raw.body) {
+      Object.defineProperty(c.req, 'raw', {
+        value: wrapBodyWithLimit(c.req.raw, maxBytes),
+        configurable: true,
+      });
     }
     await next();
   };

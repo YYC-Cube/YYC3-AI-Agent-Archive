@@ -22,6 +22,7 @@ COPY packages/conductor/package.json packages/conductor/
 COPY packages/agent-runtime/package.json packages/agent-runtime/
 COPY packages/orchestrator/package.json packages/orchestrator/
 COPY packages/observability/package.json packages/observability/
+COPY packages/store/package.json packages/store/
 
 RUN pnpm install --frozen-lockfile --prod=false
 
@@ -127,6 +128,7 @@ COPY --from=builder /app/packages/yyc3-i18n/node_modules ./packages/yyc3-i18n/no
 COPY --from=builder /app/packages/agent-runtime/node_modules ./packages/agent-runtime/node_modules
 COPY --from=builder /app/packages/orchestrator/node_modules ./packages/orchestrator/node_modules
 COPY --from=builder /app/packages/observability/node_modules ./packages/observability/node_modules
+COPY --from=builder /app/packages/store/node_modules ./packages/store/node_modules
 COPY --from=builder /app/packages/yyc3-i18n/dist ./packages/yyc3-i18n/dist
 COPY --from=builder /app/packages/yyc3-i18n/package.json ./packages/yyc3-i18n/
 COPY --from=builder /app/packages/agent-runtime/dist ./packages/agent-runtime/dist
@@ -135,6 +137,8 @@ COPY --from=builder /app/packages/orchestrator/dist ./packages/orchestrator/dist
 COPY --from=builder /app/packages/orchestrator/package.json ./packages/orchestrator/
 COPY --from=builder /app/packages/observability/dist ./packages/observability/dist
 COPY --from=builder /app/packages/observability/package.json ./packages/observability/
+COPY --from=builder /app/packages/store/dist ./packages/store/dist
+COPY --from=builder /app/packages/store/package.json ./packages/store/
 
 RUN addgroup -g 1001 -S yyc3 && adduser -u 1001 -S yyc3 -G yyc3
 USER yyc3

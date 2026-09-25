@@ -45,6 +45,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.18.0
         version: 1.19.17(hono@4.13.5)
+      '@yyc3/store':
+        specifier: workspace:*
+        version: link:../store
       eventemitter3:
         specifier: ^5.0.0
         version: 5.0.4
@@ -309,6 +312,34 @@ importers:
       typescript-eslint:
         specifier: ^8.58.0
         version: 8.67.0(eslint@10.9.1)(typescript@5.9.3)
+      vitest:
+        specifier: ^4.1.11
+        version: 4.1.11(@types/node@26.4.1)(@vitest/coverage-v8@4.1.11)(vite@8.2.1(@types/node@26.4.1)(esbuild@0.28.2)(yaml@2.9.0))
+
+  packages/store:
+    dependencies:
+      ioredis:
+        specifier: ^5.4.1
+        version: 5.11.1
+    devDependencies:
+      '@types/node':
+        specifier: ^26.4.0
+        version: 26.4.1
+      '@vitest/coverage-v8':
+        specifier: ^4.1.11
+        version: 4.1.11(vitest@4.1.11)
+      globals:
+        specifier: ^17.4.0
+        version: 17.11.0
+      tsup:
+        specifier: 8.4.0
+        version: 8.4.0(@swc/core@1.16.1)(postcss@8.5.28)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
+      typescript-eslint:
+        specifier: ^8.68.0
+        version: 8.69.0(eslint@10.9.1)(typescript@5.9.3)
       vitest:
         specifier: ^4.1.11
         version: 4.1.11(@types/node@26.4.1)(@vitest/coverage-v8@4.1.11)(vite@8.2.1(@types/node@26.4.1)(esbuild@0.28.2)(yaml@2.9.0))
@@ -4878,8 +4909,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 26.4.1
 
-  '@ioredis/commands@1.10.0':
-    optional: true
+  '@ioredis/commands@1.10.0': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -6083,8 +6113,7 @@ snapshots:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
 
-  cluster-key-slot@1.1.1:
-    optional: true
+  cluster-key-slot@1.1.1: {}
 
   co@4.6.0: {}
 
@@ -6290,8 +6319,7 @@ snapshots:
 
   delayed-stream@1.0.0: {}
 
-  denque@2.1.0:
-    optional: true
+  denque@2.1.0: {}
 
   detect-indent@6.1.0: {}
 
@@ -6749,7 +6777,6 @@ snapshots:
       standard-as-callback: 2.1.0
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   is-arrayish@0.2.1: {}
 
@@ -7657,13 +7684,11 @@ snapshots:
       indent-string: 4.0.0
       strip-indent: 3.0.0
 
-  redis-errors@1.2.0:
-    optional: true
+  redis-errors@1.2.0: {}
 
   redis-parser@3.0.0:
     dependencies:
       redis-errors: 1.2.0
-    optional: true
 
   require-directory@2.1.1: {}
 
@@ -7815,8 +7840,7 @@ snapshots:
 
   stackback@0.0.2: {}
 
-  standard-as-callback@2.1.0:
-    optional: true
+  standard-as-callback@2.1.0: {}
 
   standard-version@9.5.0:
     dependencies:

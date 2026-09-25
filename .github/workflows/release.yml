@@ -146,6 +146,8 @@ jobs:
           TAG: ${{ steps.images.outputs.tag }}
         run: |
           set -e
+          # agent-runtime /api 已 fail-closed 认证（P2 同构收敛）：冒烟统一注入 key
+          export YYC3_API_KEYS="ci-smoke-key"
           # 用刚构建的本地镜像起服务（覆盖 compose 默认 build 行为）
           docker compose up -d --no-build
           docker compose ps
@@ -181,12 +183,15 @@ jobs:
           assert "mcp health" '"ok":true' "$M"
           A=$(curl -fsS http://127.0.0.1:3032/health)
           assert "agent health" '"ok":true' "$A"
-          P=$(curl -fsS http://127.0.0.1:3032/api/v1/profiles)
+          # agent /api 需认证（无凭据应被拒：401/403/503 皆证明 fail-closed 生效）
+          AN=$(curl -fsS -o /dev/null -w '%{http_code}' http://127.0.0.1:3032/api/v1/profiles || true)
+          if [ "$AN" = "200" ]; then echo "❌ agent /api 未要求认证"; exit 1; else echo "✅ agent /api fail-closed（无凭据 $AN）"; fi
+          P=$(curl -fsS -H "X-API-Key: ci-smoke-key" http://127.0.0.1:3032/api/v1/profiles)
           assert "agent AI Family 档案" '"ok":true' "$P"
-          C=$(curl -fsS -X POST http://127.0.0.1:3032/api/v1/agents -H 'Content-Type: application/json' -d '{"profileName":"QianHang"}')
+          C=$(curl -fsS -X POST -H "X-API-Key: ci-smoke-key" http://127.0.0.1:3032/api/v1/agents -H 'Content-Type: application/json' -d '{"profileName":"QianHang"}')
           assert "agent 创建实例" '"ok":true' "$C"
 
-          echo "🎉 冒烟测试 8/8 全部通过"
+          echo "🎉 冒烟测试 9/9 全部通过"
 
       - name: Push images to GHCR
         run: |
