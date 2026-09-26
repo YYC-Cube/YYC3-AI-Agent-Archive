@@ -37,12 +37,10 @@ const DANGEROUS_PATTERNS: Record<SandboxRuntime, RegExp[]> = {
     /['"]__imp['"]?\s*\+/,
   ],
   node: [
-    /require\s*\(\s*['"]child_process['"]\s*\)/,
-    /require\s*\(\s*['"]fs['"]\s*\)/,
-    /require\s*\(\s*['"]net['"]\s*\)/,
-    /require\s*\(\s*['"]http['"]\s*\)/,
-    /require\s*\(\s*['"]https['"]\s*\)/,
-    /require\s*\(\s*['"]dgram['"]\s*\)/,
+    // 危险模块说明符：require() 与 ESM 静态导入两种形态统一拦截。
+    // 模块名兼容 node: 协议前缀（如 require('node:child_process')，Node 12.20+）
+    // 与子路径说明符（如 fs/promises）—— 此前裸模块名黑名单可被这两种写法完全绕过。
+    /(?:require\s*\(\s*|\bimport\s+[\w$*\s{},]*?\bfrom\s+|\bimport\s*)['"](?:node:)?(?:child_process|fs\/promises|fs|net|http|https|dgram)['"]/,
     /process\.(exit|kill|abort)\s*\(/,
     /eval\s*\(/,
     /Function\s*\(/,

@@ -134,6 +134,31 @@ describe('反规避内容策略（evasion patterns）', () => {
     expect(r.safe).toBe(false);
   });
 
+  it('Node: node: 协议前缀 require 被拦截（scheme 绕过回归）', () => {
+    expect(sanitizer.validate("require('node:fs')", 'node').safe).toBe(false);
+    expect(sanitizer.validate('require("node:child_process")', 'node').safe).toBe(false);
+    expect(sanitizer.validate("require('node:net')", 'node').safe).toBe(false);
+    expect(sanitizer.validate("require('node:http')", 'node').safe).toBe(false);
+    expect(sanitizer.validate("require('node:https')", 'node').safe).toBe(false);
+    expect(sanitizer.validate("require('node:dgram')", 'node').safe).toBe(false);
+  });
+
+  it('Node: fs/promises 子路径说明符被拦截', () => {
+    expect(sanitizer.validate("require('fs/promises')", 'node').safe).toBe(false);
+    expect(sanitizer.validate("require('node:fs/promises')", 'node').safe).toBe(false);
+  });
+
+  it('Node: ESM 静态导入危险模块被拦截', () => {
+    expect(sanitizer.validate("import { readFile } from 'node:fs';", 'node').safe).toBe(false);
+    expect(sanitizer.validate('import fs from "fs";', 'node').safe).toBe(false);
+    expect(sanitizer.validate("import { spawn } from 'node:child_process';", 'node').safe).toBe(false);
+    expect(sanitizer.validate("import 'node:fs';", 'node').safe).toBe(false);
+  });
+
+  it('Node: 动态 import() 加载 node:fs 被拦截', () => {
+    expect(sanitizer.validate("import('node:fs').then(m => m.readFile)", 'node').safe).toBe(false);
+  });
+
   it('Shell: base64 解码后管道给 sh 被拦截', () => {
     const r = sanitizer.validate('echo ZWxv | base64 -d | sh', 'shell');
     expect(r.safe).toBe(false);
@@ -142,6 +167,10 @@ describe('反规避内容策略（evasion patterns）', () => {
   it('正常代码不受新增模式误伤', () => {
     expect(sanitizer.validate('const x = "import subprocess as nothing"; console.log(x);', 'node').safe).toBe(true);
     expect(sanitizer.validate('print("base64 is a word, not a pipe")', 'python').safe).toBe(true);
+    // 非黑名单模块（含 node: 前缀）保持放行
+    expect(sanitizer.validate("const z = require('node:zlib'); console.log(typeof z);", 'node').safe).toBe(true);
+    // 叙述性文本中含 import ... from 不构成模块导入
+    expect(sanitizer.validate("const note = 'please import helpers from the shared registry';", 'node').safe).toBe(true);
   });
 });
 
