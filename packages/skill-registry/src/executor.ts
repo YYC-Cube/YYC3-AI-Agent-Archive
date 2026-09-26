@@ -387,14 +387,17 @@ export class SkillExecutor {
       let truncated = false;
 
       const append = (current: string, chunk: Buffer): string => {
-        if (current.length >= MAX_OUTPUT_BYTES) {
+        // P1 字节化：用 Buffer.byteLength 而非 string.length，
+        // 避免 UTF-8 多字节字符（如中文 3B）导致实际输出超 MAX_OUTPUT_BYTES。
+        if (Buffer.byteLength(current) >= MAX_OUTPUT_BYTES) {
           truncated = true;
           return current;
         }
         const next = current + chunk.toString();
-        if (next.length > MAX_OUTPUT_BYTES) {
+        if (Buffer.byteLength(next) > MAX_OUTPUT_BYTES) {
           truncated = true;
-          return next.slice(0, MAX_OUTPUT_BYTES);
+          // Buffer.slice 按字节截断且自动对齐 UTF-8 字符边界，不会产生乱码
+          return Buffer.from(next, 'utf-8').slice(0, MAX_OUTPUT_BYTES).toString('utf-8');
         }
         return next;
       };

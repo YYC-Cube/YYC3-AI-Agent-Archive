@@ -218,6 +218,11 @@ export function trustedProxyHopsFromEnv(raw: string | undefined): number {
 
 // ----------------------------------------------------------------
 // 内存 Token Bucket 限流（独立服务单机部署足够；分布式需求走 gateway 侧 Redis）
+//
+// 实现要点（P1 整改）：
+// - 真 Token Bucket 语义：按经过时间连续补充令牌（refillTokens = elapsed/window * max），
+//   而非固定窗口重置——避免窗口边界突发（window-edge burst）。
+// - TTL 清理：setInterval 定期删除超过 2×windowMs 未访问的桶，防止 Map 无限增长导致内存泄漏。
 // ----------------------------------------------------------------
 
 interface Bucket {
@@ -235,6 +240,17 @@ export function mcpRateLimiter(options: MemoryRateLimitOptions): MiddlewareHandl
   const { windowMs, maxRequests, trustedProxyHops = 0 } = options;
   const buckets = new Map<string, Bucket>();
 
+  // TTL 清理：定期淘汰过期桶（> 2×windowMs 未访问），防止内存泄漏
+  const cleanupInterval = setInterval(() => {
+    const now = Date.now();
+    for (const [key, bucket] of buckets) {
+      if (now - bucket.lastRefill > windowMs * 2) {
+        buckets.delete(key);
+      }
+    }
+  }, windowMs * 5);
+  cleanupInterval.unref?.();
+
   return async (c, next) => {
     const key = resolveClientIp(
       {
@@ -246,11 +262,12 @@ export function mcpRateLimiter(options: MemoryRateLimitOptions): MiddlewareHandl
 
     const now = Date.now();
     const bucket = buckets.get(key) ?? { tokens: maxRequests, lastRefill: now };
+
+    // 真 Token Bucket：按经过时间连续补充令牌
     const elapsed = now - bucket.lastRefill;
-    if (elapsed >= windowMs) {
-      bucket.tokens = maxRequests;
-      bucket.lastRefill = now;
-    }
+    const refillTokens = (elapsed / windowMs) * maxRequests;
+    bucket.tokens = Math.min(maxRequests, bucket.tokens + refillTokens);
+    bucket.lastRefill = now;
     bucket.tokens -= 1;
     buckets.set(key, bucket);
 

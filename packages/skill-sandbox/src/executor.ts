@@ -49,19 +49,22 @@ export class Executor {
         let killed = false;
 
         const onData = (chunk: Buffer, stream: 'stdout' | 'stderr') => {
+          // P1 字节化：用 Buffer.byteLength 而非 string.length，
+          // 避免 UTF-8 多字节字符导致实际输出超 maxOutput。
           const text = chunk.toString('utf-8');
           if (stream === 'stdout') {
-            if (stdout.length < maxOutput) {
+            if (Buffer.byteLength(stdout) < maxOutput) {
               stdout += text;
-              if (stdout.length > maxOutput) {
-                stdout = stdout.slice(0, maxOutput);
+              if (Buffer.byteLength(stdout) > maxOutput) {
+                // Buffer.slice 按字节截断且自动对齐 UTF-8 字符边界
+                stdout = Buffer.from(stdout, 'utf-8').slice(0, maxOutput).toString('utf-8');
               }
             }
           } else {
-            if (stderr.length < maxOutput) {
+            if (Buffer.byteLength(stderr) < maxOutput) {
               stderr += text;
-              if (stderr.length > maxOutput) {
-                stderr = stderr.slice(0, maxOutput);
+              if (Buffer.byteLength(stderr) > maxOutput) {
+                stderr = Buffer.from(stderr, 'utf-8').slice(0, maxOutput).toString('utf-8');
               }
             }
           }

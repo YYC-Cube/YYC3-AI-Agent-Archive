@@ -37,8 +37,54 @@ const app = createAgentServerApp(runtime, {
   trustedProxyHops: trustedProxyHopsFromEnv(process.env.YYC3_TRUSTED_PROXY_HOPS),
 });
 
-serve({ fetch: app.fetch, port, hostname });
+const server = serve({ fetch: app.fetch, port, hostname });
 console.warn(`[AgentRuntime] 启动于 http://${hostname}:${port}（/api 需 API Key 认证）`);
 
-process.on('SIGTERM', () => process.exit(0));
-process.on('SIGINT', () => process.exit(0));
+/**
+ * 优雅停机（P1）：
+ * 1. 停止接受新连接（server.close）
+ * 2. 等待在途写入落盘（runtime.flushPending）
+ * 3. 关闭持久化层（store.close — FileStore 强制 flush + 解锁）
+ * 4. 退出进程
+ * 任一步骤超时（10s）兜底退出，避免容器化 SIGTERM 被 systemd/k8s 强杀。
+ */
+const GRACEFUL_TIMEOUT_MS = 10_000;
+
+async function gracefulShutdown(signal: string): Promise<void> {
+  console.warn(`[AgentRuntime] 收到 ${signal}，开始优雅停机...`);
+  const deadline = setTimeout(() => {
+    console.warn('[AgentRuntime] 优雅停机超时，强制退出');
+    process.exit(1);
+  }, GRACEFUL_TIMEOUT_MS);
+  deadline.unref?.();
+
+  try {
+    await new Promise<void>((resolve) => server.close(() => resolve()));
+    console.warn('[AgentRuntime] HTTP 服务已停止');
+  } catch {
+    // server 可能未完全初始化，忽略
+  }
+
+  try {
+    await runtime.flushPending();
+    console.warn('[AgentRuntime] 在途写入已落盘');
+  } catch (err) {
+    console.warn('[AgentRuntime] flushPending 失败:', err instanceof Error ? err.message : err);
+  }
+
+  if (store) {
+    try {
+      await store.close();
+      console.warn('[AgentRuntime] Store 已关闭');
+    } catch (err) {
+      console.warn('[AgentRuntime] store.close 失败:', err instanceof Error ? err.message : err);
+    }
+  }
+
+  clearTimeout(deadline);
+  console.warn('[AgentRuntime] 优雅停机完成');
+  process.exit(0);
+}
+
+process.on('SIGTERM', () => void gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => void gracefulShutdown('SIGINT'));
