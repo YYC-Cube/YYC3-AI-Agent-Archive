@@ -4,6 +4,12 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [Unreleased]
 
+### TS 工程约定统一：tests 纳入 tsconfig 修复 IDE node 模块报错（2026-09-26 续会话）
+
+- **问题**：mcp-runtime/agent-runtime/store/skill-gateway 四包 `tsconfig.json` 将 `tests` 排除且设 `rootDir: ./src`，测试文件不属于任何 TS 工程 → IDE 推断工程（pnpm 严格布局下无 `@types/node`）报"找不到名称 node:fs/child_process/os/path"
+- **修复**：对齐 skill-registry/skill-sandbox 既有范式——四包 `tsconfig.json` include 收入 `tests/**/*.ts` 并移除 `rootDir`（下沉至 `tsconfig.build.json`）；mcp-runtime `tsconfig.build.json` 重写为约定形态（composite:false + noEmit + rootDir + 仅 src）
+- **验证**：tests 首次纳入类型检查门禁即全过（4 包 typecheck 零错误浮出）；全仓 typecheck 16/16、受影响包测试 199/199 全绿
+
 ### CI coverage 门禁修复：mcp-runtime 分支覆盖率提升 + cowagent-bridge 默认值 bug（2026-09-26 续会话）
 
 - **CI coverage job 失败修复**：mcp-runtime 分支覆盖率 74.62% < 75% 阈值 → 补充 `tests/coverage-gap.test.ts`（8 用例）覆盖缺口——resolveClientIp 的 chain[0] 兜底与 x-real-ip 分支、限流器 TTL 清理回调（fake timers 驱动过期桶删除/活跃桶保留双分支）、CowAgent 真实子进程 stdout/stderr data 回调与 close code=0/≠0、runtime enableCowAgent 初始化与调用路由、getTool 命中/未命中、server-app args 非 object 容错与 Error 透传。分支覆盖率 **74.62% → 90.44%**（语句 95.89%/函数 90%/行 96.44%）

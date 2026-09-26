@@ -16,7 +16,6 @@
     "emitDeclarationOnly": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "types": [
       "node"
     ],
@@ -27,12 +26,12 @@
     }
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "tests"
+    "dist"
   ],
   "references": [
     {
