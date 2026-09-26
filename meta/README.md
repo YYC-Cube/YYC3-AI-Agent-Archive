@@ -1,5 +1,17 @@
 # Meta
 
+> ⚠️ **Vendored 上游副本声明（2026-09-26）**
+> 本目录是 [whatwg/meta](https://github.com/whatwg/meta) 仓库的模板参考副本，
+> **内容（贡献指南/维护者/团队/标签/CC0 LICENSE）均属 WHATWG 上游，与 YYC³ 项目无关**，
+> 不可作为本项目的贡献或治理依据。本项目实际入口：
+> [CONTRIBUTING.md](../CONTRIBUTING.md) · [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) ·
+> [SECURITY.md](../SECURITY.md) · [docs/developers/](../docs/developers/)。
+> 本目录保留仅作流程参考，计划后续移入 `_external/`。
+
+---
+
+以下为上游原文：
+
 Welcome to `whatwg/meta`, a repository for discussing:
 
 * The WHATWG community

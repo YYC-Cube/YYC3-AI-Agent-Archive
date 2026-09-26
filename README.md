@@ -440,11 +440,13 @@ pnpm i18n:sync         # 3. 同步到各包
 ### 关键文档索引
 
 - [📐 架构总览](ARCHITECT.md) — 项目资产清单与整合状态
+- [👨‍💻 **开发者五件套**](docs/developers/) — [API](docs/developers/API.md) · [架构](docs/developers/ARCHITECTURE.md) · [贡献](docs/developers/CONTRIBUTING.md) · [部署](docs/developers/DEPLOYMENT.md) · [测试](docs/developers/TESTING.md)
 - [🏛️ 架构分析报告](docs/YYC3-ARCHITECTURE-ANALYSIS-REPORT.md) — 深度架构评审
 - [🔐 闭环计划](docs/YYC3-CLOSURE-PLAN.md) — 项目闭环路线图
 - [🌍 外部集成分析](docs/YYC3-EXTERNAL-INTEGRATION-ANALYSIS.md) — 外部依赖评估
 - [📖 i18n 规划](docs/YYC3-I18N-PLAN.md) — 国际化路线图
 - [🏭 生产实施计划](docs/YYC3-PRODUCTION-IMPLEMENTATION-PLAN.md) — 生产环境部署方案
+- [📊 质量审核报告（2026-09-26）](docs/0379-yyc3-archive-claude-20260926/00-项目现状审核报告.md) — 四检门禁实测 + 12 包评分矩阵
 
 ---
 
@@ -539,6 +541,9 @@ docker-compose up -d
 
 我们欢迎所有形式的贡献！请先阅读以下资源：
 
+- [🤝 贡献指南](CONTRIBUTING.md) — **必读**：五检门禁 / 提交规范 / 依赖方向 / 安全红线
+- [行为准则](CODE_OF_CONDUCT.md) — 社区协作公约
+- [支持渠道](SUPPORT.md) — Issue / Discussion / 安全上报入口
 - [架构总览](ARCHITECT.md) — 了解项目全局
 - [AI Family 文档](docs/) — 熟悉文档体系
 - [标准规范](docs/YYC3-%E5%9B%A2%E9%98%9F%E9%80%9A%E7%94%A8-%E6%A0%87%E5%87%86%E8%A7%84%E8%8C%83/) — 遵循团队开发标准
