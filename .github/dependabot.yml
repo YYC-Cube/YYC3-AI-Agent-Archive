@@ -12,6 +12,13 @@ updates:
       interval: weekly
       day: monday
     open-pull-requests-limit: 5
+    # 跨大版本一律手动评估（TS7/vitest5 等行为变更大，见审核报告 §22 合并计划）
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      # tsup 8.5.x 存在 .cts 类型生成 bug（egoist/tsup#1375），
+      # 全仓 pnpm.overrides 钉 8.4.0 —— 禁止 dependabot 触碰
+      - dependency-name: "tsup"
     groups:
       typescript-tooling:
         patterns:
@@ -25,23 +32,38 @@ updates:
           - "vitest"
           - "@vitest/*"
 
-  # 各 workspace 包
+  # 各 workspace 包（同样忽略 major 与 tsup）
   - package-ecosystem: npm
     directory: /packages/skill-registry
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tsup"
   - package-ecosystem: npm
     directory: /packages/mcp-runtime
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tsup"
   - package-ecosystem: npm
     directory: /packages/yyc3-cli
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: npm
     directory: /packages/yyc3-i18n
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tsup"
 
   # GitHub Actions 版本
   - package-ecosystem: github-actions
