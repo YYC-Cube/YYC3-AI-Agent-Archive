@@ -25,7 +25,7 @@
     "@yyc3/skill-registry": "workspace:*",
     "@hono/node-server": "^1.18.0",
     "eventemitter3": "^5.0.0",
-    "hono": "^4.11.0"
+    "hono": "^4.13.8"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",

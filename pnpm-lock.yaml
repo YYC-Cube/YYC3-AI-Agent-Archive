@@ -44,7 +44,7 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^1.18.0
-        version: 1.19.17(hono@4.13.5)
+        version: 1.19.17(hono@4.13.8)
       '@yyc3/store':
         specifier: workspace:*
         version: link:../store
@@ -52,8 +52,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.4
       hono:
-        specifier: ^4.11.0
-        version: 4.13.5
+        specifier: ^4.13.8
+        version: 4.13.8
     devDependencies:
       '@types/node':
         specifier: ^26.4.0
@@ -106,7 +106,7 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^1.18.0
-        version: 1.19.17(hono@4.13.5)
+        version: 1.19.17(hono@4.13.8)
       '@yyc3/skill-registry':
         specifier: workspace:*
         version: link:../skill-registry
@@ -114,8 +114,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.4
       hono:
-        specifier: ^4.11.0
-        version: 4.13.5
+        specifier: ^4.13.8
+        version: 4.13.8
     devDependencies:
       '@types/node':
         specifier: ^26.4.0
@@ -235,15 +235,15 @@ importers:
         specifier: workspace:*
         version: link:../skill-registry
       hono:
-        specifier: ^4.11.0
-        version: 4.13.5
+        specifier: ^4.13.8
+        version: 4.13.8
       zod:
         specifier: ^4.5.4
         version: 4.5.4
     optionalDependencies:
       '@hono/node-server':
         specifier: ^1.18.0
-        version: 1.19.17(hono@4.13.5)
+        version: 1.19.17(hono@4.13.8)
       ioredis:
         specifier: ^5.4.1
         version: 5.11.1
@@ -2858,8 +2858,8 @@ packages:
     resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
     engines: {node: '>= 0.4'}
 
-  hono@4.13.5:
-    resolution: {integrity: sha512-O6+/eCYRkzzzy0rPWwKLiGBR1nFuUPZynnwjxN1MBA62NNqbT0wQEzQyK2gSO5yDIDB336sXQleAhOHrzlYyKw==}
+  hono@4.13.8:
+    resolution: {integrity: sha512-/Gng7NfoykZl2pjukW5Z6+8Yxm3BPRf86GTbQnt0SbySkvax4fyL4H3HhY1cCpBGmiW9XDRFzRV+CXK2W8QudQ==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@2.8.9:
@@ -4771,9 +4771,9 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@hono/node-server@1.19.17(hono@4.13.5)':
+  '@hono/node-server@1.19.17(hono@4.13.8)':
     dependencies:
-      hono: 4.13.5
+      hono: 4.13.8
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -6712,7 +6712,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.13.5: {}
+  hono@4.13.8: {}
 
   hosted-git-info@2.8.9: {}
 
