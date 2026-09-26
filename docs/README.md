@@ -123,6 +123,16 @@ audience: all
 | **技能评分报告** | 831 技能五维质量评分（`yyc3 skills score` 生成，doctor 门禁基线源） | [链接](./skill-score/score-report.md) |
 | **评分基线（v2.5.0）** | 版本固化基线 `baseline-v2.5.0.json` — doctor score 门禁「不回退」参照 | [链接](./skill-score/baseline-v2.5.0.json) |
 
+### 开发者文档五件套（2026-09-26 新增）
+
+| 文档 | 说明 | 链接 |
+| ---- | ---- | ---- |
+| **贡献指南** | 环境要求/Monorepo 结构/开发工作流/代码规范/安全红线/PR 流程 | [链接](./developers/CONTRIBUTING.md) |
+| **架构文档** | 分层架构/核心包职责/依赖方向/关键技术模式/服务端口/持久化 | [链接](./developers/ARCHITECTURE.md) |
+| **API 文档** | 认证方式/通用约定/Skill Gateway/MCP Runtime/Agent Runtime/错误码/环境变量 | [链接](./developers/API.md) |
+| **测试文档** | 测试框架/矩阵/i18n 双跑/编写规范/安全测试/CI 门禁/doctor 六检 | [链接](./developers/TESTING.md) |
+| **部署文档** | Docker Compose/原生 Node/K8s/健康检查/监控日志/备份恢复/升级流程 | [链接](./developers/DEPLOYMENT.md) |
+
 ### 会话工作目录（AI 协同开发存档）
 
 | 目录 | 说明 |
@@ -200,6 +210,13 @@ docs/
 │
 ├── runbooks/                               ← 应急运维手册
 │   └── 上游断供演习-Runbook.md              ← GitHub/npm/Pages 断供应急（v2.4.0）
+│
+├── developers/                             ← 开发者文档五件套（2026-09-26）
+│   ├── CONTRIBUTING.md                     ← 贡献指南
+│   ├── ARCHITECTURE.md                     ← 架构文档
+│   ├── API.md                              ← API 文档
+│   ├── TESTING.md                          ← 测试文档
+│   └── DEPLOYMENT.md                       ← 部署文档
 │
 ├── skill-score/                            ← 技能评分资产
 │   ├── score-report.md / .json             ← 五维评分报告（yyc3 skills score）
