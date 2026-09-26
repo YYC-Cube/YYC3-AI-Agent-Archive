@@ -24,7 +24,7 @@
   "dependencies": {
     "@yyc3/mcp-runtime": "workspace:*",
     "@yyc3/skill-registry": "workspace:*",
-    "hono": "^4.11.0",
+    "hono": "^4.13.8",
     "zod": "^4.5.4"
   },
   "optionalDependencies": {
