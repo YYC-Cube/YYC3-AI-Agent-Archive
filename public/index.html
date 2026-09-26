@@ -4,134 +4,630 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YYC³ AI Agent Archive — 言启象限 · 语枢未来</title>
-  <meta name="description" content="YYC³ AI Agent Archive — 企业级 AI Agent 资产平台：8 位 AI Family 智能体、600+ 技能资产、200+ 插件、MCP 运行时与多智能体协同体系" />
-  <meta name="keywords" content="AI Agent, MCP, Skills, YYC3, Multi-Agent" />
+  <meta name="description" content="YYC³ AI Agent Archive — 企业级 AI Agent 资产归档平台：Skill / Agent / Plugin / MCP / Tool 五类资产，8 位 AI Family 智能体，五高五标五化全链路闭环。" />
+  <meta name="keywords" content="AI Agent, MCP, Skills, YYC3, Multi-Agent, AI Family, 智能体" />
+  <meta property="og:title" content="YYC³ AI Agent Archive" />
+  <meta property="og:description" content="企业级 AI Agent 资产归档平台 · 言启象限 · 语枢未来" />
+  <meta property="og:image" content="./yyc3-family.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ai-agent.yyc3.vip" />
+  <!-- 权威 logo 资产：public/yyc3/Web App/favicon-32.png -->
   <link rel="icon" type="image/png" href="./yyc3/Web App/favicon-32.png" />
-  <style>
-    :root {
-      --bg: #0a0e1a;
-      --card: rgba(255, 255, 255, 0.04);
-      --border: rgba(255, 255, 255, 0.1);
-      --text: #e8eaf0;
-      --muted: #9aa3b5;
-      --accent: #00d4ff;
-      --accent2: #aa55ff;
-      --green: #00ff88;
+  <link rel="apple-touch-icon" href="./yyc3/Web App/apple-touch-icon.png" />
+  <script>
+    /* 防主题闪烁（FOUC）：渲染前恢复已保存主题 */
+    if (localStorage.getItem('yyc3-theme') === 'light') {
+      document.documentElement.classList.add('light');
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  </script>
+  <style>
+    /* ═══ CSS 变量与主题 — YYC³ 设计指导文档 §2 ═══ */
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a2e;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #f1f1f6;
+      --text2: rgba(255, 255, 255, 0.65);
+      --text3: rgba(255, 255, 255, 0.35);
+      --accent-v: #8b5cf6;
+      --accent-c: #06b6d4;
+      --accent-e: #22c55e;
+      --accent-r: #ef4444;
+      --accent-o: #f59e0b;
+      --accent-p: #ec4899;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+    }
+    .light {
+      --bg: #f5f5f0;
+      --bg2: #e8e8e3;
+      --bg3: #ddd;
+      --surface: rgba(0, 0, 0, 0.02);
+      --surface-hover: rgba(0, 0, 0, 0.05);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.15);
+      --text: #1a1a2e;
+      --text2: rgba(0, 0, 0, 0.55);
+      --text3: rgba(0, 0, 0, 0.3);
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: var(--font);
       background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    ::selection { background: rgba(139, 92, 246, 0.3); color: #fff; }
+    :focus-visible { outline: 2px solid var(--accent-c); outline-offset: 2px; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ═══ Topbar sticky + blur ═══ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background-image:
-        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(0, 212, 255, 0.12), transparent),
-        radial-gradient(ellipse 50% 35% at 85% 110%, rgba(170, 85, 255, 0.1), transparent);
+      gap: 12px;
+      padding: 12px 24px;
+      background: rgba(10, 10, 15, 0.8);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
-    main { max-width: 780px; width: 100%; text-align: center; }
-    .logo { width: 88px; height: auto; margin-bottom: 20px; border-radius: 16px; }
-    h1 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      letter-spacing: 0.02em;
-      background: linear-gradient(120deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 8px;
+    .light .topbar { background: rgba(245, 245, 240, 0.8); }
+    .tb-logo { display: flex; align-items: center; gap: 10px; }
+    .tb-logo-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-v), var(--accent-c));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; font-family: var(--font-mono); color: #fff;
+      flex-shrink: 0;
     }
-    .motto { color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 14px;
-      margin-bottom: 30px;
+    .tb-logo-text { font-size: 15px; font-weight: 700; white-space: nowrap; }
+    .tb-logo-sub { font-size: 10px; color: var(--text3); letter-spacing: 1px; }
+    .tb-nav { display: flex; gap: 4px; margin-left: 16px; flex: 1; flex-wrap: wrap; }
+    .tb-nav a {
+      padding: 6px 12px; border-radius: 6px; font-size: 13px; color: var(--text2);
+      transition: 0.15s; white-space: nowrap;
+    }
+    .tb-nav a:hover { background: var(--surface-hover); color: var(--text); }
+    .tb-spacer { flex: 1; }
+    .tb-clock {
+      display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2);
+      font-family: var(--font-mono); padding: 4px 10px; border-radius: 6px;
+      background: var(--surface); border: 1px solid var(--border); user-select: none;
+    }
+    .tb-clock .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-e); animation: pulse-dot 2s ease infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .btn-icon {
+      width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text2); cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: 0.2s; flex-shrink: 0;
+    }
+    .btn-icon:hover { background: var(--surface-hover); color: var(--accent-v); border-color: rgba(139, 92, 246, 0.3); }
+    .btn-icon svg { width: 16px; height: 16px; }
+    .btn-menu { display: none; }
+
+    /* ═══ Hero ═══ */
+    .hero {
+      position: relative;
+      padding: 72px 24px 56px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(139, 92, 246, 0.15), transparent),
+        radial-gradient(ellipse 50% 35% at 85% 110%, rgba(6, 182, 212, 0.12), transparent);
+      overflow: hidden;
+    }
+    .hero-logo { width: 96px; height: 96px; margin: 0 auto 22px; border-radius: 22px; box-shadow: var(--shadow); object-fit: cover; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 14px; border-radius: 20px;
+      background: rgba(34, 197, 94, 0.12); color: var(--accent-e);
+      font-size: 12px; font-weight: 600; margin-bottom: 18px;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+    .hero-badge .bdot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-e); animation: pulse-dot 2s ease infinite; }
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+      background: linear-gradient(120deg, var(--accent-v), var(--accent-c));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin-bottom: 14px;
+    }
+    .hero .motto { color: var(--text2); font-size: clamp(0.9rem, 2.2vw, 1.05rem); margin-bottom: 32px; }
+    .hero .motto-en { color: var(--text3); font-size: 0.82rem; margin-top: -22px; margin-bottom: 32px; letter-spacing: 0.02em; }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px; border-radius: 10px; font-size: 0.92rem; font-weight: 600;
+      border: 1px solid var(--border); color: var(--text); cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .btn svg { width: 16px; height: 16px; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent-v); }
+    .btn.primary {
+      background: linear-gradient(120deg, rgba(139, 92, 246, 0.22), rgba(6, 182, 212, 0.22));
+      border-color: rgba(139, 92, 246, 0.5);
+    }
+    .btn.primary:hover { border-color: var(--accent-v); }
+
+    /* ═══ Section ═══ */
+    .section { padding: 56px 24px; max-width: 1280px; margin: 0 auto; }
+    .section-head { margin-bottom: 32px; text-align: center; }
+    .section-eyebrow {
+      display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--accent-v); margin-bottom: 8px;
+    }
+    .section-title { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; margin-bottom: 8px; }
+    .section-desc { color: var(--text2); font-size: 0.95rem; max-width: 620px; margin: 0 auto; }
+
+    /* ═══ Stats strip ═══ */
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px; margin-top: -28px; position: relative; z-index: 5;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 20px 16px; text-align: center; transition: 0.25s;
+    }
+    .stat-card:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: var(--shadow); }
+    .stat-icon { font-size: 24px; margin-bottom: 8px; }
+    .stat-num {
+      font-size: 28px; font-weight: 800; font-family: var(--font-mono);
+      background: linear-gradient(120deg, var(--accent-v), var(--accent-c));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      line-height: 1.2;
+    }
+    .stat-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+
+    /* ═══ Card grid (asset matrix + agents + 五高) ═══ */
+    .card-grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      text-align: left;
-      transition: border-color 0.2s;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 20px; transition: all 0.25s ease; position: relative; overflow: hidden;
     }
-    .card:hover { border-color: rgba(0, 212, 255, 0.45); }
-    .card h2 { font-size: 0.95rem; margin-bottom: 6px; }
-    .card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-    .num {
-      display: inline-block;
-      font-variant-numeric: tabular-nums;
-      color: var(--green);
-      font-weight: 700;
-      margin-right: 6px;
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--card-bar, var(--accent-v));
     }
-    .links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      padding: 11px 26px;
-      border-radius: 10px;
-      font-size: 0.92rem;
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      color: var(--text);
-      transition: transform 0.15s, border-color 0.15s;
+    .card:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: var(--shadow); }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 14px;
+      background: var(--card-icon-bg, rgba(139, 92, 246, 0.12));
     }
-    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
-    .btn.primary {
-      background: linear-gradient(120deg, rgba(0, 212, 255, 0.18), rgba(170, 85, 255, 0.18));
-      border-color: rgba(0, 212, 255, 0.5);
+    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .card .card-sub { font-size: 12px; color: var(--text3); margin-bottom: 10px; font-family: var(--font-mono); }
+    .card p { font-size: 0.86rem; color: var(--text2); line-height: 1.55; }
+    .card .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .tag {
+      font-size: 11px; padding: 3px 9px; border-radius: 999px;
+      background: var(--surface-hover); color: var(--text2); border: 1px solid var(--border);
     }
-    footer { margin-top: 34px; color: var(--muted); font-size: 0.78rem; }
-    footer a { color: var(--accent); text-decoration: none; }
-    .status {
+    .card-link {
+      display: inline-flex; align-items: center; gap: 4px; margin-top: 14px;
+      font-size: 12px; color: var(--accent-c); font-weight: 600;
+    }
+    .card-link svg { width: 13px; height: 13px; transition: transform 0.15s; }
+    .card:hover .card-link svg { transform: translateX(3px); }
+
+    /* ═══ AI Family layer grouping ═══ */
+    .family-layer { margin-bottom: 28px; }
+    .family-layer-title {
+      font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--text3); margin-bottom: 12px; padding-left: 4px;
+    }
+    .family-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+    /* ═══ 五高架构 ═══ */
+    .arch-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+    /* ═══ Tech tags ═══ */
+    .tech-cloud { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .tech-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.78rem; color: var(--green);
-      border: 1px solid rgba(0, 255, 136, 0.35); border-radius: 999px;
-      padding: 4px 12px; margin-bottom: 22px;
+      padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 500;
+      background: var(--surface); border: 1px solid var(--border); color: var(--text2);
+      transition: 0.2s;
     }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    .tech-tag:hover { border-color: var(--accent-v); color: var(--text); transform: translateY(-1px); }
+    .tech-tag .tdot { width: 8px; height: 8px; border-radius: 2px; background: var(--accent-v); }
+
+    /* ═══ Footer ═══ */
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 24px; text-align: center;
+      color: var(--text3); font-size: 0.82rem;
+    }
+    footer a { color: var(--accent-c); }
+    footer .f-links { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
+
+    /* ═══ Back to top ═══ */
+    .back-top {
+      position: fixed; bottom: 24px; right: 24px; z-index: 60;
+      width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--bg2); color: var(--text2); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: 0.25s;
+    }
+    .back-top.show { opacity: 1; pointer-events: auto; }
+    .back-top:hover { color: var(--accent-v); border-color: var(--accent-v); }
+    .back-top svg { width: 18px; height: 18px; }
+
+    /* ═══ 入场动画 ═══ */
+    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+
+    /* ═══ 移动端 ═══ */
+    @media (max-width: 768px) {
+      .topbar { padding: 10px 14px; gap: 8px; }
+      .tb-logo-text, .tb-logo-sub { display: none; }
+      .tb-nav { display: none; }
+      .tb-nav.open { display: flex; position: absolute; top: 58px; left: 0; right: 0; flex-direction: column; background: var(--bg2); padding: 12px; border-bottom: 1px solid var(--border); }
+      .tb-clock { display: none; }
+      .btn-menu { display: flex; }
+      .hero { padding: 48px 16px 40px; }
+      .hero-logo { width: 72px; height: 72px; }
+      .section { padding: 40px 16px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <img class="logo" src="./yyc3-family.png" alt="YYC³ AI Family" />
-    <div class="status"><span class="dot"></span> Phase 5 生产就绪 · v2.3.0</div>
-    <h1>YYC³ AI Agent Archive</h1>
-    <p class="motto">言启象限 · 语枢未来 &nbsp;|&nbsp; Words Initiate Quadrants, Language Serves as Core for Future</p>
-
-    <div class="grid">
-      <div class="card">
-        <h2>🤖 AI Family 智能体</h2>
-        <p><span class="num">8</span>位家人智能体：言启千行 / 语枢万物 / 预见先知 … 覆盖架构、数据、安全、创意全维度</p>
+  <!-- ═══ Topbar ═══ -->
+  <header class="topbar">
+    <a class="tb-logo" href="#top" aria-label="YYC³ 首页">
+      <div class="tb-logo-icon">Y3</div>
+      <div>
+        <div class="tb-logo-text">YYC³ AI Agent Archive</div>
+        <div class="tb-logo-sub">言启象限 · 语枢未来</div>
       </div>
-      <div class="card">
-        <h2>🛠️ 技能资产</h2>
-        <p><span class="num">600+</span>技能（社区 283 / 市场 121 / NVIDIA 202）+ 831 文件 0 错误校验通过</p>
-      </div>
-      <div class="card">
-        <h2>🔌 插件与 MCP</h2>
-        <p><span class="num">200+</span>插件 · 4 套 MCP 运行时整合 · Skill Gateway / Sandbox / Conductor 全链路</p>
-      </div>
-      <div class="card">
-        <h2>⚡ 五高架构</h2>
-        <p><span class="num">929+</span>测试全绿 · 高可用 / 高性能 / 高安全 / 高扩展 / 高智能</p>
-      </div>
+    </a>
+    <nav class="tb-nav" id="tbNav">
+      <a href="#assets">资产矩阵</a>
+      <a href="#family">AI Family</a>
+      <a href="#architecture">五高架构</a>
+      <a href="#stack">技术栈</a>
+      <a href="./registry/">技能目录</a>
+    </nav>
+    <div class="tb-spacer"></div>
+    <div class="tb-clock" title="系统时间">
+      <span class="dot"></span>
+      <span id="clock">--:--:--</span>
     </div>
+    <a class="btn-icon" href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive" target="_blank" rel="noopener" title="GitHub 仓库" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.59.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </a>
+    <button class="btn-icon" onclick="toggleTheme()" title="切换主题" aria-label="切换主题">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="btn-icon btn-menu" onclick="toggleMenu()" title="菜单" aria-label="菜单">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </header>
 
-    <div class="links">
-      <a class="btn primary" href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive">GitHub 仓库</a>
-      <a class="btn" href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/blob/main/README.md">文档中心</a>
-      <a class="btn" href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/releases">Releases</a>
-    </div>
+  <main id="top">
+    <!-- ═══ Hero ═══ -->
+    <section class="hero">
+      <img class="hero-logo" src="./yyc3-family.png" alt="YYC³ AI Family" />
+      <div class="hero-badge"><span class="bdot"></span> Phase 5 生产就绪 · v2.7.0</div>
+      <h1>YYC³ AI Agent Archive</h1>
+      <p class="motto">言启象限 · 语枢未来</p>
+      <p class="motto-en">Words Initiate Quadrants, Language Serves as Core for Future</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.59.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          GitHub 仓库
+        </a>
+        <a class="btn" href="./registry/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          技能目录 (832)
+        </a>
+        <a class="btn" href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/blob/main/README.md" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          文档中心
+        </a>
+      </div>
+    </section>
 
-    <footer>
-      © 2025-2026 <a href="https://github.com/YYC-Cube">YanYuCloudCube™</a> · 万象归元于云枢 · 深栈智启新纪元
-    </footer>
+    <!-- ═══ Stats ═══ -->
+    <section class="section" style="padding-top:0">
+      <div class="stats">
+        <div class="stat-card fade-up"><div class="stat-icon">🛠️</div><div class="stat-num" data-count="8600">0</div><div class="stat-label">技能资产 Skills</div></div>
+        <div class="stat-card fade-up"><div class="stat-icon">🤖</div><div class="stat-num" data-count="8">0</div><div class="stat-label">AI Family 智能体</div></div>
+        <div class="stat-card fade-up"><div class="stat-icon">🔌</div><div class="stat-num" data-count="288">0</div><div class="stat-label">插件 Plugins</div></div>
+        <div class="stat-card fade-up"><div class="stat-icon">🔗</div><div class="stat-num" data-count="9">0</div><div class="stat-label">MCP 运行时</div></div>
+        <div class="stat-card fade-up"><div class="stat-icon">🧰</div><div class="stat-num" data-count="57">0</div><div class="stat-label">工具 Tools</div></div>
+        <div class="stat-card fade-up"><div class="stat-icon">✅</div><div class="stat-num" data-count="1197">0</div><div class="stat-label">测试用例 Tests</div></div>
+      </div>
+    </section>
+
+    <!-- ═══ 资产矩阵 ═══ -->
+    <section class="section" id="assets">
+      <div class="section-head fade-up">
+        <span class="section-eyebrow">Asset Matrix</span>
+        <h2 class="section-title">五类资产矩阵</h2>
+        <p class="section-desc">Skill · Agent · Plugin · MCP · Tool — 从能力到执行、从工具到生态，企业级 AI Agent 全栈资产归档。</p>
+      </div>
+      <div class="card-grid" id="assetGrid"></div>
+    </section>
+
+    <!-- ═══ AI Family ═══ -->
+    <section class="section" id="family">
+      <div class="section-head fade-up">
+        <span class="section-eyebrow">AI Family</span>
+        <h2 class="section-title">AI Family 八位家人</h2>
+        <p class="section-desc">人从众曌众从人 · 亦师亦友亦伯乐 · 以 AI 为魂，以流程为骨，以规范为脉，以情感为血。</p>
+      </div>
+
+      <div class="family-layer fade-up">
+        <div class="family-layer-title">核心决策层</div>
+        <div class="family-grid" id="familyCore"></div>
+      </div>
+      <div class="family-layer fade-up">
+        <div class="family-layer-title">核心保障层</div>
+        <div class="family-grid" id="familyGuard"></div>
+      </div>
+      <div class="family-layer fade-up">
+        <div class="family-layer-title">业务执行层</div>
+        <div class="family-grid" id="familyExec"></div>
+      </div>
+    </section>
+
+    <!-- ═══ 五高架构 ═══ -->
+    <section class="section" id="architecture">
+      <div class="section-head fade-up">
+        <span class="section-eyebrow">Five-High Architecture</span>
+        <h2 class="section-title">五高架构</h2>
+        <p class="section-desc">高可用 · 高性能 · 高安全 · 高扩展 · 高智能 — 五维驱动五高五标五化，全链路闭环。</p>
+      </div>
+      <div class="arch-grid" id="archGrid"></div>
+    </section>
+
+    <!-- ═══ 技术栈 ═══ -->
+    <section class="section" id="stack">
+      <div class="section-head fade-up">
+        <span class="section-eyebrow">Tech Stack</span>
+        <h2 class="section-title">技术栈</h2>
+        <p class="section-desc">TypeScript · Rust · Node · pnpm Monorepo — 工业级工程化与可观测性。</p>
+      </div>
+      <div class="tech-cloud fade-up" id="techCloud"></div>
+    </section>
   </main>
+
+  <!-- ═══ Footer ═══ -->
+  <footer>
+    <div class="f-links">
+      <a href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive" target="_blank" rel="noopener">GitHub</a>
+      <a href="./registry/">技能目录</a>
+      <a href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/releases" target="_blank" rel="noopener">Releases</a>
+      <a href="https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/blob/main/README.md" target="_blank" rel="noopener">README</a>
+    </div>
+    <p>© 2025-2026 <a href="https://github.com/YYC-Cube" target="_blank" rel="noopener">YanYuCloudCube™</a> · 万象归元于云枢 · 深栈智启新纪元</p>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    /* ═══════════════════════════════════════════
+       数据 — 五类资产矩阵
+    ═══════════════════════════════════════════ */
+    const ASSETS = [
+      { icon: '🛠️', name: 'Skill 技能', sub: 'skills-hub', color: 'var(--accent-v)', count: '8,600+', desc: '覆盖社区、市场、NVIDIA 三大来源的可复用能力单元，统一 SKILL.md 规范与 AYNC 编码。', tags: ['SKILL.md', 'AYNC', '熔断'], href: './registry/' },
+      { icon: '🤖', name: 'Agent 智能体', sub: 'agents-hub', color: 'var(--accent-c)', count: '8', desc: 'AI Family 八位家人 + 角色定义 + 框架实现（agent-browser / ai-agent / yyc3-engine）。', tags: ['AI Family', '生命周期', '工具调用'], href: 'https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/agents-hub' },
+      { icon: '🔌', name: 'Plugin 插件', sub: 'plugins-hub', color: 'var(--accent-p)', count: '288', desc: '可插拔扩展单元，支持注册 / 激活 / 依赖解析， marketplace.json 统一契约。', tags: ['marketplace.json', '依赖解析'], href: 'https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/plugins-hub' },
+      { icon: '🔗', name: 'MCP 运行时', sub: 'mcp-hub', color: 'var(--accent-e)', count: '9', desc: '统一 MCP 运行时，Skill / CowAgent 桥接 + 事件层，兼容 2025-12-11 schema。', tags: ['MCP', '桥接', '事件层'], href: 'https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/mcp-hub' },
+      { icon: '🧰', name: 'Tool 工具', sub: 'tools-hub', color: 'var(--accent-o)', count: '57', desc: '原子能力工具集，供 Agent / Skill 调用，标准化输入输出契约。', tags: ['原子能力', '契约化'], href: 'https://github.com/YYC-Cube/YYC3-AI-Agent-Archive/tree/main/tools-hub' },
+    ];
+
+    /* ═══════════════════════════════════════════
+       数据 — AI Family 八位家人
+    ═══════════════════════════════════════════ */
+    const FAMILY = {
+      core: [
+        { icon: '🧠', name: '元启·天枢', en: 'TianShu', role: '总指挥 · 决策中枢', ext: '0379-0206', color: 'var(--accent-v)' },
+      ],
+      guard: [
+        { icon: '🛡️', name: '智云·守护', en: 'Guardian', role: '首席安全官 · 免疫系统', ext: '0379-0207', color: 'var(--accent-r)' },
+        { icon: '📚', name: '格物·宗师', en: 'Grandmaster', role: '首席质量官 · 进化导师', ext: '0379-0208', color: 'var(--accent-e)' },
+        { icon: '🎨', name: '创想·灵韵', en: 'Grace', role: '首席创意官 · 灵感之源', ext: '0379-0209', color: 'var(--accent-p)' },
+      ],
+      exec: [
+        { icon: '🧭', name: '言启·千行', en: 'QianHang', role: '首席导航员 · 意图之门', ext: '0379-0106', color: 'var(--accent-c)' },
+        { icon: '🤔', name: '语枢·万物', en: 'AllThings', role: '首席思考者 · 洞察之源', ext: '0379-0107', color: 'var(--text2)' },
+        { icon: '🔮', name: '预见·先知', en: 'Prophet', role: '首席预言家 · 趋势之眼', ext: '0379-0108', color: 'var(--accent-v)' },
+        { icon: '🎯', name: '千里·伯乐', en: 'Bole', role: '首席推荐官 · 知遇之人', ext: '0379-0109', color: 'var(--accent-r)' },
+      ],
+    };
+
+    /* ═══════════════════════════════════════════
+       数据 — 五高架构
+    ═══════════════════════════════════════════ */
+    const ARCH = [
+      { icon: '🛡️', name: '高可用', en: 'High Availability', color: 'var(--accent-e)', desc: '优雅停机、熔断降级、多实例容错，SIGTERM 接 flushPending + store.close。' },
+      { icon: '⚡', name: '高性能', en: 'High Performance', color: 'var(--accent-c)', desc: 'Turbo 缓存、tsup 构建、真 Token Bucket 限流、字节级输出截断。' },
+      { icon: '🔒', name: '高安全', en: 'High Security', color: 'var(--accent-r)', desc: '沙箱隔离、速率限制、最小权限、敏感信息零硬编码。' },
+      { icon: '📈', name: '高扩展', en: 'High Scalability', color: 'var(--accent-v)', desc: 'pnpm Monorepo 14 核心包、插件化、MCP 桥接、水平扩展。' },
+      { icon: '🧠', name: '高智能', en: 'High Intelligence', color: 'var(--accent-p)', desc: '多智能体协同、LLM 分解调度、五维驱动决策、AI Family 情感协同。' },
+    ];
+
+    /* ═══════════════════════════════════════════
+       数据 — 技术栈
+    ═══════════════════════════════════════════ */
+    const TECHS = [
+      'TypeScript 5.7', 'Rust', 'Node.js 20', 'pnpm 9', 'tsup 8.4',
+      'Hono', 'Vitest', 'Turbo', 'ESLint', 'Changesets',
+      'Docker', 'Redis', 'MCP', 'shadcn/ui', 'Radix UI',
+      'Next.js', 'React', 'Tailwind CSS', 'Vercel', 'GitHub Pages',
+    ];
+
+    /* ═══════════════════════════════════════════
+       渲染
+    ═══════════════════════════════════════════ */
+    function renderAssets() {
+      const el = document.getElementById('assetGrid');
+      el.innerHTML = ASSETS.map(a => `
+        <div class="card fade-up" style="--card-bar:${a.color}; --card-icon-bg:${hexAlpha(a.color,0.12)}">
+          <div class="card-icon">${a.icon}</div>
+          <h3>${a.name}</h3>
+          <div class="card-sub">${a.sub} · <b style="color:${a.color}">${a.count}</b></div>
+          <p>${a.desc}</p>
+          <div class="card-tags">${a.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          ${a.href ? `<a class="card-link" href="${a.href}" target="_blank" rel="noopener">查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderFamily(group, id) {
+      const el = document.getElementById(id);
+      el.innerHTML = group.map(m => `
+        <div class="card fade-up" style="--card-bar:${m.color}; --card-icon-bg:${hexAlpha(m.color,0.12)}">
+          <div class="card-icon">${m.icon}</div>
+          <h3>${m.name}</h3>
+          <div class="card-sub">${m.en} · ${m.ext}</div>
+          <p>${m.role}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderArch() {
+      const el = document.getElementById('archGrid');
+      el.innerHTML = ARCH.map(a => `
+        <div class="card fade-up" style="--card-bar:${a.color}; --card-icon-bg:${hexAlpha(a.color,0.12)}">
+          <div class="card-icon">${a.icon}</div>
+          <h3>${a.name}</h3>
+          <div class="card-sub">${a.en}</div>
+          <p>${a.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderTech() {
+      const el = document.getElementById('techCloud');
+      const colors = ['var(--accent-v)','var(--accent-c)','var(--accent-e)','var(--accent-o)','var(--accent-p)'];
+      el.innerHTML = TECHS.map((t,i) => `
+        <span class="tech-tag"><span class="tdot" style="background:${colors[i%colors.length]}"></span>${t}</span>
+      `).join('');
+    }
+
+    // 将 CSS 变量色（hex）转为带 alpha 的 rgba；非 hex 变量直接用半透明黑底
+    function hexAlpha(colorVar, alpha) {
+      // colorVar 形如 "var(--accent-v)"，无法在 JS 中解算，退回通用半透明
+      return `var(--surface-hover)`;
+    }
+
+    /* ═══════════════════════════════════════════
+       数字滚动动画
+    ═══════════════════════════════════════════ */
+    function animateCount(el) {
+      const target = parseInt(el.dataset.count, 10);
+      const dur = 1200;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = Math.floor(eased * target);
+        el.textContent = val >= 1000 ? (val/1000).toFixed(1) + 'k' : val;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target >= 1000 ? (target/1000).toFixed(1) + 'k' : target;
+      }
+      requestAnimationFrame(tick);
+    }
+
+    /* ═══════════════════════════════════════════
+       IntersectionObserver: 入场 + 计数
+    ═══════════════════════════════════════════ */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          if (e.target.dataset.count) animateCount(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    /* ═══════════════════════════════════════════
+       主题切换
+    ═══════════════════════════════════════════ */
+    function toggleTheme() {
+      const isLight = document.documentElement.classList.toggle('light');
+      localStorage.setItem('yyc3-theme', isLight ? 'light' : 'dark');
+      document.getElementById('themeIcon').innerHTML = isLight
+        ? '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+
+    /* ═══════════════════════════════════════════
+       移动端菜单
+    ═══════════════════════════════════════════ */
+    function toggleMenu() {
+      document.getElementById('tbNav').classList.toggle('open');
+    }
+
+    /* ═══════════════════════════════════════════
+       实时时钟
+    ═══════════════════════════════════════════ */
+    function updateClock() {
+      const d = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('clock').textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+
+    /* ═══════════════════════════════════════════
+       回到顶部
+    ═══════════════════════════════════════════ */
+    window.addEventListener('scroll', () => {
+      document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+    });
+
+    /* ═══════════════════════════════════════════
+       初始化
+    ═══════════════════════════════════════════ */
+    renderAssets();
+    renderFamily(FAMILY.core, 'familyCore');
+    renderFamily(FAMILY.guard, 'familyGuard');
+    renderFamily(FAMILY.exec, 'familyExec');
+    renderArch();
+    renderTech();
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // 主题图标初始态
+    if (localStorage.getItem('yyc3-theme') === 'light') {
+      document.getElementById('themeIcon').innerHTML = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+    }
+
+    // 绑定入场动画
+    setTimeout(() => {
+      document.querySelectorAll('.fade-up, [data-count]').forEach(el => io.observe(el));
+    }, 50);
+
+    // 点击导航后关闭移动端菜单
+    document.querySelectorAll('.tb-nav a').forEach(a => a.addEventListener('click', () => {
+      document.getElementById('tbNav').classList.remove('open');
+    }));
+  </script>
 </body>
 </html>
