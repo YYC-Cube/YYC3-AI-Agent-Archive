@@ -22,7 +22,6 @@
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "dependencies": {
-    "@yyc3/skill-registry": "workspace:*",
     "eventemitter3": "^5.0.0"
   },
   "devDependencies": {

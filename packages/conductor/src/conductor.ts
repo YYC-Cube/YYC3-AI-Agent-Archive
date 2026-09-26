@@ -188,9 +188,15 @@ export class Conductor extends EventEmitter<ConductorEvents> {
       return task.executor(ctx);
     }
 
-    // skillId 执行：直接返回 params（由外部注入 executor）
-    // 实际执行由调用方通过 task.executor 实现
-    return task.params ?? {};
+    // skillId 执行尚未接通：原型边界上显式失败，而非静默假执行。
+    // 修复记录：此前对仅有 skillId 的任务直接返回 params ?? {}，
+    // 与 PipelineBuilder.validate「必须有 executor 或 skillId」的承诺矛盾
+    // （validate 放行 → 执行假成功）。后续接入 SkillExecutor 后移除此限制。
+    throw new Error(
+      `Task '${task.id}': skillId execution is not implemented yet ` +
+        `(prototype boundary; skillId '${String(task.skillId)}' reserved). ` +
+        `Provide an executor for now.`
+    );
   }
 
   /** 带超时的执行 */

@@ -13,9 +13,10 @@
 `Conductor` 按层并发执行（批次内 `Promise.all`），支持 `AbortController` 取消、
 任务级超时与指数退避重试。
 
-> 🔴 **原型状态如实说明**：`skillId` 执行分支尚未接通（校验允许、执行返回
-> `params` 占位）；与 orchestrator 职责重叠，依赖方向偏离文档约定的整合方案
-> 讨论中。生产链路请勿使用。
+> 🔴 **原型状态如实说明**：`skillId` 执行分支尚未接通——校验允许、但执行时
+> **显式失败**（not implemented），不再假执行；混合定义时 `executor` 优先。
+> 与 orchestrator 职责重叠，依赖方向偏离文档约定的整合方案讨论中。
+> 生产链路请勿使用 `skillId` 任务（请提供 `executor`）。
 
 ## 使用
 

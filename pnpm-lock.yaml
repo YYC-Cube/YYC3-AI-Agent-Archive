@@ -69,9 +69,6 @@ importers:
 
   packages/conductor:
     dependencies:
-      '@yyc3/skill-registry':
-        specifier: workspace:*
-        version: link:../skill-registry
       eventemitter3:
         specifier: ^5.0.0
         version: 5.0.4

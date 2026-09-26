@@ -234,6 +234,60 @@ describe('Conductor', () => {
     expect(result.tasks[1].status).toBe('completed');
     expect(result.tasks[1].output).toBe('still runs');
   });
+
+  // 对抗基线：skillId-only 任务必须显式失败，不得假执行（回归 2026-09-26 修复）
+  // 此前 runTask 对 skillId-only 任务直接返回 params ?? {}，validate 放行后静默假成功
+  it('skillId-only 任务显式失败（not implemented，不返回 params 假成功）', async () => {
+    const conductor = new Conductor();
+    const result = await conductor.execute({
+      id: 'skill-stub',
+      name: 'Skill Stub',
+      tasks: [{ id: 's1', skillId: 'demo-skill', params: { keep: 'raw' } }],
+    });
+
+    expect(result.status).toBe('failed');
+    expect(result.tasks[0].status).toBe('failed');
+    expect(result.tasks[0].error).toContain('not implemented');
+    expect(result.tasks[0].error).toContain('demo-skill');
+    expect(result.tasks[0].output).toBeUndefined();
+  });
+
+  it('executor 优先于 skillId（混合定义正常走 executor）', async () => {
+    const conductor = new Conductor();
+    const result = await conductor.execute({
+      id: 'executor-priority',
+      name: 'Executor Priority',
+      tasks: [{ id: 'm1', skillId: 'demo-skill', executor: async () => 'from-executor' }],
+    });
+
+    expect(result.status).toBe('completed');
+    expect(result.tasks[0].status).toBe('completed');
+    expect(result.tasks[0].output).toBe('from-executor');
+  });
+
+  it('skillId-only 失败会按 onFailure: stop 阻断下游依赖任务', async () => {
+    const conductor = new Conductor();
+    let downstreamRan = false;
+    const result = await conductor.execute({
+      id: 'skill-stub-blocks',
+      name: 'Skill Stub Blocks',
+      tasks: [
+        { id: 's1', skillId: 'demo-skill' },
+        {
+          id: 'downstream',
+          dependsOn: [{ taskId: 's1', type: 'required' }],
+          executor: async () => {
+            downstreamRan = true;
+            return 'should not run';
+          },
+        },
+      ],
+    });
+
+    expect(result.status).toBe('failed');
+    expect(result.tasks.find(t => t.id === 'downstream')).toBeUndefined();
+    expect(downstreamRan).toBe(false);
+  });
 });
 
 function sleep(ms: number): Promise<void> {
