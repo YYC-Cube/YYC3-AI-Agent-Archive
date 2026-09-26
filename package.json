@@ -44,8 +44,8 @@
     "@changesets/cli": "^3.0.1",
     "@eslint/js": "^9.18.0",
     "@swc/core": "^1.0.0",
-    "eslint": "^10.9.1",
-    "prettier": "^3.3.0",
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.8",
     "tsup": "8.4.0",
     "turbo": "^2.10.12",
     "typescript": "5.9.3"
