@@ -277,20 +277,20 @@ yyc3-cli（独立，纯 JS）   @yyc3/i18n-core（独立）
 | Tracing（分布式链路） | 🔴 | 无 exporter、`Math.random()` 造 ID、父 span 缺失即断链 |
 | i18n 国际化 | ✅ | 中/英/unset 三环境 631 用例全绿；S1 修复 Node locale 漂移；v3.0 注册深合并 + `i18n.ready` 就绪承诺（P1-4/P1-5 闭环） |
 | CLI 资产命令与质量门禁 | ✅ | validate/dedup/score/registry/graph/example 六检 |
-| CLI `deploy` / `init` 脚手架 | 🔴 / 🟡 | deploy 为 setTimeout 模拟；init 模板引用未声明的 express |
+| CLI `deploy` / `init` 脚手架 | 🔴 / ✅ | deploy 为 setTimeout 模拟；init 模板 express 依赖声明 P2 已补（`config --set` 死分支与 0 字节 i18n.js 同批修复） |
 | 供应链安全（Actions pin SHA / dependency-review / gitleaks） | ✅ | security.yml + release 三镜像冒烟 |
 
 ### 能力级状态明细（含已知缺口）
 
-| #   | 能力　　　　　　　　　　　　　 | 状态 | 缺口 / 跟踪项　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　|
-| -----| --------------------------------| :----:| ------------------------------------------------------------------------------------------|
-| 1   | ~~Gateway 限流客户端 IP 解析~~ | ✅　　| S1 已修：`trustedProxyHops` 受信跳数 + `resolveClientIp` 倒数取值，伪造 XFF 不影响限流键 |
-| 2   | ~~Gateway 入参校验~~　　　　　 | ✅　　| S1 已修：Zod schema 统一校验，非法 JSON/null body 返回 400，timeout 下界钳制　　　　　　 |
-| 3   | OpenAPI 文档　　　　　　　　　 | 🟡　　| 认证描述与实现相反、缺 registry 端点与 401/429/413（S1）　　　　　　　　　　　　　　　　 |
-| 4   | 加载期 validator 接线　　　　　| 🟡　　| loader 注册未强制走 validateUnifiedSkill（S1）　　　　　　　　　　　　　　　　　　　　　 |
-| 5   | 运行时持久化　　　　　　　　　 | 🔴　 | 会话/插件/指标/日志全为内存 Map，重启即失（S2 引入 Store 抽象）　　　　　　　　　　　　　|
-| 6   | mcp-hub/{client,server} 双轨包 | ✅　　| 已裁决（2026-09-26 方案 B）：server/gateway/client 归档 `_archive/mcp-hub-dual-track-code/`；mcp-hub 仅保留资产（claude-prompts 镜像 + 运维配置/指南） |
-| 7   | 版本纪律　　　　　　　　　　　 | 🟡　　| HEAD 已含 v2.7.0 提交但 package.json/CHANGELOG/tag 未收口（S1）　　　　　　　　　　　　　|
+| #   | 能力　　　　　　　　　　　　　 | 状态 | 缺口 / 跟踪项　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |
+| -----| --------------------------------| :----:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | ~~Gateway 限流客户端 IP 解析~~ | ✅　　| S1 已修：`trustedProxyHops` 受信跳数 + `resolveClientIp` 倒数取值，伪造 XFF 不影响限流键　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　|
+| 2   | ~~Gateway 入参校验~~　　　　　 | ✅　　| S1 已修：Zod schema 统一校验，非法 JSON/null body 返回 400，timeout 下界钳制　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　|
+| 3   | ~~OpenAPI 文档~~　　　　　　　 | ✅　　| S1 已修（P1-3/第十七章）：openapi.yaml 1.0.0→1.2.0 与实现对齐——补 `securitySchemes.apiKey`、401/403/429/413 响应与错误码枚举、registry 三端点文档化　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |
+| 4   | ~~加载期 validator 接线~~　　　| ✅　　| S1 已修（P1-3）：`SkillLoader.load()` 默认走 `validateUnifiedSkill`（与 doctor 单一事实源），非法资产拒绝注册进隔离区并发 `skill:quarantined`；P2 补 reload sync 语义（磁盘为唯一事实源）　　　　　　　　　　　　 |
+| 5   | 运行时持久化　　　　　　　　　 | 🟡　　 | P2 已落地 `@yyc3/store`（Memory/File 原子写/Redis 三适配器）；**agent 会话与插件注册表已接写穿 + restore（`AGENT_STORE_FILE` 重启可恢复）**；指标/日志仍内存态（maxEntries/maxSeries 已封顶，聚合后端属后续演进） |
+| 6   | mcp-hub/{client,server} 双轨包 | ✅　　| 已裁决（2026-09-26 方案 B）：server/gateway/client 归档 `_archive/mcp-hub-dual-track-code/`；mcp-hub 仅保留资产（claude-prompts 镜像 + 运维配置/指南）　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　|
+| 7   | ~~版本纪律~~　　　　　　　　　 | ✅　　| S1 已修（P1-7/第十九章）：v2.7.0 收口（package.json/CHANGELOG/tag 三对齐）；release.yml publish/docker 双 job 增加 tag=version 断言 fail-closed　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |
 
 > 📎 逐项代码证据（文件:行号）、量化评分（75.6/C+）与整改路线见
 > [《项目现状审核报告》（2026-09-25）](docs/YYC3-AI-Agent-Archive-trae-20260925/00-项目现状审核报告.md)。
@@ -450,22 +450,22 @@ pnpm i18n:sync         # 3. 同步到各包
 
 ## 🔬 技术栈全景
 
-| 领域 | 技术 | 用途 |
-| ------ | ------ | ------ |
-| **核心语言** | TypeScript 5.7+ | 主要开发语言 |
-| **包管理** | pnpm 9+ / Workspaces | Monorepo 管理 |
-| **构建工具** | tsup 8+ / Turbo | TypeScript 构建 + 任务编排 |
-| **类型校验** | Zod 4.x | 运行时类型安全（Gateway HTTP 边界 + registry） |
-| **命令行** | Commander 11+ / Chalk / Figlet | CLI 交互 |
-| **测试** | Vitest 4 + Jest（CLI） | 1197 测试用例（中/英 locale 双跑） |
-| **E2E** | Playwright | 端到端测试 |
-| **运行时** | Python 3.10+ | 技能脚本 |
-| **系统编程** | Rust 1.80+ / Cargo | 浏览器代理 |
-| **后端** | Go 1.22+ | 工具集 |
-| **代码质量** | ESLint 9+ / Prettier | 代码规范 |
-| **容器化** | Docker / docker-compose | 多服务容器编排 |
-| **CI/CD** | GitHub Actions | 矩阵构建 + 自动发布 |
-| **API 文档** | OpenAPI 3.1 | Skill Gateway API 规范 |
+| 领域　　　　 | 技术　　　　　　　　　　　　　 | 用途　　　　　　　　　　　　　　　　　　　　　 |
+| --------------| --------------------------------| ------------------------------------------------|
+| **核心语言** | TypeScript 5.7+　　　　　　　　| 主要开发语言　　　　　　　　　　　　　　　　　 |
+| **包管理**　 | pnpm 9+ / Workspaces　　　　　 | Monorepo 管理　　　　　　　　　　　　　　　　　|
+| **构建工具** | tsup 8+ / Turbo　　　　　　　　| TypeScript 构建 + 任务编排　　　　　　　　　　 |
+| **类型校验** | Zod 4.x　　　　　　　　　　　　| 运行时类型安全（Gateway HTTP 边界 + registry） |
+| **命令行**　 | Commander 11+ / Chalk / Figlet | CLI 交互　　　　　　　　　　　　　　　　　　　 |
+| **测试**　　 | Vitest 4 + Jest（CLI）　　　　 | 1197 测试用例（中/英 locale 双跑）　　　　　　 |
+| **E2E**　　　| Playwright　　　　　　　　　　 | 端到端测试　　　　　　　　　　　　　　　　　　 |
+| **运行时**　 | Python 3.10+　　　　　　　　　 | 技能脚本　　　　　　　　　　　　　　　　　　　 |
+| **系统编程** | Rust 1.80+ / Cargo　　　　　　 | 浏览器代理　　　　　　　　　　　　　　　　　　 |
+| **后端**　　 | Go 1.22+　　　　　　　　　　　 | 工具集　　　　　　　　　　　　　　　　　　　　 |
+| **代码质量** | ESLint 9+ / Prettier　　　　　 | 代码规范　　　　　　　　　　　　　　　　　　　 |
+| **容器化**　 | Docker / docker-compose　　　　| 多服务容器编排　　　　　　　　　　　　　　　　 |
+| **CI/CD**　　| GitHub Actions　　　　　　　　 | 矩阵构建 + 自动发布　　　　　　　　　　　　　　|
+| **API 文档** | OpenAPI 3.1　　　　　　　　　　| Skill Gateway API 规范　　　　　　　　　　　　 |
 
 ---
 
