@@ -4,6 +4,13 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [Unreleased]
 
+### P1 三项整改 + Pages 落地页重构（2026-09-26 续会话）
+
+- **P1-1 agent-runtime 优雅停机**：SIGTERM/SIGINT 由 `process.exit(0)` 改为 `server.close → runtime.flushPending() → store.close() → exit(0)`；10s 超时兜底；每步 try/catch 失败仅告警不阻断。修复"容器被强杀丢在途写入"风险
+- **P1-2 限流器真 Token Bucket + TTL（agent-runtime + mcp-runtime server-security.ts）**：固定窗口重置 → 按经过时间连续补充令牌（`refillTokens = elapsed/window * max`），消除窗口边界突发；新增 `setInterval` 定期清理 > `2×windowMs` 未访问的桶，防 Map 内存泄漏；对齐 gateway MemoryStore 既有实现
+- **P1-3 输出截断字节化（registry + sandbox executor.ts）**：`string.length`（字符数）→ `Buffer.byteLength()`（字节数）；`slice` → `Buffer.slice`（自动对齐 UTF-8 字符边界）。修复中文等多字节 UTF-8 内容致实际输出超 1MB 的内存 DoS 风险
+- **Pages 落地页重构（ai-agent.yyc3.vip）**：基于 YYC³ HTML 设计指导文档与 YYC-CUBE-HUB.html 设计系统重构 `public/index.html`——完整 CSS 变量六色体系 + 明暗主题（FOUC 安全）、权威 logo 引用（favicon/apple-touch-icon）、Hero 品牌顶图 4:1 原比例展示、Hero/Stats/资产矩阵/AI Family 8 位家人(3 层)/五高架构/技术栈/Footer 全区块、数字滚动/入场动画/主题切换/移动端响应
+
 ### P2 池二批：治理收尾（2026-09-26）
 
 - **P2 callId crypto 化（skill-registry 1.3.0 + mcp-runtime 1.5.0）**：执行/工具调用 ID 由 `Date.now()`/`Math.random` 改 `crypto.randomBytes(8)`——同毫秒并发不碰撞、非密码学随机面消除
