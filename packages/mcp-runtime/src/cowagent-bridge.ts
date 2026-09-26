@@ -210,10 +210,13 @@ export class CowAgentMCPBridge {
   private config: CowAgentBridgeConfig;
 
   constructor(config: CowAgentBridgeConfig) {
+    // 注意：默认值必须在 config 展开之后回填——runtime 等调用方常显式传
+    // `pythonPath: undefined`（透传自身可选配置），若默认值在前会被 undefined 覆盖，
+    // 导致 spawn(undefined) TypeError（coverage-gap 测试发现的真实缺陷）。
     this.config = {
-      pythonPath: 'python3',
-      timeout: 30_000,
       ...config,
+      pythonPath: config.pythonPath ?? 'python3',
+      timeout: config.timeout ?? 30_000,
     };
   }
 

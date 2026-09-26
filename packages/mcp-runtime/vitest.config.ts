@@ -1,11 +1,11 @@
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   resolve: {
     alias: {
       // 测试直接引用 skill-registry 源码，避免先构建 dist
-      '@yyc3/skill-registry': resolve(__dirname, '../skill-registry/src/index.ts'),
+      '@yyc3/skill-registry': resolve(import.meta.dirname, '../skill-registry/src/index.ts'),
     },
   },
   test: {

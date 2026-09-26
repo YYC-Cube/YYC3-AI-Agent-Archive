@@ -48,8 +48,9 @@ export function createMcpServerApp(
         413,
       );
     }
-    const message = err instanceof Error ? err.message : 'Internal Server Error';
-    return c.json({ ok: false, error: { code: 'INTERNAL_ERROR', message } }, 500);
+    // Hono onError 类型签名即为 Error（非 Error throw 不进 onError，由运行时直接 reject），
+    // 此处无需再 instanceof 兜底
+    return c.json({ ok: false, error: { code: 'INTERNAL_ERROR', message: err.message } }, 500);
   });
 
   app.use('*', mcpSecurityHeaders());

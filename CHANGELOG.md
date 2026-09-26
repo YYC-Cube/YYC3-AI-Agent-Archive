@@ -4,6 +4,13 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 
 ## [Unreleased]
 
+### CI coverage 门禁修复：mcp-runtime 分支覆盖率提升 + cowagent-bridge 默认值 bug（2026-09-26 续会话）
+
+- **CI coverage job 失败修复**：mcp-runtime 分支覆盖率 74.62% < 75% 阈值 → 补充 `tests/coverage-gap.test.ts`（8 用例）覆盖缺口——resolveClientIp 的 chain[0] 兜底与 x-real-ip 分支、限流器 TTL 清理回调（fake timers 驱动过期桶删除/活跃桶保留双分支）、CowAgent 真实子进程 stdout/stderr data 回调与 close code=0/≠0、runtime enableCowAgent 初始化与调用路由、getTool 命中/未命中、server-app args 非 object 容错与 Error 透传。分支覆盖率 **74.62% → 90.44%**（语句 95.89%/函数 90%/行 96.44%）
+- **cowagent-bridge 默认值 bug（测试发现的真实缺陷）**：构造函数 `{ pythonPath: 'python3', ...config }` 展开顺序导致 runtime 显式透传 `pythonPath: undefined` 时覆盖默认值 → `spawn(undefined)` TypeError；改为 config 展开后 `?? 'python3'` 回填
+- **server-app onError 死分支移除**：Hono 对非 Error throw 直接 reject 不进 onError（实测），`err instanceof Error ? ... : ...` 的 else 分支不可达，删除并简化为 `err.message`（onError 类型签名即为 Error）
+- **vitest.config.ts 警告消除**：`__dirname` → `import.meta.dirname`（Vite configLoader native 兼容）
+
 ### P1 三项整改 + Pages 落地页重构（2026-09-26 续会话）
 
 - **P1-1 agent-runtime 优雅停机**：SIGTERM/SIGINT 由 `process.exit(0)` 改为 `server.close → runtime.flushPending() → store.close() → exit(0)`；10s 超时兜底；每步 try/catch 失败仅告警不阻断。修复"容器被强杀丢在途写入"风险
