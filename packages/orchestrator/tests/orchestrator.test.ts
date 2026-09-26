@@ -329,4 +329,66 @@ describe('Orchestrator', () => {
     expect(decision.score).toBeGreaterThan(0);
     expect(decision.assignedAgentId).toBeTruthy();
   });
+
+  // 对抗基线：扰动必须真实生效（回归 2026-09-26 修复）
+  // 此前实现在比较器两侧减同一个 loadAdj，数学上抵消，load-balance 退化为 capability-match
+  describe('load-balance 扰动有效性', () => {
+    // 构造能力分差 < 0.2（扰动幅度上限）的智能体对：
+    // required 6 项能力，A 匹配 4/6≈0.667，B 匹配 3/6=0.5
+    const makeLbTask = (): AtomicTask => ({
+      id: 'lb-perturb',
+      description: 'perturbation test',
+      requiredCapabilities: ['a', 'b', 'c', 'd', 'e', 'f'],
+      priority: 'medium',
+      status: 'pending',
+      dependencies: [],
+      estimatedComplexity: 3,
+      createdAt: new Date().toISOString(),
+    });
+    const pairAgents = [
+      { nameEN: 'agent-a', nameCN: '甲', capabilities: ['a', 'b', 'c', 'd'] },
+      { nameEN: 'agent-b', nameCN: '乙', capabilities: ['a', 'b', 'c', 'x', 'y', 'z'] },
+    ] as unknown as AgentProfile[];
+    let lb: SmartScheduler;
+
+    beforeEach(() => {
+      lb = new SmartScheduler({ strategy: 'load-balance' });
+    });
+
+    it('扰动小于分差时高分智能体仍胜出（扰动后排序保持分数序）', () => {
+      const spy = vi.spyOn(Math, 'random').mockReturnValue(0); // 无扰动
+      try {
+        const decision = lb.schedule(makeLbTask(), pairAgents);
+        expect(decision.assignedAgentId).toBe('agent-a');
+        expect(decision.score).toBeCloseTo(4 / 6, 5);
+      } finally {
+        spy.mockRestore();
+      }
+    });
+
+    it('扰动可翻转结果：低分智能体在高分者被重扰动时胜出', () => {
+      // agent-a: 0.667 - 0.99*0.2 ≈ 0.469；agent-b: 0.5 - 0*0.2 = 0.5 → b 胜
+      const spy = vi.spyOn(Math, 'random').mockReturnValueOnce(0.99).mockReturnValueOnce(0.0);
+      try {
+        const decision = lb.schedule(makeLbTask(), pairAgents);
+        expect(decision.assignedAgentId).toBe('agent-b');
+        // 上报的 score 必须是真实能力分，而非扰动后分数
+        expect(decision.score).toBeCloseTo(0.5, 5);
+      } finally {
+        spy.mockRestore();
+      }
+    });
+
+    it('扰动方向相反时高分者保持胜出（扰动是双向的）', () => {
+      // agent-a: 0.667 - 0*0.2 = 0.667；agent-b: 0.5 - 0.99*0.2 = 0.302 → a 胜
+      const spy = vi.spyOn(Math, 'random').mockReturnValueOnce(0.0).mockReturnValueOnce(0.99);
+      try {
+        const decision = lb.schedule(makeLbTask(), pairAgents);
+        expect(decision.assignedAgentId).toBe('agent-a');
+        expect(decision.score).toBeCloseTo(4 / 6, 5);
+      } finally {
+        spy.mockRestore();
+      }
+    });
+  });
 });

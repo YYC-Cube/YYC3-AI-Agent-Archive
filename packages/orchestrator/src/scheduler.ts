@@ -97,12 +97,14 @@ export class SmartScheduler {
     agents: AgentProfile[]
   ): SchedulingDecision {
     const scores = this.scoreAgents(task, agents);
-    // 负载均衡时，增加随机因子避免所有任务分配给同一智能体
-    scores.sort((a, b) => {
-      const loadAdj = Math.random() * 0.2; // 20% 随机扰动
-      return (b.score - loadAdj) - (a.score - loadAdj);
-    });
-    const best = scores[0];
+    // 负载均衡：为每个智能体叠加一次独立的随机扰动（≤0.2）后再排序，
+    // 避免所有任务都分配给同一智能体。
+    // 修复记录：此前实现在比较器内部对两侧减去同一个 loadAdj，
+    // 数学上相互抵消（(b-l)-(a-l) === b-a），扰动完全失效，退化为 capability-match。
+    const perturbed = scores
+      .map(entry => ({ entry, adj: entry.score - Math.random() * 0.2 }))
+      .sort((a, b) => b.adj - a.adj);
+    const best = perturbed[0].entry;
     return {
       taskId: task.id,
       assignedAgentId: best.agentId,
