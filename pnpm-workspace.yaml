@@ -1,3 +1,17 @@
 packages:
   # ===== YYC3 核心包（Monorepo） =====
   - "packages/*"
+
+# 注意：pnpm 9.0.0 不读取 pnpm-workspace.yaml 的 overrides（实测无效）。
+# 核心工具链钉版实际通过 package.json 精确版本实现：
+#   - 根 devDependencies: tsup 8.4.0 / typescript 5.9.3
+#   - 各子包 devDependencies: tsup 8.4.0（精确，防 8.5.x .cts bug）
+# 以下 overrides 为意图声明，待 pnpm 升级至支持版本后生效。
+overrides:
+  esbuild: ^0.28.1
+  "vite@5": ^6.4.3
+  tsup: 8.4.0
+  typescript: 5.9.3
+  glob: ^10.5.0
+  "@types/node": 26.6.3
+  typescript-eslint: 8.70.1

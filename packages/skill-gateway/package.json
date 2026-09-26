@@ -24,7 +24,7 @@
   "dependencies": {
     "@yyc3/mcp-runtime": "workspace:*",
     "@yyc3/skill-registry": "workspace:*",
-    "hono": "^4.13.8",
+    "hono": "^4.11.0",
     "zod": "^4.5.4"
   },
   "optionalDependencies": {
@@ -32,11 +32,11 @@
     "ioredis": "^5.4.1"
   },
   "devDependencies": {
-    "@types/node": "^26.6.2",
+    "@types/node": "^26.6.3",
     "@vitest/coverage-v8": "^4.1.11",
-    "tsup": "^8.4.0",
+    "tsup": "8.4.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "^8.58.0",
+    "typescript-eslint": "^8.70.1",
     "vitest": "^4.1.11"
   }
 }
