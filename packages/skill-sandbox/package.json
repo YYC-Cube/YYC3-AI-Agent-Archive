@@ -22,7 +22,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "devDependencies": {
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.2",
     "@vitest/coverage-v8": "^4.1.11",
     "tsup": "^8.4.0",
     "typescript": "5.9.3",
