@@ -91,12 +91,10 @@
     .light .topbar { background: rgba(245, 245, 240, 0.8); }
     .tb-logo { display: flex; align-items: center; gap: 10px; }
     .tb-logo-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent-v), var(--accent-c));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; font-family: var(--font-mono); color: #fff;
-      flex-shrink: 0;
+      width: 32px; height: 32px; border-radius: 8px; overflow: hidden;
+      flex-shrink: 0; background: var(--surface); display: flex; align-items: center; justify-content: center;
     }
+    .tb-logo-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .tb-logo-text { font-size: 15px; font-weight: 700; white-space: nowrap; }
     .tb-logo-sub { font-size: 10px; color: var(--text3); letter-spacing: 1px; }
     .tb-nav { display: flex; gap: 4px; margin-left: 16px; flex: 1; flex-wrap: wrap; }
@@ -132,7 +130,12 @@
         radial-gradient(ellipse 50% 35% at 85% 110%, rgba(6, 182, 212, 0.12), transparent);
       overflow: hidden;
     }
-    .hero-logo { width: 96px; height: 96px; margin: 0 auto 22px; border-radius: 22px; box-shadow: var(--shadow); object-fit: cover; }
+    /* Hero 品牌顶图：yyc3-family.png 为 1800×450 (4:1) 横版，保持原比例不裁切 */
+    .hero-banner {
+      display: block; max-width: min(720px, 92vw); width: 100%; height: auto;
+      margin: 0 auto 26px; border-radius: 16px; box-shadow: var(--shadow);
+      object-fit: contain;
+    }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 5px 14px; border-radius: 20px;
@@ -286,7 +289,7 @@
       .tb-clock { display: none; }
       .btn-menu { display: flex; }
       .hero { padding: 48px 16px 40px; }
-      .hero-logo { width: 72px; height: 72px; }
+      .hero-banner { max-width: 100%; }
       .section { padding: 40px 16px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
@@ -296,7 +299,7 @@
   <!-- ═══ Topbar ═══ -->
   <header class="topbar">
     <a class="tb-logo" href="#top" aria-label="YYC³ 首页">
-      <div class="tb-logo-icon">Y3</div>
+      <div class="tb-logo-icon"><img src="./yyc3/Web App/apple-touch-icon.png" alt="YYC³ logo" /></div>
       <div>
         <div class="tb-logo-text">YYC³ AI Agent Archive</div>
         <div class="tb-logo-sub">言启象限 · 语枢未来</div>
@@ -328,7 +331,7 @@
   <main id="top">
     <!-- ═══ Hero ═══ -->
     <section class="hero">
-      <img class="hero-logo" src="./yyc3-family.png" alt="YYC³ AI Family" />
+      <img class="hero-banner" src="./yyc3-family.png" alt="YYC³ AI Family 品牌顶图" />
       <div class="hero-badge"><span class="bdot"></span> Phase 5 生产就绪 · v2.7.0</div>
       <h1>YYC³ AI Agent Archive</h1>
       <p class="motto">言启象限 · 语枢未来</p>
