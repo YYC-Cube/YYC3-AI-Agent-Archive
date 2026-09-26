@@ -15,6 +15,7 @@ All notable changes to YYC³ AI Agent Archive will be documented in this file.
 - **P2 CLI 杂项修复（yyc3-cli）**：端口段 3030-3039 放行（对齐团队「3030 起」规范，3000-3029/3100-3199 仍限用）；`config --set` 死分支修复（Commander 双占位符不合法 → `--set <key>=<value>` + 数字/布尔/JSON 自动转型）；删除 0 字节 `lib/i18n.js`；init 模板 package.json 补 `express` 依赖声明
 - **P2 `.env.example` 重写 v2.0.0**：删除虚构基础设施（Postgres/DB_*、API_PORT=8000、REDIS_HOST 三件套）；仅保留仓库内真实消费项（YYC3_API_KEYS/TRUSTED_PROXY_HOPS/CORS_ORIGINS、REDIS_URL、STORE_*、AGENT_STORE_FILE、OTEL_*、MCP_HOST），附消费方速查表
 - **测试超时修正（yyc3-cli）**：T14/T16 全量评分 jest timeout 90s → 190s（对齐其自身 elapsed<180s 断言——超时窄于断言导致慢速环境先被掐死）
+- **P2 mcp-hub 双轨裁决（方案 B 拆分处置）**：`server/`（@yyc3/mcp-server，与 mcp-runtime 功能双轨的死代码：无构建/无测试/不在 workspace）+ 零引用的 `gateway/`、`client/` 归档至 `_archive/mcp-hub-dual-track-code/`（附归档说明）；mcp-hub 保留资产定位——`claude-prompts/`（vendored 上游参考镜像）+ `mcp/`（运维配置 JSON）+ `mcp-servers/`（指南），新增定位声明 README；README 已知缺口表第 6 项 🟡→✅。至此 P2 池全部闭环
 
 ### S1 收尾后 P2 池首批（2026-09-26）
 

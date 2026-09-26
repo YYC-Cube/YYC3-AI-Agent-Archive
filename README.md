@@ -160,8 +160,8 @@ YYC³ AI Agent Archive
 │   ├── code-ide/                # IDE 集成
 │   └── golang-tools/            # Go 工具集
 │
-├── 🔗 **mcp-hub/**              # MCP 服务中心
-│   └── claude-prompts/          # MCP 提示词服务
+├── 🔗 **mcp-hub/**              # MCP 资产区（claude-prompts 上游镜像 + 运维配置/指南；运行时见 packages/mcp-runtime）
+│   └── claude-prompts/          # MCP 提示词服务（vendored 上游参考镜像）
 │
 ├── 🌐 **locales/**              # 国际化翻译文件
 │   ├── zh-CN.json               # 简体中文
@@ -289,7 +289,7 @@ yyc3-cli（独立，纯 JS）   @yyc3/i18n-core（独立）
 | 3   | OpenAPI 文档　　　　　　　　　 | 🟡　　| 认证描述与实现相反、缺 registry 端点与 401/429/413（S1）　　　　　　　　　　　　　　　　 |
 | 4   | 加载期 validator 接线　　　　　| 🟡　　| loader 注册未强制走 validateUnifiedSkill（S1）　　　　　　　　　　　　　　　　　　　　　 |
 | 5   | 运行时持久化　　　　　　　　　 | 🔴　 | 会话/插件/指标/日志全为内存 Map，重启即失（S2 引入 Store 抽象）　　　　　　　　　　　　　|
-| 6   | mcp-hub/{client,server} 双轨包 | 🟡　　| 未纳入 workspace/CI，依赖陈旧，与 mcp-runtime 职能重叠（S2 裁决）　　　　　　　　　　　　|
+| 6   | mcp-hub/{client,server} 双轨包 | ✅　　| 已裁决（2026-09-26 方案 B）：server/gateway/client 归档 `_archive/mcp-hub-dual-track-code/`；mcp-hub 仅保留资产（claude-prompts 镜像 + 运维配置/指南） |
 | 7   | 版本纪律　　　　　　　　　　　 | 🟡　　| HEAD 已含 v2.7.0 提交但 package.json/CHANGELOG/tag 未收口（S1）　　　　　　　　　　　　　|
 
 > 📎 逐项代码证据（文件:行号）、量化评分（75.6/C+）与整改路线见

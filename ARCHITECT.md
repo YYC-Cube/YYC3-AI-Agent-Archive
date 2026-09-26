@@ -24,7 +24,7 @@
 | packages/@yyc3/icons/ | Lucide 图标库子集 | ~1000+ icons |
 | packages/ | TypeScript 核心包（新增 6 个包） | **13** |
 | locales/ | i18n 翻译文件（zh-CN + en） | 2 files |
-| mcp-hub/claude-prompts/ | MCP 提示词服务（整合后） | 1 |
+| mcp-hub/claude-prompts/ | MCP 提示词服务（vendored 上游镜像；双轨代码已归档 _archive/mcp-hub-dual-track-code） | 1 |
 | docs/ | AI Family 完整文档体系 + 架构文档 + 会话审核存档 | 85+ |
 | system prompt | docs/ 单一权威源（agents-hub 副本已删除） | 1 |
 
