@@ -28,7 +28,7 @@
     "hono": "^4.13.9"
   },
   "devDependencies": {
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.4",
     "@vitest/coverage-v8": "^4.1.11",
     "tsup": "8.4.0",
     "typescript": "5.9.3",
