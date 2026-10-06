@@ -50,5 +50,10 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YYC-Cube/YYC3-AI-Agent-Archive.git",
+    "directory": "packages/skill-registry"
   }
 }

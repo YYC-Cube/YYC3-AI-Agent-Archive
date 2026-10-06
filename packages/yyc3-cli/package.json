@@ -1,7 +1,7 @@
 {
   "name": "yyc3-cli",
   "version": "2.0.0",
-  "description": "YYC³ 命令行界面 - 言启象限 | 语枢未来 | 万象归元于云枢 | 深栈智启新纪元",
+  "description": "[DEPRECATED 迁移至 YYC3-CLI 仓] YYC³ 命令行界面 - 言启象限 | 语枢未来 | 万象归元于云枢 | 深栈智启新纪元",
   "main": "lib/index.js",
   "bin": {
     "yyc3": "bin/yyc3-cli.js"
@@ -53,7 +53,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YYC-Cube/YYC3-CLI.git"
+    "url": "git+https://github.com/YYC-Cube/YYC3-CLI.git"
   },
   "bugs": {
     "url": "https://github.com/YYC-Cube/YYC3-CLI/issues"
@@ -73,5 +73,6 @@
     "templates/",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "private": true
 }

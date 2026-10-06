@@ -1,3 +1,5 @@
+> ⚠️ **DEPRECATED（2026-10）**：本目录为历史副本，已停止维护并将移除。正源为 [YYC-Cube/YYC3-CLI](https://github.com/YYC-Cube/YYC3-CLI)（npm 包 `yyc3-cli`）。本包已标记 `private`，不再随 monorepo 发布。
+
 <div align="center">
   <img src="Public/Family-001.png" alt="YYC³ Family" width="100%" style="max-width: 896px; border-radius: 12px;" />
 </div>
