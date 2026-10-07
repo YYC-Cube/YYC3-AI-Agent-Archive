@@ -426,7 +426,7 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       typescript-eslint:
-        specifier: ^8.71.0
+        specifier: ^8.70.1
         version: 8.71.0(eslint@10.11.0)(typescript@5.9.3)
       vite:
         specifier: ^8.3.2
