@@ -1,0 +1,75 @@
+{
+  "version": "2.7.0",
+  "note": "v2.7.0 固化基线 — doctor score 门禁引用此文件（避免报告更新即门禁漂移）；仅在版本发布时更新",
+  "summary": {
+    "total": 831,
+    "average": 81,
+    "byGrade": {
+      "A": 120,
+      "B": 530,
+      "C": 181,
+      "D": 0,
+      "E": 0
+    },
+    "generatedAt": "2026-10-07T00:09:09.695Z",
+    "weights": {
+      "metadata": 0.25,
+      "docs": 0.2,
+      "assets": 0.25,
+      "activity": 0.15,
+      "security": 0.15
+    }
+  },
+  "worst": [
+    {
+      "file": "skills-hub/marketplace/oiloil-ui-ux-guide/SKILL.md",
+      "score": 61,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/community/songsee/SKILL.md",
+      "score": 63,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/engineering/zoom-out/SKILL.md",
+      "score": 63,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/marketplace/anthropics-skills/template/SKILL.md",
+      "score": 63,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/community/mcporter/SKILL.md",
+      "score": 64,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/community/openai-whisper/SKILL.md",
+      "score": 64,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/community/sag/SKILL.md",
+      "score": 64,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/dev-workflow/engineering-skills/skills/productivity/grill-me/SKILL.md",
+      "score": 64,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/marketplace/anthropics-skills/skills/skill-creator/SKILL.md",
+      "score": 64,
+      "grade": "C"
+    },
+    {
+      "file": "skills-hub/community/apple-notes/SKILL.md",
+      "score": 65,
+      "grade": "C"
+    }
+  ]
+}
