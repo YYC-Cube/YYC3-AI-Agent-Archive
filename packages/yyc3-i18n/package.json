@@ -1,7 +1,7 @@
 {
   "name": "@yyc3/i18n-core",
   "version": "3.0.0",
-  "description": "🌐 YYC³ Production-Ready Internationalization (i18n) Framework - High-performance, plugin-based, zero-dependency i18n solution for TypeScript/JavaScript applications",
+  "description": "[DEPRECATED 与正源包名冲突] 🌐 YYC³ Production-Ready Internationalization (i18n) Framework - High-performance",
   "keywords": [
     "i18n",
     "internationalization",
@@ -127,5 +127,6 @@
     }
   ],
   "sideEffects": false,
-  "type": "module"
+  "type": "module",
+  "private": true
 }
