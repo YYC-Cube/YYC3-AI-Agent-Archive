@@ -39,7 +39,7 @@ importers:
         specifier: ^1.18.0
         version: 1.19.17(hono@4.13.9)
       '@yyc3/store':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../store
       eventemitter3:
         specifier: ^5.0.0
@@ -98,7 +98,7 @@ importers:
         specifier: ^1.18.0
         version: 1.19.17(hono@4.13.9)
       '@yyc3/skill-registry':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../skill-registry
       eventemitter3:
         specifier: ^5.0.0
@@ -201,7 +201,7 @@ importers:
         specifier: ^4.1.11
         version: 4.1.11(vitest@4.1.11)
       '@yyc3/store':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../store
       tsup:
         specifier: 8.4.0
@@ -219,10 +219,10 @@ importers:
   packages/skill-gateway:
     dependencies:
       '@yyc3/mcp-runtime':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../mcp-runtime
       '@yyc3/skill-registry':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../skill-registry
       hono:
         specifier: ^4.13.9
@@ -260,7 +260,7 @@ importers:
   packages/skill-registry:
     dependencies:
       '@yyc3/skill-sandbox':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../skill-sandbox
       zod:
         specifier: ^4.6.5

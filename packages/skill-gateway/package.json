@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/skill-gateway",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "YYC³ Skill Gateway API — REST 接口层，提供 Skill 注册/发现/执行的 HTTP 接口",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
@@ -11,7 +11,8 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsup",
@@ -22,8 +23,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "dependencies": {
-    "@yyc3/mcp-runtime": "workspace:*",
-    "@yyc3/skill-registry": "workspace:*",
+    "@yyc3/mcp-runtime": "workspace:^",
+    "@yyc3/skill-registry": "workspace:^",
     "hono": "^4.13.9",
     "zod": "^4.6.5"
   },

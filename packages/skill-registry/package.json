@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/skill-registry",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "YYC3 统一 Skill 注册中心 — 标准化注册、发现、调度、降级熔断；loader 默认接 validator（P1-3）",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
@@ -24,7 +24,8 @@
     "./validator": {
       "import": "./dist/validator.js",
       "types": "./dist/validator.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsup",
@@ -35,7 +36,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "dependencies": {
-    "@yyc3/skill-sandbox": "workspace:*",
+    "@yyc3/skill-sandbox": "workspace:^",
     "zod": "^4.6.5"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@yyc3/agent-runtime",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "YYC³ Agent 智能体运行时 — AI Family 生命周期管理、对话上下文、工具调用、多智能体协同",
   "author": "YanYuCloudCube Team <admin@0379.email>",
   "license": "MIT",
@@ -11,7 +11,8 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsup",
@@ -23,7 +24,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.18.0",
-    "@yyc3/store": "workspace:*",
+    "@yyc3/store": "workspace:^",
     "eventemitter3": "^5.0.0",
     "hono": "^4.13.9"
   },
