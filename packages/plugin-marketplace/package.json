@@ -27,7 +27,7 @@
     "semver": "^7.0.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "@types/semver": "^7.0.0",
     "@vitest/coverage-v8": "^4.1.11",
     "@yyc3/store": "workspace:^",
