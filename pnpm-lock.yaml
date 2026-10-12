@@ -355,8 +355,8 @@ importers:
         specifier: ^16.3.1
         version: 16.6.1
       figlet:
-        specifier: ^1.7.0
-        version: 1.11.4
+        specifier: ^1.12.0
+        version: 1.12.0
       inquirer:
         specifier: ^14.2.2
         version: 14.2.2(@types/node@26.6.4)
@@ -2792,8 +2792,8 @@ packages:
   fecha@4.2.3:
     resolution: {integrity: sha512-OP2IUU6HeYKJi3i0z4A19kHMQoLVs4Hc+DPqqxI2h/DPZHTm/vjsfC6P0b4jCMy14XizLBqvndQ+UilD7707Jw==}
 
-  figlet@1.11.4:
-    resolution: {integrity: sha512-ZU41480OncL+NVLQrT0GVnbO0COL24sLSrzksioDgunmdJNYEUxhJJZ4Y3x1csN8XXqN5OcCZTLG8lKdquNyfQ==}
+  figlet@1.12.0:
+    resolution: {integrity: sha512-Ith3WsUi0N/EqGt+0/F6XnWhT04sohhH2tT0Dq7GdUmWbMTIoCbg2Jq9qKggmTO62ST5kRCfB311EmIMbizGyA==}
     engines: {node: '>= 17.0.0'}
     hasBin: true
 
@@ -6724,7 +6724,7 @@ snapshots:
 
   fecha@4.2.3: {}
 
-  figlet@1.11.4:
+  figlet@1.12.0:
     dependencies:
       commander: 14.0.3
 
