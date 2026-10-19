@@ -29,12 +29,12 @@
   "devDependencies": {
     "@types/node": "^26.6.4",
     "@types/semver": "^7.0.0",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.12",
     "@yyc3/store": "workspace:^",
     "tsup": "8.4.0",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.71.0",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.12"
   },
   "repository": {
     "type": "git",
