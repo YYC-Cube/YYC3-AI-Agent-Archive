@@ -26,7 +26,7 @@
     "@yyc3/mcp-runtime": "workspace:^",
     "@yyc3/skill-registry": "workspace:^",
     "hono": "^4.13.9",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "optionalDependencies": {
     "@hono/node-server": "^1.18.0",
